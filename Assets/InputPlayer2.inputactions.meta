@@ -3,9 +3,12 @@ guid: 498b0431e44f9014c811b5434355ca6f
 ScriptedImporter:
   fileIDToRecycleName:
     11400000: <root>
-    11400002: DefaultControls/Fire
-    11400004: DefaultControls/Movement
-    11400006: DefaultControls/Target
+    11400008: DefaultControls/Movement_0
+    11400010: DefaultControls/Fire_0
+    11400012: DefaultControls/Target_0
+    11400014: DefaultControls/Movement_1
+    11400016: DefaultControls/Fire_1
+    11400018: DefaultControls/Target_1
   externalObjects: {}
   userData: 
   assetBundleName: 
