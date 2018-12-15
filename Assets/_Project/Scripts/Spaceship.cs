@@ -8,6 +8,8 @@ public class Spaceship : MonoBehaviour
     public float tilt;
     public int playerNumber;
 
+    public PlayerInputManager inputManager;
+
     Rigidbody rigidBody;
 
     void Start()
@@ -17,8 +19,10 @@ public class Spaceship : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("L_XAxis_" + playerNumber);
-        float moveVertical = -Input.GetAxis("L_YAxis_" + playerNumber);
+        var direction = inputManager.direction[playerNumber];
+
+        float moveHorizontal = direction.x; // Input.GetAxis("L_XAxis_" + playerNumber);
+        float moveVertical = direction.y; // Input.GetAxis("L_YAxis_" + playerNumber);
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         rigidBody.velocity = movement * speed;
