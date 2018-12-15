@@ -21,8 +21,8 @@ public class Spaceship : MonoBehaviour
     {
         var direction = inputManager.direction[playerNumber];
 
-        float moveHorizontal = direction.x; // Input.GetAxis("L_XAxis_" + playerNumber);
-        float moveVertical = direction.y; // Input.GetAxis("L_YAxis_" + playerNumber);
+        float moveHorizontal = direction.x;
+        float moveVertical = direction.y;
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         rigidBody.velocity = movement * speed;
