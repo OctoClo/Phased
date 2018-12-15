@@ -1,0 +1,3 @@
+[submodule "ThirdParty/InputSystem"]
+	path = ThirdParty/InputSystem
+	url = https://github.com/Unity-Technologies/InputSystem.git
