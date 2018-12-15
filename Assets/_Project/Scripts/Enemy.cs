@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int speed;
+    public int speed = 0;
 
     Rigidbody rigidBody;
 
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
         if (speed == 0)
         {
-            speed = Random.Range(5, 13);
+            speed = Random.Range(6, 13);
         }
     }
 
