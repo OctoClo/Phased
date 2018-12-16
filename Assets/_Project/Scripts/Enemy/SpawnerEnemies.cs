@@ -21,7 +21,7 @@ public class SpawnerEnemies : MonoBehaviour
     {
         lastSpawn += Time.deltaTime;
 
-        if (lastSpawn > spawnInterval)
+        if (lastSpawn >= spawnInterval)
         {
             GameObject spawn = Instantiate(prefabEnemy, new Vector3(Random.Range(spawnXMin, spawnXMax), spawnY, spawnZ), Quaternion.identity);
             Enemy enemy = spawn.GetComponent<Enemy>();
