@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6707436421660138712}
   m_Layer: 0
   m_Name: Spaceship1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,5 +201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 11
   tilt: 0.6
+  targetRadius: 2
   playerNumber: 1
   inputManager: {fileID: 0}
+  cursor: {fileID: 0}
+  direction: {x: 0, y: 0}
+  target: {x: 0, y: 0}
