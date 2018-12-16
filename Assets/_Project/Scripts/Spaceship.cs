@@ -7,6 +7,9 @@ public class Spaceship : MonoBehaviour
     public float speed;
     public float tilt;
 
+    // DEBUG TEST
+    public float Life = 100.0f;
+
     public float targetRadius = 2.0f;
 
     public int playerNumber;

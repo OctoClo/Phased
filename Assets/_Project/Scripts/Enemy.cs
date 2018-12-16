@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int speed = 0;
-
     Rigidbody rigidBody;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
-        if (speed == 0)
-        {
-            speed = Random.Range(6, 13);
-        }
     }
 
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(0, 0, -1);
-        rigidBody.velocity = movement * speed;
+        rigidBody.velocity = movement * ( WorldConstants.WorldScrollSpeed * WorldConstants.WorldScrollSpeed * WorldConstants.ObstacleSpeedMultiplier);
+    }
+
+    void OnTriggerEnter( Collider other )
+    {
+        if ( other.CompareTag( "Player" ) )
+        {
+            var spaceshipInstance = other.GetComponent<Spaceship>();
+
+            // Remove life
+            spaceshipInstance.Life -= WorldConstants.ObstacleCollisionDamage;
+        }
     }
 }

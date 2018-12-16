@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlaneTextureScrolling : MonoBehaviour
-{ // Scroll main texture based on time
-
-    public float ScrollSpeed = 0.5f;
-
+{
     private Renderer renderer;
 
     void Start()
@@ -16,7 +13,7 @@ public class PlaneTextureScrolling : MonoBehaviour
 
     void Update()
     {
-        float offset = Time.time * ScrollSpeed;
+        float offset = Time.time * WorldConstants.WorldScrollSpeed;
 
         renderer.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }

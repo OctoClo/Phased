@@ -525,12 +525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAsset: {fileID: 11400000, guid: 498b0431e44f9014c811b5434355ca6f, type: 3}
-  direction:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  target:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
   spaceships:
   - {fileID: 1755260177}
   - {fileID: 1925117423}
@@ -573,6 +567,7 @@ GameObject:
   - component: {fileID: 1765795820}
   - component: {fileID: 1765795819}
   - component: {fileID: 1765795818}
+  - component: {fileID: 1765795822}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -653,6 +648,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1765795822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765795817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cb9cf71cbc1384facaefb8d4c50be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886957660
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +866,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship1
       objectReference: {fileID: 0}
+    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: speed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 1456930901}
+    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: playerNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 804293536}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,26 +941,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: speed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: inputManager
-      value: 
-      objectReference: {fileID: 1456930901}
-    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: playerNumber
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 804293536}
     - target: {fileID: 461973347922751037, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalScale.x
