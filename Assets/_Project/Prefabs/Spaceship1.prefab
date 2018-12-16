@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5320397800371382306}
   - component: {fileID: 3823704589881370483}
   m_Layer: 0
-  m_Name: Target
+  m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6253721232788283661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.6660001}
+  m_LocalScale: {x: 0.38438165, y: 0.7948001, z: 0.18479615}
   m_Children: []
   m_Father: {fileID: 8385934007502120453}
   m_RootOrder: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4939929923179255437}
   - component: {fileID: 8020356886017925809}
   - component: {fileID: 5825266161329845239}
-  - component: {fileID: 6707436421660138712}
+  - component: {fileID: 4418084502878814610}
   m_Layer: 0
   m_Name: Spaceship1
   m_TagString: Player
@@ -187,7 +187,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &6707436421660138712
+--- !u!114 &4418084502878814610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,14 +196,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6707436421660138710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3896f2f11a3084fb3ce2d4b74b7b9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 86bbff368921c5f42b0acf9f8bbf6389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11
-  tilt: 0.6
-  targetRadius: 2
-  playerNumber: 1
-  inputManager: {fileID: 0}
-  cursor: {fileID: 0}
-  direction: {x: 0, y: 0}
-  target: {x: 0, y: 0}
+  PlayerNumber: 0
+  Speed: 13
+  Tilt: 0.6
+  WeaponPrefab: {fileID: 942190864241778174, guid: 50c86af16ad69c943814dfce7147ace0,
+    type: 3}
+  TargetRadius: 2
+  Cursor: {fileID: 6253721232788283661}
+  lifeCounter: {fileID: 0}
+  InputManager: {fileID: 0}
+  Direction: {x: 0, y: 0}
+  Target: {x: 0, y: 0}
+  IsFiring: 0
