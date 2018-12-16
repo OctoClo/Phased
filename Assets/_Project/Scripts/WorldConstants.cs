@@ -72,7 +72,6 @@ public class WorldConstants : Singleton<WorldConstants>
     public float ObstacleSpeedMultiplier = 1.50f;
     public float MovingObstacleLateralSpeed = 4.0f;
     public float MovingObstacleLateralWidth = 29.0f;
-
-    // PROTOTYPE VARIABLES
-    public float ObstacleCollisionDamage = 15.0f;
+    public int PlayerInvulnerableFrameCount = 64;
+    public int PlayerFlickerFrequency = 2;
 }

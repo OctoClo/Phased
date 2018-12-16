@@ -875,6 +875,11 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 443541149}
+    - target: {fileID: 6862190134552227908, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: lifeCounter
+      value: 
+      objectReference: {fileID: 1974658313}
     - target: {fileID: 308424269893665441, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -905,6 +910,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3896f2f11a3084fb3ce2d4b74b7b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1974658312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974658314}
+  - component: {fileID: 1974658313}
+  m_Layer: 0
+  m_Name: LifeCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1974658313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974658312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeCount: 5
+--- !u!4 &1974658314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974658312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1500015, y: 1.01, z: -16.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7422926523231893049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -937,6 +986,11 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 804293536}
+    - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: lifeCounter
+      value: 
+      objectReference: {fileID: 1974658313}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x

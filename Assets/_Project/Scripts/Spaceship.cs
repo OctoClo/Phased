@@ -6,29 +6,46 @@ public class Spaceship : MonoBehaviour
 {
     public float speed;
     public float tilt;
-
-    // DEBUG TEST
-    public float Life = 100.0f;
-
-    public float targetRadius = 2.0f;
-
-    public int playerNumber;
-
-    public PlayerInputManager inputManager;
+    
+    public float    targetRadius = 2.0f;
+    
     public GameObject cursor;
-
-    Rigidbody rigidBody;
 
     public Vector2 direction;
     public Vector2 target;
 
+    public LifeCounter lifeCounter;
+
+    private Rigidbody rigidBody;
+    private Renderer renderer;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        renderer = GetComponent<Renderer>();
+    }
+
+    void Update()
+    {
+        if (lifeCounter.IsInvulnerable && ( Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency ) == 0)
+        {
+            renderer.enabled = !renderer.enabled;
+        } else
+        {
+            renderer.enabled = true;
+        }
     }
 
     void FixedUpdate()
     {
+        if (lifeCounter.HasNoLifeLeft)
+        {
+            // TODO How should the player be removed?
+            Vector3 movementTest = new Vector3(1, 0, 0);
+            rigidBody.velocity = movementTest * speed * 32.0f;
+            return;
+        }
+
         float moveHorizontal = direction.x;
         float moveVertical = direction.y;
 

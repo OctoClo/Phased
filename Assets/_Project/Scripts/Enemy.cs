@@ -35,9 +35,10 @@ public class Enemy : MonoBehaviour
         {
             var spaceshipInstance = other.GetComponent<Spaceship>();
 
-            // PROTO TEST Remove life
-            // TODO Implement life system
-            spaceshipInstance.Life -= WorldConstants.Instance.ObstacleCollisionDamage;
+            if (!spaceshipInstance.lifeCounter.IsInvulnerable)
+            {
+                spaceshipInstance.lifeCounter.RemoveLife();
+            }
         }
     }
 }
