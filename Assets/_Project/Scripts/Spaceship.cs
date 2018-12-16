@@ -27,7 +27,7 @@ public class Spaceship : MonoBehaviour
 
     void Update()
     {
-        if (lifeCounter.IsInvulnerable && ( Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency ) == 0)
+        if (lifeCounter.DamageSource == this && lifeCounter.IsInvulnerable && ( Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency ) == 0)
         {
             renderer.enabled = !renderer.enabled;
         } else

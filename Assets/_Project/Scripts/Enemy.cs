@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
             if (!spaceshipInstance.lifeCounter.IsInvulnerable)
             {
-                spaceshipInstance.lifeCounter.RemoveLife();
+                spaceshipInstance.lifeCounter.RemoveLife( spaceshipInstance );
             }
         }
     }

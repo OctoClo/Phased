@@ -9,6 +9,7 @@ public class LifeCounter : MonoBehaviour
     private int previousFrameLifeCount;
     private int flickerCounter;
 
+    
     public bool IsInvulnerable
     {
         get
@@ -25,6 +26,19 @@ public class LifeCounter : MonoBehaviour
         }
     }
 
+    private Spaceship damageSource;
+    public Spaceship DamageSource
+    {
+        get
+        {
+            return damageSource;
+        }
+        private set
+        {
+            damageSource = value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +46,10 @@ public class LifeCounter : MonoBehaviour
         previousFrameLifeCount = lifeCount;
     }
 
-    public void RemoveLife()
+    public void RemoveLife( Spaceship other )
     {
+        damageSource = other;
+
         lifeCount--;
     }
 
