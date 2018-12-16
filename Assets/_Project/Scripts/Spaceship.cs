@@ -16,6 +16,9 @@ public class Spaceship : MonoBehaviour
 
     Rigidbody rigidBody;
 
+    public Vector2 direction;
+    public Vector2 target;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -23,8 +26,6 @@ public class Spaceship : MonoBehaviour
 
     void FixedUpdate()
     {
-        var direction = inputManager.direction[playerNumber];
-
         float moveHorizontal = direction.x;
         float moveVertical = direction.y;
 
@@ -32,9 +33,7 @@ public class Spaceship : MonoBehaviour
         rigidBody.velocity = movement * speed;
 
         rigidBody.rotation = Quaternion.Euler(rigidBody.velocity.z * tilt, 0, rigidBody.velocity.x * -tilt);
-
-        var target = inputManager.target[playerNumber];
-
+        
         var targetPosition = transform.position;
         targetPosition.x += target.x * targetRadius;
         targetPosition.z += target.y * targetRadius;
