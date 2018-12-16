@@ -18,12 +18,12 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(0, 0, -1);
-        Vector3 updatedVelocity = movement * ( WorldConstants.WorldScrollSpeed * WorldConstants.WorldScrollSpeed * WorldConstants.ObstacleSpeedMultiplier);
+        Vector3 updatedVelocity = movement * ( WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.ObstacleSpeedMultiplier);
 
         if (scrollTest)
         {
-            updatedVelocity.x = Mathf.Sin( Time.time * WorldConstants.MovingObstacleLateralSpeed) 
-                                * WorldConstants.MovingObstacleLateralWidth;
+            updatedVelocity.x = Mathf.Sin( Time.time * WorldConstants.Instance.MovingObstacleLateralSpeed) 
+                                * WorldConstants.Instance.MovingObstacleLateralWidth;
         }
 
         rigidBody.velocity = updatedVelocity;
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
             // PROTO TEST Remove life
             // TODO Implement life system
-            spaceshipInstance.Life -= WorldConstants.ObstacleCollisionDamage;
+            spaceshipInstance.Life -= WorldConstants.Instance.ObstacleCollisionDamage;
         }
     }
 }

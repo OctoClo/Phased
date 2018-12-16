@@ -13,7 +13,7 @@ public class PlaneTextureScrolling : MonoBehaviour
 
     void Update()
     {
-        float offset = Time.time * WorldConstants.WorldScrollSpeed;
+        float offset = Time.time * WorldConstants.Instance.WorldScrollSpeed;
 
         renderer.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }
