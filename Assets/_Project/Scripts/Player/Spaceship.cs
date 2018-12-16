@@ -14,6 +14,8 @@ public class Spaceship : MonoBehaviour
     public float TargetRadius = 2.0f;
     public GameObject Cursor;
 
+    public LifeCounter lifeCounter;
+
     public PlayerInputManager InputManager;
 
     [HideInInspector]
@@ -24,6 +26,7 @@ public class Spaceship : MonoBehaviour
     public bool IsFiring;
 
     Rigidbody rigidBody;
+    Renderer spaceshipRenderer;
     Weapon weapon;
 
     Vector3 cursorScale;
@@ -31,14 +34,37 @@ public class Spaceship : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        spaceshipRenderer = GetComponent<Renderer>();
+
         GameObject weaponGO = Instantiate(WeaponPrefab, transform);
         weapon = weaponGO.GetComponent<Weapon>();
         weapon.Spaceship = this;
+
         cursorScale = Cursor.transform.localScale;
+    }
+
+    void Update()
+    {
+        if (lifeCounter.DamageSource == this && lifeCounter.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
+        {
+            spaceshipRenderer.enabled = !spaceshipRenderer.enabled;
+        }
+        else
+        {
+            spaceshipRenderer.enabled = true;
+        }
     }
 
     void FixedUpdate()
     {
+        if (lifeCounter.HasNoLifeLeft)
+        {
+            // TODO How should the player be removed?
+            Vector3 movementTest = new Vector3(1, 0, 0);
+            rigidBody.velocity = movementTest * Speed * 32.0f;
+            return;
+        }
+
         weapon.IsFiring = IsFiring;
 
         float moveHorizontal = Direction.x;

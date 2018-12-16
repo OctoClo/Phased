@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4939929923179255437}
   - component: {fileID: 8020356886017925809}
   - component: {fileID: 5825266161329845239}
-  - component: {fileID: 6707436421660138712}
+  - component: {fileID: 4418084502878814610}
   m_Layer: 0
   m_Name: Spaceship1
   m_TagString: Player
@@ -187,7 +187,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &6707436421660138712
+--- !u!114 &4418084502878814610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,10 +202,11 @@ MonoBehaviour:
   PlayerNumber: 0
   Speed: 13
   Tilt: 0.6
-  WeaponPrefab: {fileID: 384439547592037438, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
+  WeaponPrefab: {fileID: 942190864241778174, guid: 50c86af16ad69c943814dfce7147ace0,
     type: 3}
   TargetRadius: 2
   Cursor: {fileID: 6253721232788283661}
+  lifeCounter: {fileID: 0}
   InputManager: {fileID: 0}
   Direction: {x: 0, y: 0}
   Target: {x: 0, y: 0}
