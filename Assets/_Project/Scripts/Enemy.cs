@@ -6,15 +6,27 @@ public class Enemy : MonoBehaviour
 {
     Rigidbody rigidBody;
 
+    // PROTOTYPE TEST
+    bool scrollTest = false;
+    
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        scrollTest = Random.Range(0, 2) >= 1;
     }
 
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(0, 0, -1);
-        rigidBody.velocity = movement * ( WorldConstants.WorldScrollSpeed * WorldConstants.WorldScrollSpeed * WorldConstants.ObstacleSpeedMultiplier);
+        Vector3 updatedVelocity = movement * ( WorldConstants.WorldScrollSpeed * WorldConstants.WorldScrollSpeed * WorldConstants.ObstacleSpeedMultiplier);
+
+        if (scrollTest)
+        {
+            updatedVelocity.x = Mathf.Sin( Time.time * WorldConstants.MovingObstacleLateralSpeed) 
+                                * WorldConstants.MovingObstacleLateralWidth;
+        }
+
+        rigidBody.velocity = updatedVelocity;
     }
 
     void OnTriggerEnter( Collider other )
@@ -23,7 +35,8 @@ public class Enemy : MonoBehaviour
         {
             var spaceshipInstance = other.GetComponent<Spaceship>();
 
-            // Remove life
+            // PROTO TEST Remove life
+            // TODO Implement life system
             spaceshipInstance.Life -= WorldConstants.ObstacleCollisionDamage;
         }
     }
