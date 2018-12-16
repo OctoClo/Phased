@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject prefabBullet;
-    public float fireInterval;
-
-    float lastFire;
-    int playerNumber;
-    GameObject viewfinder;
+    public GameObject BulletPrefab;
+    public float FireInterval = 0.3f;
 
     [HideInInspector]
     public Spaceship Spaceship;
-    PlayerInputManager inputManager;
+    [HideInInspector]
+    public bool IsFiring;
+
+    int playerNumber;
+    float lastFire;
+    GameObject cursor;
 
     void Start()
     {
         playerNumber = Spaceship.PlayerNumber;
-        inputManager = Spaceship.InputManager;
-
-        viewfinder = Spaceship.gameObject.transform.Find("Viewfinder").gameObject;
+        cursor = Spaceship.Cursor;
         lastFire = 9999;
     }
 
     void Update()
     {
         lastFire += Time.deltaTime;
-        if (inputManager.Fire[playerNumber] > 0.0f && lastFire >= fireInterval)
+        if (IsFiring && lastFire >= FireInterval)
         {
-            Instantiate(prefabBullet, viewfinder.transform.position, prefabBullet.transform.rotation);
+            Instantiate(BulletPrefab, cursor.transform.position, BulletPrefab.transform.rotation);
             lastFire = 0;
         }
     }

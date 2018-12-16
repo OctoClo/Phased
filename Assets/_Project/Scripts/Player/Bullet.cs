@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
-    public int speed;
-    public float timeBeforeDestroy;
+    public int Damage = 100;
+    public int Speed = 15;
+    public float TimeBeforeDestroy = 1.5f;
 
     float currentTime;
     Rigidbody rigidBody;
@@ -15,15 +15,14 @@ public class Bullet : MonoBehaviour
     {
         currentTime = 0;
         rigidBody = GetComponent<Rigidbody>();
-
-        Vector3 movement = new Vector3(0, 0, 1);
-        rigidBody.velocity = movement * speed;
+        
+        rigidBody.velocity = transform.right * Speed;
     }
 
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= timeBeforeDestroy)
+        if (currentTime >= TimeBeforeDestroy)
         {
             Destroy(gameObject);
         }

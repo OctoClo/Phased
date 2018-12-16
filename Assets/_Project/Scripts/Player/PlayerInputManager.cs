@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Input.Controls;
 
 public class PlayerInputManager : MonoBehaviour
 {
+    // Handling gamepads connection
     const int MAX_PLAYER_COUNT = 2;
 
     class ConnectedGamepad
@@ -21,24 +22,22 @@ public class PlayerInputManager : MonoBehaviour
         public Spaceship Spaceship;
     };
 
-    public InputActionAsset inputAsset;
+    int playerCount = 0;
+    bool[] connectedPlayers;
+    List<ConnectedPlayer> connectedPlayersInstance;
+    List<ConnectedGamepad> connectedGamepads;
+
+    // Handling spaceships input
+    public InputActionAsset InputAsset;
+
+    public List<Spaceship> Spaceships = new List<Spaceship>();
+    public float PhaseTriggerDistance = 4.0f;
 
     InputActionMap inputMap;
 
-    private int playerCount = 0;
-    
-    private List<ConnectedGamepad> connectedGamepads;
-    private bool[] connectedPlayers;
-    private List<ConnectedPlayer> connectedPlayersInstance;
-
-    public List<Spaceship> spaceships = new List<Spaceship>();
-    
-    // Args
-    public float distanceTrigger = 4.0f;
-
     void SetPlayerPhaseFeedback(float playerDistance)
     {
-        float normalizedFactor = Mathf.Clamp01( 1.0f - ( Mathf.Abs( playerDistance ) / ( distanceTrigger * distanceTrigger ) ) ) - 0.8f;
+        float normalizedFactor = Mathf.Clamp01( 1.0f - ( Mathf.Abs( playerDistance ) / ( PhaseTriggerDistance * PhaseTriggerDistance ) ) ) - 0.8f;
 
         foreach (var connectedPlayer in connectedPlayersInstance)
         {
@@ -47,8 +46,7 @@ public class PlayerInputManager : MonoBehaviour
                 continue;
             }
 
-            var gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
-
+            Gamepad gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
             if (gamepad != null)
             {
                 gamepad.SetMotorSpeeds(normalizedFactor, 0.0f);
@@ -58,66 +56,66 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
-        //if (true)
-        //{
-            //Debug.Log("needGamepadRescan");
-            for (int j = 0; j < connectedGamepads.Count; j++)
+        // Check connected gamepads
+        for (int j = 0; j < connectedGamepads.Count; j++)
+        {
+            Gamepad gamepad = connectedGamepads[j].DeviceInstance as Gamepad;
+            if (!connectedGamepads[j].IsInUse)
             {
-                var gamepad = connectedGamepads[j].DeviceInstance as Gamepad;
-                if (!connectedGamepads[j].IsInUse)
+                for (int i = 0; i < MAX_PLAYER_COUNT; i++)
                 {
-                    for (int i = 0; i < MAX_PLAYER_COUNT; i++)
+                    if (!connectedPlayers[i] || connectedPlayersInstance[i].Gamepad == null)
                     {
-                        if (!connectedPlayers[i] || connectedPlayersInstance[i].Gamepad == null)
+                        connectedGamepads[j].IsInUse = true;
+                        connectedPlayers[i] = true;
+
+                        ConnectedPlayer player = new ConnectedPlayer
                         {
-                            connectedGamepads[j].IsInUse = true;
-                            connectedPlayers[i] = true;
+                            Spaceship = Spaceships[i],
+                            Gamepad = connectedGamepads[j]
+                        };
 
-                            ConnectedPlayer player = new ConnectedPlayer
-                            {
-                                Spaceship = spaceships[i],
-                                Gamepad = connectedGamepads[j]
-                            };
-
-                            connectedPlayersInstance.Add(player);
-                            break;
-                        }
+                        connectedPlayersInstance.Add(player);
+                        break;
                     }
-
-                    playerCount++;
                 }
-            }
 
-            for (int i = 0; i < MAX_PLAYER_COUNT; i++)
+                playerCount++;
+            }
+        }
+
+        // Check if a keyboard if needed
+        for (int i = 0; i < MAX_PLAYER_COUNT; i++)
+        {
+            if (!connectedPlayers[i])
             {
-                if (!connectedPlayers[i])
+                Debug.Log("Added keyboard input");
+
+                InputDevice keyboard = InputSystem.GetDevice<Keyboard>();
+
+                connectedPlayers[i] = true;
+
+                ConnectedPlayer player = new ConnectedPlayer
                 {
-                    Debug.Log("Added keyboard input");
+                    Spaceship = Spaceships[i],
+                    Gamepad = null
+                };
 
-                    InputDevice keyboard = InputSystem.GetDevice<Keyboard>();
-                
-                    connectedPlayers[i] = true;
-
-                    ConnectedPlayer player = new ConnectedPlayer
-                    {
-                        Spaceship = spaceships[i],
-                        Gamepad = null
-                    };
-
-                    connectedPlayersInstance.Add(player);
-                }
+                connectedPlayersInstance.Add(player);
             }
-        //}
+        }
 
-        foreach (var connectedPlayer in connectedPlayersInstance)
+        // Check inputs
+        foreach (ConnectedPlayer connectedPlayer in connectedPlayersInstance)
         {
             if (connectedPlayer.Gamepad != null)
             {
-                var gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
+                Gamepad gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
                 if (gamepad != null)
                 {
-                    connectedPlayer.Spaceship.direction = gamepad.leftStick.ReadValue();
-                    connectedPlayer.Spaceship.target = gamepad.rightStick.ReadValue();
+                    connectedPlayer.Spaceship.Direction = gamepad.leftStick.ReadValue();
+                    connectedPlayer.Spaceship.Target = gamepad.rightStick.ReadValue();
+                    connectedPlayer.Spaceship.IsFiring = gamepad.rightTrigger.isPressed;
 
                     if (gamepad.rightTrigger.isPressed)
                     {
@@ -132,8 +130,8 @@ public class PlayerInputManager : MonoBehaviour
             else
             {
                 // TODO Assume a keyboard and mouse are plugged in...
-                var keyboardInstance = InputSystem.GetDevice<Keyboard>();
-                var mouseInstance = InputSystem.GetDevice<Mouse>();
+                Keyboard keyboardInstance = InputSystem.GetDevice<Keyboard>();
+                Mouse mouseInstance = InputSystem.GetDevice<Mouse>();
 
                 float x = 0.0f, y = 0.0f;
                 if (keyboardInstance.wKey.isPressed) y += +1.0f;
@@ -142,23 +140,19 @@ public class PlayerInputManager : MonoBehaviour
                 if (keyboardInstance.aKey.isPressed) x += -1.0f;
                 if (keyboardInstance.dKey.isPressed) x += +1.0f;
 
-                connectedPlayer.Spaceship.direction.x = x;
-                connectedPlayer.Spaceship.direction.y = y;
+                connectedPlayer.Spaceship.Direction.x = x;
+                connectedPlayer.Spaceship.Direction.y = y;
 
                 // Normalize cursor coordinates (-1..1 range)
-                var screenDimensions = new Vector2(Screen.width, Screen.height);
-                var mouseAbsoluteCoords = mouseInstance.position.ReadValue();
-                               
-                connectedPlayer.Spaceship.target = mouseAbsoluteCoords / screenDimensions * new Vector2( 2.0f, 2.0f ) - new Vector2( 1.0f, 1.0f );
-                
-                if (mouseInstance.leftButton.isPressed)
-                {
-                    // Fire
-                }
+                Vector2 screenDimensions = new Vector2(Screen.width, Screen.height);
+                Vector2 mouseAbsoluteCoords = mouseInstance.position.ReadValue();
+
+                connectedPlayer.Spaceship.Target = mouseAbsoluteCoords / screenDimensions * new Vector2( 2.0f, 2.0f ) - new Vector2( 1.0f, 1.0f );
+                connectedPlayer.Spaceship.IsFiring = mouseInstance.leftButton.isPressed;
             }
         }
 
-        var distance = Vector3.Distance(spaceships[0].transform.position, spaceships[1].transform.position);
+        float distance = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
         SetPlayerPhaseFeedback(distance);
     }
 

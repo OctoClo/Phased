@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee1c9a36cd8b0044ba04012b99be719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 5680844334469548868, guid: efc971014418789459736b094605835b,
+  BulletPrefab: {fileID: 5680844334469548868, guid: efc971014418789459736b094605835b,
     type: 3}
-  fireInterval: 0.3
+  FireInterval: 0.3
+  Spaceship: {fileID: 0}
+  IsFiring: 0
