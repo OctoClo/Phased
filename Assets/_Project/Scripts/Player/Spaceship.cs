@@ -57,6 +57,9 @@ public class Spaceship : MonoBehaviour
         }
     }
 
+    private Vector2 previousTarget;
+    private float previousAngle = 0.0f;
+
     void FixedUpdate()
     {
         if (lifeCounter.HasNoLifeLeft)
@@ -77,20 +80,15 @@ public class Spaceship : MonoBehaviour
 
         rigidBody.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
 
-        Vector3 targetPosition = transform.position;
-        targetPosition.x += Target.x * TargetRadius;
-        targetPosition.z += Target.y * TargetRadius;
-        
-        if ( Target.magnitude != 0.0f )
-            Cursor.transform.position = targetPosition;
+        if (Target != previousTarget)
+        {
+            previousTarget = Target;
+            
+            float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
+            Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);   
 
-        float angle = Mathf.Atan2(targetPosition.z - transform.position.z, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
-
-
-        Vector3 translation = transform.position - targetPosition;
-     
-        Cursor.transform.rotation = Quaternion.Euler(-90, 0.0f, angle * -1);
-        Cursor.transform.localScale = cursorScale;
+            previousAngle = angle;
+         }
     }
 
     public void PlayImpactSFX()
