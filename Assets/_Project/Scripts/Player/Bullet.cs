@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
 
         if (enemy)
         {
-            Destroy(enemy.gameObject);
+            Destroy(enemy.gameObject, enemy.PlayExplosionFX());
         }
     }
 }

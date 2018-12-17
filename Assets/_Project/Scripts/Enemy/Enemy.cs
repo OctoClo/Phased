@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     Rigidbody rigidBody;
     bool scrollTest = false;
-
+    public List<AudioClip> ExplosionSounds;
+    
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -37,7 +37,19 @@ public class Enemy : MonoBehaviour
             if (!spaceshipInstance.lifeCounter.IsInvulnerable)
             {
                 spaceshipInstance.lifeCounter.RemoveLife(spaceshipInstance);
+                spaceshipInstance.PlayImpactSFX();
             }
         }
+    }
+
+    public float PlayExplosionFX()
+    {
+        var audioSource = GetComponent<AudioSource>();
+        var idx = Random.Range(0, ExplosionSounds.Count);
+        audioSource.PlayOneShot(ExplosionSounds[idx]);
+
+        GetComponent<Renderer>().enabled = false;
+
+        return ExplosionSounds[idx].length;
     }
 }

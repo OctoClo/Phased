@@ -15,8 +15,9 @@ public class Spaceship : MonoBehaviour
     public GameObject Cursor;
 
     public LifeCounter lifeCounter;
+    public List<AudioClip> ImpactSounds;
 
-    public PlayerInputManager InputManager;
+    int soundIndex;
 
     [HideInInspector]
     public Vector2 Direction;
@@ -41,6 +42,7 @@ public class Spaceship : MonoBehaviour
         weapon.Spaceship = this;
 
         cursorScale = Cursor.transform.localScale;
+        soundIndex = 0;
     }
 
     void Update()
@@ -78,13 +80,26 @@ public class Spaceship : MonoBehaviour
         Vector3 targetPosition = transform.position;
         targetPosition.x += Target.x * TargetRadius;
         targetPosition.z += Target.y * TargetRadius;
-
+        
         if ( Target.magnitude != 0.0f )
             Cursor.transform.position = targetPosition;
 
         float angle = Mathf.Atan2(targetPosition.z - transform.position.z, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
 
+
+        Vector3 translation = transform.position - targetPosition;
+     
         Cursor.transform.rotation = Quaternion.Euler(-90, 0.0f, angle * -1);
         Cursor.transform.localScale = cursorScale;
+    }
+
+    public void PlayImpactSFX()
+    {
+        var audioSource = GetComponent<AudioSource>();
+
+        audioSource.PlayOneShot(ImpactSounds[soundIndex]);
+
+        soundIndex++;
+        if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
     }
 }
