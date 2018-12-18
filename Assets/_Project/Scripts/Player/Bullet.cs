@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
         currentTime = 0;
         rigidBody = GetComponent<Rigidbody>();
         
-        rigidBody.velocity = transform.right * Speed;
+        rigidBody.velocity = transform.up * Speed;
     }
 
     void Update()

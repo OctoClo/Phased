@@ -31,13 +31,15 @@ public class Spaceship : MonoBehaviour
     Weapon weapon;
 
     Vector3 cursorScale;
+    Vector2 previousTarget;
+    float previousAngle = 0.0f;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponent<Renderer>();
 
-        GameObject weaponGO = Instantiate(WeaponPrefab, transform);
+        GameObject weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
         weapon = weaponGO.GetComponent<Weapon>();
         weapon.Spaceship = this;
 
@@ -55,10 +57,9 @@ public class Spaceship : MonoBehaviour
         {
             spaceshipRenderer.enabled = true;
         }
-    }
 
-    private Vector2 previousTarget;
-    private float previousAngle = 0.0f;
+        weapon.IsFiring = IsFiring;
+    }
 
     void FixedUpdate()
     {
@@ -69,8 +70,6 @@ public class Spaceship : MonoBehaviour
             rigidBody.velocity = movementTest * Speed * 32.0f;
             return;
         }
-
-        weapon.IsFiring = IsFiring;
 
         float moveHorizontal = Direction.x;
         float moveVertical = Direction.y;
@@ -85,10 +84,10 @@ public class Spaceship : MonoBehaviour
             previousTarget = Target;
             
             float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
-            Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);   
+            Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
 
             previousAngle = angle;
-         }
+        }
     }
 
     public void PlayImpactSFX()

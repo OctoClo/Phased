@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +13,13 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public bool IsFiring;
 
-    int soundIndex;
     int playerNumber;
     float lastFire;
+
     GameObject cursor;
+    GameObject bullet;
+
+    int soundIndex;
     AudioSource audioSource;
 
     void Start()
@@ -39,8 +42,10 @@ public class Weapon : MonoBehaviour
 
             soundIndex++;
             if (soundIndex >= FireSounds.Count) soundIndex = 0;
+            
+            bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+            bullet.transform.rotation = Quaternion.Euler(90, cursor.transform.rotation.eulerAngles.y, 0);
 
-            Instantiate(BulletPrefab, cursor.transform.position, BulletPrefab.transform.rotation);
             lastFire = 0;
         }
     }
