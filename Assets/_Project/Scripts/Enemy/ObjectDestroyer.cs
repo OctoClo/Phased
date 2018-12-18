@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesDestroyer : MonoBehaviour
+public class ObjectDestroyer : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
@@ -11,6 +11,15 @@ public class EnemiesDestroyer : MonoBehaviour
         if (enemy)
         {
             Destroy(enemy.gameObject);
+        }
+        else
+        {
+            Bullet bullet = other.GetComponent<Bullet>();
+
+            if (bullet)
+            {
+                Destroy(bullet.gameObject);
+            }
         }
     }
 }

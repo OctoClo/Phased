@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour
         {
             var spaceshipInstance = other.GetComponent<Spaceship>();
 
-            if (!spaceshipInstance.lifeCounter.IsInvulnerable)
+            if (!spaceshipInstance.LifeCounter.IsInvulnerable)
             {
-                spaceshipInstance.lifeCounter.RemoveLife(spaceshipInstance);
+                spaceshipInstance.LifeCounter.RemoveLife(spaceshipInstance);
                 spaceshipInstance.PlayImpactSFX();
             }
         }
