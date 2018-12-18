@@ -12,7 +12,9 @@ public class Spaceship : MonoBehaviour
     public GameObject WeaponPrefab;
 
     public float TargetRadius = 2.0f;
+
     public GameObject Cursor;
+    public Rigidbody RigidBodyTilt;
 
     public LifeCounter lifeCounter;
     public List<AudioClip> ImpactSounds;
@@ -37,7 +39,7 @@ public class Spaceship : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        spaceshipRenderer = GetComponent<Renderer>();
+        spaceshipRenderer = GetComponentInChildren<Renderer>();
 
         GameObject weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
         weapon = weaponGO.GetComponent<Weapon>();
@@ -76,8 +78,9 @@ public class Spaceship : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         rigidBody.velocity = movement * Speed;
+        RigidBodyTilt.velocity = movement * Speed;
 
-        rigidBody.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
+        RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
 
         if (Target != previousTarget)
         {
