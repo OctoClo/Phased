@@ -30,6 +30,8 @@ public class Spaceship : MonoBehaviour
 
     Rigidbody rigidBody;
     Renderer spaceshipRenderer;
+
+    GameObject weaponGO;
     Weapon weapon;
 
     Vector3 cursorScale;
@@ -41,12 +43,10 @@ public class Spaceship : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponentInChildren<Renderer>();
 
-        GameObject weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
-        weapon = weaponGO.GetComponent<Weapon>();
-        weapon.Spaceship = this;
-
         cursorScale = Cursor.transform.localScale;
         soundIndex = 0;
+
+        SetWeapon(WeaponPrefab);
     }
 
     void Update()
@@ -101,5 +101,17 @@ public class Spaceship : MonoBehaviour
 
         soundIndex++;
         if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
+    }
+
+    public void SetWeapon(GameObject newWeapon)
+    {
+        WeaponPrefab = newWeapon;
+
+        if (weaponGO)
+            Destroy(weaponGO);
+
+        weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
+        weapon = weaponGO.GetComponent<Weapon>();
+        weapon.Spaceship = this;
     }
 }

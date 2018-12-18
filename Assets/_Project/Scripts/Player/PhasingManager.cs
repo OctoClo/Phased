@@ -2,89 +2,87 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum EStatePhase { NO_PHASE, PRE_PHASE, PHASE };
+
 public class PhasingManager : MonoBehaviour
 {
-    //0:Default, 1:Pre-phasing, 2:Phased
-    [SerializeField]
-    int state = 0;
-
-    float distBetweenShips = 0.0f;
+    public List<Spaceship> Spaceships = new List<Spaceship>();
+    public List<GameObject> Weapons = new List<GameObject>();
+    public List<Material> Materials = new List<Material>();
+    public GameObject PlayersLink;    
 
     public float prePhaseTriggerDist = 18.0f;
     public float phaseTriggerDist = 8.0f;
 
-    public List<Spaceship> Spaceships = new List<Spaceship>();
-    public GameObject playersLink;
+    [SerializeField]
+    EStatePhase state = EStatePhase.NO_PHASE;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float distBetweenShips = 0.0f;    
 
-    // Update is called once per frame
     void Update()
     {
         distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
-        updatePlayerLink();
+        UpdatePlayerLink();
 
-        checkForStateChange();
+        CheckForStateChange();
     }
 
-    void updatePlayerLink(){
-
-        playersLink.transform.position = (Spaceships[0].transform.position + Spaceships[1].transform.position) / 2;
+    void UpdatePlayerLink()
+    {
+        PlayersLink.transform.position = (Spaceships[0].transform.position + Spaceships[1].transform.position) / 2;
 
         float angle = Mathf.Atan2(Spaceships[0].transform.position.z - Spaceships[1].transform.position.z, Spaceships[0].transform.position.x - Spaceships[1].transform.position.x) * Mathf.Rad2Deg;
 
-        playersLink.transform.rotation = Quaternion.Euler(0, angle * -1, 0);
+        PlayersLink.transform.rotation = Quaternion.Euler(0, angle * -1, 0);
 
-        playersLink.transform.localScale = new Vector3(distBetweenShips - 4, 0.25f, 0.25f);
+        PlayersLink.transform.localScale = new Vector3(distBetweenShips - 4, 0.25f, 0.25f);
 
     }
 
-    void checkForStateChange(){
-
-        int newStateId = 0;
+    void CheckForStateChange()
+    {
+        EStatePhase newStateId = EStatePhase.NO_PHASE;
 
         if (distBetweenShips < phaseTriggerDist)
-            newStateId = 2;
+            newStateId = EStatePhase.PHASE;
         else if (distBetweenShips < prePhaseTriggerDist)
-            newStateId = 1;
+            newStateId = EStatePhase.PRE_PHASE;
 
         if (!state.Equals(newStateId))
-            setState(newStateId);
-            handleStateChange();
-
+        {
+            state = newStateId;
+            HandleStateChange();
+        }
     }
 
-    void setState(int id){
-        state = id;
-    }
-
-    void handleStateChange(){
-        
-        switch(state){
-            case 0:
-                playersLink.SetActive(false);
-                //Switch to weapon 0
+    void HandleStateChange()
+    {
+        switch(state)
+        {
+            case EStatePhase.NO_PHASE:
+                PlayersLink.SetActive(false);
                 break;
-            case 1:
-                playersLink.SetActive(true);
-                //Switch to weapon 1
+            case EStatePhase.PRE_PHASE:
+                PlayersLink.SetActive(true);
                 //Subtle vibration
                 break;
-            case 2:
-                playersLink.SetActive(true);
-                //Switch to weapon 2
+            case EStatePhase.PHASE:
+                PlayersLink.SetActive(true);
                 //Vibration on phasing
                 //Invulnerability on phasing during 2 seconds
                 //Activate shield on ships
                 //Set input manager to average players input to control the two ships as one
                 break;
         }
-        
 
+        PlayersLink.GetComponent<MeshRenderer>().material = Materials[(int)state];
+        SetSpaceshipsWeapon(Weapons[(int)state]);
+    }
+
+    void SetSpaceshipsWeapon(GameObject weapon)
+    {
+        Spaceships[0].SetWeapon(weapon);
+        Spaceships[1].SetWeapon(weapon);
     }
 }
