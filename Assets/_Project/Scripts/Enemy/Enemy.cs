@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int HealthPoints = 2;
+    public List<AudioClip> ExplosionSounds;
+
     Rigidbody rigidBody;
     bool scrollTest = false;
-    public List<AudioClip> ExplosionSounds;
     
     void Start()
     {
@@ -42,7 +44,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public float PlayExplosionFX()
+    public void TakeDamage(int damage)
+    {
+        HealthPoints -= damage;
+
+        if (HealthPoints <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            // Play animation of hurt
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject, PlayExplosionFX());
+    }
+
+    float PlayExplosionFX()
     {
         var audioSource = GetComponent<AudioSource>();
         var idx = Random.Range(0, ExplosionSounds.Count);

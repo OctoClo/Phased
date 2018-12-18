@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +34,8 @@ public class Bullet : MonoBehaviour
 
         if (enemy)
         {
-            Destroy(enemy.gameObject, enemy.PlayExplosionFX());
+            enemy.TakeDamage(Damage);
+            Destroy(gameObject);
         }
     }
 }
