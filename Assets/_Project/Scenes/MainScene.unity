@@ -217,6 +217,49 @@ Transform:
   m_Father: {fileID: 426643361}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &120840882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120840883}
+  - component: {fileID: 120840884}
+  m_Layer: 0
+  m_Name: OutputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &120840883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120840882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1185805977}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &120840884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120840882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa9a15a86ca57746a3e12dd44688148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &127212069
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,8 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
-  spawnIntervalMin: 100
-  spawnIntervalMax: 100
+  spawnIntervalMin: 3
+  spawnIntervalMax: 7
   spawnXMin: -20
   spawnXMax: 20
   spawnY: 1
@@ -878,8 +921,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 324d934cc6123eb4ca387b73fa1994bf, type: 2}
   - {fileID: 2100000, guid: b333d49600d131849815ab2803c357a9, type: 2}
   PlayersLink: {fileID: 385043339}
-  prePhaseTriggerDist: 18
-  phaseTriggerDist: 8
+  outputManager: {fileID: 0}
+  PrePhaseTriggerDist: 18
+  PhaseTriggerDist: 8
+  PrePhaseVibration: 0.05
+  PhaseVibration: 0.1
   state: 0
 --- !u!1 &1162549409
 GameObject:
@@ -969,8 +1015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
-  spawnIntervalMin: 100
-  spawnIntervalMax: 100
+  spawnIntervalMin: 10
+  spawnIntervalMax: 20
   spawnXMin: -20
   spawnXMax: 20
   spawnY: 1
@@ -1021,6 +1067,7 @@ Transform:
   - {fileID: 1974658314}
   - {fileID: 1073434843}
   - {fileID: 1456930902}
+  - {fileID: 120840883}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1233,11 +1280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2159831e2b7c34597ea814337edc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outputManager: {fileID: 120840884}
   InputAsset: {fileID: 11400000, guid: 498b0431e44f9014c811b5434355ca6f, type: 3}
   Spaceships:
   - {fileID: 717413178}
   - {fileID: 647311984}
-  PhaseTriggerDistance: 4
 --- !u!4 &1456930902
 Transform:
   m_ObjectHideFlags: 0

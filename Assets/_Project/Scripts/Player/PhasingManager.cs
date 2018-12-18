@@ -9,10 +9,16 @@ public class PhasingManager : MonoBehaviour
     public List<Spaceship> Spaceships = new List<Spaceship>();
     public List<GameObject> Weapons = new List<GameObject>();
     public List<Material> Materials = new List<Material>();
-    public GameObject PlayersLink;    
 
-    public float prePhaseTriggerDist = 18.0f;
-    public float phaseTriggerDist = 8.0f;
+    public GameObject PlayersLink;
+
+    public OutputManager outputManager;
+
+    public float PrePhaseTriggerDist = 18.0f;
+    public float PhaseTriggerDist = 8.0f;
+
+    public float PrePhaseVibration = 0.05f;
+    public float PhaseVibration = 0.1f;
 
     [SerializeField]
     EStatePhase state = EStatePhase.NO_PHASE;
@@ -44,9 +50,9 @@ public class PhasingManager : MonoBehaviour
     {
         EStatePhase newStateId = EStatePhase.NO_PHASE;
 
-        if (distBetweenShips < phaseTriggerDist)
+        if (distBetweenShips < PhaseTriggerDist)
             newStateId = EStatePhase.PHASE;
-        else if (distBetweenShips < prePhaseTriggerDist)
+        else if (distBetweenShips < PrePhaseTriggerDist)
             newStateId = EStatePhase.PRE_PHASE;
 
         if (!state.Equals(newStateId))
@@ -65,14 +71,16 @@ public class PhasingManager : MonoBehaviour
                 break;
             case EStatePhase.PRE_PHASE:
                 PlayersLink.SetActive(true);
-                //Subtle vibration
+                outputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration);
                 break;
             case EStatePhase.PHASE:
                 PlayersLink.SetActive(true);
-                //Vibration on phasing
-                //Invulnerability on phasing during 2 seconds
-                //Activate shield on ships
+                outputManager.VibrateAll(PhaseVibration, PhaseVibration);
                 //Set input manager to average players input to control the two ships as one
+
+                // Next proto:
+                //Activate shield on ships
+                //Invulnerability on phasing during 2 seconds
                 break;
         }
 

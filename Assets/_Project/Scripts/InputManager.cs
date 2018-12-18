@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Input;
 using UnityEngine.Experimental.Input.Controls;
 
-public class PlayerInputManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     // Handling gamepads connection
     const int MAX_PLAYER_COUNT = 2;
@@ -27,32 +27,14 @@ public class PlayerInputManager : MonoBehaviour
     List<ConnectedPlayer> connectedPlayersInstance;
     List<ConnectedGamepad> connectedGamepads;
 
+    public OutputManager outputManager;
+
     // Handling spaceships input
     public InputActionAsset InputAsset;
 
     public List<Spaceship> Spaceships = new List<Spaceship>();
-    public float PhaseTriggerDistance = 4.0f;
 
     InputActionMap inputMap;
-
-    void SetPlayerPhaseFeedback(float playerDistance)
-    {
-        float normalizedFactor = Mathf.Clamp01( 1.0f - ( Mathf.Abs( playerDistance ) / ( PhaseTriggerDistance * PhaseTriggerDistance ) ) ) - 0.8f;
-
-        foreach (var connectedPlayer in connectedPlayersInstance)
-        {
-            if (connectedPlayer.Gamepad == null)
-            {
-                continue;
-            }
-
-            Gamepad gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
-            if (gamepad != null)
-            {
-                gamepad.SetMotorSpeeds(normalizedFactor, 0.0f);
-            }
-        }
-    }
 
     void Update()
     {
@@ -116,15 +98,6 @@ public class PlayerInputManager : MonoBehaviour
                     connectedPlayer.Spaceship.Direction = gamepad.leftStick.ReadValue();
                     connectedPlayer.Spaceship.Target = gamepad.rightStick.ReadValue();
                     connectedPlayer.Spaceship.IsFiring = gamepad.rightTrigger.isPressed;
-
-                    if (gamepad.rightTrigger.isPressed)
-                    {
-                        gamepad.SetMotorSpeeds(0.05f, 0.10f);
-                    }
-                    else
-                    {
-                        gamepad.SetMotorSpeeds(0.0f, 0.0f);
-                    }
                 }
             }
             else
@@ -151,9 +124,6 @@ public class PlayerInputManager : MonoBehaviour
                 connectedPlayer.Spaceship.IsFiring = mouseInstance.leftButton.isPressed;
             }
         }
-
-        float distance = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
-        SetPlayerPhaseFeedback(distance);
     }
 
     private void Awake()
@@ -205,7 +175,7 @@ public class PlayerInputManager : MonoBehaviour
         // Stop vibrations
         foreach (Gamepad g in Gamepad.all)
         {
-            g.SetMotorSpeeds(0.0F, 0.0F);
+            outputManager.Vibrate(g, 0.0f, 0.0f);
         }
     }
 }
