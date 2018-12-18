@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class LifeCounter : MonoBehaviour
 {
-    public int lifeCount = 5;
+    public int LifeCount = 5;
 
-    private int previousFrameLifeCount;
-    private int flickerCounter;
-
+    int previousFrameLifeCount;
+    int flickerCounter;
     
     public bool IsInvulnerable
     {
@@ -22,7 +21,7 @@ public class LifeCounter : MonoBehaviour
     {
         get
         {
-            return ( lifeCount <= 0 );
+            return ( LifeCount <= 0 );
         }
     }
 
@@ -39,27 +38,29 @@ public class LifeCounter : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         flickerCounter = 0;
-        previousFrameLifeCount = lifeCount;
+        previousFrameLifeCount = LifeCount;
     }
 
     public void RemoveLife( Spaceship other )
     {
         damageSource = other;
 
-        lifeCount--;
+        LifeCount--;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (lifeCount <= 0)
+        if (LifeCount <= 0)
         {
             // TODO GameOver Screen
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
         }
 
         if (IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
@@ -68,11 +69,11 @@ public class LifeCounter : MonoBehaviour
         }
 
         // Check if the player collided with an obstacle in the current frame
-        if (previousFrameLifeCount != lifeCount)
+        if (previousFrameLifeCount != LifeCount)
         {
             flickerCounter = WorldConstants.Instance.PlayerInvulnerableFrameCount;
         }
 
-        previousFrameLifeCount = lifeCount;
+        previousFrameLifeCount = LifeCount;
     }
 }

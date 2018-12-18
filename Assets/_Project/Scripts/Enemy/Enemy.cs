@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var spaceshipInstance = other.GetComponent<Spaceship>();
+            Spaceship spaceshipInstance = other.GetComponent<Spaceship>();
 
             if (!spaceshipInstance.LifeCounter.IsInvulnerable)
             {
