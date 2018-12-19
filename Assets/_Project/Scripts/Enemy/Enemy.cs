@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,14 @@ public class Enemy : MonoBehaviour
     public List<AudioClip> ExplosionSounds;
 
     Rigidbody rigidBody;
+    Renderer enemyRenderer;
+
     bool scrollTest = false;
     
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        enemyRenderer = GetComponent<Renderer>();
 
         scrollTest = Random.Range(0, 2) >= 1;
     }
@@ -54,8 +58,15 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // Play animation of hurt
+            StartCoroutine(Blink());
         }
+    }
+
+   IEnumerator Blink()
+    {
+        enemyRenderer.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        enemyRenderer.enabled = true;
     }
 
     void Die()
