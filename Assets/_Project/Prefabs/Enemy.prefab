@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee263e24c6673ba4299fcd753d07334e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 2
+  HealthPoints: 5
   ExplosionSounds:
   - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
   - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}

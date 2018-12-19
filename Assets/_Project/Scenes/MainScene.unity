@@ -291,8 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
-  spawnIntervalMin: 3
-  spawnIntervalMax: 7
+  spawnIntervalMin: 0.2
+  spawnIntervalMax: 2
   spawnXMin: -20
   spawnXMax: 20
   spawnY: 1
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.8474364, a: 0.078431375}
+  m_Color: {r: 0, g: 1, b: 0.8474364, a: 0.32156864}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.81960773, a: 0.08235294}
+  m_Color: {r: 1, g: 0, b: 0.81960773, a: 0.22352941}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1196,8 +1196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
-  spawnIntervalMin: 10
-  spawnIntervalMax: 20
+  spawnIntervalMin: 30
+  spawnIntervalMax: 40
   spawnXMin: -20
   spawnXMax: 20
   spawnY: 1
