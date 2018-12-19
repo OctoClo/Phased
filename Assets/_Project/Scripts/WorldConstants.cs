@@ -67,7 +67,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
 public class WorldConstants : Singleton<WorldConstants>
 {
-    public float WorldScrollSpeed = 4.0f;
+    public float WorldScrollSpeed = 8.0f;
     public float ObstacleSpeedMultiplier = 1.50f;
     public float MovingObstacleLateralSpeed = 4.0f;
     public float MovingObstacleLateralWidth = 29.0f;
