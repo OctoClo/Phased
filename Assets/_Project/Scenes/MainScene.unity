@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.45050704, g: 0.50050133, b: 0.57512623, a: 1}
+  m_IndirectSpecularColor: {r: 0.45050704, g: 0.5005013, b: 0.5751261, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -549,6 +549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1962803876}
+  - {fileID: 1755200044}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1093,14 +1094,10 @@ MonoBehaviour:
   Spaceships:
   - {fileID: 717413178}
   - {fileID: 647311984}
-  Weapons:
-  - {fileID: 384439547592037438, guid: 05a6d9e20edb77544bd2fb85a4babb2f, type: 3}
-  - {fileID: 2761253297781602596, guid: 50c86af16ad69c943814dfce7147ace0, type: 3}
-  - {fileID: 7167630073225568260, guid: 5f65660c88bf7984a9aac66529720414, type: 3}
-  Materials:
-  - {fileID: 2100000, guid: f3824ccc3755a02438230f26c97d05f5, type: 2}
-  - {fileID: 2100000, guid: 324d934cc6123eb4ca387b73fa1994bf, type: 2}
-  - {fileID: 2100000, guid: b333d49600d131849815ab2803c357a9, type: 2}
+  MaterialsPlayersLink:
+  - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
+  - {fileID: 2100000, guid: 78b911f051e97e645aff1ca333cfb93c, type: 2}
+  - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
   PlayersLink: {fileID: 385043339}
   outputManager: {fileID: 120840884}
   PrePhaseTriggerDist: 10
@@ -1727,12 +1724,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755200041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1500006, y: -1.01, z: 8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 358813821}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765795817
 GameObject:
@@ -2299,6 +2296,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship1
       objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: InputManager
+      value: 
+      objectReference: {fileID: 1456930901}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: lifeCounter
+      value: 
+      objectReference: {fileID: 1974658313}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: LifeCounter
+      value: 
+      objectReference: {fileID: 1974658313}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2410,21 +2422,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 942190864241778174, guid: 50c86af16ad69c943814dfce7147ace0,
         type: 3}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: InputManager
-      value: 
-      objectReference: {fileID: 1456930901}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: lifeCounter
-      value: 
-      objectReference: {fileID: 1974658313}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: LifeCounter
-      value: 
-      objectReference: {fileID: 1974658313}
     - target: {fileID: 461973347922751037, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalScale.x

@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78b911f051e97e645aff1ca333cfb93c, type: 2}
+  - {fileID: 2100000, guid: c9c661da147b01d4cbfcd08f3bdb8832, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -251,8 +251,10 @@ MonoBehaviour:
   PlayerNumber: 0
   Speed: 15
   Tilt: 0.6
-  WeaponPrefab: {fileID: 384439547592037438, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
-    type: 3}
+  Weapons:
+  - {fileID: 5945394234572308793, guid: 38615f396749e6d4aa4e94deb7b86686, type: 3}
+  - {fileID: 8265348576024808431, guid: 5dde8fcb75b487e47a9c89278688eb04, type: 3}
+  - {fileID: 7167630073225568260, guid: 5f65660c88bf7984a9aac66529720414, type: 3}
   TargetRadius: 8
   Cursor: {fileID: 6253721232788283661}
   RigidBodyTilt: {fileID: 3800324496105430044}

@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum EStatePhase { NO_PHASE, PRE_PHASE, PHASE };
+public enum EStatePhase { NO_PHASE, PRE_PHASE, PHASE };
 
 public class PhasingManager : MonoBehaviour
 {
     public List<Spaceship> Spaceships = new List<Spaceship>();
-    public List<GameObject> Weapons = new List<GameObject>();
-    public List<Material> Materials = new List<Material>();
 
+    public List<Material> MaterialsPlayersLink = new List<Material>();
     public GameObject PlayersLink;
 
     public OutputManager outputManager;
@@ -84,13 +83,13 @@ public class PhasingManager : MonoBehaviour
                 break;
         }
 
-        PlayersLink.GetComponent<MeshRenderer>().material = Materials[(int)state];
-        SetSpaceshipsWeapon(Weapons[(int)state]);
+        PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)state];
+        SetSpaceshipsWeapon(state);
     }
 
-    void SetSpaceshipsWeapon(GameObject weapon)
+    void SetSpaceshipsWeapon(EStatePhase state)
     {
-        Spaceships[0].SetWeapon(weapon);
-        Spaceships[1].SetWeapon(weapon);
+        Spaceships[0].SetWeapon(state);
+        Spaceships[1].SetWeapon(state);
     }
 }

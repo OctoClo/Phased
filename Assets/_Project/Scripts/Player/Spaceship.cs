@@ -9,7 +9,7 @@ public class Spaceship : MonoBehaviour
     public float Speed = 13.0f;
     public float Tilt = 0.6f;
     
-    public GameObject WeaponPrefab;
+    public List<GameObject> Weapons;
 
     public float TargetRadius = 2.0f;
 
@@ -46,7 +46,7 @@ public class Spaceship : MonoBehaviour
         cursorScale = Cursor.transform.localScale;
         soundIndex = 0;
 
-        SetWeapon(WeaponPrefab);
+        SetWeapon(EStatePhase.NO_PHASE);
     }
 
     void Update()
@@ -98,14 +98,12 @@ public class Spaceship : MonoBehaviour
         if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
     }
 
-    public void SetWeapon(GameObject newWeapon)
+    public void SetWeapon(EStatePhase state)
     {
-        WeaponPrefab = newWeapon;
-
         if (weaponGO)
             Destroy(weaponGO);
 
-        weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
+        weaponGO = Instantiate(Weapons[(int)state], Cursor.transform);
         weapon = weaponGO.GetComponent<Weapon>();
         weapon.Spaceship = this;
     }
