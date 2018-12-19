@@ -82,15 +82,10 @@ public class Spaceship : MonoBehaviour
 
         RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
 
-        if (Target != previousTarget)
-        {
-            previousTarget = Target;
-            
-            float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
-            Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
+		float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
+		Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
 
-            previousAngle = angle;
-        }
+		previousAngle = angle;
     }
 
     public void PlayImpactSFX()
