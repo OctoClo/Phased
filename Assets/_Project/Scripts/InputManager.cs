@@ -26,16 +26,9 @@ public class InputManager : MonoBehaviour
     bool[] connectedPlayers;
     List<ConnectedPlayer> connectedPlayersInstance;
     List<ConnectedGamepad> connectedGamepads;
-
-    public OutputManager outputManager;
-
-    // Handling spaceships input
-    public InputActionAsset InputAsset;
-
+    
     public List<Spaceship> Spaceships = new List<Spaceship>();
-
-    InputActionMap inputMap;
-
+    
     void Update()
     {
         // Check connected gamepads
@@ -92,7 +85,7 @@ public class InputManager : MonoBehaviour
         {
             if (connectedPlayer.Gamepad != null)
             {
-                Gamepad gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
+                var gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
                 if (gamepad != null)
                 {
                     connectedPlayer.Spaceship.Direction = gamepad.leftStick.ReadValue();
@@ -102,7 +95,7 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                // TODO Assume a keyboard and mouse are plugged in...
+                // TODO Assume a keyboard and a mouse are plugged in...
                 Keyboard keyboardInstance = InputSystem.GetDevice<Keyboard>();
                 Mouse mouseInstance = InputSystem.GetDevice<Mouse>();
 
@@ -137,6 +130,8 @@ public class InputManager : MonoBehaviour
 
             if (change == InputDeviceChange.Disconnected || change == InputDeviceChange.Removed)
             {
+                Debug.Log("Lost Gamepad!");
+
                 int index = connectedGamepads.FindIndex( x => ( x.DeviceInstance == ( device as Gamepad ) ) );
                 if (index >= 0)
                 {
@@ -172,10 +167,6 @@ public class InputManager : MonoBehaviour
 
     void OnDisable()
     {
-        // Stop vibrations
-        foreach (Gamepad g in Gamepad.all)
-        {
-            outputManager.Vibrate(g, 0.0f, 0.0f);
-        }
+        OutputManager.VibrateAll( 0.0f, 0.0f );
     }
 }

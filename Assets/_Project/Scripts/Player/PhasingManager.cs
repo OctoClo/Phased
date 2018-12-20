@@ -10,9 +10,7 @@ public class PhasingManager : MonoBehaviour
 
     public List<Material> MaterialsPlayersLink = new List<Material>();
     public GameObject PlayersLink;
-
-    public OutputManager outputManager;
-
+    
     public float PrePhaseTriggerDist = 18.0f;
     public float PhaseTriggerDist = 8.0f;
 
@@ -70,11 +68,11 @@ public class PhasingManager : MonoBehaviour
                 break;
             case EStatePhase.PRE_PHASE:
                 PlayersLink.SetActive(true);
-                outputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration);
+                OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration);
                 break;
             case EStatePhase.PHASE:
                 PlayersLink.SetActive(true);
-                outputManager.VibrateAll(PhaseVibration, PhaseVibration);
+                OutputManager.VibrateAll(PhaseVibration, PhaseVibration);
                 //Set input manager to average players input to control the two ships as one
 
                 // Next proto:
