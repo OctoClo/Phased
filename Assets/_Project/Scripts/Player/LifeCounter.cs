@@ -7,13 +7,13 @@ public class LifeCounter : MonoBehaviour
     public int LifeCount = 5;
 
     int previousFrameLifeCount;
-    int flickerCounter;
+    float flickerCounter;
     
     public bool IsInvulnerable
     {
         get
         {
-            return (flickerCounter > 0);
+            return (flickerCounter != 0.0f);
         }
     }
 
@@ -40,7 +40,7 @@ public class LifeCounter : MonoBehaviour
 
     void Start()
     {
-        flickerCounter = 0;
+        flickerCounter = 0.0f;
         previousFrameLifeCount = LifeCount;
     }
 
@@ -65,13 +65,13 @@ public class LifeCounter : MonoBehaviour
 
         if (IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
         {
-            flickerCounter--;
+            flickerCounter -= Time.deltaTime;
         }
 
         // Check if the player collided with an obstacle in the current frame
         if (previousFrameLifeCount != LifeCount)
         {
-            flickerCounter = WorldConstants.Instance.PlayerInvulnerableFrameCount;
+            flickerCounter = WorldConstants.Instance.PlayerInvulnerabilityDuration;
         }
 
         previousFrameLifeCount = LifeCount;
