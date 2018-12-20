@@ -24,19 +24,7 @@ public class LifeCounter : MonoBehaviour
             return ( LifeCount <= 0 );
         }
     }
-
-    private Spaceship damageSource;
-    public Spaceship DamageSource
-    {
-        get
-        {
-            return damageSource;
-        }
-        private set
-        {
-            damageSource = value;
-        }
-    }
+    public Spaceship DamageSource { get; private set; }
 
     void Start()
     {
@@ -44,9 +32,14 @@ public class LifeCounter : MonoBehaviour
         previousFrameLifeCount = LifeCount;
     }
 
+    public void TriggerInvulnerability( float durationInSeconds )
+    {
+        flickerCounter = durationInSeconds;
+    }
+
     public void RemoveLife( Spaceship other )
     {
-        damageSource = other;
+        DamageSource = other;
 
         LifeCount--;
     }
