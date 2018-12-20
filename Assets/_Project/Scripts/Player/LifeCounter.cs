@@ -13,7 +13,7 @@ public class LifeCounter : MonoBehaviour
     {
         get
         {
-            return (flickerCounter != 0.0f);
+            return (flickerCounter > 0.0f);
         }
     }
 
@@ -46,16 +46,6 @@ public class LifeCounter : MonoBehaviour
 
     void Update()
     {
-        if (LifeCount <= 0)
-        {
-            // TODO GameOver Screen
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
-        }
-
         if (IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
         {
             flickerCounter -= Time.deltaTime;
