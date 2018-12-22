@@ -12,6 +12,7 @@ public class PhasingManager : MonoBehaviour
 
     public GameObject PlayersLink;
 
+    public InputManager inputManager;
     public OutputManager outputManager;
 
     public float PrePhaseTriggerDist = 18.0f;
@@ -23,7 +24,7 @@ public class PhasingManager : MonoBehaviour
     [SerializeField]
     EStatePhase state = EStatePhase.NO_PHASE;
 
-    float distBetweenShips = 0.0f;    
+    float distBetweenShips = 0.0f;
 
     void Update()
     {
@@ -64,7 +65,7 @@ public class PhasingManager : MonoBehaviour
 
     void HandleStateChange()
     {
-        switch(state)
+        switch (state)
         {
             case EStatePhase.NO_PHASE:
                 PlayersLink.SetActive(false);
@@ -76,7 +77,9 @@ public class PhasingManager : MonoBehaviour
             case EStatePhase.PHASE:
                 PlayersLink.SetActive(true);
                 outputManager.VibrateAll(PhaseVibration, PhaseVibration);
+
                 //Set input manager to average players input to control the two ships as one
+                inputManager.setPlayersInputAverageMode(true);
 
                 // Next proto:
                 //Activate shield on ships
