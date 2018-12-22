@@ -3894,6 +3894,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 78b911f051e97e645aff1ca333cfb93c, type: 2}
   - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
   PlayersLink: {fileID: 385043339}
+  inputManager: {fileID: 1456930901}
   PrePhaseTriggerDist: 10
   PhaseTriggerDist: 6
   PrePhaseVibration: 0.05
@@ -5028,6 +5029,7 @@ MonoBehaviour:
   Spaceships:
   - {fileID: 717413178}
   - {fileID: 647311984}
+  averagePlayersInput: 0
 --- !u!4 &1456930902
 Transform:
   m_ObjectHideFlags: 0
