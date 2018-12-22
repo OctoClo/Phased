@@ -37,6 +37,7 @@ public class Spaceship : MonoBehaviour
     Vector3 cursorScale;
     Vector2 previousTarget;
     float previousAngle = 0.0f;
+    float angleOffset = -90.0f;
 
     void Start()
     {
@@ -82,7 +83,13 @@ public class Spaceship : MonoBehaviour
 
         RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
 
-		float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
+        float angle = 0.0f;
+
+        if (!Target.Equals(Vector2.zero))
+        {
+            angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+        }
+
 		Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
 
 		previousAngle = angle;
