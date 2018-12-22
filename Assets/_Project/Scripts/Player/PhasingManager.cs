@@ -14,8 +14,8 @@ public class PhasingManager : MonoBehaviour
     public float PrePhaseTriggerDist = 18.0f;
     public float PhaseTriggerDist = 8.0f;
 
-    public float PrePhaseVibration = 0.05f;
-    public float PhaseVibration = 0.1f;
+    public float PrePhaseVibration = 0.001f;
+    public float PhaseVibration = 0.0005f;
 
     [SerializeField]
     EStatePhase state = EStatePhase.NO_PHASE;
@@ -65,6 +65,10 @@ public class PhasingManager : MonoBehaviour
         {
             case EStatePhase.NO_PHASE:
                 PlayersLink.SetActive(false);
+
+                //Reset ?
+                OutputManager.VibrateAll(0, 0);
+                
                 break;
             case EStatePhase.PRE_PHASE:
                 PlayersLink.SetActive(true);
