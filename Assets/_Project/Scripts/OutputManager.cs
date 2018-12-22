@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Input;
 
-public class OutputManager : MonoBehaviour
+public static class OutputManager
 {
-    [HideInInspector]
-    public List<Gamepad> Gamepads = new List<Gamepad>();
-
-    public void Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight)
+    public static void Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight)
     {
         gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
     }
 
-    public void VibrateAll(float vibrationLeft, float vibrationRight)
+    public static void VibrateAll(float vibrationLeft, float vibrationRight)
     {
-        foreach (Gamepad gamepad in Gamepads)
+        foreach (Gamepad gamepad in Gamepad.all)
         {
             Vibrate(gamepad, vibrationLeft, vibrationRight);
         }

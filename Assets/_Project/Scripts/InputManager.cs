@@ -26,15 +26,8 @@ public class InputManager : MonoBehaviour
     bool[] connectedPlayers;
     List<ConnectedPlayer> connectedPlayersInstance;
     List<ConnectedGamepad> connectedGamepads;
-
-    public OutputManager outputManager;
-
-    // Handling spaceships input
-    public InputActionAsset InputAsset;
-
+    
     public List<Spaceship> Spaceships = new List<Spaceship>();
-
-    InputActionMap inputMap;
 
     public bool averagePlayersInput = false;
 
@@ -104,17 +97,19 @@ public class InputManager : MonoBehaviour
 
             if (change == InputDeviceChange.Disconnected || change == InputDeviceChange.Removed)
             {
-                int index = connectedGamepads.FindIndex( x => ( x.DeviceInstance == ( device as Gamepad ) ) );
+                Debug.Log("Lost Gamepad!");
+
+                int index = connectedGamepads.FindIndex(x => (x.DeviceInstance == (device as Gamepad)));
                 if (index >= 0)
                 {
                     playerCount--;
                     connectedPlayers[index] = false;
                     connectedGamepads.RemoveAt(index);
 
-                    connectedPlayersInstance.RemoveAt( connectedPlayersInstance.FindIndex( x => x.Gamepad.DeviceInstance == device ) );
+                    connectedPlayersInstance.RemoveAt(connectedPlayersInstance.FindIndex(x => x.Gamepad.DeviceInstance == device));
                 }
             }
-            else if ( change == InputDeviceChange.Added )
+            else if (change == InputDeviceChange.Added)
             {
                 Debug.Log("New Gamepad Detected!");
 
@@ -137,7 +132,7 @@ public class InputManager : MonoBehaviour
         {
             if (connectedPlayer.Gamepad != null)
             {
-                Gamepad gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
+                var gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
                 if (gamepad != null)
                 {
 
@@ -159,7 +154,7 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                // TODO Assume a keyboard and mouse are plugged in...
+                // TODO Assume a keyboard and a mouse are plugged in...
                 Keyboard keyboardInstance = InputSystem.GetDevice<Keyboard>();
                 Mouse mouseInstance = InputSystem.GetDevice<Mouse>();
 
@@ -221,11 +216,7 @@ public class InputManager : MonoBehaviour
 
     void OnDisable()
     {
-        // Stop vibrations
-        foreach (Gamepad g in Gamepad.all)
-        {
-            outputManager.Vibrate(g, 0.0f, 0.0f);
-        }
+        OutputManager.VibrateAll( 0.0f, 0.0f );
     }
 
     public void setPlayersInputAverageMode(bool val){

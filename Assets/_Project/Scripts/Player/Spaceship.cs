@@ -9,7 +9,7 @@ public class Spaceship : MonoBehaviour
     public float Speed = 13.0f;
     public float Tilt = 0.6f;
     
-    public GameObject WeaponPrefab;
+    public List<GameObject> Weapons;
 
     public float TargetRadius = 2.0f;
 
@@ -37,6 +37,7 @@ public class Spaceship : MonoBehaviour
     Vector3 cursorScale;
     Vector2 previousTarget;
     float previousAngle = 0.0f;
+    float angleOffset = -90.0f;
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class Spaceship : MonoBehaviour
         cursorScale = Cursor.transform.localScale;
         soundIndex = 0;
 
-        SetWeapon(WeaponPrefab);
+        SetWeapon(EStatePhase.NO_PHASE);
     }
 
     void Update()
@@ -82,7 +83,13 @@ public class Spaceship : MonoBehaviour
 
         RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
 
-		float angle = Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg;
+        float angle = 0.0f;
+
+        if (!Target.Equals(Vector2.zero))
+        {
+            angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+        }
+
 		Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
 
 		previousAngle = angle;
@@ -98,14 +105,12 @@ public class Spaceship : MonoBehaviour
         if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
     }
 
-    public void SetWeapon(GameObject newWeapon)
+    public void SetWeapon(EStatePhase state)
     {
-        WeaponPrefab = newWeapon;
-
         if (weaponGO)
             Destroy(weaponGO);
 
-        weaponGO = Instantiate(WeaponPrefab, Cursor.transform);
+        weaponGO = Instantiate(Weapons[(int)state], Cursor.transform);
         weapon = weaponGO.GetComponent<Weapon>();
         weapon.Spaceship = this;
     }

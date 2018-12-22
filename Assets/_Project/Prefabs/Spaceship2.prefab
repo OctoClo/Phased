@@ -12,6 +12,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship2
       objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: Weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 5126206406132977267, guid: bd696dbba50b0aa4baf39cdb408d0fd7,
+        type: 3}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: Weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 7147953213865379649, guid: e847d9d0577ed0e4cb31578dde091828,
+        type: 3}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: PlayerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -107,6 +124,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 225.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3823704589881370483, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b79a4792468a2784487587ed05186e86, type: 2}
     - target: {fileID: 6569177559495876796, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_Mesh

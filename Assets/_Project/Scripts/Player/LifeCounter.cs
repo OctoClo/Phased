@@ -7,13 +7,13 @@ public class LifeCounter : MonoBehaviour
     public int LifeCount = 5;
 
     int previousFrameLifeCount;
-    int flickerCounter;
+    float flickerCounter;
     
     public bool IsInvulnerable
     {
         get
         {
-            return (flickerCounter > 0);
+            return (flickerCounter > 0.0f);
         }
     }
 
@@ -24,54 +24,37 @@ public class LifeCounter : MonoBehaviour
             return ( LifeCount <= 0 );
         }
     }
-
-    private Spaceship damageSource;
-    public Spaceship DamageSource
-    {
-        get
-        {
-            return damageSource;
-        }
-        private set
-        {
-            damageSource = value;
-        }
-    }
+    public Spaceship DamageSource { get; private set; }
 
     void Start()
     {
-        flickerCounter = 0;
+        flickerCounter = 0.0f;
         previousFrameLifeCount = LifeCount;
+    }
+
+    public void TriggerInvulnerability( float durationInSeconds )
+    {
+        flickerCounter = durationInSeconds;
     }
 
     public void RemoveLife( Spaceship other )
     {
-        damageSource = other;
+        DamageSource = other;
 
         LifeCount--;
     }
 
     void Update()
     {
-        if (LifeCount <= 0)
-        {
-            // TODO GameOver Screen
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
-        }
-
         if (IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
         {
-            flickerCounter--;
+            flickerCounter -= Time.deltaTime;
         }
 
         // Check if the player collided with an obstacle in the current frame
         if (previousFrameLifeCount != LifeCount)
         {
-            flickerCounter = WorldConstants.Instance.PlayerInvulnerableFrameCount;
+            flickerCounter = WorldConstants.Instance.PlayerInvulnerabilityDuration;
         }
 
         previousFrameLifeCount = LifeCount;
