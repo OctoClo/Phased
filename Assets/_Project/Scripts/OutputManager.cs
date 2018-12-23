@@ -5,16 +5,28 @@ using UnityEngine.Experimental.Input;
 
 public static class OutputManager
 {
-    public static void Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight)
+    public static IEnumerator Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight, float duration)
     {
         gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
+        yield return new WaitForSeconds(duration);
+        gamepad.SetMotorSpeeds(0.0f, 0.0f);
     }
 
-    public static void VibrateAll(float vibrationLeft, float vibrationRight)
+    public static IEnumerator VibrateAll(float vibrationLeft, float vibrationRight, float duration)
     {
         foreach (Gamepad gamepad in Gamepad.all)
         {
-            Vibrate(gamepad, vibrationLeft, vibrationRight);
+            gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
+            yield return new WaitForSeconds(duration);
+            gamepad.SetMotorSpeeds(0.0f, 0.0f);
+        }
+    }
+
+    public static void ResetVibrationAll()
+    {
+        foreach (Gamepad gamepad in Gamepad.all)
+        {
+            gamepad.SetMotorSpeeds(0.0f, 0.0f);
         }
     }
 }

@@ -14,8 +14,10 @@ public class PhasingManager : MonoBehaviour
     public float PrePhaseTriggerDist = 18.0f;
     public float PhaseTriggerDist = 8.0f;
 
-    public float PrePhaseVibration = 0.001f;
-    public float PhaseVibration = 0.0005f;
+    public float PrePhaseVibration = 0.05f;
+    public float PrePhaseVibrationDuration = 0.1f;
+    public float PhaseVibration = 0.1f;
+    public float PhaseVibrationDuration = 0.1f;
 
     [SerializeField]
     EStatePhase state = EStatePhase.NO_PHASE;
@@ -65,21 +67,18 @@ public class PhasingManager : MonoBehaviour
         {
             case EStatePhase.NO_PHASE:
                 PlayersLink.SetActive(false);
-
-                //Reset ?
-                OutputManager.VibrateAll(0, 0);
-                
+                OutputManager.ResetVibrationAll();
                 break;
+
             case EStatePhase.PRE_PHASE:
                 PlayersLink.SetActive(true);
-                OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration);
+                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
                 break;
+
             case EStatePhase.PHASE:
                 PlayersLink.SetActive(true);
-                OutputManager.VibrateAll(PhaseVibration, PhaseVibration);
-                //Set input manager to average players input to control the two ships as one
-                inputManager.setPlayersInputAverageMode(true);
-
+                StartCoroutine(OutputManager.VibrateAll(PhaseVibration, PhaseVibration, PhaseVibrationDuration));
+                //inputManager.SetPlayersInputAverageMode(true);
                 // Next proto:
                 //Activate shield on ships
                 //Invulnerability on phasing during 2 seconds
