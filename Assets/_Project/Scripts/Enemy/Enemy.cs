@@ -71,7 +71,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject, PlayExplosionFX());
+        PlayExplosionFX();
+        Destroy(gameObject);
     }
 
     float PlayExplosionFX()
