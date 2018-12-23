@@ -20,12 +20,14 @@ public class ObjectDestroyer : MonoBehaviour
             {
                 Destroy(bullet.gameObject);
             }
-
-            Obstacle obstacle = other.GetComponent<Obstacle>();
-
-            if (obstacle)
+            else
             {
-                Destroy(obstacle.gameObject);
+                Obstacle obstacle = other.GetComponent<Obstacle>();
+
+                if (obstacle)
+                {
+                    Destroy(obstacle.gameObject);
+                }
             }
         }
     }

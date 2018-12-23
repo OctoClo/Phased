@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-
     Rigidbody rigidBody;
 
     void Start()
@@ -18,7 +17,6 @@ public class Obstacle : MonoBehaviour
         Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.ObstacleSpeedMultiplier);
 
         rigidBody.velocity = updatedVelocity;
-        
     }
 
     void OnTriggerEnter(Collider other)
