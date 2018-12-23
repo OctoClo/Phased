@@ -29,6 +29,12 @@ PrefabInstance:
       propertyPath: PlayerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: Weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 4307869706529366940, guid: 1127eef0d37d21640a7dbfa6734302b6,
+        type: 3}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
