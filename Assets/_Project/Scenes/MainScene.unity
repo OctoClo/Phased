@@ -757,8 +757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
-  spawnIntervalMin: 0.2
-  spawnIntervalMax: 2
+  spawnIntervalMin: 3
+  spawnIntervalMax: 6
   spawnXMin: -20
   spawnXMax: 20
   spawnY: 1
@@ -1229,8 +1229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4c5fdcb0d1e8c44b94f8d71510bcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldScrollSpeed: 2
+  WorldScrollSpeed: 4
   ObstacleSpeedMultiplier: 1.5
+  EnemySpeedMultiplier: 1
   MovingObstacleLateralSpeed: 4
   MovingObstacleLateralWidth: 29
   PlayerInvulnerabilityDuration: 0.5
@@ -4173,7 +4174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173211306}
-  - component: {fileID: 1173211305}
+  - component: {fileID: 1173211307}
   m_Layer: 0
   m_Name: SpawnerObstacles
   m_TagString: Untagged
@@ -4181,26 +4182,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1173211305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173211304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0b0bbea90639b40aeb3a0eb729cea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
-    type: 3}
-  spawnIntervalMin: 30
-  spawnIntervalMax: 40
-  spawnXMin: -20
-  spawnXMax: 20
-  spawnY: 1
-  spawnZ: 53
 --- !u!4 &1173211306
 Transform:
   m_ObjectHideFlags: 0
@@ -4215,6 +4196,25 @@ Transform:
   m_Father: {fileID: 1185805977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1173211307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173211304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3275823ff638c25499055c45bf5f8fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2023400026556946779, guid: df2f57e732abdd949b7b0dc0e817fc7c, type: 3}
+  spawnIntervalMin: 5
+  spawnIntervalMax: 10
+  spawnXMin: -20
+  spawnXMax: 20
+  spawnY: 1
+  spawnZ: 53
 --- !u!1 &1185805976
 GameObject:
   m_ObjectHideFlags: 0
