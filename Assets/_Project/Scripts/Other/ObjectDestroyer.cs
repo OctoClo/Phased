@@ -6,19 +6,19 @@ public class ObjectDestroyer : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        EnemySphere enemy = other.GetComponent<EnemySphere>();
+        Bullet bullet = other.GetComponent<Bullet>();
 
-        if (enemy)
+        if (bullet)
         {
-            Destroy(enemy.gameObject);
+            Destroy(bullet.gameObject);
         }
         else
         {
-            Bullet bullet = other.GetComponent<Bullet>();
+            EnemySphere enemy = other.GetComponent<EnemySphere>();
 
-            if (bullet)
+            if (enemy)
             {
-                Destroy(bullet.gameObject);
+                Destroy(enemy.gameObject);
             }
             else
             {

@@ -15,7 +15,6 @@ public class EnemySphere : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         enemyRenderer = GetComponent<Renderer>();
-
     }
 
     void FixedUpdate()
