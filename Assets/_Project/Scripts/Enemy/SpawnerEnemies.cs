@@ -1,20 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
-    public GameObject prefabEnemy;
-    public float spawnIntervalMin, spawnIntervalMax;
-    public float spawnXMin, spawnXMax;
-    public float spawnY, spawnZ;
+    public GameObject PrefabEnemy;
+
+    public EShootMode ShootMode = EShootMode.NEAREST;
+    public EShootTarget ShootTarget = EShootTarget.RANDOM;
+
+    public float SpawnIntervalMin = 2f;
+    public float SpawnIntervalMax = 4f;
+    public float SpawnXMin = -20f;
+    public float SpawnXMax = 20f;
+    public float SpawnY = 1f;
+    public float SpawnZ = 80f;
 
     float spawnInterval;
     float lastSpawn;
 
     void Start()
     {
-        spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+        UnityEngine.Random.InitState(42);
+        spawnInterval = UnityEngine.Random.Range(SpawnIntervalMin, SpawnIntervalMax);
     }
 
     void Update()
@@ -23,10 +32,15 @@ public class SpawnerEnemies : MonoBehaviour
 
         if (lastSpawn >= spawnInterval)
         {
-            GameObject spawn = Instantiate(prefabEnemy, new Vector3(Random.Range(spawnXMin, spawnXMax), spawnY, spawnZ), Quaternion.identity);
-            Enemy enemy = spawn.GetComponent<Enemy>();
+            GameObject spawn = Instantiate(PrefabEnemy, new Vector3(UnityEngine.Random.Range(SpawnXMin, SpawnXMax), SpawnY, SpawnZ), Quaternion.identity);
+            EnemySphereShooting enemyShooting = spawn.GetComponent<EnemySphereShooting>();
+            if (enemyShooting)
+            {
+                enemyShooting.ShootMode = ShootMode;
+                enemyShooting.ShootTarget = ShootTarget;
+            }
 
-            spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+            spawnInterval = UnityEngine.Random.Range(SpawnIntervalMin, SpawnIntervalMax);
             lastSpawn = 0;
         }
     }

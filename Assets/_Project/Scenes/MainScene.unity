@@ -805,14 +805,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0b0bbea90639b40aeb3a0eb729cea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
+  PrefabEnemy: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
     type: 3}
-  spawnIntervalMin: 2
-  spawnIntervalMax: 4
-  spawnXMin: -20
-  spawnXMax: 20
-  spawnY: 1
-  spawnZ: 80
+  ShootMode: 0
+  ShootTarget: 2
+  SpawnIntervalMin: 2
+  SpawnIntervalMax: 4
+  SpawnXMin: -20
+  SpawnXMax: 20
+  SpawnY: 1
+  SpawnZ: 80
 --- !u!4 &127212071
 Transform:
   m_ObjectHideFlags: 0
@@ -4858,6 +4860,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188058745}
   m_CullTransparentMesh: 0
+--- !u!1 &1224331106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224331107}
+  m_Layer: 0
+  m_Name: Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1224331107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224331106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290000401
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,7 +7766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 5
+  LifeCount: 10
 --- !u!4 &1974658314
 Transform:
   m_ObjectHideFlags: 0

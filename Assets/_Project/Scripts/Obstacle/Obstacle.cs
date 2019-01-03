@@ -24,12 +24,7 @@ public class Obstacle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Spaceship spaceshipInstance = other.GetComponent<Spaceship>();
-
-            if (!spaceshipInstance.LifeCounter.IsInvulnerable)
-            {
-                spaceshipInstance.LifeCounter.RemoveLife(spaceshipInstance);
-                spaceshipInstance.PlayImpactSFX();
-            }
+            spaceshipInstance.RemoveLife();
         }
     }
 }
