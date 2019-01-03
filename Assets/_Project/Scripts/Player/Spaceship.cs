@@ -32,7 +32,7 @@ public class Spaceship : MonoBehaviour
     Renderer spaceshipRenderer;
 
     GameObject weaponGO;
-    Weapon weapon;
+    WeaponSpaceship weapon;
 
     Vector3 cursorScale;
     Vector2 previousTarget;
@@ -93,17 +93,7 @@ public class Spaceship : MonoBehaviour
 		Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
 
 		previousAngle = angle;
-    }
-
-    public void PlayImpactSFX()
-    {
-        var audioSource = GetComponent<AudioSource>();
-
-        audioSource.PlayOneShot(ImpactSounds[soundIndex]);
-
-        soundIndex++;
-        if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
-    }
+    }    
 
     public void SetWeapon(EStatePhase state)
     {
@@ -111,7 +101,27 @@ public class Spaceship : MonoBehaviour
             Destroy(weaponGO);
 
         weaponGO = Instantiate(Weapons[(int)state], Cursor.transform);
-        weapon = weaponGO.GetComponent<Weapon>();
+        weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;
+        weapon.Cursor = Cursor;
+    }
+
+    public void RemoveLife()
+    {
+        if (!LifeCounter.IsInvulnerable)
+        {
+            LifeCounter.RemoveLife(this);
+            PlayImpactSFX();
+        }
+    }
+
+    void PlayImpactSFX()
+    {
+        var audioSource = GetComponent<AudioSource>();
+
+        audioSource.PlayOneShot(ImpactSounds[soundIndex]);
+
+        soundIndex++;
+        if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
     }
 }
