@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 1654354264252132763}
   - component: {fileID: 7590939064732651735}
   - component: {fileID: 6655485124073716752}
-  - component: {fileID: 7947679936769061373}
   - component: {fileID: 8188744686549857278}
+  - component: {fileID: 4819395866568214551}
   - component: {fileID: 6982326568767102013}
   - component: {fileID: 6252388307046062302}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemySphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7947679936769061373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2367913565127351573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8188744686549857278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,6 +97,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!135 &4819395866568214551
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367913565127351573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.2379088
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6982326568767102013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 2
-  Weapon: {fileID: 6948975954691802028, guid: 8c3435c6ce66d984f8339e08b811c1cc, type: 3}
-  Cursor: {fileID: 0}
+  PatternSinus: 0
   ExplosionSounds:
   - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
   - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
