@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class SpawnerEnemies : MonoBehaviour
 {
+    public enum eBehaviour
+    {
+        LINEAR, // Pattern 1
+        LINEAR_SWIPE, // Pattern 2
+        SIN_PATH, // Pattern 3
+        KAMIKAZE,
+    };
+
     public GameObject PrefabEnemy;
 
     public EShootMode ShootMode = EShootMode.NEAREST;
     public EShootTarget ShootTarget = EShootTarget.RANDOM;
+    public eBehaviour Behaviour = eBehaviour.LINEAR;
 
     public float SpawnIntervalMin = 2f;
     public float SpawnIntervalMax = 4f;
@@ -38,6 +47,22 @@ public class SpawnerEnemies : MonoBehaviour
             {
                 enemyShooting.ShootMode = ShootMode;
                 enemyShooting.ShootTarget = ShootTarget;
+            }
+
+            switch (Behaviour)
+            {
+                case eBehaviour.KAMIKAZE:
+                    spawn.AddComponent<EnemyKamikazeBehaviour>();
+                    break;
+                case eBehaviour.LINEAR_SWIPE:
+                    spawn.GetComponent<EnemySphere>().PatternSwipe = true;
+                    break;
+                case eBehaviour.SIN_PATH:
+                    spawn.GetComponent<EnemySphere>().PatternSinus = true;
+                    break;
+                case eBehaviour.LINEAR:
+                default:
+                    break;
             }
 
             spawnInterval = UnityEngine.Random.Range(SpawnIntervalMin, SpawnIntervalMax);

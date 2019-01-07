@@ -6,20 +6,23 @@ public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
     public bool PatternSinus = false;
+    public bool PatternSwipe = false;
     public List<AudioClip> ExplosionSounds;
 
     Rigidbody rigidBody;
     Renderer enemyRenderer;
-    
+    Vector3 movement;
+
     protected virtual void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         enemyRenderer = GetComponent<Renderer>();
+
+        movement = new Vector3(0, 0, -1);
     }
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(0, 0, -1);
         Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
 
         if (PatternSinus)
@@ -37,6 +40,14 @@ public class EnemySphere : MonoBehaviour
         {
             Spaceship spaceshipInstance = other.GetComponent<Spaceship>();
             spaceshipInstance.RemoveLife();
+        }
+
+        if (other.CompareTag("WorldBounds"))
+        {
+            if (PatternSwipe)
+            {
+                movement.z = -movement.z;
+            }
         }
     }
 
