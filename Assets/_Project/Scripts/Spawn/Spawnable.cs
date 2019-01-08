@@ -5,8 +5,7 @@ using UnityEngine;
 public class Spawnable : MonoBehaviour
 {
     public GameObject Child;
-
-    bool hasStarted = false;
+    
     Rigidbody rigidBody;
     GameObject spawnsFolder;
 
