@@ -70,6 +70,7 @@ public class WorldConstants : Singleton<WorldConstants>
     public float WorldScrollSpeed = 2.0f;
     public float ObstacleSpeedMultiplier = 3.0f;
     public float EnemySpeedMultiplier = 1.50f;
+    public float SpawnableSpeedMultiplier = 1f;
     public float MovingObstacleLateralSpeed = 4.0f;
     public float MovingObstacleLateralWidth = 20.0f;
 

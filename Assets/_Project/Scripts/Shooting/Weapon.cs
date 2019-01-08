@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     protected int soundIndex;
     protected AudioSource audioSource;
 
-    GameObject bulletsFolder;
+    protected GameObject bulletsFolder;
 
     protected virtual void Start()
     {
@@ -35,21 +35,25 @@ public class Weapon : MonoBehaviour
 
         if (IsReadytoFire())
         {
-            audioSource.PlayOneShot(FireSounds[soundIndex], 0.15f);
+            lastFire = 0;
 
+            audioSource.PlayOneShot(FireSounds[soundIndex], 0.15f);
             soundIndex++;
             if (soundIndex >= FireSounds.Count) soundIndex = 0;
-            
-            bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-            bullet.transform.rotation = Quaternion.Euler(90, Cursor.transform.rotation.eulerAngles.y, 0);
-            bullet.transform.SetParent(bulletsFolder.transform);
 
-            lastFire = 0;
+            Fire();            
         }
     }
 
     protected virtual bool IsReadytoFire()
     {
         return (lastFire >= FireInterval);
+    }
+
+    protected virtual void Fire()
+    {
+        bullet = Instantiate(BulletPrefab, Cursor.transform.position, Quaternion.identity);
+        bullet.transform.rotation = Quaternion.Euler(90, Cursor.transform.rotation.eulerAngles.y, 0);
+        bullet.transform.SetParent(bulletsFolder.transform);
     }
 }

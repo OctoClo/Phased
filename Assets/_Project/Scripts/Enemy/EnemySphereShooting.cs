@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EShootMode { NEAREST, SPACESHIP, RANDOM };
+public enum EShootMode { NEAREST, SPACESHIP, RANDOM, BOTH };
 public enum EShootTarget { SPACESHIP1, SPACESHIP2, RANDOM };
 
 public class EnemySphereShooting : EnemySphere
@@ -10,9 +10,11 @@ public class EnemySphereShooting : EnemySphere
     public EShootMode ShootMode = EShootMode.NEAREST;
     public EShootTarget ShootTarget = EShootTarget.SPACESHIP1;
 
-    public GameObject Target;
     public GameObject Weapon;
+    public GameObject Target;
+    public GameObject SecondTarget;
     public GameObject Cursor;
+    public GameObject SecondCursor;
 
     GameObject[] spaceships;
     GameObject weaponGO;
@@ -32,9 +34,13 @@ public class EnemySphereShooting : EnemySphere
 
     void CreateWeapon()
     {
-        weaponGO = Instantiate(Weapon, Cursor.transform);
+        weaponGO = Instantiate(Weapon, gameObject.transform);
         weapon = weaponGO.GetComponent<WeaponEnemy>();
         weapon.Cursor = Cursor;
+        if (ShootMode == EShootMode.BOTH)
+        {
+            weapon.SecondCursor = SecondCursor;
+        }
     }
 
     void InitializeShoot()
@@ -43,6 +49,11 @@ public class EnemySphereShooting : EnemySphere
         {
             ShootMode = (EShootMode)Random.Range(0, 2);
             Debug.Log("Shoot mode: " + ShootMode);
+        }
+        else if (ShootMode == EShootMode.BOTH)
+        {
+            Target = GameObject.Find("Spaceship1");
+            SecondTarget = GameObject.Find("Spaceship2");
         }
 
         if (ShootMode == EShootMode.SPACESHIP)
@@ -83,5 +94,10 @@ public class EnemySphereShooting : EnemySphere
         }
 
         Cursor.transform.LookAt(Target.transform);
+
+        if (ShootMode == EShootMode.BOTH)
+        {
+            SecondCursor.transform.LookAt(SecondTarget.transform);
+        }
     }
 }

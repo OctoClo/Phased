@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum eBehaviour
+{
+    LINEAR, // Pattern 1
+    LINEAR_SWIPE, // Pattern 2
+    SIN_PATH, // Pattern 3
+    KAMIKAZE,
+};
+
 public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
-    public bool PatternSinus = false;
-    public bool PatternSwipe = false;
+    public eBehaviour Pattern = eBehaviour.LINEAR;
     public List<AudioClip> ExplosionSounds;
 
     Rigidbody rigidBody;
     Renderer enemyRenderer;
     Vector3 movement;
+
+    bool firstRebound = true;
 
     protected virtual void Start()
     {
@@ -19,13 +28,18 @@ public class EnemySphere : MonoBehaviour
         enemyRenderer = GetComponent<Renderer>();
 
         movement = new Vector3(0, 0, -1);
+
+        if (Pattern == eBehaviour.KAMIKAZE)
+        {
+            gameObject.AddComponent<EnemyKamikazeBehaviour>();
+        }
     }
 
     void FixedUpdate()
     {
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
+        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
 
-        if (PatternSinus)
+        if (Pattern == eBehaviour.SIN_PATH)
         {
             updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.MovingObstacleLateralSpeed)
                                 * WorldConstants.Instance.MovingObstacleLateralWidth;
@@ -44,9 +58,16 @@ public class EnemySphere : MonoBehaviour
 
         if (other.CompareTag("WorldBounds"))
         {
-            if (PatternSwipe)
+            if (Pattern == eBehaviour.LINEAR_SWIPE)
             {
-                movement.z = -movement.z;
+                if (firstRebound)
+                {
+                    firstRebound = false;
+                }
+                else
+                {
+                    movement.z = -movement.z;
+                }
             }
         }
     }
