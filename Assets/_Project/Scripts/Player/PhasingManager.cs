@@ -6,6 +6,7 @@ public enum EStatePhase { NO_PHASE, PRE_PHASE, PHASE };
 
 public class PhasingManager : MonoBehaviour
 {
+    public Bar PhasingBar;
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
     public List<Material> MaterialsPlayersLink = new List<Material>();
