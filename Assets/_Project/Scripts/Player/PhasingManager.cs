@@ -19,6 +19,9 @@ public class PhasingManager : MonoBehaviour
     public float PhaseVibration = 0.1f;
     public float PhaseVibrationDuration = 0.1f;
 
+    public uint PrePhaseScoreMultiplicator = 2;
+    public uint PhaseScoreMultiplicator = 4;
+
     [SerializeField]
     EStatePhase state = EStatePhase.NO_PHASE;
 
@@ -63,6 +66,8 @@ public class PhasingManager : MonoBehaviour
 
     void HandleStateChange()
     {
+        uint scoreMultiplicator = 1;
+
         switch (state)
         {
             case EStatePhase.NO_PHASE:
@@ -71,11 +76,14 @@ public class PhasingManager : MonoBehaviour
                 break;
 
             case EStatePhase.PRE_PHASE:
+                scoreMultiplicator = PrePhaseScoreMultiplicator;
                 PlayersLink.SetActive(true);
                 StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
+                scoreMultiplicator = PhaseScoreMultiplicator;
+
                 PlayersLink.SetActive(true);
                 StartCoroutine(OutputManager.VibrateAll(PhaseVibration, PhaseVibration, PhaseVibrationDuration));
                 //inputManager.SetPlayersInputAverageMode(true);
@@ -84,6 +92,8 @@ public class PhasingManager : MonoBehaviour
                 //Invulnerability on phasing during 2 seconds
                 break;
         }
+
+        GameScore.Multiplicator = scoreMultiplicator;
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)state];
         SetSpaceshipsWeapon(state);
