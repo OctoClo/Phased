@@ -6,35 +6,60 @@ public enum EStatePhase { NO_PHASE, PRE_PHASE, PHASE };
 
 public class PhasingManager : MonoBehaviour
 {
+    [Header("Phasing Bar")]
     public Bar PhasingBar;
-    public List<Spaceship> Spaceships = new List<Spaceship>();
+    public float TotalPhasingThreshold = 80f;
+    public float PhasingIncreaseSpeed = 5f;
+    public float PhasingBoostKill = 1;
 
-    public List<Material> MaterialsPlayersLink = new List<Material>();
-    public GameObject PlayersLink;
-    public InputManager inputManager;
+    [Header("PrePhase")]
     public float PrePhaseTriggerDist = 18.0f;
-    public float PhaseTriggerDist = 8.0f;
 
+    [Header("Score Multiplicator")]
+    public uint PrePhaseScoreMultiplicator = 2;
+    public uint PhaseScoreMultiplicator = 4;
+
+    [Header("Vibrations")]
     public float PrePhaseVibration = 0.05f;
     public float PrePhaseVibrationDuration = 0.1f;
     public float PhaseVibration = 0.1f;
     public float PhaseVibrationDuration = 0.1f;
 
-    public uint PrePhaseScoreMultiplicator = 2;
-    public uint PhaseScoreMultiplicator = 4;
+    [Header("Players Link")]
+    public GameObject PlayersLink;
+    public List<Material> MaterialsPlayersLink = new List<Material>();
 
-    [SerializeField]
-    EStatePhase state = EStatePhase.NO_PHASE;
+    [Header("Misc")]
+    public List<Spaceship> Spaceships = new List<Spaceship>();
+
+    EStatePhase phaseState = EStatePhase.NO_PHASE;
 
     float distBetweenShips = 0.0f;
+
+    void Start()
+    {
+        PhasingBar.SetSeparator(TotalPhasingThreshold);
+    }
 
     void Update()
     {
         distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
+        UpdatePhasingValue();
         UpdatePlayerLink();
-
         CheckForStateChange();
+    }
+
+    void UpdatePhasingValue()
+    {
+        if (phaseState == EStatePhase.NO_PHASE)
+        {
+            PhasingBar.Value -= PhasingIncreaseSpeed * Time.deltaTime;
+        }
+        else
+        {
+            PhasingBar.Value += PhasingIncreaseSpeed * Time.deltaTime;
+        }
     }
 
     void UpdatePlayerLink()
@@ -51,16 +76,24 @@ public class PhasingManager : MonoBehaviour
 
     void CheckForStateChange()
     {
-        EStatePhase newStateId = EStatePhase.NO_PHASE;
+        EStatePhase newStateId;
 
-        if (distBetweenShips < PhaseTriggerDist)
-            newStateId = EStatePhase.PHASE;
-        else if (distBetweenShips < PrePhaseTriggerDist)
-            newStateId = EStatePhase.PRE_PHASE;
-
-        if (!state.Equals(newStateId))
+        if (distBetweenShips > PrePhaseTriggerDist)
         {
-            state = newStateId;
+            newStateId = EStatePhase.NO_PHASE;
+        }
+        else if (PhasingBar.Value >= TotalPhasingThreshold)
+        {
+            newStateId = EStatePhase.PHASE;
+        }
+        else
+        {
+            newStateId = EStatePhase.PRE_PHASE;
+        }
+
+        if (!phaseState.Equals(newStateId))
+        {
+            phaseState = newStateId;
             HandleStateChange();
         }
     }
@@ -69,35 +102,30 @@ public class PhasingManager : MonoBehaviour
     {
         uint scoreMultiplicator = 1;
 
-        switch (state)
+        switch (phaseState)
         {
             case EStatePhase.NO_PHASE:
                 PlayersLink.SetActive(false);
-                OutputManager.ResetVibrationAll();
+                //StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PRE_PHASE:
-                scoreMultiplicator = PrePhaseScoreMultiplicator;
                 PlayersLink.SetActive(true);
-                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
+                scoreMultiplicator = PrePhaseScoreMultiplicator;
+                //StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
-                scoreMultiplicator = PhaseScoreMultiplicator;
-
                 PlayersLink.SetActive(true);
-                StartCoroutine(OutputManager.VibrateAll(PhaseVibration, PhaseVibration, PhaseVibrationDuration));
-                //inputManager.SetPlayersInputAverageMode(true);
-                // Next proto:
-                //Activate shield on ships
-                //Invulnerability on phasing during 2 seconds
+                scoreMultiplicator = PhaseScoreMultiplicator;
+                //StartCoroutine(OutputManager.VibrateAll(PhaseVibration, PhaseVibration, PhaseVibrationDuration));
                 break;
         }
 
         GameScore.Multiplicator = scoreMultiplicator;
 
-        PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)state];
-        SetSpaceshipsWeapon(state);
+        PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
+        SetSpaceshipsWeapon(phaseState);
     }
 
     void SetSpaceshipsWeapon(EStatePhase state)

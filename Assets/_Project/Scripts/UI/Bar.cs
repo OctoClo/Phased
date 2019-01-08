@@ -5,28 +5,42 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour
 {
-    public float MaxValue = 100f;
-    public float SeparatorValue = 80f;
     public RectTransform Separator;
     public RectTransform BarBackground;
 
+    [HideInInspector]
+    public float Value
+    {
+        get
+        {
+            return currentValue;
+        }
+        set
+        {
+            currentValue = Mathf.Clamp(value, 0, 100f);
+            UpdateBar();
+        }
+    }
+
     Image barImage;
+    float maxValue = 100f;
     float currentValue;
+    float fillAmount;
 
     void Start()
     {
         barImage = GetComponent<Image>();
-        Separator.rect.Set(SeparatorValue * BarBackground.rect.width / MaxValue, Separator.rect.y, Separator.rect.width, Separator.rect.height);
     }
-
-    public void AddValue(float value)
-    {
-        currentValue += value;
-        UpdateBar();
-    }
-
+    
     void UpdateBar()
     {
-        barImage.fillAmount = currentValue / MaxValue;
+        fillAmount = currentValue / maxValue;
+        barImage.fillAmount = fillAmount;
+    }
+
+    public void SetSeparator(float value)
+    {
+        Vector2 newPos = new Vector3(value * BarBackground.rect.width / maxValue, Separator.anchoredPosition.y);
+        Separator.anchoredPosition = newPos;
     }
 }
