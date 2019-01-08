@@ -22,23 +22,26 @@ public class LevelManager : MonoBehaviour
     {
         if (!levelEnd)
         {
-            if (!currentLevelBrickGO)
+            if (LevelBricks.Count > 0)
             {
-                CreateBrick();
-            }
-            else if (currentLevelBrick.HasSpawnedEverything)
-            {
-                Destroy(currentLevelBrickGO);
-                LevelBricks.RemoveAt(0);
-                if (LevelBricks.Count > 0)
+                if (!currentLevelBrickGO)
                 {
                     CreateBrick();
                 }
-                else
+                else if (currentLevelBrick.HasSpawnedEverything)
                 {
-                    Debug.Log("End of level!");
-                    levelEnd = true;
+                    Destroy(currentLevelBrickGO);
+                    LevelBricks.RemoveAt(0);
+                    if (LevelBricks.Count > 0)
+                    {
+                        CreateBrick();
+                    }
                 }
+            }
+            else
+            {
+                Debug.Log("End of level!");
+                levelEnd = true;
             }
         }
     }

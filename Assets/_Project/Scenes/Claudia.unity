@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 10
+  LifeCount: 15
 --- !u!4 &41137257
 Transform:
   m_ObjectHideFlags: 0
@@ -699,10 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Plane: {fileID: 1234180077}
-  LevelBricks:
-  - {fileID: 930112538431624926, guid: 6078e3e41ace7f54eb0875094930497f, type: 3}
-  - {fileID: 4117257034974874362, guid: 7bd3dff12030c4e48b13d564210669da, type: 3}
-  - {fileID: 6440038169641183026, guid: d2bc8e1d928f0254781ba8e8210e336b, type: 3}
+  LevelBricks: []
 --- !u!1 &121157756
 GameObject:
   m_ObjectHideFlags: 0
