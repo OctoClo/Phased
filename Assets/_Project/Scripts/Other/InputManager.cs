@@ -29,8 +29,6 @@ public class InputManager : MonoBehaviour
     
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
-    bool averagePlayersInput = false;
-
     void Update()
     {
         // Check connected gamepads
@@ -135,15 +133,7 @@ public class InputManager : MonoBehaviour
                 var gamepad = connectedPlayer.Gamepad.DeviceInstance as Gamepad;
                 if (gamepad != null)
                 {
-
-                    if (averagePlayersInput)
-                    {
-                        gamepadsDirections.Add(gamepad.leftStick.ReadValue());
-                    }
-                    else
-                    {
-                        connectedPlayer.Spaceship.Direction = gamepad.leftStick.ReadValue();
-                    }
+                    connectedPlayer.Spaceship.Direction = gamepad.leftStick.ReadValue();
 
                     connectedPlayer.Spaceship.Target = gamepad.rightStick.ReadValue();
                     connectedPlayer.Spaceship.IsFiring = gamepad.rightTrigger.isPressed;
@@ -161,16 +151,9 @@ public class InputManager : MonoBehaviour
 
                 if (keyboardInstance.aKey.isPressed) x += -1.0f;
                 if (keyboardInstance.dKey.isPressed) x += +1.0f;
-
-                if (averagePlayersInput)
-                {
-                    gamepadsDirections.Add(new Vector2(x, y));
-                }
-                else
-                {
-                    connectedPlayer.Spaceship.Direction.x = x;
-                    connectedPlayer.Spaceship.Direction.y = y;
-                }
+                
+                connectedPlayer.Spaceship.Direction.x = x;
+                connectedPlayer.Spaceship.Direction.y = y;
 
                 // Normalize cursor coordinates (-1..1 range)
                 Vector2 screenDimensions = new Vector2(Screen.width, Screen.height);
@@ -178,25 +161,6 @@ public class InputManager : MonoBehaviour
 
                 connectedPlayer.Spaceship.Target = mouseAbsoluteCoords / screenDimensions * new Vector2(2.0f, 2.0f) - new Vector2(1.0f, 1.0f);
                 connectedPlayer.Spaceship.IsFiring = mouseInstance.leftButton.isPressed;
-            }
-        }
-
-        if (averagePlayersInput)
-        {
-            Vector2 averagedDirection = new Vector2(0, 0);
-
-            //loop through list and set average input
-            foreach (Vector2 gamepadDirection in gamepadsDirections)
-            {
-                averagedDirection += gamepadDirection;
-            }
-
-            averagedDirection /= 2;
-
-            //Apply average directions to players
-            foreach (ConnectedPlayer connectedPlayer in connectedPlayersInstance)
-            {
-                connectedPlayer.Spaceship.Direction =  averagedDirection;
             }
         }
     }
@@ -212,27 +176,5 @@ public class InputManager : MonoBehaviour
     void OnDisable()
     {
         OutputManager.ResetVibrationAll();
-    }
-
-    public void SetPlayersInputAverageMode(bool val){
-
-        averagePlayersInput = val;
-
-        if (averagePlayersInput)
-        {
-            Vector3 averagedPos = new Vector3(0, 0, 0);
-
-            //set position as same
-            foreach (ConnectedPlayer connectedPlayer in connectedPlayersInstance)
-            {
-                averagedPos += connectedPlayer.Spaceship.transform.position;
-            }
-
-            averagedPos /= connectedPlayersInstance.Count;
-
-            connectedPlayersInstance[0].Spaceship.transform.position = new Vector3(averagedPos.x - 1.3f, averagedPos.y, averagedPos.z);
-            connectedPlayersInstance[1].Spaceship.transform.position = new Vector3(averagedPos.x + 1.3f, averagedPos.y, averagedPos.z);
-        }
-
     }
 }
