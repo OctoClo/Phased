@@ -20,9 +20,7 @@ public class PhasingManager : MonoBehaviour
     public uint PhaseScoreMultiplicator = 4;
 
     [Header("Vibrations")]
-    public float PrePhaseVibration = 0.05f;
     public float PrePhaseVibrationDuration = 0.1f;
-    public float PhaseVibration = 0.1f;
     public float PhaseVibrationDuration = 0.1f;
 
     [Header("Players Link")]
@@ -115,19 +113,19 @@ public class PhasingManager : MonoBehaviour
         {
             case EStatePhase.NO_PHASE:
                 PlayersLink.SetActive(false);
-                //StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
+                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PRE_PHASE:
                 PlayersLink.SetActive(true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
-                //StartCoroutine(OutputManager.VibrateAll(PrePhaseVibration, PrePhaseVibration, PrePhaseVibrationDuration));
+                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
                 PlayersLink.SetActive(true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
-                //StartCoroutine(OutputManager.VibrateAll(PhaseVibration, PhaseVibration, PhaseVibrationDuration));
+                StartCoroutine(OutputManager.VibrateAll(PhaseVibrationDuration));
                 break;
         }
 
