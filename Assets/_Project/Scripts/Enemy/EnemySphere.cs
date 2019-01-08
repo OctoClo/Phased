@@ -13,6 +13,8 @@ public enum eBehaviour
 public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
+    public uint KillReward = 10;
+
     public eBehaviour Pattern = eBehaviour.LINEAR;
     public List<AudioClip> ExplosionSounds;
 
@@ -89,6 +91,7 @@ public class EnemySphere : MonoBehaviour
     void Die()
     {
         PlayExplosionFX();
+        GameScore.AddToScore(KillReward);
         Destroy(gameObject);
     }
 
