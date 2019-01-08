@@ -2416,7 +2416,7 @@ Transform:
   - {fileID: 1326231060}
   - {fileID: 274211017}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581059116
 GameObject:
@@ -4055,7 +4055,7 @@ PrefabInstance:
     - target: {fileID: 8524802813899115161, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8524802813899115161, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
@@ -5085,7 +5085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0b0bbea90639b40aeb3a0eb729cea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabEnemy: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
+  PrefabEnemy: {fileID: 2367913565127351573, guid: e82e9405abe6ba14ba45c19a6dce6526,
     type: 3}
   ShootMode: 0
   ShootTarget: 2
@@ -6268,8 +6268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhasingBar: {fileID: 1732105603}
   TotalPhasingThreshold: 80
-  PhasingIncreaseSpeed: 7
-  PhasingBoostKill: 1
+  PhasingIncreaseSpeed: 5
+  PhasingBoostKill: 2
   PrePhaseTriggerDist: 10
   PrePhaseScoreMultiplicator: 2
   PhaseScoreMultiplicator: 4
@@ -6554,7 +6554,7 @@ PrefabInstance:
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
@@ -7772,7 +7772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1961948303
 Transform:
   m_ObjectHideFlags: 0

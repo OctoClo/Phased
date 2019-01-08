@@ -38,6 +38,7 @@ public class PhasingManager : MonoBehaviour
 
     void Start()
     {
+        GameScore.PhasingManager = this;
         PhasingBar.SetSeparator(TotalPhasingThreshold);
     }
 
@@ -59,6 +60,14 @@ public class PhasingManager : MonoBehaviour
         else
         {
             PhasingBar.Value += PhasingIncreaseSpeed * Time.deltaTime;
+        }
+    }
+
+    public void AddBoostKill()
+    {
+        if (phaseState != EStatePhase.NO_PHASE)
+        {
+            PhasingBar.Value += PhasingBoostKill;
         }
     }
 
