@@ -14,7 +14,7 @@ public class WeaponEnemy : Weapon
         // Fire second bullet for other spaceship if needed
         if (SecondCursor)
         {
-            bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+            bullet = Instantiate(BulletPrefab, SecondCursor.transform.position, Quaternion.identity);
             bullet.transform.rotation = Quaternion.Euler(90, SecondCursor.transform.rotation.eulerAngles.y, 0);
             bullet.transform.SetParent(bulletsFolder.transform);
         }

@@ -52,7 +52,7 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Fire()
     {
-        bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+        bullet = Instantiate(BulletPrefab, Cursor.transform.position, Quaternion.identity);
         bullet.transform.rotation = Quaternion.Euler(90, Cursor.transform.rotation.eulerAngles.y, 0);
         bullet.transform.SetParent(bulletsFolder.transform);
     }

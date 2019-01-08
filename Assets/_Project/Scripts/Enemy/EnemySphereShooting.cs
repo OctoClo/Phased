@@ -34,7 +34,7 @@ public class EnemySphereShooting : EnemySphere
 
     void CreateWeapon()
     {
-        weaponGO = Instantiate(Weapon, Cursor.transform);
+        weaponGO = Instantiate(Weapon, gameObject.transform);
         weapon = weaponGO.GetComponent<WeaponEnemy>();
         weapon.Cursor = Cursor;
         if (ShootMode == EShootMode.BOTH)
