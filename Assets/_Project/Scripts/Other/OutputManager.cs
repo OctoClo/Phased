@@ -12,11 +12,11 @@ public static class OutputManager
         gamepad.SetMotorSpeeds(0.0f, 0.0f);
     }
 
-    public static IEnumerator VibrateAll(float vibrationLeft, float vibrationRight, float duration)
+    public static IEnumerator VibrateAll(float duration)
     {
         foreach (Gamepad gamepad in Gamepad.all)
         {
-            gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
+            gamepad.SetMotorSpeeds(0.5f, 0.5f);
             yield return new WaitForSeconds(duration);
             gamepad.SetMotorSpeeds(0.0f, 0.0f);
         }

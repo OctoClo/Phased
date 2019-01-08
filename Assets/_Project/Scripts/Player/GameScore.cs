@@ -4,8 +4,10 @@ using UnityEngine;
 
 public static class GameScore
 {
-   static private uint multiplicator = 1;
-   static private uint score = 0;
+    public static PhasingManager PhasingManager;
+
+    static private uint multiplicator = 1;
+    static private uint score = 0;
 
     static public uint Multiplicator
     {
@@ -22,6 +24,7 @@ public static class GameScore
     static public void AddToScore( uint pointAmount )
     {
         score += (pointAmount * multiplicator);
+        PhasingManager.AddBoostKill();
     }
 
     static public uint Score
