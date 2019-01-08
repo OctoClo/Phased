@@ -838,8 +838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldScrollSpeed: 10
-  ObstacleSpeedMultiplier: 0.3
-  EnemySpeedMultiplier: 0.1
+  ObstacleSpeedMultiplier: 3
+  EnemySpeedMultiplier: 1.5
+  SpawnableSpeedMultiplier: 1
   MovingObstacleLateralSpeed: 3
   MovingObstacleLateralWidth: 20
   PlayerInvulnerabilityDuration: 0.5
@@ -4934,6 +4935,7 @@ MonoBehaviour:
     type: 3}
   ShootMode: 0
   ShootTarget: 2
+  Behaviour: 0
   SpawnIntervalMin: 2
   SpawnIntervalMax: 4
   SpawnXMin: -20

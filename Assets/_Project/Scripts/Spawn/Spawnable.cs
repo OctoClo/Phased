@@ -6,9 +6,6 @@ public class Spawnable : MonoBehaviour
 {
     public GameObject Child;
 
-    [HideInInspector]
-    public int Speed = 0;
-
     bool hasStarted = false;
     Rigidbody rigidBody;
     GameObject spawnsFolder;
@@ -16,18 +13,10 @@ public class Spawnable : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        Vector3 movement = new Vector3(0, 0, -1);
+        rigidBody.velocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.SpawnableSpeedMultiplier);
+
         spawnsFolder = GameObject.Find("Spawns");
-    }
-
-    private void Update()
-    {
-        if (Speed != 0 && !hasStarted)
-        {
-            Vector3 movement = new Vector3(0, 0, -1);
-            rigidBody.velocity = movement * Speed;
-
-            hasStarted = true;
-        }
     }
 
     public void Spawn()

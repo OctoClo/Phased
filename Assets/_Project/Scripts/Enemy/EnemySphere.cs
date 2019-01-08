@@ -23,7 +23,7 @@ public class EnemySphere : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
+        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
 
         if (PatternSinus)
         {
