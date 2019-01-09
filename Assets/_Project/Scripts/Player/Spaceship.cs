@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+    [Header("Parameters")]
     public int PlayerNumber = 0;
-
     public float Speed = 13.0f;
     public float Tilt = 0.6f;
     
+    [Header("Weapon")]
+    public float TargetRadius = 2.0f;
     public List<GameObject> Weapons;
 
-    public float TargetRadius = 2.0f;
-
+    [Header("Components")]
     public GameObject Cursor;
     public Rigidbody RigidBodyTilt;
 
+    [Header("Misc")]
     public LifeCounter LifeCounter;
     public List<AudioClip> ImpactSounds;
 
