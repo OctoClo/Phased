@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    [HideInInspector]
+    public Vector3 movement = new Vector3(0, 0, -1);
+
     Rigidbody rigidBody;
 
     void Start()
@@ -13,7 +16,6 @@ public class Obstacle : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(0, 0, -1);
         Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.ObstacleSpeedMultiplier);
 
         rigidBody.velocity = updatedVelocity;

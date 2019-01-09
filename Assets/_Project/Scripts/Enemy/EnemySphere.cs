@@ -18,9 +18,11 @@ public class EnemySphere : MonoBehaviour
     public eBehaviour Pattern = eBehaviour.LINEAR;
     public List<AudioClip> ExplosionSounds;
 
+    [HideInInspector]
+    public Vector3 movement = new Vector3(0, 0, -1);
+
     Rigidbody rigidBody;
     Renderer enemyRenderer;
-    Vector3 movement;
 
     bool firstRebound = true;
 
@@ -28,8 +30,6 @@ public class EnemySphere : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         enemyRenderer = GetComponent<Renderer>();
-
-        movement = new Vector3(0, 0, -1);
 
         if (Pattern == eBehaviour.KAMIKAZE)
         {
