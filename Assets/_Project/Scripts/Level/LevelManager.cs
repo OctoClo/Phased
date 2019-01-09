@@ -50,7 +50,16 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelBrickGO = Instantiate(LevelBricks[0]);
         currentLevelBrick = currentLevelBrickGO.GetComponent<LevelBrick>();
-        brickPos = new Vector3(0, 0, offsetZ + ((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
+        if (currentLevelBrick.SpawnFromBack)
+        {
+            currentLevelBrick.ReverseSpawnables();
+            brickPos = new Vector3(0, 0, -Plane.transform.position.z -((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
+        }
+        else
+        {
+            brickPos = new Vector3(0, 0, offsetZ + ((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
+        }
+        
         currentLevelBrickGO.transform.position = brickPos;
     }
 }
