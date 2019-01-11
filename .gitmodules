@@ -1,3 +1,6 @@
 [submodule "ThirdParty/InputSystem"]
 	path = ThirdParty/InputSystem
 	url = https://github.com/Unity-Technologies/InputSystem.git
+[submodule "shmup_wwise"]
+	path = shmup_wwise
+	url = https://github.com/i0r/shmup_wwise
