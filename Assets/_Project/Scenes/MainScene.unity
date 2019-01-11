@@ -961,7 +961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334742123}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 198.8}
+  m_LocalPosition: {x: 0, y: 1, z: 232.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1109036102}
@@ -5008,7 +5008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plane: {fileID: 1521685821}
   LevelBricks:
-  - {fileID: 930112538431624926, guid: 6078e3e41ace7f54eb0875094930497f, type: 3}
+  - {fileID: 4117257034974874362, guid: 7bd3dff12030c4e48b13d564210669da, type: 3}
   - {fileID: 4117257034974874362, guid: 7bd3dff12030c4e48b13d564210669da, type: 3}
   - {fileID: 6440038169641183026, guid: d2bc8e1d928f0254781ba8e8210e336b, type: 3}
 --- !u!1 &1319357482
