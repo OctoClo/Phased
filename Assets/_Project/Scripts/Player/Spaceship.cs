@@ -41,6 +41,8 @@ public class Spaceship : MonoBehaviour
     float previousAngle = 0.0f;
     float angleOffset = -90.0f;
 
+    bool phasedWeapon = false;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -106,6 +108,13 @@ public class Spaceship : MonoBehaviour
         weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;
         weapon.Cursor = Cursor;
+        weapon.SetPhased(phasedWeapon);
+    }
+
+    public void SetPhased(bool phased)
+    {
+        phasedWeapon = phased;
+        weapon.SetPhased(phasedWeapon);
     }
 
     public void RemoveLife()

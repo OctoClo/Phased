@@ -3899,7 +3899,7 @@ RectTransform:
   - {fileID: 1297167628}
   - {fileID: 1261878125}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5419,6 +5419,8 @@ MonoBehaviour:
   MovingObstacleLateralWidth: 20
   PlayerInvulnerabilityDuration: 0.5
   PlayerFlickerFrequency: 2
+  MarkBulletTime: 1
+  MarkBulletDamageMultiplicator: 2
 --- !u!1 &655392652
 GameObject:
   m_ObjectHideFlags: 0
@@ -14374,7 +14376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1830366714
 PrefabInstance:
