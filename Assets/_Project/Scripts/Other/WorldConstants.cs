@@ -79,4 +79,7 @@ public class WorldConstants : Singleton<WorldConstants>
 
     // In frame frequency (frameNumber % PlayerFlickerFrequency)
     public int PlayerFlickerFrequency = 2;
+
+    public float MarkBulletTime = 1f;
+    public int MarkBulletDamageMultiplicator = 2;
 }

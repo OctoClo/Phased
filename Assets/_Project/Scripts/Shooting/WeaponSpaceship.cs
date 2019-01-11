@@ -10,6 +10,8 @@ public class WeaponSpaceship : Weapon
     public bool IsFiring;
 
     int playerNumber;
+    bool bulletPhased = false;
+    BulletSpaceship myBullet;
 
     protected override void Start()
     {
@@ -20,5 +22,19 @@ public class WeaponSpaceship : Weapon
     protected override bool IsReadytoFire()
     {
         return (IsFiring && lastFire >= FireInterval);
+    }
+
+    public void SetPhased(bool phased)
+    {
+        bulletPhased = phased;
+    }
+
+    protected override void Fire()
+    {
+        base.Fire();
+
+        myBullet = bullet.GetComponent<BulletSpaceship>();
+        myBullet.SetPhased(bulletPhased);
+        myBullet.WeaponFrom = gameObject;
     }
 }

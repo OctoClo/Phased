@@ -22,14 +22,18 @@ public class EnemySphere : MonoBehaviour
     public Vector3 movement = new Vector3(0, 0, -1);
 
     Rigidbody rigidBody;
-    Renderer enemyRenderer;
+    Renderer[] enemyRenderers;
 
     bool firstRebound = true;
+
+    bool marked = false;
+    float timeMarked = 0f;
+    GameObject weaponMark;
 
     protected virtual void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        enemyRenderer = GetComponent<Renderer>();
+        enemyRenderers = transform.GetComponentsInChildren<Renderer>();
 
         if (Pattern == eBehaviour.KAMIKAZE)
         {
@@ -39,6 +43,18 @@ public class EnemySphere : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (marked)
+        {
+            timeMarked += Time.fixedDeltaTime;
+
+            if (timeMarked > WorldConstants.Instance.MarkBulletTime)
+            {
+                marked = false;
+                timeMarked = 0f;
+                Debug.Log("Not marked anymore");
+            }
+        }
+
         Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
 
         if (Pattern == eBehaviour.SIN_PATH)
@@ -74,9 +90,26 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject weaponFrom, bool phased)
     {
-        HealthPoints -= damage;
+        if (phased && !marked)
+        {
+            marked = true;
+            timeMarked = 0f;
+            weaponMark = weaponFrom;
+            Debug.Log("Marked");
+        }
+
+        if (marked && weaponFrom != weaponMark)
+        {
+            HealthPoints -= damage * WorldConstants.Instance.MarkBulletDamageMultiplicator;
+            Debug.Log("Much damage");
+        }
+        else
+        {
+            HealthPoints -= damage;
+            Debug.Log("Normal damage");
+        }
 
         if (HealthPoints <= 0)
         {
@@ -97,9 +130,17 @@ public class EnemySphere : MonoBehaviour
 
    IEnumerator Blink()
     {
-        enemyRenderer.enabled = false;
+        foreach (Renderer renderer in enemyRenderers)
+        {
+            renderer.enabled = false;
+        }
+        
         yield return new WaitForSeconds(0.1f);
-        enemyRenderer.enabled = true;
+
+        foreach (Renderer renderer in enemyRenderers)
+        {
+            renderer.enabled = true;
+        }
     }    
 
     float PlayExplosionFX()
@@ -107,8 +148,6 @@ public class EnemySphere : MonoBehaviour
         var audioSource = GetComponent<AudioSource>();
         var idx = Random.Range(0, ExplosionSounds.Count);
         audioSource.PlayOneShot(ExplosionSounds[idx]);
-
-        GetComponent<Renderer>().enabled = false;
 
         return ExplosionSounds[idx].length;
     }

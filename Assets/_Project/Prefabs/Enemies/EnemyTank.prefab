@@ -1,18 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &5920158822570083317
+--- !u!65 &4009127636162407728
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860853281522826616}
+  m_GameObject: {fileID: 131409653370709016}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 71.86217, y: 47.12499, z: 81.5989}
-  m_Center: {x: 13.018037, y: 3.1587217, z: -21.316341}
+  m_Size: {x: 14.892304, y: 16.293217, z: 9.557951}
+  m_Center: {x: -2.4705749, y: 4.319767, z: -0.39975858}
 --- !u!1 &7260586762149558761
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +53,7 @@ PrefabInstance:
     - target: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
       propertyPath: m_Name
-      value: EnemySphereShootingBoth
+      value: EnemyTank
       objectReference: {fileID: 0}
     - target: {fileID: 8843136646538289610, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
@@ -125,6 +125,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4217798710727840911, guid: 0344c0d947a528d46b5a0b3109ff74e2,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 802.91406
+      objectReference: {fileID: 0}
     - target: {fileID: 3158368476951798908, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
       propertyPath: HealthPoints
@@ -171,6 +176,12 @@ PrefabInstance:
     - {fileID: 365984819530128518, guid: 0344c0d947a528d46b5a0b3109ff74e2, type: 3}
     - {fileID: 3363551878582961222, guid: 0344c0d947a528d46b5a0b3109ff74e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0344c0d947a528d46b5a0b3109ff74e2, type: 3}
+--- !u!1 &131409653370709016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5567024356502582620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4033864918925038742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8843136646538289610, guid: 0344c0d947a528d46b5a0b3109ff74e2,
@@ -244,23 +255,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a17638c89422e8144873e235a841559c, type: 2}
-    - target: {fileID: 2300002, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 465573fc4465c1947b3eb365c9e70dcb, type: 2}
     - target: {fileID: 2300004, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c8d59f3dabb9b714a88d828e7f0e626a, type: 2}
+    - target: {fileID: 2300002, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 465573fc4465c1947b3eb365c9e70dcb, type: 2}
+    - target: {fileID: 2300000, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a17638c89422e8144873e235a841559c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
---- !u!1 &5860853281522826616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100006, guid: 07565831ec38d3441a318943f3ac5bd7,
-    type: 3}
-  m_PrefabInstance: {fileID: 5860853281522727902}
-  m_PrefabAsset: {fileID: 0}

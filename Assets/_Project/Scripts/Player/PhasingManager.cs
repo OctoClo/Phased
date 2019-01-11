@@ -100,6 +100,15 @@ public class PhasingManager : MonoBehaviour
 
         if (!phaseState.Equals(newStateId))
         {
+            if (phaseState == EStatePhase.NO_PHASE)
+            {
+                NotifySpaceships(true);
+            }
+            else if (newStateId == EStatePhase.NO_PHASE)
+            {
+                NotifySpaceships(false);
+            }
+
             phaseState = newStateId;
             HandleStateChange();
         }
@@ -133,6 +142,12 @@ public class PhasingManager : MonoBehaviour
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
         SetSpaceshipsWeapon(phaseState);
+    }
+
+    void NotifySpaceships(bool phased)
+    {
+        Spaceships[0].SetPhased(phased);
+        Spaceships[1].SetPhased(phased);
     }
 
     void SetSpaceshipsWeapon(EStatePhase state)
