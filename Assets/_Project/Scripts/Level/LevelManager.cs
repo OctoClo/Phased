@@ -10,12 +10,14 @@ public class LevelManager : MonoBehaviour
     GameObject currentLevelBrickGO = null;
     LevelBrick currentLevelBrick;
     Vector3 brickPos;
-    float offsetZ;
+    float offsetZFront;
+    float offsetZBack;
     bool levelEnd = false;
 
     private void Start()
     {
-        offsetZ = (Plane.transform.localScale.z * 10) - Plane.transform.position.z;
+        offsetZFront = Plane.transform.position.z + ((Plane.transform.localScale.z * 10) / 2);
+        offsetZBack = Plane.transform.position.z - ((Plane.transform.localScale.z * 10) / 2);
     }
 
     private void Update()
@@ -53,11 +55,11 @@ public class LevelManager : MonoBehaviour
         if (currentLevelBrick.SpawnFromBack)
         {
             currentLevelBrick.ReverseSpawnables();
-            brickPos = new Vector3(0, 0, -Plane.transform.position.z -((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
+            brickPos = new Vector3(0, 0, offsetZBack - ((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
         }
         else
         {
-            brickPos = new Vector3(0, 0, offsetZ + ((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
+            brickPos = new Vector3(0, 0, offsetZFront + ((currentLevelBrick.Plane.transform.localScale.z * 10) / 2));
         }
         
         currentLevelBrickGO.transform.position = brickPos;
