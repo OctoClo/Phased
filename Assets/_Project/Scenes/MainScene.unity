@@ -4963,7 +4963,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plane: {fileID: 1521685821}
   LevelBricks:
-  - {fileID: 6440038169641183026, guid: d2bc8e1d928f0254781ba8e8210e336b, type: 3}
+  - {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637, type: 3}
+  - {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87, type: 3}
+  - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
+  - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
+  - {fileID: 595572623275099445, guid: 17356d5378f3dd6418bd93f7520455ff, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
 --- !u!1 &1319357482
 GameObject:
   m_ObjectHideFlags: 0
@@ -8804,6 +8811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: EnemySpeedMultiplier
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a2b12818acbe4439b3782d58f38e3e, type: 3}
