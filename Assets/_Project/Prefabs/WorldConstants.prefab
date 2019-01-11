@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldScrollSpeed: 10
-  ObstacleSpeedMultiplier: 3
+  ObstacleSpeedMultiplier: 15
   EnemySpeedMultiplier: 2
   SpawnableSpeedMultiplier: 1
   MovingObstacleLateralSpeed: 3
