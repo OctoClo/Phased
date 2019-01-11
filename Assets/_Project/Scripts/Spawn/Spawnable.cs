@@ -34,6 +34,7 @@ public class Spawnable : MonoBehaviour
         if (enemy)
         {
             enemy.movement.z = -enemy.movement.z;
+            enemy.transform.Rotate(0, 180, 0);
         }
         else
         {
