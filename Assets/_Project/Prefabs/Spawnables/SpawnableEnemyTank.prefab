@@ -133,7 +133,12 @@ PrefabInstance:
     - target: {fileID: 131409653370709016, guid: 3883d677193a26a4da2e923548a9d64f,
         type: 3}
       propertyPath: m_Name
-      value: EnemySphereShootingBoth
+      value: EnemyTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 131409653370709016, guid: 3883d677193a26a4da2e923548a9d64f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4033864918925038742, guid: 3883d677193a26a4da2e923548a9d64f,
         type: 3}

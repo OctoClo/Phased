@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
       propertyPath: m_Name
-      value: EnemySphereShooting
+      value: EnemyShooting
       objectReference: {fileID: 0}
     - target: {fileID: 5517146256431862084, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
