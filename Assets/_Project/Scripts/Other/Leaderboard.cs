@@ -17,16 +17,17 @@ public class Leaderboard : MonoBehaviour
 
     void Start()
     {
+        string path = Application.dataPath + "\\Leaderboard.txt";
+
         Scores = new List<Entry>();
 
-        StreamReader reader = new StreamReader(Application.dataPath + "\\Leaderboard.txt");
-
-        // Create file on first run
-        if ( reader == null )
+        if (!File.Exists(path))
         {
-            File.CreateText(Application.dataPath + "\\Leaderboard.txt");
+            File.CreateText(path);
             return;
         }
+
+        StreamReader reader = new StreamReader(path);
 
         string line = reader.ReadLine();
         while ( line != null )
@@ -58,8 +59,8 @@ public class Leaderboard : MonoBehaviour
             UIElement.text += " " + rank++ + "\t " + entry.name + "\t " + entry.score.ToString().PadLeft(16, '0') + "\t " + entry.maxHitCount.ToString().PadLeft(8, '0') + '\n';
         }
 
-        Debug.Log(GetRankByScore(0));
-        Debug.Log(GetRankByScore(668));
+        Debug.Log("Score 0: " + GetRankByScore(0));
+        Debug.Log("Score 668: " + GetRankByScore(668));
     }
 
     public int GetRankByScore( ulong score )
