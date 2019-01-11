@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet2Spaceship1
       objectReference: {fileID: 0}
+    - target: {fileID: 9109275884958011691, guid: 122d3b32442dfa6458434846c7b72d3c,
+        type: 3}
+      propertyPath: Speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264383632338994925, guid: 122d3b32442dfa6458434846c7b72d3c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d88b3ef55b9f90f4c96da2b89bdcbac2, type: 2}
     - target: {fileID: 2504060829403246367, guid: 122d3b32442dfa6458434846c7b72d3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,10 +77,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1264383632338994925, guid: 122d3b32442dfa6458434846c7b72d3c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d88b3ef55b9f90f4c96da2b89bdcbac2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 122d3b32442dfa6458434846c7b72d3c, type: 3}
