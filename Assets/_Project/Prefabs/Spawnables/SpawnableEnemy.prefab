@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8186835409896643406}
   - component: {fileID: 8186835409896643401}
   m_Layer: 0
-  m_Name: SpawnableEnemySphere
+  m_Name: SpawnableEnemy
   m_TagString: Spawnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12efd586a10c00940afc557522444573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
   Child: {fileID: 5855242169131994406}
 --- !u!135 &8186835409896643404
 SphereCollider:
