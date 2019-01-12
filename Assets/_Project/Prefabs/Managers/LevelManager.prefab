@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4339574647140115201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4339574647140115200}
+  - component: {fileID: 4339574647140115207}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4339574647140115200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339574647140115201}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4339574647140115207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339574647140115201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd36f15aed47c024da9edbe504c13d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Plane: {fileID: 0}
+  LevelBricks:
+  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
+  - {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87, type: 3}
+  - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
+  - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
+  - {fileID: 595572623275099445, guid: 17356d5378f3dd6418bd93f7520455ff, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
