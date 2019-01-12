@@ -14,14 +14,16 @@ public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
     public uint KillReward = 10;
+    public bool WaitUntilDeath = false;
 
     public eBehaviour Pattern = eBehaviour.LINEAR;
+
     public List<AudioClip> ExplosionSounds;
 
     [HideInInspector]
     public Vector3 movement = new Vector3(0, 0, -1);
 
-    Rigidbody rigidBody;
+    protected Rigidbody rigidBody;
     Renderer[] enemyRenderers;
 
     bool firstRebound = true;
@@ -41,7 +43,7 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (marked)
         {
@@ -66,7 +68,7 @@ public class EnemySphere : MonoBehaviour
         rigidBody.velocity = updatedVelocity;
     }
 
-    void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -90,7 +92,7 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, GameObject weaponFrom, bool phased)
+    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased)
     {
         if (phased && !marked)
         {
