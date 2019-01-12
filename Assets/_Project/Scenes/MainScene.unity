@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45050704, g: 0.50050133, b: 0.57512623, a: 1}
+  m_IndirectSpecularColor: {r: 0.45050704, g: 0.5005013, b: 0.5751261, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3138,6 +3138,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship2
       objectReference: {fileID: 0}
+    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: lifeCounter
+      value: 
+      objectReference: {fileID: 595878179}
+    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: InputManager
+      value: 
+      objectReference: {fileID: 1382740406}
+    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: LifeCounter
+      value: 
+      objectReference: {fileID: 595878179}
     - target: {fileID: 8524802813899115161, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3222,21 +3237,6 @@ PrefabInstance:
     - target: {fileID: 6862190134552227908, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: lifeCounter
-      value: 
-      objectReference: {fileID: 595878179}
-    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
-        type: 3}
-      propertyPath: lifeCounter
-      value: 
-      objectReference: {fileID: 595878179}
-    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
-        type: 3}
-      propertyPath: InputManager
-      value: 
-      objectReference: {fileID: 1382740406}
-    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
-        type: 3}
-      propertyPath: LifeCounter
       value: 
       objectReference: {fileID: 595878179}
     - target: {fileID: 308424269893665441, guid: 57903a4c30728074b8a7ecfee586dffc,
@@ -3757,32 +3757,32 @@ PrefabInstance:
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.8
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -21.58
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08715578
+      value: 0.14372452
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9961947
+      value: 0.98961776
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
@@ -3792,7 +3792,7 @@ PrefabInstance:
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 10
+      value: 16.527
       objectReference: {fileID: 0}
     - target: {fileID: 5712956538310657936, guid: 88eae08a3e83d114ab5e82881564da56,
         type: 3}
@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plane: {fileID: 1521685821}
   LevelBricks:
-  - {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637, type: 3}
+  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
   - {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87, type: 3}
   - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
   - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
@@ -7385,6 +7385,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship1
       objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: LifeCounter
+      value: 
+      objectReference: {fileID: 595878179}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7496,11 +7501,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 942190864241778174, guid: 50c86af16ad69c943814dfce7147ace0,
         type: 3}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: LifeCounter
-      value: 
-      objectReference: {fileID: 595878179}
     - target: {fileID: 6763770166061801908, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8130,7 +8130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013326855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 585}
+  m_LocalPosition: {x: 0, y: 0, z: 556}
   m_LocalScale: {x: 61.04, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 795477567}

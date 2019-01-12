@@ -2653,22 +2653,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67431298a095fcf4dbe94d7f786a3ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spaceships:
-  - {fileID: 1205862724}
-  - {fileID: 808676046}
+  PhasingBar: {fileID: 0}
+  TotalPhasingThreshold: 80
+  PhasingIncreaseSpeed: 5
+  PhasingBoostKill: 1
+  PrePhaseTriggerDist: 10
+  PrePhaseScoreMultiplicator: 2
+  PhaseScoreMultiplicator: 4
+  PrePhaseVibrationDuration: 0.25
+  PhaseVibrationDuration: 0.5
+  PlayersLink: {fileID: 1167606520}
   MaterialsPlayersLink:
   - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
   - {fileID: 2100000, guid: 78b911f051e97e645aff1ca333cfb93c, type: 2}
   - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
-  PlayersLink: {fileID: 1167606520}
-  inputManager: {fileID: 602658340}
-  PrePhaseTriggerDist: 10
-  PhaseTriggerDist: 6
-  PrePhaseVibration: 0.5
-  PrePhaseVibrationDuration: 0.25
-  PhaseVibration: 0.5
-  PhaseVibrationDuration: 0.5
-  state: 0
+  Spaceships:
+  - {fileID: 1205862724}
+  - {fileID: 808676046}
 --- !u!1 &743735645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,16 +5016,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c847563499369e24483bbd90bfcf649d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeCounter: {fileID: 1989065195}
+  HUDLifeCounter: {fileID: 351988922}
+  score: {fileID: 0}
+  multiplicator: {fileID: 0}
   Spaceships:
   - {fileID: 1205862724}
   - {fileID: 808676046}
-  lifeCounter: {fileID: 1989065195}
   phaseZones:
   - {fileID: 437642968}
   - {fileID: 777166012}
   gameOverOverlay: {fileID: 2134325013}
   hudOverlay: {fileID: 95383880}
-  HUDLifeCounter: {fileID: 351988922}
 --- !u!1 &1428533092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5163,7 @@ MonoBehaviour:
     type: 3}
   ShootMode: 0
   ShootTarget: 2
+  Pattern: 0
   SpawnIntervalMin: 2
   SpawnIntervalMax: 4
   SpawnXMin: -20
@@ -7315,9 +7319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plane: {fileID: 2123777005}
   LevelBricks:
-  - {fileID: 930112538431624926, guid: 6078e3e41ace7f54eb0875094930497f, type: 3}
-  - {fileID: 4117257034974874362, guid: 7bd3dff12030c4e48b13d564210669da, type: 3}
-  - {fileID: 6440038169641183026, guid: d2bc8e1d928f0254781ba8e8210e336b, type: 3}
+  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
+  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
+  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
 --- !u!1 &1953030761
 GameObject:
   m_ObjectHideFlags: 0
@@ -8284,8 +8288,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldScrollSpeed: 10
-  ObstacleSpeedMultiplier: 0.3
-  EnemySpeedMultiplier: 0.1
+  ObstacleSpeedMultiplier: 15
+  EnemySpeedMultiplier: 5
+  SpawnableSpeedMultiplier: 1
   MovingObstacleLateralSpeed: 3
   MovingObstacleLateralWidth: 20
   PlayerInvulnerabilityDuration: 0.5
