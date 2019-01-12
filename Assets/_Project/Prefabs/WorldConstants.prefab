@@ -44,10 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldScrollSpeed: 10
-  ObstacleSpeedMultiplier: 15
-  EnemySpeedMultiplier: 2
-  SpawnableSpeedMultiplier: 1
-  MovingObstacleLateralSpeed: 3
-  MovingObstacleLateralWidth: 20
+  ObstacleMultiplier: 3
+  SpawnableMultiplier: 1
+  EnemyMultiplier: 1.5
+  TankMultiplier: 7
+  TankLateralMultiplier: 0.5
+  EnemySinusPatternLateralMultiplier: 4
+  EnemySinusPatternLateralWidth: 20
   PlayerInvulnerabilityDuration: 0.5
   PlayerFlickerFrequency: 2
+  MarkBulletTime: 1
+  MarkBulletDamageMultiplicator: 2

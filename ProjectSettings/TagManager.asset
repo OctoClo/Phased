@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawnable
   - WorldBounds
+  - TankBounds
   layers:
   - Default
   - TransparentFX

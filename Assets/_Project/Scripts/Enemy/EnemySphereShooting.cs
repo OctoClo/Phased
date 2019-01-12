@@ -17,8 +17,8 @@ public class EnemySphereShooting : EnemySphere
     public GameObject SecondCursor;
 
     GameObject[] spaceships;
-    GameObject weaponGO;
-    WeaponEnemy weapon;
+    protected GameObject weaponGO;
+    protected WeaponEnemy weapon;
 
     float distance, minDistance;
 
@@ -29,36 +29,27 @@ public class EnemySphereShooting : EnemySphere
 
     protected override void Start()
     {
+        base.Start();
+
         spaceships = GameObject.FindGameObjectsWithTag("Player");
 
         CreateWeapon();
         InitializeShoot();
-
-        base.Start();
     }
 
-    void CreateWeapon()
+    protected virtual void CreateWeapon()
     {
         weaponGO = Instantiate(Weapon, gameObject.transform);
         weapon = weaponGO.GetComponent<WeaponEnemy>();
         weapon.Cursor = Cursor;
-        if (ShootMode == EShootMode.BOTH)
-        {
-            weapon.SecondCursor = SecondCursor;
-        }
     }
 
-    void InitializeShoot()
+    protected virtual void InitializeShoot()
     {
         if (ShootMode == EShootMode.RANDOM)
         {
             ShootMode = (EShootMode)Random.Range(0, 2);
             Debug.Log("Shoot mode: " + ShootMode);
-        }
-        else if (ShootMode == EShootMode.BOTH)
-        {
-            Target = GameObject.Find("Spaceship1");
-            SecondTarget = GameObject.Find("Spaceship2");
         }
 
         if (ShootMode == EShootMode.SPACESHIP)
@@ -83,13 +74,13 @@ public class EnemySphereShooting : EnemySphere
 
     void CheckIfWaitUntilDeath()
     {
-        if (ShootMode == EShootMode.BOTH || Pattern == eBehaviour.LINEAR_SWIPE)
+        if (Pattern == eBehaviour.LINEAR_SWIPE)
         {
             WaitUntilDeath = true;
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (ShootMode == EShootMode.NEAREST)
         {
@@ -107,10 +98,5 @@ public class EnemySphereShooting : EnemySphere
         }
 
         Cursor.transform.LookAt(Target.transform);
-
-        if (ShootMode == EShootMode.BOTH)
-        {
-            SecondCursor.transform.LookAt(SecondTarget.transform);
-        }
     }
 }
