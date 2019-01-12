@@ -8,6 +8,7 @@ public enum eBehaviour
     LINEAR_SWIPE, // Pattern 2
     SIN_PATH, // Pattern 3
     KAMIKAZE,
+    TANK
 };
 
 public class EnemySphere : MonoBehaviour
@@ -45,6 +46,12 @@ public class EnemySphere : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        CheckIfMarked();
+        HandleMovement();
+    }
+
+    protected void CheckIfMarked()
+    {
         if (marked)
         {
             timeMarked += Time.fixedDeltaTime;
@@ -56,13 +63,15 @@ public class EnemySphere : MonoBehaviour
                 Debug.Log("Not marked anymore");
             }
         }
+    }
 
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
+    protected virtual void HandleMovement()
+    {
+        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier;
 
         if (Pattern == eBehaviour.SIN_PATH)
         {
-            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.MovingObstacleLateralSpeed)
-                                * WorldConstants.Instance.MovingObstacleLateralWidth;
+            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.EnemySinusPatternLateralMultiplier) * WorldConstants.Instance.EnemySinusPatternLateralWidth;
         }
 
         rigidBody.velocity = updatedVelocity;

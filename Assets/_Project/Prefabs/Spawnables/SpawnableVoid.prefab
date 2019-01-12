@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPoints: 2
   KillReward: 10
-  WaitUntilDeath: 0
+  WaitUntilDeath: 1
   Pattern: 0
   ExplosionSounds: []
   movement: {x: 0, y: 0, z: -1}

@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
         soundIndex = 0;
         audioSource = GetComponent<AudioSource>();
 
-        bulletsFolder = GameObject.Find("Bullets");
+        bulletsFolder = FolderManager.Instance.BulletsFolder;
     }
 
     protected virtual void Update()

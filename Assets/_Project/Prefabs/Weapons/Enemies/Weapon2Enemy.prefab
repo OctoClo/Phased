@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 6863067891854406796, guid: 8c3435c6ce66d984f8339e08b811c1cc,
         type: 3}
       propertyPath: FireInterval
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6863067891854406796, guid: 8c3435c6ce66d984f8339e08b811c1cc,
         type: 3}

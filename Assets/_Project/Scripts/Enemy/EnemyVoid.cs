@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class EnemyVoid : EnemySphere
 {
-    void Awake()
-    {
-        WaitUntilDeath = true;
-    }
-
     protected override void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
+        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier);
         rigidBody.velocity = updatedVelocity;
     }
 
-    protected override void FixedUpdate()
+    protected override void HandleMovement()
     {
         // Do nothing
     }

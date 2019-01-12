@@ -17,8 +17,8 @@ public class EnemySphereShooting : EnemySphere
     public GameObject SecondCursor;
 
     GameObject[] spaceships;
-    GameObject weaponGO;
-    WeaponEnemy weapon;
+    protected GameObject weaponGO;
+    protected WeaponEnemy weapon;
 
     float distance, minDistance;
 
@@ -29,36 +29,28 @@ public class EnemySphereShooting : EnemySphere
 
     protected override void Start()
     {
+        base.Start();
+
         spaceships = GameObject.FindGameObjectsWithTag("Player");
 
         CreateWeapon();
         InitializeShoot();
-
-        base.Start();
     }
 
-    void CreateWeapon()
+    protected virtual void CreateWeapon()
     {
         weaponGO = Instantiate(Weapon, gameObject.transform);
         weapon = weaponGO.GetComponent<WeaponEnemy>();
         weapon.Cursor = Cursor;
-        if (ShootMode == EShootMode.BOTH)
-        {
-            weapon.SecondCursor = SecondCursor;
-        }
+        weaponGO.SetActive(false);
     }
 
-    void InitializeShoot()
+    protected virtual void InitializeShoot()
     {
         if (ShootMode == EShootMode.RANDOM)
         {
             ShootMode = (EShootMode)Random.Range(0, 2);
             Debug.Log("Shoot mode: " + ShootMode);
-        }
-        else if (ShootMode == EShootMode.BOTH)
-        {
-            Target = GameObject.Find("Spaceship1");
-            SecondTarget = GameObject.Find("Spaceship2");
         }
 
         if (ShootMode == EShootMode.SPACESHIP)
@@ -66,15 +58,15 @@ public class EnemySphereShooting : EnemySphere
             switch (ShootTarget)
             {
                 case EShootTarget.SPACESHIP1:
-                    Target = GameObject.Find("Spaceship1");
+                    Target = SpaceshipsManager.Instance.Spaceships[0];
                     break;
 
                 case EShootTarget.SPACESHIP2:
-                    Target = GameObject.Find("Spaceship2");
+                    Target = SpaceshipsManager.Instance.Spaceships[1];
                     break;
 
                 case EShootTarget.RANDOM:
-                    Target = GameObject.Find("Spaceship" + Random.Range(1, 3));
+                    Target = SpaceshipsManager.Instance.Spaceships[Random.Range(0, 2)];
                     Debug.Log("Shoot target: " + Target.name);
                     break;
             }
@@ -83,13 +75,13 @@ public class EnemySphereShooting : EnemySphere
 
     void CheckIfWaitUntilDeath()
     {
-        if (ShootMode == EShootMode.BOTH || Pattern == eBehaviour.LINEAR_SWIPE)
+        if (Pattern == eBehaviour.LINEAR_SWIPE)
         {
             WaitUntilDeath = true;
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (ShootMode == EShootMode.NEAREST)
         {
@@ -107,10 +99,15 @@ public class EnemySphereShooting : EnemySphere
         }
 
         Cursor.transform.LookAt(Target.transform);
+    }
 
-        if (ShootMode == EShootMode.BOTH)
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.CompareTag("ShootLine"))
         {
-            SecondCursor.transform.LookAt(SecondTarget.transform);
+            weaponGO.SetActive(true);
         }
     }
 }
