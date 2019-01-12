@@ -22,6 +22,11 @@ public class EnemySphereShooting : EnemySphere
 
     float distance, minDistance;
 
+    void Awake()
+    {
+        CheckIfWaitUntilDeath();
+    }
+
     protected override void Start()
     {
         spaceships = GameObject.FindGameObjectsWithTag("Player");
@@ -73,6 +78,14 @@ public class EnemySphereShooting : EnemySphere
                     Debug.Log("Shoot target: " + Target.name);
                     break;
             }
+        }
+    }
+
+    void CheckIfWaitUntilDeath()
+    {
+        if (ShootMode == EShootMode.BOTH || Pattern == eBehaviour.LINEAR_SWIPE)
+        {
+            WaitUntilDeath = true;
         }
     }
 

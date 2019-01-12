@@ -16,7 +16,7 @@ public class ObjectDestroyer : MonoBehaviour
         {
             EnemySphere enemy = other.GetComponent<EnemySphere>();
 
-            if (enemy && enemy.Pattern != eBehaviour.LINEAR_SWIPE)
+            if (enemy && enemy.gameObject.activeSelf && enemy.Pattern != eBehaviour.LINEAR_SWIPE)
             {
                 Destroy(enemy.gameObject);
             }
@@ -24,7 +24,7 @@ public class ObjectDestroyer : MonoBehaviour
             {
                 Obstacle obstacle = other.GetComponent<Obstacle>();
 
-                if (obstacle)
+                if (obstacle && obstacle.gameObject.activeSelf)
                 {
                     Destroy(obstacle.gameObject);
                 }

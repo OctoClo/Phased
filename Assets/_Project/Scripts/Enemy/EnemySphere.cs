@@ -14,8 +14,10 @@ public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
     public uint KillReward = 10;
+    public bool WaitUntilDeath = false;
 
     public eBehaviour Pattern = eBehaviour.LINEAR;
+
     public List<AudioClip> ExplosionSounds;
 
     [HideInInspector]
