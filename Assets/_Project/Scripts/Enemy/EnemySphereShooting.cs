@@ -42,6 +42,7 @@ public class EnemySphereShooting : EnemySphere
         weaponGO = Instantiate(Weapon, gameObject.transform);
         weapon = weaponGO.GetComponent<WeaponEnemy>();
         weapon.Cursor = Cursor;
+        weaponGO.SetActive(false);
     }
 
     protected virtual void InitializeShoot()
@@ -98,5 +99,15 @@ public class EnemySphereShooting : EnemySphere
         }
 
         Cursor.transform.LookAt(Target.transform);
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.CompareTag("ShootLine"))
+        {
+            weaponGO.SetActive(true);
+        }
     }
 }

@@ -81,7 +81,6 @@ public class EnemyTank : EnemySphereShooting
         {
             case ETankPatternStep.MOVING:
                 rigidBody.velocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.TankMultiplier;
-                weaponGO.SetActive(false);
                 break;
 
             case ETankPatternStep.RESTING:
@@ -104,12 +103,10 @@ public class EnemyTank : EnemySphereShooting
 
     protected override void OnTriggerEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
-
         if (other.CompareTag("TankBounds"))
         {
             lateralMovement.x = -lateralMovement.x;
-            rigidBody.velocity = lateralMovement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.TankLateralMultiplier; ;
+            rigidBody.velocity = lateralMovement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.TankLateralMultiplier;
         }
     }
 }
