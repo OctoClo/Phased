@@ -57,15 +57,15 @@ public class EnemySphereShooting : EnemySphere
             switch (ShootTarget)
             {
                 case EShootTarget.SPACESHIP1:
-                    Target = GameObject.Find("Spaceship1");
+                    Target = SpaceshipsManager.Instance.Spaceships[0];
                     break;
 
                 case EShootTarget.SPACESHIP2:
-                    Target = GameObject.Find("Spaceship2");
+                    Target = SpaceshipsManager.Instance.Spaceships[1];
                     break;
 
                 case EShootTarget.RANDOM:
-                    Target = GameObject.Find("Spaceship" + Random.Range(1, 3));
+                    Target = SpaceshipsManager.Instance.Spaceships[Random.Range(0, 2)];
                     Debug.Log("Shoot target: " + Target.name);
                     break;
             }

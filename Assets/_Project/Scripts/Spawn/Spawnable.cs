@@ -18,7 +18,7 @@ public class Spawnable : MonoBehaviour
         
         rigidBody.velocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.SpawnableMultiplier);
 
-        spawnsFolder = GameObject.Find("Spawns");
+        spawnsFolder = FolderManager.Instance.SpawnFolder;
     }
 
     public void Spawn()

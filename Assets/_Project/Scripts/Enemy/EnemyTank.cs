@@ -42,8 +42,8 @@ public class EnemyTank : EnemySphereShooting
 
     protected override void InitializeShoot()
     {
-        Target = GameObject.Find("Spaceship1");
-        SecondTarget = GameObject.Find("Spaceship2");
+        Target = SpaceshipsManager.Instance.Spaceships[0];
+        SecondTarget = SpaceshipsManager.Instance.Spaceships[1];
     }
 
     protected override void Update()
