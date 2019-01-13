@@ -4971,7 +4971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6253721232788283661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62, y: 0, z: 194}
+  m_LocalPosition: {x: 62, y: -10, z: 194}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 5852074637735645199}
@@ -5110,7 +5110,6 @@ MonoBehaviour:
   - {fileID: 2695943014208687259, guid: 898e66303fee6c241b0ed0211b97cdbf, type: 3}
   Cursor: {fileID: 6253721232788283661}
   RigidBodyTilt: {fileID: 1872712449854568192}
-  LifeCounter: {fileID: 0}
   ImpactSounds:
   - {fileID: 8300000, guid: 616fe5b100000e640b66499aca5193c7, type: 3}
   - {fileID: 8300000, guid: 8515ae8c52c749a49960c7c0005b0d86, type: 3}

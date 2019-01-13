@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         Keyboard keyboard = InputSystem.GetDevice<Keyboard>();
 
-        if (keyboard.pKey.wasReleasedThisFrame)
+        if (keyboard != null && keyboard.pKey.wasReleasedThisFrame)
         {
             StartButton();
         }
