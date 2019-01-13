@@ -15122,6 +15122,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: LifeCounter
+      value: 
+      objectReference: {fileID: 595878179}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: LifeCounter
+      value: 
+      objectReference: {fileID: 595878179}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15176,26 +15186,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: LifeCounter
-      value: 
-      objectReference: {fileID: 595878179}
-    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: LifeCounter
-      value: 
-      objectReference: {fileID: 595878179}
-    - target: {fileID: 4558585412805296423, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171807469891628614, guid: f4f66d835d02e474bb39a30e68229aa1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6707436421660138712, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
@@ -15271,6 +15261,16 @@ PrefabInstance:
     - target: {fileID: 461973347922751037, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558585412805296423, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171807469891628614, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17612,6 +17612,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3857743265742880097, guid: 506f23cf563805f4d8abb2fcd7b319ef,
         type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1576709112170307179, guid: 60a780f0ed45e8c4c8c4facc265d757d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
 --- !u!1001 &5197246085518950513
@@ -17844,6 +17850,7 @@ PrefabInstance:
         type: 3}
       propertyPath: EnemyMultiplier
       value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: MarkBulletTime
