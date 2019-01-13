@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1473004161116520267}
   - component: {fileID: 1473004161116520266}
   - component: {fileID: 7731458387013782278}
+  - component: {fileID: 2791997127580846813}
   m_Layer: 0
   m_Name: Main Camera Persp 2
   m_TagString: MainCamera
@@ -42,7 +43,7 @@ Camera:
   m_GameObject: {fileID: 1473004161116520265}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.10337308, g: 0.1513409, b: 0.21698111, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -56,7 +57,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 40
   orthographic: 0
   orthographic size: 16
@@ -101,7 +102,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -143,3 +144,17 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &2791997127580846813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473004161116520265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330175b34131e864faaf881423fa4efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeTimer: 1
+  shakeIntensity: 0.3
