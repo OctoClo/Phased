@@ -9,9 +9,9 @@ public class EnemyKamikazeBehaviour : MonoBehaviour
     void Start()
     {
         // 1..2 range
-        var targetIndex = Random.Range(1, 3);
+        var targetIndex = Random.Range(0, 2);
 
-        target = GameObject.Find("Spaceship" + targetIndex);
+        target = SpaceshipsManager.Instance.Spaceships[targetIndex];
     }
 
     void Update()

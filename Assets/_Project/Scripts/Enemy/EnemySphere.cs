@@ -8,20 +8,23 @@ public enum eBehaviour
     LINEAR_SWIPE, // Pattern 2
     SIN_PATH, // Pattern 3
     KAMIKAZE,
+    TANK
 };
 
 public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
     public uint KillReward = 10;
+    public bool WaitUntilDeath = false;
 
     public eBehaviour Pattern = eBehaviour.LINEAR;
+
     public List<AudioClip> ExplosionSounds;
 
     [HideInInspector]
     public Vector3 movement = new Vector3(0, 0, -1);
 
-    Rigidbody rigidBody;
+    protected Rigidbody rigidBody;
     Renderer[] enemyRenderers;
 
     bool firstRebound = true;
@@ -41,7 +44,13 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
+    {
+        CheckIfMarked();
+        HandleMovement();
+    }
+
+    protected void CheckIfMarked()
     {
         if (marked)
         {
@@ -54,19 +63,21 @@ public class EnemySphere : MonoBehaviour
                 Debug.Log("Not marked anymore");
             }
         }
+    }
 
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemySpeedMultiplier);
+    protected virtual void HandleMovement()
+    {
+        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier;
 
         if (Pattern == eBehaviour.SIN_PATH)
         {
-            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.MovingObstacleLateralSpeed)
-                                * WorldConstants.Instance.MovingObstacleLateralWidth;
+            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.EnemySinusPatternLateralMultiplier) * WorldConstants.Instance.EnemySinusPatternLateralWidth;
         }
 
         rigidBody.velocity = updatedVelocity;
     }
 
-    void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -90,7 +101,7 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, GameObject weaponFrom, bool phased)
+    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased)
     {
         if (phased && !marked)
         {
