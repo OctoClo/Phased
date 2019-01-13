@@ -73,6 +73,7 @@ public class WorldConstants : Singleton<WorldConstants>
     public float SpawnableSpeedMultiplier = 1f;
     public float MovingObstacleLateralSpeed = 4.0f;
     public float MovingObstacleLateralWidth = 20.0f;
+    public float EnemyVoidSpeedMultiplier = 5f;
 
     // In seconds
     public float PlayerInvulnerabilityDuration = 0.500f;
