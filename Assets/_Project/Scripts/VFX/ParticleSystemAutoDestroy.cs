@@ -10,8 +10,6 @@ public class ParticleSystemAutoDestroy : MonoBehaviour
     public void Start()
     {
         ps = GetComponent<ParticleSystem>();
-
-        Debug.Log("ParticleSystem alive");
     }
 
     public void Update()
