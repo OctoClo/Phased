@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnFromBack: 0
+  Arrow: {fileID: 3326334568404102413}
   Plane: {fileID: 917748303558627462}
   SpawnableFolder: {fileID: 4937616912765891376}
   HasSpawnedEverything: 0

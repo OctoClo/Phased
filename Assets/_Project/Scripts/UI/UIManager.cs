@@ -6,63 +6,94 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public LifeCounter lifeCounter;
+    [Header("Overlays")]
+    public GameObject MenuOverlay;
+    public GameObject HUDOverlay;
+    public GameObject VictoryOverlay;
+    public GameObject GameOverOverlay;
 
+    [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
-    TextMeshProUGUI HUDLifeCounter;
+    public GameObject ScoreContainer;
+    public GameObject MultiplicatorContainer;
 
-    public GameObject scoreContainer;
+    [Header("Spaceships")]
+    public List<Spaceship> Spaceships = new List<Spaceship>();
+    public List<Image> PhaseZones = new List<Image>();
+
+    TextMeshProUGUI HUDLifeCounter;
     TextMeshProUGUI score;
-    public GameObject multiplicatorContainer;
     TextMeshProUGUI multiplicator;
 
-    public List<Spaceship> Spaceships = new List<Spaceship>();
-    public List<Image> phaseZones = new List<Image>();
+    GameObject currentOverlay;
 
-    public GameObject gameOverOverlay;
-    public GameObject hudOverlay;    
+    bool gameActive = false;
 
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
-        score = scoreContainer.GetComponent<TextMeshProUGUI>();
-        multiplicator = multiplicatorContainer.GetComponent<TextMeshProUGUI>();
+        score = ScoreContainer.GetComponent<TextMeshProUGUI>();
+        multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
+
+        currentOverlay = MenuOverlay;
     }
     
     void Update()
     {
-        if ( lifeCounter.LifeCount <= 0 )
+        if (gameActive)
         {
-            GameOver();
+            HUDLifeCounter.SetText(LifeCounter.Instance.LifeCount.ToString());
+
+            string scoreFill = "";
+            string scoreTxt = GameScore.Score.ToString();
+
+            for (int i = 0; i < (8 - scoreTxt.Length); i++)
+            {
+                scoreFill += "0";
+            }
+
+            score.SetText(scoreFill + scoreTxt);
+
+            multiplicator.SetText(GameScore.Multiplicator.ToString());
+
+            /*for (int i = 0; i < 2; i++)
+            {
+                PhaseZones[i].transform.position = Spaceships[i].transform.position;
+            }*/
         }
-
-        HUDLifeCounter.SetText(lifeCounter.LifeCount.ToString());
-
-        string scoreFill = "";
-        string scoreTxt = GameScore.Score.ToString();
-
-        for (int i = 0; i < (8 - scoreTxt.Length); i++){
-            scoreFill += "0";
-        }
-
-        score.SetText(scoreFill + scoreTxt);
-
-        multiplicator.SetText(GameScore.Multiplicator.ToString());
-
-        // for (int i = 0; i < 2; i++)
-        // {
-        //     phaseZones[i].transform.position = Spaceships[i].transform.position;
-        // }
     }
 
-    void GameOver()
+    void OnGameStartedEvent(GameStartedEvent e)
     {
-        foreach (Spaceship spaceship in Spaceships)
-        {
-            spaceship.GetComponentInChildren<Renderer>().enabled = false;
-        }
+        gameActive = true;
 
-        hudOverlay.SetActive(false);
-        gameOverOverlay.SetActive(true);
+        currentOverlay.SetActive(false);
+        HUDOverlay.SetActive(true);
+        currentOverlay = HUDOverlay;
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        gameActive = false;
+        /*for (int i = 0; i < 2; i++)
+        {
+            PhaseZones[i].gameObject.SetActive(false);
+        }*/
+
+        currentOverlay.SetActive(false);
+
+        if (e.Victorious)
+        {
+            VictoryOverlay.SetActive(true);
+            currentOverlay = VictoryOverlay;
+        }
+        else
+        {
+            GameOverOverlay.SetActive(true);
+            currentOverlay = GameOverOverlay;
+        }
     }
 }

@@ -5,16 +5,33 @@ using UnityEngine;
 public class PlaneTextureScrolling : MonoBehaviour
 {
     private Renderer planeRenderer;
+    bool gameActive = false;
 
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+
         planeRenderer = GetComponent<Renderer>();
     }
 
     void Update()
     {
-        float offset = Time.time * WorldConstants.Instance.WorldScrollSpeed;
+        if (gameActive)
+        {
+            float offset = Time.time * WorldConstants.Instance.WorldScrollSpeed;
 
-        planeRenderer.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+            planeRenderer.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+        }
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        gameActive = true;
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        gameActive = false;
     }
 }

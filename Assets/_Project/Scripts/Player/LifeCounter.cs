@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeCounter : MonoBehaviour
+public class LifeCounter : Singleton<LifeCounter>
 {
     public int LifeCount = 5;
 
     int previousFrameLifeCount;
     float flickerCounter;
+
+    int initialLifeCount;
     
     public bool IsInvulnerable
     {
@@ -16,18 +18,19 @@ public class LifeCounter : MonoBehaviour
             return (flickerCounter > 0.0f);
         }
     }
-
-    public bool HasNoLifeLeft
-    {
-        get
-        {
-            return ( LifeCount <= 0 );
-        }
-    }
+    
     public Spaceship DamageSource { get; private set; }
 
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+
+        initialLifeCount = LifeCount;
+    }
+
+    void Initialize()
+    {
+        LifeCount = initialLifeCount;
         flickerCounter = 0.0f;
         previousFrameLifeCount = LifeCount;
     }
@@ -42,6 +45,11 @@ public class LifeCounter : MonoBehaviour
         DamageSource = other;
 
         LifeCount--;
+
+        if (LifeCount == 0)
+        {
+            EventManager.Instance.Raise(new GameEndEvent() { Victorious = false });
+        }
     }
 
     void Update()
@@ -58,5 +66,10 @@ public class LifeCounter : MonoBehaviour
         }
 
         previousFrameLifeCount = LifeCount;
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        Initialize();
     }
 }
