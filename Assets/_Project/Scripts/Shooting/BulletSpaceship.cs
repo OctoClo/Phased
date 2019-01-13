@@ -7,12 +7,24 @@ public class BulletSpaceship : Bullet
     public int Damage = 1;
     public GameObject Impact_FX;
     
+
+    [HideInInspector]
+    public GameObject WeaponFrom;
+
+    bool phasedBullet = false;
+
+    public void SetPhased(bool phased)
+    {
+        phasedBullet = phased;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         EnemySphere enemy = other.GetComponent<EnemySphere>();
 
         if (enemy)
         {
+            enemy.TakeDamage(Damage, WeaponFrom, phasedBullet);
 
             GameObject impactFXGO = Instantiate(Impact_FX);
             impactFXGO.transform.position = transform.position;
@@ -21,7 +33,6 @@ public class BulletSpaceship : Bullet
             ParticleSystem impactFX = impactFXGO.GetComponent<ParticleSystem>();
             impactFX.Play();
 
-            enemy.TakeDamage(Damage);
             Destroy(gameObject);
         }
     }

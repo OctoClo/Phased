@@ -10,20 +10,47 @@ public class Spawnable : MonoBehaviour
     Rigidbody rigidBody;
     GameObject spawnsFolder;
 
+    bool waitUntilDeath = false;
+
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         
-        rigidBody.velocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.SpawnableSpeedMultiplier);
+        rigidBody.velocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.SpawnableMultiplier);
 
-        spawnsFolder = GameObject.Find("Spawns");
+        spawnsFolder = FolderManager.Instance.SpawnFolder;
     }
 
     public void Spawn()
     {
         Child.transform.SetParent(spawnsFolder.transform);
         Child.SetActive(true);
-        Destroy(gameObject);
+
+        EnemySphere enemy = Child.GetComponent<EnemySphere>();
+        if (enemy)
+        {
+            waitUntilDeath = enemy.WaitUntilDeath;
+            rigidBody.velocity = Vector3.zero;
+
+            Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
+        }
+
+        if (!waitUntilDeath)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if (waitUntilDeath && Child == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ReverseMovement()
@@ -34,6 +61,7 @@ public class Spawnable : MonoBehaviour
         if (enemy)
         {
             enemy.movement.z = -enemy.movement.z;
+            enemy.transform.Rotate(0, 180, 0);
         }
         else
         {

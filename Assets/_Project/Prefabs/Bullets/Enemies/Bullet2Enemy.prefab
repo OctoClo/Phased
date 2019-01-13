@@ -70,27 +70,27 @@ PrefabInstance:
     - target: {fileID: 6922897901627863750, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6922897901627863750, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6922897901627863750, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6005790682390584116, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 549287aa860b33f478a0c6dd2842e582, type: 2}
+      objectReference: {fileID: 2100000, guid: 4f21d5eed3278ba44a75b80e858798b0, type: 2}
     - target: {fileID: 2919682577583921138, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: Speed
-      value: 22
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714014e5fe39ef24eae1b74b57bf74c2, type: 3}

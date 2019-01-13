@@ -16,7 +16,7 @@ public class Obstacle : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.ObstacleSpeedMultiplier);
+        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.ObstacleMultiplier);
 
         rigidBody.velocity = updatedVelocity;
     }

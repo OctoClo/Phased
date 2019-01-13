@@ -67,16 +67,25 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
 public class WorldConstants : Singleton<WorldConstants>
 {
+    [Header("General Speeds")]
     public float WorldScrollSpeed = 2.0f;
-    public float ObstacleSpeedMultiplier = 3.0f;
-    public float EnemySpeedMultiplier = 1.50f;
-    public float SpawnableSpeedMultiplier = 1f;
-    public float MovingObstacleLateralSpeed = 4.0f;
-    public float MovingObstacleLateralWidth = 20.0f;
+    public float ObstacleMultiplier = 3.0f;
+    public float SpawnableMultiplier = 1f;
 
-    // In seconds
-    public float PlayerInvulnerabilityDuration = 0.500f;
+    [Header("Enemy Speeds")]
+    public float EnemyMultiplier = 1.50f;
+    public float TankMultiplier = 10.0f;
+    public float TankLateralMultiplier = 10.0f;
 
-    // In frame frequency (frameNumber % PlayerFlickerFrequency)
-    public int PlayerFlickerFrequency = 2;
+    [Header("Sinusoid Pattern")]
+    public float EnemySinusPatternLateralMultiplier = 4.0f;
+    public float EnemySinusPatternLateralWidth = 20.0f;
+    
+    [Header("Spaceships")]
+    public float PlayerInvulnerabilityDuration = 0.500f; // In seconds    
+    public int PlayerFlickerFrequency = 2; // In frame frequency (frameNumber % PlayerFlickerFrequency)
+
+    [Header("Critical Hits")]
+    public float MarkBulletTime = 1f;
+    public int MarkBulletDamageMultiplicator = 2;
 }
