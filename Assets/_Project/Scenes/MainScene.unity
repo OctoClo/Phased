@@ -8745,6 +8745,16 @@ PrefabInstance:
       propertyPath: LifeCounter
       value: 
       objectReference: {fileID: 595878179}
+    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: TargetRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: Speed
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 8524802813899115161, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15132,6 +15142,16 @@ PrefabInstance:
       propertyPath: LifeCounter
       value: 
       objectReference: {fileID: 595878179}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: TargetRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: Speed
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17573,7 +17593,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelBricks.Array.data[5]
       value: 
-      objectReference: {fileID: 1576709112170307179, guid: 60a780f0ed45e8c4c8c4facc265d757d,
+      objectReference: {fileID: 3414605971811622845, guid: 506f23cf563805f4d8abb2fcd7b319ef,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
@@ -17615,7 +17635,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelBricks.Array.data[4]
       value: 
-      objectReference: {fileID: 3414605971811622845, guid: 506f23cf563805f4d8abb2fcd7b319ef,
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
@@ -17854,7 +17874,7 @@ PrefabInstance:
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: EnemyMultiplier
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
