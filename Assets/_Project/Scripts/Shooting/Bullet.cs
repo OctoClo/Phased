@@ -11,6 +11,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();   
-        rigidBody.velocity = transform.up * Speed;
+        rigidBody.velocity = transform.up * WorldConstants.Instance.WorldScrollSpeed * Speed;
     }    
 }
