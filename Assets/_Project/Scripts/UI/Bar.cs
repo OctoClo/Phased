@@ -27,7 +27,7 @@ public class Bar : MonoBehaviour
     float currentValue;
     float fillAmount;
 
-    void Start()
+    void Awake()
     {
         barImage = GetComponent<Image>();
     }

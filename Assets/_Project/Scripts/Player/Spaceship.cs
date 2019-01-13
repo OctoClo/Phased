@@ -18,7 +18,6 @@ public class Spaceship : MonoBehaviour
     public Rigidbody RigidBodyTilt;
 
     [Header("Misc")]
-    public LifeCounter LifeCounter;
     public List<AudioClip> ImpactSounds;
 
     int soundIndex;
@@ -56,7 +55,7 @@ public class Spaceship : MonoBehaviour
 
     void Update()
     {
-        if (LifeCounter.DamageSource == this && LifeCounter.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
+        if (LifeCounter.Instance.DamageSource == this && LifeCounter.Instance.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
         {
             spaceshipRenderer.enabled = !spaceshipRenderer.enabled;
         }
@@ -70,14 +69,6 @@ public class Spaceship : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (LifeCounter.HasNoLifeLeft)
-        {
-            // TODO How should the player be removed?
-            Vector3 movementTest = new Vector3(1, 0, 0);
-            rigidBody.velocity = movementTest * Speed * 32.0f;
-            return;
-        }
-
         float moveHorizontal = Direction.x;
         float moveVertical = Direction.y;
 
@@ -119,9 +110,9 @@ public class Spaceship : MonoBehaviour
 
     public void RemoveLife()
     {
-        if (!LifeCounter.IsInvulnerable)
+        if (!LifeCounter.Instance.IsInvulnerable)
         {
-            LifeCounter.RemoveLife(this);
+            LifeCounter.Instance.RemoveLife(this);
             PlayImpactSFX();
         }
     }

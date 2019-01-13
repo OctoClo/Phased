@@ -29,4 +29,14 @@ public class LevelBrick : MonoBehaviour
             SpawnableFolder.transform.GetChild(childIndex).GetComponent<Spawnable>().ReverseMovement();
         }
     }
+
+    public void WaitUntilBrickEnd()
+    {
+        for (int childIndex = 0; childIndex < SpawnableFolder.transform.childCount; childIndex++)
+        {
+            SpawnableFolder.transform.GetChild(childIndex).GetComponent<Spawnable>().LastLevel = true;
+        }
+
+        Plane.SetActive(false);
+    }
 }

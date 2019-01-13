@@ -34,19 +34,27 @@ public class PhasingManager : MonoBehaviour
 
     float distBetweenShips = 0.0f;
 
+    bool gameActive = false;
+
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+
         GameScore.PhasingManager = this;
         PhasingBar.SetSeparator(TotalPhasingThreshold);
     }
 
     void Update()
     {
-        distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
+        if (gameActive)
+        {
+            distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
-        UpdatePhasingValue();
-        UpdatePlayerLink();
-        CheckForStateChange();
+            UpdatePhasingValue();
+            UpdatePlayerLink();
+            CheckForStateChange();
+        }
     }
 
     void UpdatePhasingValue()
@@ -154,5 +162,15 @@ public class PhasingManager : MonoBehaviour
     {
         Spaceships[0].SetWeapon(state);
         Spaceships[1].SetWeapon(state);
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        gameActive = true;
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        gameActive = false;
     }
 }
