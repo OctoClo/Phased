@@ -9,6 +9,7 @@ public class PhasingManager : MonoBehaviour
     [Header("Phasing Bar")]
     public Bar PhasingBar;
     public float TotalPhasingThreshold = 80f;
+    public float PhasingDecreaseSpeed = 5f;
     public float PhasingIncreaseSpeed = 5f;
     public float PhasingBoostKill = 1;
 
@@ -68,7 +69,7 @@ public class PhasingManager : MonoBehaviour
     {
         if (phaseState == EStatePhase.NO_PHASE)
         {
-            PhasingBar.Value -= PhasingIncreaseSpeed * Time.deltaTime;
+            PhasingBar.Value -= PhasingDecreaseSpeed * Time.deltaTime;
         }
         else
         {
