@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4339574647140115201}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45,11 +45,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plane: {fileID: 0}
   LevelBricks:
-  - {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f, type: 3}
+  - {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01, type: 3}
+  - {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637, type: 3}
   - {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87, type: 3}
+  - {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01, type: 3}
+  - {fileID: 3582211940955095445, guid: e89835ac40d5735438755862b793d79e, type: 3}
+  - {fileID: 3857743265742880097, guid: 506f23cf563805f4d8abb2fcd7b319ef, type: 3}
+  - {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01, type: 3}
+  - {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
+  - {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01, type: 3}
   - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
   - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
-  - {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1, type: 3}
   - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
-  - {fileID: 595572623275099445, guid: 17356d5378f3dd6418bd93f7520455ff, type: 3}
+  - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}
   - {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05, type: 3}

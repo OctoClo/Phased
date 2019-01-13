@@ -17528,6 +17528,90 @@ PrefabInstance:
       propertyPath: Plane
       value: 
       objectReference: {fileID: 1521685821}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[1]
+      value: 
+      objectReference: {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[7]
+      value: 
+      objectReference: {fileID: 3855643410691617828, guid: 86c1f86ace33a7a4f967739914f2ecc1,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[8]
+      value: 
+      objectReference: {fileID: 4180405069484646939, guid: d15841decc2b97646b07979bdb149e50,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[9]
+      value: 
+      objectReference: {fileID: 6408355450140814786, guid: 4ff2ab386f4c3a842be7f836ad76331f,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[10]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[11]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[5]
+      value: 
+      objectReference: {fileID: 3414605971811622845, guid: d5cef37d124db6641b3b1367afad5b05,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[6]
+      value: 
+      objectReference: {fileID: 1576709112170307179, guid: 60a780f0ed45e8c4c8c4facc265d757d,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[12]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[13]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[14]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[2]
+      value: 
+      objectReference: {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[3]
+      value: 
+      objectReference: {fileID: 3582211940955095445, guid: e89835ac40d5735438755862b793d79e,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[4]
+      value: 
+      objectReference: {fileID: 3857743265742880097, guid: 506f23cf563805f4d8abb2fcd7b319ef,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
 --- !u!1001 &5197246085518950513
@@ -17749,17 +17833,21 @@ PrefabInstance:
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: ObstacleMultiplier
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: SpawnableMultiplier
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: EnemyMultiplier
       value: 10
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: MarkBulletTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a2b12818acbe4439b3782d58f38e3e, type: 3}

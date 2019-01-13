@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a28eb366a365cf4ca480aea1a53d6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 18
+  Speed: 25
   Damage: 1
+  WeaponFrom: {fileID: 0}
   Impact_FX: {fileID: 4377444192133826700, guid: b5ebd2b1f7b506a4189d9abcd8eea6f3,
     type: 3}
