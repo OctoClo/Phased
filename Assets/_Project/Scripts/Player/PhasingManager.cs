@@ -45,7 +45,7 @@ public class PhasingManager : MonoBehaviour
         distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
         UpdatePhasingValue();
-        UpdatePlayerLink();
+        //UpdatePlayerLink();
         CheckForStateChange();
     }
 
@@ -121,18 +121,18 @@ public class PhasingManager : MonoBehaviour
         switch (phaseState)
         {
             case EStatePhase.NO_PHASE:
-                PlayersLink.SetActive(false);
+                //PlayersLink.SetActive(false);
                 StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PRE_PHASE:
-                PlayersLink.SetActive(true);
+                //PlayersLink.SetActive(true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
                 StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
-                PlayersLink.SetActive(true);
+                //PlayersLink.SetActive(true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
                 StartCoroutine(OutputManager.VibrateAll(PhaseVibrationDuration));
                 break;

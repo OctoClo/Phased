@@ -49,10 +49,10 @@ public class UIManager : MonoBehaviour
 
         multiplicator.SetText(GameScore.Multiplicator.ToString());
 
-        for (int i = 0; i < 2; i++)
-        {
-            phaseZones[i].transform.position = Spaceships[i].transform.position;
-        }
+        // for (int i = 0; i < 2; i++)
+        // {
+        //     phaseZones[i].transform.position = Spaceships[i].transform.position;
+        // }
     }
 
     void GameOver()
