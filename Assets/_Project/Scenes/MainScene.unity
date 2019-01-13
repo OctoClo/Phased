@@ -4010,6 +4010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship2
       objectReference: {fileID: 0}
+    - target: {fileID: 6862190134552227914, guid: 57903a4c30728074b8a7ecfee586dffc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: lifeCounter
@@ -10320,6 +10325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spaceship1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707436421660138710, guid: f4f66d835d02e474bb39a30e68229aa1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}

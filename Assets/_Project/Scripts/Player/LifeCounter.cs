@@ -8,6 +8,8 @@ public class LifeCounter : Singleton<LifeCounter>
 
     int previousFrameLifeCount;
     float flickerCounter;
+
+    int initialLifeCount;
     
     public bool IsInvulnerable
     {
@@ -21,6 +23,14 @@ public class LifeCounter : Singleton<LifeCounter>
 
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+
+        initialLifeCount = LifeCount;
+    }
+
+    void Initialize()
+    {
+        LifeCount = initialLifeCount;
         flickerCounter = 0.0f;
         previousFrameLifeCount = LifeCount;
     }
@@ -56,5 +66,10 @@ public class LifeCounter : Singleton<LifeCounter>
         }
 
         previousFrameLifeCount = LifeCount;
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        Initialize();
     }
 }

@@ -30,9 +30,9 @@ public class PhasingManager : MonoBehaviour
     [Header("Misc")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
-    EStatePhase phaseState = EStatePhase.NO_PHASE;
+    EStatePhase phaseState;
 
-    float distBetweenShips = 0.0f;
+    float distBetweenShips;
 
     bool gameActive = false;
 
@@ -43,6 +43,13 @@ public class PhasingManager : MonoBehaviour
 
         GameScore.PhasingManager = this;
         PhasingBar.SetSeparator(TotalPhasingThreshold);
+    }
+
+    void Initialize()
+    {
+        phaseState = EStatePhase.NO_PHASE;
+        PlayersLink.SetActive(false);
+        PhasingBar.Value = 0;
     }
 
     void Update()
@@ -167,6 +174,7 @@ public class PhasingManager : MonoBehaviour
     void OnGameStartedEvent(GameStartedEvent e)
     {
         gameActive = true;
+        Initialize();
     }
 
     void OnGameEndEvent(GameEndEvent e)

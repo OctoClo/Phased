@@ -34,22 +34,29 @@ public class Spaceship : MonoBehaviour
 
     GameObject weaponGO;
     WeaponSpaceship weapon;
-
-    Vector3 cursorScale;
+    
     Vector2 previousTarget;
-    float previousAngle = 0.0f;
+    float previousAngle;
     float angleOffset = -90.0f;
 
-    bool phasedWeapon = false;
+    bool phasedWeapon;
 
-    void Start()
+    Vector3 initialPosition;
+
+    void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponentInChildren<Renderer>();
 
-        cursorScale = Cursor.transform.localScale;
+        initialPosition = gameObject.transform.position;
         soundIndex = 0;
+    }
 
+    public void Initialize()
+    {
+        previousAngle = 0.0f;
+        phasedWeapon = false;
+        gameObject.transform.position = initialPosition;
         SetWeapon(EStatePhase.NO_PHASE);
     }
 

@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public GameObject Plane;
     public List<GameObject> LevelBricks;
 
+    List<GameObject> remainingLevelBricks;
     GameObject currentLevelBrickGO = null;
     LevelBrick currentLevelBrick;
     Vector3 brickPos;
@@ -25,11 +26,16 @@ public class LevelManager : MonoBehaviour
         offsetZBack = Plane.transform.position.z - ((Plane.transform.localScale.z * 10) / 2);
     }
 
+    void Initialize()
+    {
+        remainingLevelBricks = new List<GameObject>(LevelBricks);
+    }
+
     private void Update()
     {
         if (gameActive)
         {
-            if (LevelBricks.Count > 0)
+            if (remainingLevelBricks.Count > 0)
             {
                 if (!currentLevelBrickGO)
                 {
@@ -38,9 +44,9 @@ public class LevelManager : MonoBehaviour
                 else if (currentLevelBrick.HasSpawnedEverything)
                 {
                     Destroy(currentLevelBrickGO);
-                    LevelBricks.RemoveAt(0);
+                    remainingLevelBricks.RemoveAt(0);
 
-                    if (LevelBricks.Count > 0)
+                    if (remainingLevelBricks.Count > 0)
                     {
                         CreateBrick();
                     }
@@ -56,7 +62,7 @@ public class LevelManager : MonoBehaviour
 
     void CreateBrick()
     {
-        currentLevelBrickGO = Instantiate(LevelBricks[0]);
+        currentLevelBrickGO = Instantiate(remainingLevelBricks[0]);
         currentLevelBrick = currentLevelBrickGO.GetComponent<LevelBrick>();
         if (currentLevelBrick.SpawnFromBack)
         {
@@ -70,7 +76,7 @@ public class LevelManager : MonoBehaviour
         
         currentLevelBrickGO.transform.position = brickPos;
 
-        if (LevelBricks.Count == 1)
+        if (remainingLevelBricks.Count == 1)
         {
             currentLevelBrick.WaitUntilBrickEnd();
         }
@@ -79,6 +85,13 @@ public class LevelManager : MonoBehaviour
     void OnGameStartedEvent(GameStartedEvent e)
     {
         gameActive = true;
+
+        if (currentLevelBrickGO)
+        {
+            Destroy(currentLevelBrickGO);
+        }
+
+        Initialize();
     }
 
     void OnGameEndEvent(GameEndEvent e)

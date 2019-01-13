@@ -13,8 +13,6 @@ public class GameQuitConfirmEvent : GameEvent { }
 
 public class GameQuitCancelEvent : GameEvent { }
 
-public class GameRetryEvent : GameEvent { }
-
 public class GameEndEvent : GameEvent { public bool Victorious; }
 
 public class MenuManager : MonoBehaviour
@@ -46,12 +44,14 @@ public class MenuManager : MonoBehaviour
 
     public void RetryButton()
     {
-        EventManager.Instance.Raise(new GameRetryEvent());
+        EventManager.Instance.Raise(new GameStartedEvent());
     }
 
     void Update()
     {
-        if (InputSystem.GetDevice<Keyboard>().mKey.isPressed)
+        Keyboard keyboard = InputSystem.GetDevice<Keyboard>();
+
+        if (keyboard.pKey.wasReleasedThisFrame)
         {
             StartButton();
         }
