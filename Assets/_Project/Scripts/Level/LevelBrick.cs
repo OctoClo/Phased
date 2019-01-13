@@ -6,6 +6,7 @@ public class LevelBrick : MonoBehaviour
 {
     public bool SpawnFromBack = false;
 
+    public GameObject Arrow;
     public GameObject Plane;
     public GameObject SpawnableFolder;
 
@@ -13,6 +14,11 @@ public class LevelBrick : MonoBehaviour
     public bool HasSpawnedEverything = false;
 
     Vector3 reverseRotation = new Vector3(0, -180, 0);
+
+    private void Start()
+    {
+        Arrow.SetActive(false);
+    }
 
     private void Update()
     {
