@@ -41,15 +41,19 @@ public class Spaceship : MonoBehaviour
 
     bool phasedWeapon;
 
+    Vector3 initialPosition;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponentInChildren<Renderer>();
         soundIndex = 0;
+        initialPosition = transform.position;
     }
 
     public void Initialize()
     {
+        transform.position = initialPosition;
         phasedWeapon = false;
         SetWeapon(EStatePhase.NO_PHASE);
     }
