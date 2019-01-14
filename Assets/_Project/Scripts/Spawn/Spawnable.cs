@@ -6,6 +6,9 @@ public class Spawnable : MonoBehaviour
 {
     public GameObject Child;
 
+    [HideInInspector]
+    public bool LastLevel;
+
     Vector3 movement = new Vector3(0, 0, -1);
     Rigidbody rigidBody;
     GameObject spawnsFolder;
@@ -29,7 +32,19 @@ public class Spawnable : MonoBehaviour
         EnemySphere enemy = Child.GetComponent<EnemySphere>();
         if (enemy)
         {
-            waitUntilDeath = enemy.WaitUntilDeath;
+            waitUntilDeath = LastLevel ? true : enemy.WaitUntilDeath;
+        }
+        else
+        {
+            waitUntilDeath = LastLevel;
+        }
+
+        if (!waitUntilDeath)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
             rigidBody.velocity = Vector3.zero;
 
             Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
@@ -37,11 +52,6 @@ public class Spawnable : MonoBehaviour
             {
                 renderer.enabled = false;
             }
-        }
-
-        if (!waitUntilDeath)
-        {
-            Destroy(gameObject);
         }
     }
 

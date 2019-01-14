@@ -26,15 +26,14 @@ public class Bar : MonoBehaviour
     float maxValue = 100f;
     float currentValue;
     float fillAmount;
-
-    void Start()
-    {
-        barImage = GetComponent<Image>();
-    }
     
     void UpdateBar()
     {
         fillAmount = currentValue / maxValue;
+        if (!barImage)
+        {
+            barImage = GetComponent<Image>();
+        }
         barImage.fillAmount = fillAmount;
     }
 

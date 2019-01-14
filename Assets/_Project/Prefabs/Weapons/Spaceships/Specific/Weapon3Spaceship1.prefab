@@ -18,11 +18,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6328348011500709302, guid: d0c149d711a674a4d86ddcf781ec549b,
         type: 3}
-    - target: {fileID: 5810781120030593334, guid: 5f65660c88bf7984a9aac66529720414,
-        type: 3}
-      propertyPath: FireInterval
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1813791745762680976, guid: 5f65660c88bf7984a9aac66529720414,
         type: 3}
       propertyPath: m_LocalPosition.x

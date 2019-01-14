@@ -9,6 +9,7 @@ public class PhasingManager : MonoBehaviour
     [Header("Phasing Bar")]
     public Bar PhasingBar;
     public float TotalPhasingThreshold = 80f;
+    public float PhasingDecreaseSpeed = 5f;
     public float PhasingIncreaseSpeed = 5f;
     public float PhasingBoostKill = 1;
 
@@ -30,30 +31,45 @@ public class PhasingManager : MonoBehaviour
     [Header("Misc")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
-    EStatePhase phaseState = EStatePhase.NO_PHASE;
+    EStatePhase phaseState;
 
-    float distBetweenShips = 0.0f;
+    float distBetweenShips;
+
+    bool gameActive = false;
 
     void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+
         GameScore.PhasingManager = this;
         PhasingBar.SetSeparator(TotalPhasingThreshold);
     }
 
+    void Initialize()
+    {
+        phaseState = EStatePhase.NO_PHASE;
+        PlayersLink.SetActive(false);
+        PhasingBar.Value = 0;
+    }
+
     void Update()
     {
-        distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
+        if (gameActive)
+        {
+            distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
         UpdatePhasingValue();
         //UpdatePlayerLink();
         CheckForStateChange();
+        }
     }
 
     void UpdatePhasingValue()
     {
         if (phaseState == EStatePhase.NO_PHASE)
         {
-            PhasingBar.Value -= PhasingIncreaseSpeed * Time.deltaTime;
+            PhasingBar.Value -= PhasingDecreaseSpeed * Time.deltaTime;
         }
         else
         {
@@ -154,5 +170,16 @@ public class PhasingManager : MonoBehaviour
     {
         Spaceships[0].SetWeapon(state);
         Spaceships[1].SetWeapon(state);
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        gameActive = true;
+        Initialize();
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        gameActive = false;
     }
 }

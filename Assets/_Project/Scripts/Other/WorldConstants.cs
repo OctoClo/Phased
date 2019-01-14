@@ -71,6 +71,7 @@ public class WorldConstants : Singleton<WorldConstants>
     public float WorldScrollSpeed = 2.0f;
     public float ObstacleMultiplier = 3.0f;
     public float SpawnableMultiplier = 1f;
+    public float EnemyVoidSpeedMultiplier = 5f;
 
     [Header("Enemy Speeds")]
     public float EnemyMultiplier = 1.50f;

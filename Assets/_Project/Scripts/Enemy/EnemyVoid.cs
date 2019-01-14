@@ -7,8 +7,11 @@ public class EnemyVoid : EnemySphere
     protected override void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier);
+        Vector3 updatedVelocity = movement * (WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyVoidSpeedMultiplier);
         rigidBody.velocity = updatedVelocity;
+
+        Renderer renderer = GetComponent<Renderer>();
+        renderer.enabled = false;
     }
 
     protected override void HandleMovement()

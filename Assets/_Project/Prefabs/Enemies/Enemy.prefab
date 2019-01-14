@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6982326568767102013}
   - component: {fileID: 6252388307046062302}
   m_Layer: 0
-  m_Name: EnemySphere
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.2379088
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6982326568767102013
 MonoBehaviour:
@@ -123,11 +123,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 2
-  PatternSinus: 0
+  KillReward: 10
+  WaitUntilDeath: 0
+  Pattern: 0
   ExplosionSounds:
   - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
   - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
   - {fileID: 8300000, guid: 715202ee9aceecc4ab2275cdc2fdbc97, type: 3}
+  movement: {x: 0, y: 0, z: -1}
 --- !u!82 &6252388307046062302
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,24 +7,35 @@ public class LevelManager : MonoBehaviour
     public GameObject Plane;
     public List<GameObject> LevelBricks;
 
+    List<GameObject> remainingLevelBricks;
     GameObject currentLevelBrickGO = null;
     LevelBrick currentLevelBrick;
     Vector3 brickPos;
+
     float offsetZFront;
     float offsetZBack;
-    bool levelEnd = false;
+    
+    bool gameActive = false;
 
     private void Start()
     {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+
         offsetZFront = Plane.transform.position.z + ((Plane.transform.localScale.z * 10) / 2);
         offsetZBack = Plane.transform.position.z - ((Plane.transform.localScale.z * 10) / 2);
     }
 
+    void Initialize()
+    {
+        remainingLevelBricks = new List<GameObject>(LevelBricks);
+    }
+
     private void Update()
     {
-        if (!levelEnd)
+        if (gameActive)
         {
-            if (LevelBricks.Count > 0)
+            if (remainingLevelBricks.Count > 0)
             {
                 if (!currentLevelBrickGO)
                 {
@@ -33,8 +44,9 @@ public class LevelManager : MonoBehaviour
                 else if (currentLevelBrick.HasSpawnedEverything)
                 {
                     Destroy(currentLevelBrickGO);
-                    LevelBricks.RemoveAt(0);
-                    if (LevelBricks.Count > 0)
+                    remainingLevelBricks.RemoveAt(0);
+
+                    if (remainingLevelBricks.Count > 0)
                     {
                         CreateBrick();
                     }
@@ -42,15 +54,15 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("End of level!");
-                levelEnd = true;
+                EventManager.Instance.Raise(new GameEndEvent() { Victorious = true });
+                gameActive = false;
             }
         }
     }
 
     void CreateBrick()
     {
-        currentLevelBrickGO = Instantiate(LevelBricks[0]);
+        currentLevelBrickGO = Instantiate(remainingLevelBricks[0]);
         currentLevelBrick = currentLevelBrickGO.GetComponent<LevelBrick>();
         if (currentLevelBrick.SpawnFromBack)
         {
@@ -63,5 +75,27 @@ public class LevelManager : MonoBehaviour
         }
         
         currentLevelBrickGO.transform.position = brickPos;
+
+        if (remainingLevelBricks.Count == 1)
+        {
+            currentLevelBrick.WaitUntilBrickEnd();
+        }
+    }
+
+    void OnGameStartedEvent(GameStartedEvent e)
+    {
+        gameActive = true;
+
+        if (currentLevelBrickGO)
+        {
+            Destroy(currentLevelBrickGO);
+        }
+
+        Initialize();
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        gameActive = false;
     }
 }

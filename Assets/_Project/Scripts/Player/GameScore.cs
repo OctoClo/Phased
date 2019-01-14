@@ -6,8 +6,8 @@ public static class GameScore
 {
     public static PhasingManager PhasingManager;
 
-    static private uint multiplicator = 1;
-    static private uint score = 0;
+    static private uint multiplicator;
+    static private uint score;
 
     static public uint Multiplicator
     {
@@ -33,5 +33,11 @@ public static class GameScore
         {
             return score;
         }
+    }
+
+    public static void Initialize()
+    {
+        multiplicator = 1;
+        score = 0;
     }
 }

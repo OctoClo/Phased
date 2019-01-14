@@ -10,18 +10,7 @@ PrefabInstance:
     - target: {fileID: 384439547592037438, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
         type: 3}
       propertyPath: m_Name
-      value: Weapon3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217719994767561349, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
-        type: 3}
-      propertyPath: BulletPrefab
-      value: 
-      objectReference: {fileID: 1258524368722780862, guid: 36c2b32bab6a69d4fb0460ee484a77e4,
-        type: 3}
-    - target: {fileID: 6217719994767561349, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
-        type: 3}
-      propertyPath: FireInterval
-      value: 0.05
+      value: Weapon3Spaceship
       objectReference: {fileID: 0}
     - target: {fileID: 9153185621511623850, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
         type: 3}
@@ -81,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 3929758514891318540, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
         type: 3}
       propertyPath: FireInterval
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3929758514891318540, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
         type: 3}
@@ -89,5 +78,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1258524368722780862, guid: 36c2b32bab6a69d4fb0460ee484a77e4,
         type: 3}
+    - target: {fileID: 6217719994767561349, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
+        type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 1258524368722780862, guid: 36c2b32bab6a69d4fb0460ee484a77e4,
+        type: 3}
+    - target: {fileID: 6217719994767561349, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
+        type: 3}
+      propertyPath: FireInterval
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a6d9e20edb77544bd2fb85a4babb2f, type: 3}
