@@ -5,6 +5,7 @@ using UnityEngine;
 public class LifeCounter : Singleton<LifeCounter>
 {
     public int LifeCount = 5;
+    public Animator ScreenglowAnimator;
 
     int previousFrameLifeCount;
     float flickerCounter;
@@ -45,6 +46,12 @@ public class LifeCounter : Singleton<LifeCounter>
         DamageSource = other;
 
         LifeCount--;
+
+        if(LifeCount == 1){
+            ScreenglowAnimator.SetBool("Low Health", true);
+        } else{
+            ScreenglowAnimator.SetTrigger("Hit");
+        }
 
         if (LifeCount == 0)
         {
