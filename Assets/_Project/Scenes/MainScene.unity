@@ -1134,7 +1134,7 @@ ParticleSystem:
   m_GameObject: {fileID: 211955587}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 10
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -8753,7 +8753,7 @@ PrefabInstance:
     - target: {fileID: 4575318572640578830, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
       propertyPath: Speed
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8524802813899115161, guid: 57903a4c30728074b8a7ecfee586dffc,
         type: 3}
@@ -15150,7 +15150,7 @@ PrefabInstance:
     - target: {fileID: 4418084502878814610, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
       propertyPath: Speed
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8385934007502120453, guid: f4f66d835d02e474bb39a30e68229aa1,
         type: 3}
@@ -17546,7 +17546,7 @@ PrefabInstance:
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
       propertyPath: LevelBricks.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
@@ -17587,7 +17587,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelBricks.Array.data[11]
       value: 
-      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+      objectReference: {fileID: 1466758624123960792, guid: d9bb5cce9b36c7141ab958ecef31c91f,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
@@ -17599,25 +17599,25 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelBricks.Array.data[6]
       value: 
-      objectReference: {fileID: 3414605971811622845, guid: 506f23cf563805f4d8abb2fcd7b319ef,
+      objectReference: {fileID: 1576709112170307179, guid: 60a780f0ed45e8c4c8c4facc265d757d,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
       propertyPath: LevelBricks.Array.data[12]
       value: 
-      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+      objectReference: {fileID: 3473896926213353238, guid: 512c26b433e8f42468839e6ecbd88706,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
       propertyPath: LevelBricks.Array.data[13]
       value: 
-      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+      objectReference: {fileID: 3563304123432434289, guid: 702fb2302e8b5354c87ff42420eeb9f2,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
       propertyPath: LevelBricks.Array.data[14]
       value: 
-      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+      objectReference: {fileID: 8624182022011082780, guid: 9632f5bcff70c8f4dbbfd2ef239e03e4,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
@@ -17642,6 +17642,36 @@ PrefabInstance:
       propertyPath: LevelBricks.Array.data[0]
       value: 
       objectReference: {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[15]
+      value: 
+      objectReference: {fileID: 7004161144620940758, guid: 834fb5bda6b775d45a4942201f56d456,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[16]
+      value: 
+      objectReference: {fileID: 3996697876255286776, guid: 73df9c72aebc7d549885083d2d36c998,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[17]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[18]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[19]
+      value: 
+      objectReference: {fileID: 1396365865544228499, guid: fa6ed05017b0d1b4da6777cf96ed9d01,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
@@ -17864,7 +17894,7 @@ PrefabInstance:
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: ObstacleMultiplier
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
@@ -17874,7 +17904,7 @@ PrefabInstance:
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: EnemyMultiplier
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
@@ -18050,6 +18080,16 @@ PrefabInstance:
       propertyPath: Spaceships.Array.data[1]
       value: 
       objectReference: {fileID: 840317539}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: PhasingDecreaseSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: PhasingIncreaseSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f771c355406985142ac8256b66766dfc, type: 3}
 --- !u!1001 &9008692613166696651
