@@ -31,6 +31,10 @@ public class Spaceship : MonoBehaviour
 
     Rigidbody rigidBody;
     Renderer spaceshipRenderer;
+    Color emissiveColor;
+    float previousEmissiveIntensity = 1.0f;
+    float emissiveIntensity = 1.0f;
+    float emissiveIntensityInterpolator = 1.0f;
 
     GameObject weaponGO;
     WeaponSpaceship weapon;
@@ -46,6 +50,7 @@ public class Spaceship : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponentInChildren<Renderer>();
         soundIndex = 0;
+        emissiveColor = spaceshipRenderer.material.GetColor("_EmissionColor");
     }
 
     public void Initialize()
@@ -66,6 +71,10 @@ public class Spaceship : MonoBehaviour
         }
 
         weapon.IsFiring = IsFiring;
+
+        spaceshipRenderer.material.SetColor("_EmissionColor", emissiveColor * Mathf.Lerp(previousEmissiveIntensity, emissiveIntensity, emissiveIntensityInterpolator));
+
+        emissiveIntensityInterpolator = Mathf.Min(1.0f, emissiveIntensityInterpolator + (2f * Time.deltaTime));
     }
 
     void FixedUpdate()
@@ -126,5 +135,12 @@ public class Spaceship : MonoBehaviour
 
         soundIndex++;
         if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
+    }
+
+    public void SetGlowIntensity(float value, bool instantly)
+    {
+        previousEmissiveIntensity = emissiveIntensity;
+        emissiveIntensity = value;
+        if(!instantly) emissiveIntensityInterpolator = 0;
     }
 }

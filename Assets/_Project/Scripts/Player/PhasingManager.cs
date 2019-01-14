@@ -138,17 +138,20 @@ public class PhasingManager : MonoBehaviour
         {
             case EStatePhase.NO_PHASE:
                 //PlayersLink.SetActive(false);
+                SetSpaceshipsGlow(1f, false);
                 StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PRE_PHASE:
                 //PlayersLink.SetActive(true);
+                SetSpaceshipsGlow(2.5f, true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
                 StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
                 //PlayersLink.SetActive(true);
+                SetSpaceshipsGlow(3.5f, true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
                 StartCoroutine(OutputManager.VibrateAll(PhaseVibrationDuration));
                 break;
@@ -170,6 +173,12 @@ public class PhasingManager : MonoBehaviour
     {
         Spaceships[0].SetWeapon(state);
         Spaceships[1].SetWeapon(state);
+    }
+
+    void SetSpaceshipsGlow(float value, bool instantly)
+    {
+        Spaceships[0].SetGlowIntensity(value, instantly);
+        Spaceships[1].SetGlowIntensity(value, instantly);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)
