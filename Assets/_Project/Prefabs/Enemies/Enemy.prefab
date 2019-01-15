@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee263e24c6673ba4299fcd753d07334e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 2
+  HealthPoints: 4
   KillReward: 10
   WaitUntilDeath: 0
   Pattern: 0
