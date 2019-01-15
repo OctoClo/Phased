@@ -127,6 +127,7 @@ public class Spaceship : MonoBehaviour
         if (!LifeCounter.Instance.IsInvulnerable)
         {
             LifeCounter.Instance.RemoveLife(this);
+            StartCoroutine(OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration));
             PlayImpactSFX();
         }
     }

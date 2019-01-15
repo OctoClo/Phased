@@ -20,20 +20,25 @@ public class BulletSpaceship : Bullet
 
     void OnTriggerEnter(Collider other)
     {
-        EnemySphere enemy = other.GetComponent<EnemySphere>();
+        EnemyVoid enemyVoid = other.GetComponent<EnemyVoid>();
 
-        if (enemy)
+        if (!enemyVoid)
         {
-            enemy.TakeDamage(Damage, WeaponFrom, phasedBullet);
+            EnemySphere enemy = other.GetComponent<EnemySphere>();
 
-            GameObject impactFXGO = Instantiate(Impact_FX);
-            impactFXGO.transform.position = transform.position;
-            impactFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+            if (enemy)
+            {
+                enemy.TakeDamage(Damage, WeaponFrom, phasedBullet);
 
-            ParticleSystem impactFX = impactFXGO.GetComponent<ParticleSystem>();
-            impactFX.Play();
+                GameObject impactFXGO = Instantiate(Impact_FX);
+                impactFXGO.transform.position = transform.position;
+                impactFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
 
-            Destroy(gameObject);
+                ParticleSystem impactFX = impactFXGO.GetComponent<ParticleSystem>();
+                impactFX.Play();
+
+                Destroy(gameObject);
+            }
         }
     }
 }
