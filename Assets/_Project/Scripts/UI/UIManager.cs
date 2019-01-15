@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject HUDOverlay;
     public GameObject VictoryOverlay;
     public GameObject GameOverOverlay;
+    public GameObject QuitOverlay;
 
     [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI multiplicator;
 
     GameObject currentOverlay;
+    GameObject beforeQuitOverlay;
 
     bool gameActive = false;
 
@@ -33,6 +35,9 @@ public class UIManager : MonoBehaviour
     {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+        EventManager.Instance.AddListener<GameQuitAskEvent>(OnGameQuitAskEvent);
+        EventManager.Instance.AddListener<GameQuitConfirmEvent>(OnGameQuitConfirmEvent);
+        EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
 
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
@@ -95,5 +100,28 @@ public class UIManager : MonoBehaviour
             GameOverOverlay.SetActive(true);
             currentOverlay = GameOverOverlay;
         }
+    }
+
+    void OnGameQuitAskEvent(GameQuitAskEvent e)
+    {
+        beforeQuitOverlay = currentOverlay;
+        QuitOverlay.SetActive(true);
+    }
+
+    void OnGameQuitConfirmEvent(GameQuitConfirmEvent e)
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    void OnGameQuitCancelEvent(GameQuitCancelEvent e)
+    {
+        QuitOverlay.SetActive(false);
+        beforeQuitOverlay.SetActive(false);
+        beforeQuitOverlay.SetActive(true);
+        currentOverlay = beforeQuitOverlay;
     }
 }
