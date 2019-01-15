@@ -7,6 +7,7 @@ public enum eBehaviour
     LINEAR, // Pattern 1
     LINEAR_SWIPE, // Pattern 2
     SIN_PATH, // Pattern 3
+	REVERSED_SIN_PATH,
     KAMIKAZE,
     TANK
 };
@@ -69,9 +70,11 @@ public class EnemySphere : MonoBehaviour
     {
         Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier;
 
-        if (Pattern == eBehaviour.SIN_PATH)
+        if (Pattern == eBehaviour.SIN_PATH
+			|| Pattern == eBehaviour.REVERSED_SIN_PATH)
         {
-            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.EnemySinusPatternLateralMultiplier) * WorldConstants.Instance.EnemySinusPatternLateralWidth;
+			var dirSign = ( Pattern == eBehaviour.SIN_PATH ) ? 1 : -1;
+            updatedVelocity.x = Mathf.Sin(Time.time * WorldConstants.Instance.EnemySinusPatternLateralMultiplier * dirSign) * WorldConstants.Instance.EnemySinusPatternLateralWidth;
         }
 
         rigidBody.velocity = updatedVelocity;
