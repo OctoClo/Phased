@@ -105,9 +105,7 @@ public class UIManager : MonoBehaviour
     void OnGameQuitAskEvent(GameQuitAskEvent e)
     {
         beforeQuitOverlay = currentOverlay;
-        currentOverlay.SetActive(false);
         QuitOverlay.SetActive(true);
-        currentOverlay = QuitOverlay;
     }
 
     void OnGameQuitConfirmEvent(GameQuitConfirmEvent e)
@@ -121,7 +119,8 @@ public class UIManager : MonoBehaviour
 
     void OnGameQuitCancelEvent(GameQuitCancelEvent e)
     {
-        currentOverlay.SetActive(false);
+        QuitOverlay.SetActive(false);
+        beforeQuitOverlay.SetActive(false);
         beforeQuitOverlay.SetActive(true);
         currentOverlay = beforeQuitOverlay;
     }
