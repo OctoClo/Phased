@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Child: {fileID: 3474326887559516467}
+  LastLevel: 0
 --- !u!54 &7102687378202515144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 1db1b3c99afbd6746a391a4474fbd466, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 166ec539f0eae7e4eba13d7f1485fd1c, type: 2}
+      objectReference: {fileID: 2100000, guid: 51ef51b82b3d3c14aa09f32333399c80, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db1b3c99afbd6746a391a4474fbd466, type: 3}
 --- !u!4 &7386421131547221611 stripped
