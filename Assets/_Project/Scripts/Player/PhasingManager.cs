@@ -20,10 +20,6 @@ public class PhasingManager : MonoBehaviour
     public uint PrePhaseScoreMultiplicator = 2;
     public uint PhaseScoreMultiplicator = 4;
 
-    [Header("Vibrations")]
-    public float PrePhaseVibrationDuration = 0.1f;
-    public float PhaseVibrationDuration = 0.1f;
-
     [Header("Players Link")]
     public GameObject PlayersLink;
     public List<Material> MaterialsPlayersLink = new List<Material>();
@@ -139,21 +135,18 @@ public class PhasingManager : MonoBehaviour
             case EStatePhase.NO_PHASE:
                 //PlayersLink.SetActive(false);
                 SetSpaceshipsGlow(1f, false);
-                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PRE_PHASE:
                 //PlayersLink.SetActive(true);
                 SetSpaceshipsGlow(2.5f, true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
-                StartCoroutine(OutputManager.VibrateAll(PrePhaseVibrationDuration));
                 break;
 
             case EStatePhase.PHASE:
                 //PlayersLink.SetActive(true);
                 SetSpaceshipsGlow(3.5f, true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
-                StartCoroutine(OutputManager.VibrateAll(PhaseVibrationDuration));
                 break;
         }
 
