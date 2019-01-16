@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,12 +65,14 @@ public class LifeCounter : Singleton<LifeCounter>
         else
         {
             other.PlayLoseLifeVFX();
+            ScreenShake.Instance.Shake(WorldConstants.Instance.ScreenShakeHitDuration, WorldConstants.Instance.ScreenShakeHitIntensity);
         }
     }
 
     IEnumerator GameOver()
     {
         SpaceshipsManager.Instance.PlayDeathFX();
+        ScreenShake.Instance.Shake(WorldConstants.Instance.ScreenShakeDeathDuration, WorldConstants.Instance.ScreenShakeDeathIntensity);
 
         yield return new WaitUntil(SpaceshipsManager.Instance.HasDeathFXFinished);
         

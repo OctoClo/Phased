@@ -6697,6 +6697,24 @@ MonoBehaviour:
   - {fileID: 264401238}
   blockInputTime: 0.5
   horizontalMenu: 1
+--- !u!1 &435141483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5712956538310657949, guid: 88eae08a3e83d114ab5e82881564da56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003332162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &435141487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435141483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330175b34131e864faaf881423fa4efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &465961352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7982636335871636489, guid: f771c355406985142ac8256b66766dfc,
@@ -18361,6 +18379,26 @@ PrefabInstance:
         type: 3}
       propertyPath: WorldScrollSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeHitDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeHitIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeDeathDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeDeathIntensity
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a2b12818acbe4439b3782d58f38e3e, type: 3}

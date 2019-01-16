@@ -29,6 +29,7 @@ MonoBehaviour:
   KillReward: 50
   WaitUntilDeath: 1
   Pattern: 0
+  DeathFX: {fileID: 5958621193249698954, guid: a49d3c9aa791d3145b623f36eedac2c8, type: 3}
   ExplosionSounds:
   - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
   - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
@@ -293,17 +294,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2300004, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c8d59f3dabb9b714a88d828e7f0e626a, type: 2}
-    - target: {fileID: 2300002, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 465573fc4465c1947b3eb365c9e70dcb, type: 2}
     - target: {fileID: 2300000, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a17638c89422e8144873e235a841559c, type: 2}
+    - target: {fileID: 2300002, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 465573fc4465c1947b3eb365c9e70dcb, type: 2}
+    - target: {fileID: 2300004, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8d59f3dabb9b714a88d828e7f0e626a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07565831ec38d3441a318943f3ac5bd7, type: 3}

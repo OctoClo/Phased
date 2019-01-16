@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenShake : MonoBehaviour
+public class ScreenShake : Singleton<ScreenShake>
 {
     private Vector3 startPosition;
-    public float shakeTimer, shakeIntensity;
+    float shakeTimer, shakeIntensity;
 
     void Start()
     {
@@ -21,11 +21,15 @@ public class ScreenShake : MonoBehaviour
             Vector2 offset = Random.insideUnitCircle;
             transform.position = startPosition + new Vector3 (offset.x, offset.y, 0) * shakeIntensity;
         }
-
         else
         {
             transform.position = startPosition;
         }
+    }
 
+    public void Shake(float time, float intensity)
+    {
+        shakeTimer = time;
+        shakeIntensity = intensity;
     }
 }
