@@ -134,17 +134,21 @@ public class PhasingManager : MonoBehaviour
         {
             case EStatePhase.NO_PHASE:
                 //PlayersLink.SetActive(false);
+                PhasingBar.SetPhasingState(false);
                 SetSpaceshipsGlow(1f, false);
                 break;
 
             case EStatePhase.PRE_PHASE:
                 //PlayersLink.SetActive(true);
+                PhasingBar.SetPhasingState(true);
+                PhasingBar.SetPhasedState(false);
                 SetSpaceshipsGlow(2.5f, true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
                 break;
 
             case EStatePhase.PHASE:
                 //PlayersLink.SetActive(true);
+                PhasingBar.SetPhasedState(true);
                 SetSpaceshipsGlow(3.5f, true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
                 break;
