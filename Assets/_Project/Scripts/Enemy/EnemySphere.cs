@@ -20,6 +20,7 @@ public class EnemySphere : MonoBehaviour
 
     public eBehaviour Pattern = eBehaviour.LINEAR;
 
+    public GameObject DeathFX;
     public List<AudioClip> ExplosionSounds;
 
     [HideInInspector]
@@ -33,6 +34,9 @@ public class EnemySphere : MonoBehaviour
     bool marked = false;
     float timeMarked = 0f;
     GameObject weaponMark;
+
+    GameObject deathFXGO;
+    bool dead = false;
 
     protected virtual void Start()
     {
@@ -135,12 +139,13 @@ public class EnemySphere : MonoBehaviour
 
     void Die()
     {
-        PlayExplosionFX();
+        PlayExplosionSFX();
+        PlayDeathVFX();
         GameScore.AddToScore(KillReward);
         Destroy(gameObject);
     }
 
-   IEnumerator Blink()
+    IEnumerator Blink()
     {
         foreach (Renderer renderer in enemyRenderers)
         {
@@ -153,9 +158,23 @@ public class EnemySphere : MonoBehaviour
         {
             renderer.enabled = true;
         }
-    }    
+    }
 
-    float PlayExplosionFX()
+    public void PlayDeathVFX()
+    {
+        deathFXGO = Instantiate(DeathFX, transform);
+        deathFXGO.transform.position = transform.position;
+        deathFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+        deathFXGO.transform.SetParent(FolderManager.Instance.VFXFolder.transform);
+
+        ParticleSystem[] deathFXs = deathFXGO.transform.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem fx in deathFXs)
+        {
+            fx.Play();
+        }
+    }
+
+    float PlayExplosionSFX()
     {
         var audioSource = GetComponent<AudioSource>();
         var idx = Random.Range(0, ExplosionSounds.Count);
