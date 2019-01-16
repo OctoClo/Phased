@@ -385,11 +385,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTank
       objectReference: {fileID: 0}
-    - target: {fileID: 131409653370709016, guid: 3883d677193a26a4da2e923548a9d64f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4033864918925038742, guid: 3883d677193a26a4da2e923548a9d64f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,16 +439,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735619616716755158, guid: 3883d677193a26a4da2e923548a9d64f,
-        type: 3}
-      propertyPath: RestingTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735619616716755158, guid: 3883d677193a26a4da2e923548a9d64f,
-        type: 3}
-      propertyPath: ShootingTime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3883d677193a26a4da2e923548a9d64f, type: 3}
