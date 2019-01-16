@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Child: {fileID: 5855242169131994406}
+  LastLevel: 0
 --- !u!54 &8186835409896643407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -224,6 +225,11 @@ PrefabInstance:
     - target: {fileID: 1654354264252132763, guid: e82e9405abe6ba14ba45c19a6dce6526,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982326568767102013, guid: e82e9405abe6ba14ba45c19a6dce6526,
+        type: 3}
+      propertyPath: Pattern
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

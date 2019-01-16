@@ -38,7 +38,7 @@ public class SpaceshipsManager : Singleton<SpaceshipsManager>
 
     public bool HasDeathFXFinished()
     {
-        return spaceshipsScripts[0].HasDeathFXFinished();
+        return (spaceshipsScripts[0].HasDeathFXFinished() && spaceshipsScripts[1].HasDeathFXFinished());
     }
 
     void ActivateSpaceships(bool activated)

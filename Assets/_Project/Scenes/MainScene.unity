@@ -7744,7 +7744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 5
+  LifeCount: 7
   ScreenglowAnimator: {fileID: 1800824117}
   inputManager: {fileID: 1382740406}
 --- !u!1 &598220503
@@ -19186,37 +19186,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
-      propertyPath: LevelBricks.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
-        type: 3}
       propertyPath: Plane
       value: 
       objectReference: {fileID: 1521685821}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
-      propertyPath: LevelBricks.Array.data[0]
-      value: 
-      objectReference: {fileID: 930112538431624926, guid: 6078e3e41ace7f54eb0875094930497f,
-        type: 3}
-    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
-        type: 3}
-      propertyPath: LevelBricks.Array.data[1]
-      value: 
-      objectReference: {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87,
-        type: 3}
-    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
-        type: 3}
       propertyPath: LevelBricks.Array.data[2]
       value: 
-      objectReference: {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637,
+      objectReference: {fileID: 3857743265742880097, guid: 86c1f86ace33a7a4f967739914f2ecc1,
         type: 3}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
-      propertyPath: LevelBricks.Array.data[3]
+      propertyPath: LevelBricks.Array.data[7]
       value: 
-      objectReference: {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87,
+      objectReference: {fileID: 5575056644484916453, guid: 4ff2ab386f4c3a842be7f836ad76331f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
@@ -19449,7 +19432,7 @@ PrefabInstance:
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
       propertyPath: EnemyMultiplier
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
         type: 3}
@@ -19645,16 +19628,6 @@ PrefabInstance:
       propertyPath: Spaceships.Array.data[1]
       value: 
       objectReference: {fileID: 840317539}
-    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
-        type: 3}
-      propertyPath: PhasingDecreaseSpeed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
-        type: 3}
-      propertyPath: PhasingIncreaseSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f771c355406985142ac8256b66766dfc, type: 3}
 --- !u!114 &8034142854789470821 stripped

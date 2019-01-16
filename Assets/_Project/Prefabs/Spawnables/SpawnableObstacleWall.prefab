@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Child: {fileID: 9034502960994351373}
+  LastLevel: 0
 --- !u!54 &4116867241643338490
 Rigidbody:
   m_ObjectHideFlags: 0
