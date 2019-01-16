@@ -112,6 +112,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11451053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11451054}
+  m_Layer: 0
+  m_Name: VFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11451054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11451053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &16309692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2035748677637416956, guid: fecd9cb79dd946d4a9492f3579e78c31,
@@ -6218,6 +6248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnFolder: {fileID: 1821114925}
   BulletsFolder: {fileID: 333743701}
+  VFXFolder: {fileID: 11451053}
 --- !u!1 &315782861
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,6 +6882,24 @@ MonoBehaviour:
   - {fileID: 264401238}
   blockInputTime: 0.5
   horizontalMenu: 1
+--- !u!1 &435141483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5712956538310657949, guid: 88eae08a3e83d114ab5e82881564da56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003332162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &435141487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435141483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330175b34131e864faaf881423fa4efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &465961352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7982636335871636489, guid: f771c355406985142ac8256b66766dfc,
@@ -7697,6 +7746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifeCount: 5
   ScreenglowAnimator: {fileID: 1800824117}
+  inputManager: {fileID: 1382740406}
 --- !u!1 &598220503
 GameObject:
   m_ObjectHideFlags: 0
@@ -10453,11 +10503,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13142,11 +13192,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -19136,9 +19186,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
+      propertyPath: LevelBricks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
       propertyPath: Plane
       value: 
       objectReference: {fileID: 1521685821}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[0]
+      value: 
+      objectReference: {fileID: 930112538431624926, guid: 6078e3e41ace7f54eb0875094930497f,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[1]
+      value: 
+      objectReference: {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[2]
+      value: 
+      objectReference: {fileID: 244265566801552079, guid: 56c9b379a48cd0b4783f926ab01e6637,
+        type: 3}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[3]
+      value: 
+      objectReference: {fileID: 5575056644484916453, guid: bb5334157102099448a695d88b092a87,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
 --- !u!1001 &5197246085518950513
@@ -19381,6 +19460,26 @@ PrefabInstance:
         type: 3}
       propertyPath: WorldScrollSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeHitDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeHitIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeDeathDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866775684279449106, guid: 73a2b12818acbe4439b3782d58f38e3e,
+        type: 3}
+      propertyPath: ScreenShakeDeathIntensity
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a2b12818acbe4439b3782d58f38e3e, type: 3}

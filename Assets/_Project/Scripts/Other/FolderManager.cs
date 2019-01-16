@@ -6,6 +6,7 @@ public class FolderManager : Singleton<FolderManager>
 {
     public GameObject SpawnFolder;
     public GameObject BulletsFolder;
+    public GameObject VFXFolder;
 
     void Start()
     {
@@ -20,6 +21,11 @@ public class FolderManager : Singleton<FolderManager>
         }
 
         foreach (Transform child in BulletsFolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in VFXFolder.transform)
         {
             Destroy(child.gameObject);
         }

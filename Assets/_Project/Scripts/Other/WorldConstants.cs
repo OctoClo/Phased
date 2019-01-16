@@ -90,4 +90,10 @@ public class WorldConstants : Singleton<WorldConstants>
     [Header("Critical Hits")]
     public float MarkBulletTime = 1f;
     public int MarkBulletDamageMultiplicator = 2;
+
+    [Header("Shake it")]
+    public float ScreenShakeHitDuration = 0.5f;
+    public float ScreenShakeHitIntensity = 1f;
+    public float ScreenShakeDeathDuration = 3f;
+    public float ScreenShakeDeathIntensity = 2f;
 }

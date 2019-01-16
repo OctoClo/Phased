@@ -28,6 +28,19 @@ public class SpaceshipsManager : Singleton<SpaceshipsManager>
         ActivateSpaceships(false);
     }
 
+    public void PlayDeathFX()
+    {
+        spaceshipsScripts[0].PlayDeathVFX();
+        spaceshipsScripts[1].PlayDeathVFX();
+        spaceshipsScripts[0].WaitUntilDeath();
+        spaceshipsScripts[1].WaitUntilDeath();
+    }
+
+    public bool HasDeathFXFinished()
+    {
+        return spaceshipsScripts[0].HasDeathFXFinished();
+    }
+
     void ActivateSpaceships(bool activated)
     {
         Spaceships[0].SetActive(activated);

@@ -13,6 +13,10 @@ public class Spaceship : MonoBehaviour
     public float TargetRadius = 2.0f;
     public List<GameObject> Weapons;
 
+    [Header("FX")]
+    public GameObject LoseLifeFX;
+    public GameObject DeathFX;
+
     [Header("Components")]
     public GameObject Cursor;
     public Rigidbody RigidBodyTilt;
@@ -43,9 +47,10 @@ public class Spaceship : MonoBehaviour
     float previousAngle;
     float angleOffset = -90.0f;
 
+    bool gameActive = false;
     bool phasedWeapon;
-
     Vector3 initialPosition;
+    GameObject deathFXGO;
 
     void Awake()
     {
@@ -58,50 +63,58 @@ public class Spaceship : MonoBehaviour
 
     public void Initialize()
     {
+        spaceshipRenderer.enabled = true;
         transform.position = initialPosition;
         phasedWeapon = false;
+        gameActive = true;
         SetWeapon(EStatePhase.NO_PHASE);
     }
 
     void Update()
     {
-        if (LifeCounter.Instance.DamageSource == this && LifeCounter.Instance.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
+        if (gameActive)
         {
-            spaceshipRenderer.enabled = !spaceshipRenderer.enabled;
+            if (LifeCounter.Instance.DamageSource == this && LifeCounter.Instance.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
+            {
+                spaceshipRenderer.enabled = !spaceshipRenderer.enabled;
+            }
+            else
+            {
+                spaceshipRenderer.enabled = true;
+            }
+
+            weapon.IsFiring = IsFiring;
+
+            spaceshipRenderer.material.SetColor("_EmissionColor", emissiveColor * Mathf.Lerp(previousEmissiveIntensity, emissiveIntensity, emissiveIntensityInterpolator));
+
+            emissiveIntensityInterpolator = Mathf.Min(1.0f, emissiveIntensityInterpolator + (2f * Time.deltaTime));
         }
-        else
-        {
-            spaceshipRenderer.enabled = true;
-        }
-
-        weapon.IsFiring = IsFiring;
-
-        spaceshipRenderer.material.SetColor("_EmissionColor", emissiveColor * Mathf.Lerp(previousEmissiveIntensity, emissiveIntensity, emissiveIntensityInterpolator));
-
-        emissiveIntensityInterpolator = Mathf.Min(1.0f, emissiveIntensityInterpolator + (2f * Time.deltaTime));
     }
 
     void FixedUpdate()
     {
-        float moveHorizontal = Direction.x;
-        float moveVertical = Direction.y;
-
-        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-        rigidBody.velocity = movement * Speed;
-        RigidBodyTilt.transform.position = rigidBody.transform.position;
-
-        RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
-
-        float angle = 0.0f;
-
-        if (!Target.Equals(Vector2.zero))
+        if (gameActive)
         {
-            angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+            float moveHorizontal = Direction.x;
+            float moveVertical = Direction.y;
+
+            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+            rigidBody.velocity = movement * Speed;
+            RigidBodyTilt.transform.position = rigidBody.transform.position;
+
+            RigidBodyTilt.rotation = Quaternion.Euler(rigidBody.velocity.z * Tilt, 0, rigidBody.velocity.x * -Tilt);
+
+            float angle = 0.0f;
+
+            if (!Target.Equals(Vector2.zero))
+            {
+                angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+            }
+
+            Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
+
+            previousAngle = angle;
         }
-
-		Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
-
-		previousAngle = angle;
     }    
 
     public void SetWeapon(EStatePhase state)
@@ -124,7 +137,7 @@ public class Spaceship : MonoBehaviour
 
     public void RemoveLife()
     {
-        if (!LifeCounter.Instance.IsInvulnerable)
+        if (gameActive && !LifeCounter.Instance.IsInvulnerable)
         {
             LifeCounter.Instance.RemoveLife(this);
             StartCoroutine(OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration));
@@ -140,6 +153,44 @@ public class Spaceship : MonoBehaviour
 
         soundIndex++;
         if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
+    }
+
+    public void PlayLoseLifeVFX()
+    {
+        GameObject loseLifeFXGO = Instantiate(LoseLifeFX, transform);
+        loseLifeFXGO.transform.position = transform.position;
+        loseLifeFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+
+        ParticleSystem[] loseLifeFXs = loseLifeFXGO.transform.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem fx in loseLifeFXs)
+        {
+            fx.Play();
+        }
+    }
+
+    public void WaitUntilDeath()
+    {
+        gameActive = false;
+        rigidBody.velocity = Vector3.zero;
+        RigidBodyTilt.rotation = Quaternion.identity;
+    }
+
+    public void PlayDeathVFX()
+    {
+        deathFXGO = Instantiate(DeathFX, transform);
+        deathFXGO.transform.position = transform.position;
+        deathFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+
+        ParticleSystem[] deathFXs = deathFXGO.transform.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem fx in deathFXs)
+        {
+            fx.Play();
+        }
+    }
+
+    public bool HasDeathFXFinished()
+    {
+        return (deathFXGO == null);
     }
 
     public void SetGlowIntensity(float value, bool instantly)

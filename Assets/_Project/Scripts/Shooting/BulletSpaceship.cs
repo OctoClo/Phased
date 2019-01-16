@@ -6,7 +6,6 @@ public class BulletSpaceship : Bullet
 {
     public int Damage = 1;
     public GameObject Impact_FX;
-    
 
     [HideInInspector]
     public GameObject WeaponFrom;
@@ -33,6 +32,7 @@ public class BulletSpaceship : Bullet
                 GameObject impactFXGO = Instantiate(Impact_FX);
                 impactFXGO.transform.position = transform.position;
                 impactFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+                impactFXGO.transform.SetParent(FolderManager.Instance.VFXFolder.transform);
 
                 ParticleSystem impactFX = impactFXGO.GetComponent<ParticleSystem>();
                 impactFX.Play();
