@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Child: {fileID: 5866870186078183599}
+  LastLevel: 0
 --- !u!54 &6001485095515199938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 8843136646538289610, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8843136646538289610, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}

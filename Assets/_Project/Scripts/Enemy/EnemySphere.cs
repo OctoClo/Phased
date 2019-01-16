@@ -64,7 +64,6 @@ public class EnemySphere : MonoBehaviour
             {
                 marked = false;
                 timeMarked = 0f;
-                Debug.Log("Not marked anymore");
             }
         }
     }
@@ -119,7 +118,6 @@ public class EnemySphere : MonoBehaviour
         if (marked && weaponFrom != weaponMark)
         {
             HealthPoints -= damage * WorldConstants.Instance.MarkBulletDamageMultiplicator;
-            Debug.Log("Much damage from phase!");
         }
         else
         {
