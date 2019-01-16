@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40
+      value: 31.1
       objectReference: {fileID: 0}
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: RestingTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 754578721189239614, guid: a434641f95cc46241a052f890b8f792a,
+        type: 3}
+      propertyPath: Pattern
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2555514281402555080, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: Pattern
@@ -99,12 +104,12 @@ PrefabInstance:
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3825322512632351448, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}
@@ -150,6 +155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754578721189239614, guid: a434641f95cc46241a052f890b8f792a,
+        type: 3}
+      propertyPath: Pattern
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2555514281402555080, guid: a434641f95cc46241a052f890b8f792a,
         type: 3}

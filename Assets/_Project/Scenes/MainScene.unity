@@ -7401,7 +7401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 5
+  LifeCount: 7
   ScreenglowAnimator: {fileID: 1800824117}
 --- !u!1 &598220503
 GameObject:
@@ -17711,12 +17711,6 @@ PrefabInstance:
       propertyPath: Plane
       value: 
       objectReference: {fileID: 1521685821}
-    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
-        type: 3}
-      propertyPath: LevelBricks.Array.data[0]
-      value: 
-      objectReference: {fileID: 4326490158021375887, guid: 2d96b418533039744b2a9e598e9b7275,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
 --- !u!1001 &5197246085518950513
