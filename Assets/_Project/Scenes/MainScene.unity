@@ -17711,6 +17711,12 @@ PrefabInstance:
       propertyPath: Plane
       value: 
       objectReference: {fileID: 1521685821}
+    - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
+        type: 3}
+      propertyPath: LevelBricks.Array.data[0]
+      value: 
+      objectReference: {fileID: 4326490158021375887, guid: 2d96b418533039744b2a9e598e9b7275,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1171a6400b1724a8d4215ea560ff5a, type: 3}
 --- !u!1001 &5197246085518950513
@@ -18118,16 +18124,6 @@ PrefabInstance:
       propertyPath: Spaceships.Array.data[1]
       value: 
       objectReference: {fileID: 840317539}
-    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
-        type: 3}
-      propertyPath: PhasingDecreaseSpeed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
-        type: 3}
-      propertyPath: PhasingIncreaseSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f771c355406985142ac8256b66766dfc, type: 3}
 --- !u!1001 &9008692613166696651

@@ -171,6 +171,16 @@ PrefabInstance:
       propertyPath: HealthPoints
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 3158368476951798908, guid: 0344c0d947a528d46b5a0b3109ff74e2,
+        type: 3}
+      propertyPath: WaitUntilDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158368476951798908, guid: 0344c0d947a528d46b5a0b3109ff74e2,
+        type: 3}
+      propertyPath: Pattern
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7467929527101863506, guid: 0344c0d947a528d46b5a0b3109ff74e2,
         type: 3}
       propertyPath: m_LocalPosition.x
