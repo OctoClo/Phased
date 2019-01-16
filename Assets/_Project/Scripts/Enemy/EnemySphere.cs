@@ -35,7 +35,7 @@ public class EnemySphere : MonoBehaviour
     float timeMarked = 0f;
     GameObject weaponMark;
 
-    GameObject deathFXGO;
+    protected GameObject deathFXGO;
 
     protected virtual void Start()
     {
@@ -159,7 +159,7 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public void PlayDeathVFX()
+    public virtual void PlayDeathVFX()
     {
         deathFXGO = Instantiate(DeathFX, transform);
         deathFXGO.transform.position = transform.position;
