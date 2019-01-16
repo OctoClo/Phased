@@ -36,7 +36,6 @@ public class EnemySphere : MonoBehaviour
     GameObject weaponMark;
 
     GameObject deathFXGO;
-    bool dead = false;
 
     protected virtual void Start()
     {
