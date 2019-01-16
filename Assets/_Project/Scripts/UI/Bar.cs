@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour
 {
-    public RectTransform Separator;
+    //  public RectTransform Separator;
     public RectTransform BarBackground;
+    public Image BarImage;
+    public RectTransform BarSeparator;
+    public Image BarImageMirror;
+    public RectTransform BarSeparatorMirror;
+
+    Animator animationController;
 
     [HideInInspector]
     public float Value
@@ -22,7 +28,13 @@ public class Bar : MonoBehaviour
         }
     }
 
-    Image barImage;
+    void Start()
+    {
+        animationController = GetComponent<Animator>();
+    }
+
+    // Image barImage;
+    // Image barImageMirror;
     float maxValue = 100f;
     float currentValue;
     float fillAmount;
@@ -30,16 +42,33 @@ public class Bar : MonoBehaviour
     void UpdateBar()
     {
         fillAmount = currentValue / maxValue;
-        if (!barImage)
-        {
-            barImage = GetComponent<Image>();
-        }
-        barImage.fillAmount = fillAmount;
+        // if (!barImage)
+        // {
+        //     barImage = GetComponent<Image>();
+        // }
+        BarImage.fillAmount = fillAmount;
+        // if (!barImageMirror)
+        // {
+        //     barImageMirror = GetComponent<Image>();
+        // }
+        BarImageMirror.fillAmount = fillAmount;
     }
 
     public void SetSeparator(float value)
     {
-        Vector2 newPos = new Vector3(value * BarBackground.rect.width / maxValue, Separator.anchoredPosition.y);
-        Separator.anchoredPosition = newPos;
+        Vector2 newPos = new Vector3((value * BarBackground.rect.width / maxValue) / 2.0f, BarSeparator.anchoredPosition.y);
+        BarSeparator.anchoredPosition = newPos;
+        newPos.x *= -1.0f;
+        BarSeparatorMirror.anchoredPosition = newPos;
+    }
+
+    public void SetPhasingState(bool phasing)
+    {
+        animationController.SetBool("Phasing", phasing);
+    }
+
+    public void SetPhasedState(bool phased)
+    {
+        animationController.SetBool("Phased", phased);
     }
 }
