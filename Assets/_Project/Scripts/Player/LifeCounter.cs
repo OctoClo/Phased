@@ -6,6 +6,7 @@ public class LifeCounter : Singleton<LifeCounter>
 {
     public int LifeCount = 5;
     public Animator ScreenglowAnimator;
+    public InputManager inputManager;
 
     int previousFrameLifeCount;
     float flickerCounter;
@@ -47,16 +48,33 @@ public class LifeCounter : Singleton<LifeCounter>
 
         LifeCount--;
 
-        if(LifeCount == 1){
+        if (LifeCount == 1)
+        {
             ScreenglowAnimator.SetBool("Low Health", true);
-        } else{
+        }
+        else
+        {
             ScreenglowAnimator.SetTrigger("Hit");
         }
 
         if (LifeCount == 0)
         {
-            EventManager.Instance.Raise(new GameEndEvent() { Victorious = false });
+
+            StartCoroutine(GameOver());
         }
+        else
+        {
+            other.PlayLoseLifeVFX();
+        }
+    }
+
+    IEnumerator GameOver()
+    {
+        SpaceshipsManager.Instance.PlayDeathFX();
+
+        yield return new WaitUntil(SpaceshipsManager.Instance.HasDeathFXFinished);
+        
+        EventManager.Instance.Raise(new GameEndEvent() { Victorious = false });
     }
 
     void Update()
