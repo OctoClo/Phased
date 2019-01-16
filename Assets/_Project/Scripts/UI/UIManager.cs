@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject VictoryOverlay;
     public GameObject GameOverOverlay;
     public GameObject QuitOverlay;
+    public Animator IntroAnimation;
 
     [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
@@ -74,10 +75,10 @@ public class UIManager : MonoBehaviour
     void OnGameStartedEvent(GameStartedEvent e)
     {
         gameActive = true;
-
         currentOverlay.SetActive(false);
         HUDOverlay.SetActive(true);
         currentOverlay = HUDOverlay;
+        IntroAnimation.Play("Intro");
     }
 
     void OnGameEndEvent(GameEndEvent e)
