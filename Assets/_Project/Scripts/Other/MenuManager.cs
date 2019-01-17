@@ -46,4 +46,12 @@ public class MenuManager : MonoBehaviour
     {
         EventManager.Instance.Raise(new GameStartedEvent());
     }
+
+    private void Update()
+    {
+        if (InputSystem.GetDevice<Keyboard>().pKey.wasReleasedThisFrame)
+        {
+            StartButton();
+        }
+    }
 }
