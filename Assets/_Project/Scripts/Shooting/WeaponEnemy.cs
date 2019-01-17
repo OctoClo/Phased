@@ -7,11 +7,6 @@ public class WeaponEnemy : Weapon
     [HideInInspector]
     public GameObject SecondCursor;
 
-    public void BlockFire()
-    {
-        lastFire = 0;
-    }
-
     protected override void Fire()
     {
         base.Fire();

@@ -31,6 +31,7 @@ public class EnemySphereShooting : EnemySphere
     {
         base.Start();
 
+        EventManager.Instance.AddListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
         spaceships = GameObject.FindGameObjectsWithTag("Player");
 
         CreateWeapon();
@@ -98,11 +99,6 @@ public class EnemySphereShooting : EnemySphere
             }
         }
 
-        if ( minDistance == float.MaxValue )
-        {
-            weapon.BlockFire();
-        }
-
         Cursor.transform.LookAt(Target.transform);
     }
 
@@ -112,12 +108,31 @@ public class EnemySphereShooting : EnemySphere
 
         if (other.CompareTag("ShootLine"))
         {
-            weaponGO.SetActive(true);
+            if (weaponGO)
+            {
+                weaponGO.SetActive(true);
+            }
         }
 
         if (other.CompareTag("StopShootLine"))
         {
-            weaponGO.SetActive(false);
+            if (weaponGO)
+            {
+                weaponGO.SetActive(false);
+            }
+        }
+    }
+
+    void OnGameAlmostOverEvent(GameAlmostOverEvent e)
+    {
+        if (this != null)
+        {
+            Debug.Log("Le Gondor répondra présent !");
+            Destroy(weaponGO);
+        }
+        else
+        {
+            Debug.Log("I'm already dead man");
         }
     }
 }

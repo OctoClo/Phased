@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class GameAlmostOverEvent : GameEvent { }
+
 public class LifeCounter : Singleton<LifeCounter>
 {
     public int LifeCount = 5;
@@ -71,7 +73,7 @@ public class LifeCounter : Singleton<LifeCounter>
 
     IEnumerator GameOver()
     {
-        SpaceshipsManager.Instance.PlayDeathFX();
+        EventManager.Instance.Raise(new GameAlmostOverEvent());
         ScreenShake.Instance.Shake(WorldConstants.Instance.ScreenShakeDeathDuration, WorldConstants.Instance.ScreenShakeDeathIntensity);
 
         yield return new WaitUntil(SpaceshipsManager.Instance.HasDeathFXFinished);

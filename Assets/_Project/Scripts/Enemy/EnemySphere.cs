@@ -18,7 +18,7 @@ public class EnemySphere : MonoBehaviour
     public uint KillReward = 10;
     public bool WaitUntilDeath = false;
 
-    public float MoveSpeed = 1.50f;
+    public float MoveSpeed = 10f;
 
     public eBehaviour Pattern = eBehaviour.LINEAR;
 
