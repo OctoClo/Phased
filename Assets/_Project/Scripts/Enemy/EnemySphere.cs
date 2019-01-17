@@ -18,6 +18,8 @@ public class EnemySphere : MonoBehaviour
     public uint KillReward = 10;
     public bool WaitUntilDeath = false;
 
+    public float MoveSpeed = 1.50f;
+
     public eBehaviour Pattern = eBehaviour.LINEAR;
 
     public GameObject DeathFX;
@@ -70,7 +72,7 @@ public class EnemySphere : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier;
+        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * MoveSpeed;
 
         if (Pattern == eBehaviour.SIN_PATH
 			|| Pattern == eBehaviour.REVERSED_SIN_PATH)

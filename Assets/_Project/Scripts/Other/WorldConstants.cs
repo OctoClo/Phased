@@ -74,8 +74,6 @@ public class WorldConstants : Singleton<WorldConstants>
     public float EnemyVoidSpeedMultiplier = 5f;
 
     [Header("Enemy Speeds")]
-    public float EnemyMultiplier = 1.50f;
-    public float TankMultiplier = 10.0f;
     public float TankLateralMultiplier = 10.0f;
 
     [Header("Sinusoid Pattern")]
