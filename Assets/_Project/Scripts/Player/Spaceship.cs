@@ -125,25 +125,29 @@ public class Spaceship : MonoBehaviour
                 {
                     angle = 0.0f;
                 }
-                else if (angle < -snappedAngle + halfSpnappedAngle && angle > -snappedAngle - halfSpnappedAngle)
+                else if (angle < -snappedAngle + halfSpnappedAngle && angle > -90.0f)
                 {
                     angle = -12.0f;
                 }
-                else if (angle < snappedAngle + halfSpnappedAngle && angle > snappedAngle - halfSpnappedAngle)
+                else if (angle < 90.0f && angle > snappedAngle - halfSpnappedAngle)
                 {
                     angle = 12.0f;
                 }
-                else if (angle < -backSnappedAngle + halfSpnappedAngle && angle > -backSnappedAngle - halfSpnappedAngle)
+                // else if (angle < -90.0f && angle > -backSnappedAngle - halfSpnappedAngle)
+                // {
+                //     angle = -165.0f;
+                // }
+                // else if (angle < backSnappedAngle + halfSpnappedAngle && angle > 90.0f)
+                // {
+                //     angle = 165.0f;
+                // }
+                // else if (angle < backSnappedAngle || angle > -backSnappedAngle)
+                // {
+                //     angle = 180.0f;
+                // }
+                else
                 {
-                    angle = -165.0f;
-                }
-                else if (angle < backSnappedAngle + halfSpnappedAngle && angle > backSnappedAngle - halfSpnappedAngle)
-                {
-                    angle = 165.0f;
-                }
-                else if (angle < backSnappedAngle && angle > -backSnappedAngle)
-                {
-                    angle = 180.0f;
+                    angle = 0.0f;
                 }
             }
 
