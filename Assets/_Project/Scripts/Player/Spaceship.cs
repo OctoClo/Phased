@@ -19,6 +19,7 @@ public class Spaceship : MonoBehaviour
 
     [Header("Components")]
     public GameObject Cursor;
+    public ParticleSystem MuzzleFlash;
     public Rigidbody RigidBodyTilt;
 
     [Header("Misc")]
@@ -166,6 +167,7 @@ public class Spaceship : MonoBehaviour
         weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;
         weapon.Cursor = Cursor;
+        weapon.MuzzleFlash = MuzzleFlash;
         weapon.SetPhased(phasedWeapon);
     }
 

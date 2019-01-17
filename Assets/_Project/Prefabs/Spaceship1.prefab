@@ -40,15 +40,15 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189873727466453791}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5111,6 +5111,7 @@ MonoBehaviour:
   LoseLifeFX: {fileID: 887004502, guid: 1b93a3baea401ab4d86a7b71ea766e31, type: 3}
   DeathFX: {fileID: 1647286010, guid: 39403fe8aee35d644809e30a35869673, type: 3}
   Cursor: {fileID: 6253721232788283661}
+  MuzzleFlash: {fileID: 6020092410029686076}
   RigidBodyTilt: {fileID: 1872712449854568192}
   ImpactSounds:
   - {fileID: 8300000, guid: 616fe5b100000e640b66499aca5193c7, type: 3}
