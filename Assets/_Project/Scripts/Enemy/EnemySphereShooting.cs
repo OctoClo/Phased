@@ -85,7 +85,7 @@ public class EnemySphereShooting : EnemySphere
     {
         if (ShootMode == EShootMode.NEAREST)
         {
-            minDistance = 9999f;
+            minDistance = float.MaxValue;
 
             foreach (GameObject spaceship in spaceships)
             {
@@ -96,6 +96,11 @@ public class EnemySphereShooting : EnemySphere
                     Target = spaceship;
                 }
             }
+        }
+
+        if ( minDistance == float.MaxValue )
+        {
+            weapon.BlockFire();
         }
 
         Cursor.transform.LookAt(Target.transform);
