@@ -82,21 +82,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7163927714022941409, guid: efc971014418789459736b094605835b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
     - target: {fileID: 903598849778513191, guid: efc971014418789459736b094605835b,
         type: 3}
       propertyPath: Speed
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 903598849778513191, guid: efc971014418789459736b094605835b,
         type: 3}
       propertyPath: Damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7163927714022941409, guid: efc971014418789459736b094605835b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
     - target: {fileID: 3799125124810337277, guid: efc971014418789459736b094605835b,
         type: 3}
       propertyPath: Speed
