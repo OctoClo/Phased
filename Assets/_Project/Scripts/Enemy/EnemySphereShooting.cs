@@ -114,5 +114,10 @@ public class EnemySphereShooting : EnemySphere
         {
             weaponGO.SetActive(true);
         }
+
+        if (other.CompareTag("StopShootLine"))
+        {
+            weaponGO.SetActive(false);
+        }
     }
 }
