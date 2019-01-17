@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverOverlay;
     public GameObject QuitOverlay;
     public GameObject LeaderboardOverlay;
+    public GameObject CreditsOverlay;
+    public GameObject OptionsOverlay;
+
     public Animator IntroAnimation;
     public Leaderboard Leaderboard;
 
@@ -42,7 +45,10 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameQuitConfirmEvent>(OnGameQuitConfirmEvent);
         EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
         EventManager.Instance.AddListener<GameLeaderboardEvent>(OnGameLeaderboardEvent);
-
+        EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
+        EventManager.Instance.AddListener<GameOptionsEvent>(OnGameOptionsEvent);
+        EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+        
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
         multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
@@ -94,6 +100,36 @@ public class UIManager : MonoBehaviour
         LeaderboardOverlay.SetActive(true);
     }
 
+    void OnGameCreditsEvent(GameCreditsEvent e)
+    {
+        gameActive = false;
+
+        currentOverlay.SetActive(false);
+
+        currentOverlay = CreditsOverlay;
+        CreditsOverlay.SetActive(true);
+    }
+
+    void OnGameOptionsEvent(GameOptionsEvent e)
+    {
+        gameActive = false;
+
+        currentOverlay.SetActive(false);
+
+        currentOverlay = OptionsOverlay;
+        OptionsOverlay.SetActive(true);
+    }
+
+    void OnGameMainMenuEvent(GameMainMenuEvent e)
+    {
+        gameActive = false;
+
+        currentOverlay.SetActive(false);
+
+        currentOverlay = MenuOverlay;
+        MenuOverlay.SetActive(true);
+    }
+    
     void OnGameEndEvent(GameEndEvent e)
     {
         gameActive = false;
