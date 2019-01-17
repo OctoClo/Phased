@@ -36,6 +36,7 @@ public class EnemySphere : MonoBehaviour
     bool marked = false;
     float timeMarked = 0f;
     GameObject weaponMark;
+    protected bool reverseMove = false;
 
     protected GameObject deathFXGO;
 
@@ -182,5 +183,12 @@ public class EnemySphere : MonoBehaviour
         audioSource.PlayOneShot(ExplosionSounds[idx]);
 
         return ExplosionSounds[idx].length;
+    }
+
+    public void ReverseMovement()
+    {
+        reverseMove = true;
+        movement.z = -movement.z;
+        transform.Rotate(0, 180, 0);
     }
 }

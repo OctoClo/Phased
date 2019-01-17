@@ -110,7 +110,7 @@ public class EnemySphereShooting : EnemySphere
         {
             if (weaponGO)
             {
-                weaponGO.SetActive(true);
+                weaponGO.SetActive(!reverseMove);
             }
         }
 
@@ -118,7 +118,7 @@ public class EnemySphereShooting : EnemySphere
         {
             if (weaponGO)
             {
-                weaponGO.SetActive(false);
+                weaponGO.SetActive(reverseMove);
             }
         }
     }
