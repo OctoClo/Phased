@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 5680844334469548868, guid: efc971014418789459736b094605835b,
     type: 3}
-  FireInterval: 0.1
+  FireInterval: 0.35
   FireSounds:
   - {fileID: 8300000, guid: cbbdc8753fdc38f48979eeb2aeca10e4, type: 3}
   - {fileID: 8300000, guid: c34cece475f7e304f9a2d783460d63f2, type: 3}
