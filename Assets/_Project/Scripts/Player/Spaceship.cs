@@ -47,6 +47,11 @@ public class Spaceship : MonoBehaviour
     float previousAngle;
     float angleOffset = -90.0f;
 
+    [Header("Test Values")]
+    float snappedAngle = 45.0f;
+    [SerializeField]
+    float appliedAngle = 0.0f;
+
     bool gameActive = false;
     bool phasedWeapon;
     Vector3 initialPosition;
@@ -109,6 +114,37 @@ public class Spaceship : MonoBehaviour
             if (!Target.Equals(Vector2.zero))
             {
                 angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+
+                //Snap to snappedAngle
+                appliedAngle = angle;
+
+                float halfSpnappedAngle = (snappedAngle / 2);
+                float backSnappedAngle = (180.0f - snappedAngle);
+
+                if (angle < halfSpnappedAngle && angle > ( -snappedAngle / 2))
+                {
+                    angle = 0.0f;
+                }
+                else if (angle < -snappedAngle + halfSpnappedAngle && angle > -snappedAngle - halfSpnappedAngle)
+                {
+                    angle = -12.0f;
+                }
+                else if (angle < snappedAngle + halfSpnappedAngle && angle > snappedAngle - halfSpnappedAngle)
+                {
+                    angle = 12.0f;
+                }
+                else if (angle < -backSnappedAngle + halfSpnappedAngle && angle > -backSnappedAngle - halfSpnappedAngle)
+                {
+                    angle = -165.0f;
+                }
+                else if (angle < backSnappedAngle + halfSpnappedAngle && angle > backSnappedAngle - halfSpnappedAngle)
+                {
+                    angle = 165.0f;
+                }
+                else if (angle < backSnappedAngle && angle > -backSnappedAngle)
+                {
+                    angle = 180.0f;
+                }
             }
 
             Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
