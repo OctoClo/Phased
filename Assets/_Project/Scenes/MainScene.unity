@@ -444,11 +444,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1403,7 +1403,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -9098,11 +9098,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9791,8 +9791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 594334585323335252}
   - {fileID: 594334586580792933}
+  - {fileID: 594334585323335252}
   blockInputTime: 0.5
   horizontalMenu: 1
 --- !u!1 &644487196
@@ -9927,7 +9927,7 @@ PrefabInstance:
     - target: {fileID: 7112133355213201662, guid: 9fce57a04f9b02a41a2da8554710f522,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7112133355213201662, guid: 9fce57a04f9b02a41a2da8554710f522,
         type: 3}
@@ -9937,7 +9937,7 @@ PrefabInstance:
     - target: {fileID: 7112133355213201662, guid: 9fce57a04f9b02a41a2da8554710f522,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7112133355213201662, guid: 9fce57a04f9b02a41a2da8554710f522,
         type: 3}
@@ -11217,11 +11217,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12010,7 +12010,7 @@ PrefabInstance:
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
@@ -12030,7 +12030,7 @@ PrefabInstance:
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
@@ -13852,7 +13852,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -14344,11 +14344,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14932,7 +14932,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -16915,7 +16915,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -19260,11 +19260,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -21653,8 +21653,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 644487197}
-  - {fileID: 243713771}
   - {fileID: 1456259491}
+  - {fileID: 243713771}
   - {fileID: 761350208}
   m_Father: {fileID: 1874226020}
   m_RootOrder: 3
@@ -21677,8 +21677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 1130862260}
   - {fileID: 304032498}
+  - {fileID: 1130862260}
   - {fileID: 1576160880}
   blockInputTime: 0.5
   horizontalMenu: 1
@@ -23560,7 +23560,7 @@ PrefabInstance:
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
@@ -23580,7 +23580,7 @@ PrefabInstance:
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
