@@ -7,11 +7,19 @@ public class GameStartedEvent : GameEvent { }
 
 public class GameResumedEvent : GameEvent { }
 
+public class GameLeaderboardEvent : GameEvent { }
+
+public class GameCreditsEvent : GameEvent { }
+
+public class GameOptionsEvent : GameEvent { }
+
 public class GameQuitAskEvent : GameEvent { }
 
 public class GameQuitConfirmEvent : GameEvent { }
 
 public class GameQuitCancelEvent : GameEvent { }
+
+public class GameMainMenuEvent : GameEvent { }
 
 public class GameEndEvent : GameEvent { public bool Victorious; }
 
@@ -45,5 +53,33 @@ public class MenuManager : MonoBehaviour
     public void RetryButton()
     {
         EventManager.Instance.Raise(new GameStartedEvent());
+    }
+
+    public void LeaderboardButton()
+    {
+        EventManager.Instance.Raise(new GameLeaderboardEvent());
+    }
+
+    public void CreditsButton()
+    {
+        EventManager.Instance.Raise(new GameCreditsEvent());
+    }
+
+    public void OptionsButton()
+    {
+        EventManager.Instance.Raise(new GameOptionsEvent());
+    }
+
+    public void ReturnToMainMenuButton()
+    {
+        EventManager.Instance.Raise(new GameMainMenuEvent());
+    }
+
+    private void Update()
+    {
+        if (InputSystem.GetDevice<Keyboard>().pKey.wasReleasedThisFrame)
+        {
+            StartButton();
+        }
     }
 }

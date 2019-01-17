@@ -18,6 +18,8 @@ public class EnemySphere : MonoBehaviour
     public uint KillReward = 10;
     public bool WaitUntilDeath = false;
 
+    public float MoveSpeed = 10f;
+
     public eBehaviour Pattern = eBehaviour.LINEAR;
 
     public GameObject DeathFX;
@@ -34,6 +36,7 @@ public class EnemySphere : MonoBehaviour
     bool marked = false;
     float timeMarked = 0f;
     GameObject weaponMark;
+    protected bool reverseMove = false;
 
     protected GameObject deathFXGO;
 
@@ -70,7 +73,7 @@ public class EnemySphere : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.EnemyMultiplier;
+        Vector3 updatedVelocity = movement * WorldConstants.Instance.WorldScrollSpeed * MoveSpeed;
 
         if (Pattern == eBehaviour.SIN_PATH
 			|| Pattern == eBehaviour.REVERSED_SIN_PATH)
@@ -106,8 +109,10 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased)
+    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased, out bool damageTaken)
     {
+        damageTaken = true;
+
         if (phased && !marked)
         {
             marked = true;
@@ -178,5 +183,12 @@ public class EnemySphere : MonoBehaviour
         audioSource.PlayOneShot(ExplosionSounds[idx]);
 
         return ExplosionSounds[idx].length;
+    }
+
+    public void ReverseMovement()
+    {
+        reverseMove = true;
+        movement.z = -movement.z;
+        transform.Rotate(0, 180, 0);
     }
 }

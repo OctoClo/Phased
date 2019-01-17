@@ -8,6 +8,7 @@ TagManager:
   - WorldBounds
   - TankBounds
   - ShootLine
+  - StopShootLine
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class SpaceshipsManager : Singleton<SpaceshipsManager>
     void Start()
     {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
 
         spaceshipsScripts.Add(Spaceships[0].GetComponent<Spaceship>());
@@ -23,17 +24,22 @@ public class SpaceshipsManager : Singleton<SpaceshipsManager>
         InitializeSpaceships();
     }
 
+    void OnGameAlmostOverEvent(GameAlmostOverEvent e)
+    {
+        PlayDeathFX();
+        spaceshipsScripts[0].WaitUntilDeath();
+        spaceshipsScripts[1].WaitUntilDeath();
+    }
+
     void OnGameEndEvent(GameEndEvent e)
     {
         ActivateSpaceships(false);
     }
 
-    public void PlayDeathFX()
+    void PlayDeathFX()
     {
         spaceshipsScripts[0].PlayDeathVFX();
         spaceshipsScripts[1].PlayDeathVFX();
-        spaceshipsScripts[0].WaitUntilDeath();
-        spaceshipsScripts[1].WaitUntilDeath();
     }
 
     public bool HasDeathFXFinished()
