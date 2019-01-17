@@ -171,6 +171,7 @@ public class Spaceship : MonoBehaviour
     public void WaitUntilDeath()
     {
         gameActive = false;
+        weapon.IsFiring = false;
         rigidBody.velocity = Vector3.zero;
         RigidBodyTilt.rotation = Quaternion.identity;
     }
