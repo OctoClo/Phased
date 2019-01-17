@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 40
+  maxLifeTime: 0.8
   Damage: 3
   Impact_FX: {fileID: 4377444192133826700, guid: b5ebd2b1f7b506a4189d9abcd8eea6f3,
     type: 3}

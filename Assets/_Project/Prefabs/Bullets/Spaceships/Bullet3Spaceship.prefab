@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: Damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 903598849778513191, guid: efc971014418789459736b094605835b,
+        type: 3}
+      propertyPath: maxLifeTime
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7163927714022941409, guid: efc971014418789459736b094605835b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
