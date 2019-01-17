@@ -108,8 +108,10 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased)
+    public virtual void TakeDamage(int damage, GameObject weaponFrom, bool phased, out bool damageTaken)
     {
+        damageTaken = true;
+
         if (phased && !marked)
         {
             marked = true;

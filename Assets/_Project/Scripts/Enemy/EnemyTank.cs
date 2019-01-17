@@ -85,12 +85,18 @@ public class EnemyTank : EnemySphereShooting
 
             case ETankPatternStep.RESTING:
                 rigidBody.velocity = lateralMovement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.TankLateralMultiplier;
-                weaponGO.SetActive(false);
+                if (weaponGO)
+                {
+                    weaponGO.SetActive(false);
+                }
                 break;
 
             case ETankPatternStep.SHOOTING:
                 rigidBody.velocity = Vector3.zero;
-                weaponGO.SetActive(true);
+                if (weaponGO)
+                {
+                    weaponGO.SetActive(true);
+                }
                 break;
         }
     }
@@ -122,6 +128,18 @@ public class EnemyTank : EnemySphereShooting
         foreach (ParticleSystem fx in deathFXs)
         {
             fx.Play();
+        }
+    }
+
+    public override void TakeDamage(int damage, GameObject weaponFrom, bool phased, out bool damageTaken)
+    {
+        if (patternStep != ETankPatternStep.MOVING)
+        {
+            base.TakeDamage(damage, weaponFrom, phased, out damageTaken);
+        }
+        else
+        {
+            damageTaken = false;
         }
     }
 }
