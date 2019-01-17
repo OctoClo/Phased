@@ -79,6 +79,7 @@ MonoBehaviour:
   HealthPoints: 5
   KillReward: 10
   WaitUntilDeath: 0
+  MoveSpeed: 1.5
   Pattern: 0
   DeathFX: {fileID: 5958621193249698954, guid: a49d3c9aa791d3145b623f36eedac2c8, type: 3}
   ExplosionSounds:

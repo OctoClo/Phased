@@ -80,7 +80,7 @@ public class EnemyTank : EnemySphereShooting
         switch (patternStep)
         {
             case ETankPatternStep.MOVING:
-                rigidBody.velocity = movement * WorldConstants.Instance.WorldScrollSpeed * WorldConstants.Instance.TankMultiplier;
+                rigidBody.velocity = movement * WorldConstants.Instance.WorldScrollSpeed * MoveSpeed;
                 break;
 
             case ETankPatternStep.RESTING:
