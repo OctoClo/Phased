@@ -14,6 +14,17 @@ public class Leaderboard : MonoBehaviour
 
     public List<Entry> Scores { get; private set; } = null;
     public UnityEngine.UI.Text UIElement;
+    public UnityEngine.UI.InputField TeamNameInput;
+
+    public void SubmitScore()
+    {
+        AddScore( new Entry
+        {
+            name = TeamNameInput.text,
+            score = GameScore.Score,
+            maxHitCount = 0 // TODO: Implement me!
+        } );
+    }
 
     void Start()
     {
@@ -58,9 +69,6 @@ public class Leaderboard : MonoBehaviour
         {
             UIElement.text += " " + rank++ + "\t " + entry.name + "\t " + entry.score.ToString().PadLeft(16, '0') + "\t " + entry.maxHitCount.ToString().PadLeft(8, '0') + '\n';
         }
-
-        Debug.Log("Score 0: " + GetRankByScore(0));
-        Debug.Log("Score 668: " + GetRankByScore(668));
     }
 
     public int GetRankByScore( ulong score )
@@ -70,7 +78,7 @@ public class Leaderboard : MonoBehaviour
         return ( rank == 0 ) ? ( Scores.Count + 1 ) : rank;
     }
 
-    public void AddScore(Leaderboard.Entry entry)
+    public void AddScore( Leaderboard.Entry entry )
     {
         Scores.Add(entry);
 

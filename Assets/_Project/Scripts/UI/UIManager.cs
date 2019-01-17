@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject VictoryOverlay;
     public GameObject GameOverOverlay;
     public GameObject QuitOverlay;
+    public GameObject LeaderboardOverlay;
     public Animator IntroAnimation;
+    public Leaderboard Leaderboard;
 
     [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
@@ -39,6 +41,7 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameQuitAskEvent>(OnGameQuitAskEvent);
         EventManager.Instance.AddListener<GameQuitConfirmEvent>(OnGameQuitConfirmEvent);
         EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
+        EventManager.Instance.AddListener<GameLeaderboardEvent>(OnGameLeaderboardEvent);
 
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
@@ -80,6 +83,16 @@ public class UIManager : MonoBehaviour
         currentOverlay = HUDOverlay;
         IntroAnimation.Play("Intro");
     }
+     
+    void OnGameLeaderboardEvent(GameLeaderboardEvent e)
+    {
+        gameActive = false;
+
+        currentOverlay.SetActive(false);
+
+        currentOverlay = LeaderboardOverlay;
+        LeaderboardOverlay.SetActive(true);
+    }
 
     void OnGameEndEvent(GameEndEvent e)
     {
@@ -94,11 +107,22 @@ public class UIManager : MonoBehaviour
         if (e.Victorious)
         {
             VictoryOverlay.SetActive(true);
+
+            var score = VictoryOverlay.transform.Find("ScoreLine/ScoreCount").GetComponent<TextMeshProUGUI>();
+            score.text = GameScore.Score.ToString();
+
+            var rank = VictoryOverlay.transform.Find("RankLine/RankCount").GetComponent<TextMeshProUGUI>();
+            rank.text = Leaderboard.GetRankByScore(GameScore.Score).ToString();
+
             currentOverlay = VictoryOverlay;
         }
         else
         {
             GameOverOverlay.SetActive(true);
+
+            var score = GameOverOverlay.transform.Find("Score").GetComponent<TextMeshProUGUI>();
+            score.text = GameScore.Score.ToString();
+
             currentOverlay = GameOverOverlay;
         }
     }

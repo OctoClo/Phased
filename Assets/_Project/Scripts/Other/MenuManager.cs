@@ -7,6 +7,8 @@ public class GameStartedEvent : GameEvent { }
 
 public class GameResumedEvent : GameEvent { }
 
+public class GameLeaderboardEvent : GameEvent { }
+
 public class GameQuitAskEvent : GameEvent { }
 
 public class GameQuitConfirmEvent : GameEvent { }
@@ -45,5 +47,9 @@ public class MenuManager : MonoBehaviour
     public void RetryButton()
     {
         EventManager.Instance.Raise(new GameStartedEvent());
+    }
+    public void LeaderboardButton()
+    {
+        EventManager.Instance.Raise(new GameLeaderboardEvent());
     }
 }
