@@ -46,7 +46,6 @@ public class Spaceship : MonoBehaviour
     
     Vector2 previousTarget;
     float previousAngle;
-    float angleOffset = -90.0f;
 
     [Header("Cursor angles")]
     public float controllerForwardAngle = 45.0f;

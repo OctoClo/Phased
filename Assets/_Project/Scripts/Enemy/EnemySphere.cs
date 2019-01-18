@@ -165,7 +165,7 @@ public class EnemySphere : MonoBehaviour
     public virtual void PlayDeathVFX()
     {
         deathFXGO = Instantiate(DeathFX, transform);
-        deathFXGO.transform.position = transform.position;
+        deathFXGO.transform.position = transform.position + new Vector3(0, 2, 0);
         deathFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
         deathFXGO.transform.SetParent(FolderManager.Instance.VFXFolder.transform);
 

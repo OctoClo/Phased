@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2403996422360461812, guid: 519c51d438bf1114bbb0cac5bd723d33,
         type: 3}
       propertyPath: m_Name
-      value: BulletOverKillPlayer
+      value: BulletPhasedSpaceshipVFX
       objectReference: {fileID: 0}
     - target: {fileID: 827542633308063325, guid: 519c51d438bf1114bbb0cac5bd723d33,
         type: 3}

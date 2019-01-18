@@ -9550,7 +9550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8207887706459729392}
   m_Layer: 0
-  m_Name: Bullet_fx
+  m_Name: BulletSpaceshipVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

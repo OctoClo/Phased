@@ -119,10 +119,9 @@ public class EnemyTank : EnemySphereShooting
     public override void PlayDeathVFX()
     {
         deathFXGO = Instantiate(DeathFX, transform);
-        deathFXGO.transform.position = transform.position - new Vector3(3, 8, 0);
+        deathFXGO.transform.position = transform.position + new Vector3(0, 5, 0);
         deathFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
         deathFXGO.transform.SetParent(FolderManager.Instance.VFXFolder.transform);
-
 
         ParticleSystem[] deathFXs = deathFXGO.transform.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem fx in deathFXs)

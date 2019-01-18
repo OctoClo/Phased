@@ -92,7 +92,7 @@ PrefabInstance:
     - target: {fileID: 4759395261233756303, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
       propertyPath: m_Name
-      value: Bullet_fx
+      value: BulletSpaceshipVFX
       objectReference: {fileID: 0}
     - target: {fileID: 8207887706459729392, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
