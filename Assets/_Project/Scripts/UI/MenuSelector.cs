@@ -12,7 +12,7 @@ public class MenuSelector : MonoBehaviour
     private Button[] buttons;
 
     [SerializeField]
-    private float blockInputTime = 0.5f;
+    private float blockInputTime = 0.2f;
 
     [SerializeField]
     private bool horizontalMenu = false;
@@ -22,7 +22,7 @@ public class MenuSelector : MonoBehaviour
 
 	private float inputTimer;
 	private float initialTimer;
-    private float timeBetweenButtons = 0.3f;
+    private float timeBetweenButtons = 0.2f;
 
     EventSystem eventSystem;
 

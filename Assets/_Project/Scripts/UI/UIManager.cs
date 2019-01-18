@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject QuitOverlay;
     public GameObject LeaderboardOverlay;
     public GameObject CreditsOverlay;
-    public GameObject OptionsOverlay;
+    public GameObject ControlsOverlay;
 
     public Animator IntroAnimation;
     public Leaderboard Leaderboard;
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
         EventManager.Instance.AddListener<GameLeaderboardEvent>(OnGameLeaderboardEvent);
         EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
-        EventManager.Instance.AddListener<GameOptionsEvent>(OnGameOptionsEvent);
+        EventManager.Instance.AddListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
         
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
@@ -137,18 +137,22 @@ public class UIManager : MonoBehaviour
 
         currentOverlay.SetActive(false);
 
+        previousOverlay = currentOverlay;
+
         currentOverlay = CreditsOverlay;
         CreditsOverlay.SetActive(true);
     }
 
-    void OnGameOptionsEvent(GameOptionsEvent e)
+    void OnGameControlsEvent(GameControlsEvent e)
     {
         gameActive = false;
 
         currentOverlay.SetActive(false);
 
-        currentOverlay = OptionsOverlay;
-        OptionsOverlay.SetActive(true);
+        previousOverlay = currentOverlay;
+
+        currentOverlay = ControlsOverlay;
+        ControlsOverlay.SetActive(true);
     }
 
     void OnGameMainMenuEvent(GameMainMenuEvent e)

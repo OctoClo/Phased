@@ -13,7 +13,7 @@ public class GameLeaderboardEvent : GameEvent { }
 
 public class GameCreditsEvent : GameEvent { }
 
-public class GameOptionsEvent : GameEvent { }
+public class GameControlsEvent : GameEvent { }
 
 public class GameQuitAskEvent : GameEvent { }
 
@@ -72,9 +72,9 @@ public class MenuManager : MonoBehaviour
         EventManager.Instance.Raise(new GameCreditsEvent());
     }
 
-    public void OptionsButton()
+    public void ControlsButton()
     {
-        EventManager.Instance.Raise(new GameOptionsEvent());
+        EventManager.Instance.Raise(new GameControlsEvent());
     }
 
     public void ReturnToMainMenuButton()
