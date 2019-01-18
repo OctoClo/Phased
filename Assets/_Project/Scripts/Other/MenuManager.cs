@@ -7,6 +7,8 @@ public class GameStartedEvent : GameEvent { }
 
 public class GameResumedEvent : GameEvent { }
 
+public class GameBackEvent : GameEvent { }
+
 public class GameLeaderboardEvent : GameEvent { }
 
 public class GameCreditsEvent : GameEvent { }
@@ -33,6 +35,11 @@ public class MenuManager : MonoBehaviour
     public void ResumeButton()
     {
         EventManager.Instance.Raise(new GameResumedEvent());
+    }
+
+    public void BackButton()
+    {
+        EventManager.Instance.Raise(new GameBackEvent());
     }
 
     public void QuitButton()

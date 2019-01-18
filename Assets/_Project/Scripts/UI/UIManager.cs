@@ -28,12 +28,17 @@ public class UIManager : MonoBehaviour
     public List<Spaceship> Spaceships = new List<Spaceship>();
     public List<Image> PhaseZones = new List<Image>();
 
+    [Header("Leaderboard")]
+    public Leaderboard leaderboard;
+
+
     TextMeshProUGUI HUDLifeCounter;
     TextMeshProUGUI score;
     TextMeshProUGUI multiplicator;
 
     GameObject currentOverlay;
     GameObject beforeQuitOverlay;
+    GameObject previousOverlay;
 
     bool gameActive = false;
 
@@ -41,6 +46,7 @@ public class UIManager : MonoBehaviour
     {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+        EventManager.Instance.AddListener<GameBackEvent>(OnGameBackEvent);
         EventManager.Instance.AddListener<GameQuitAskEvent>(OnGameQuitAskEvent);
         EventManager.Instance.AddListener<GameQuitConfirmEvent>(OnGameQuitConfirmEvent);
         EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
@@ -95,15 +101,34 @@ public class UIManager : MonoBehaviour
         currentOverlay = HUDOverlay;
         IntroAnimation.Play("Intro");
     }
-     
+
+    void OnGameBackEvent(GameBackEvent e)
+    {
+        Debug.Log("OnGameBackEvent");
+        previousOverlay.SetActive(true);
+        currentOverlay.SetActive(false);
+        currentOverlay = previousOverlay;
+        previousOverlay = null;
+    }
+
     void OnGameLeaderboardEvent(GameLeaderboardEvent e)
     {
         gameActive = false;
 
         currentOverlay.SetActive(false);
 
+        previousOverlay = currentOverlay;
+
         currentOverlay = LeaderboardOverlay;
         LeaderboardOverlay.SetActive(true);
+
+        StartCoroutine(DelayWriteLeaderboard());
+    }
+
+    IEnumerator DelayWriteLeaderboard()
+    {
+        yield return new WaitForSeconds(0.05f);
+        leaderboard.WriteScoresToUI();
     }
 
     void OnGameCreditsEvent(GameCreditsEvent e)

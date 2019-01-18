@@ -296,7 +296,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8567395817684419608}
-    characterCount: 11
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7112133355213201662}
   - component: {fileID: 5715928210549806926}
+  - component: {fileID: 2211955964839924502}
   m_Layer: 5
   m_Name: Leaderboard Entry Line
   m_TagString: Untagged
@@ -381,6 +382,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2211955964839924502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423761109183035995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32891354b77cc2045bca53b39536c429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankContainer: {fileID: 871747632369288736}
+  nameContainer: {fileID: 2328191190865023297}
+  scoreContainer: {fileID: 7959557480440552526}
 --- !u!1 &7959557480440552526
 GameObject:
   m_ObjectHideFlags: 0

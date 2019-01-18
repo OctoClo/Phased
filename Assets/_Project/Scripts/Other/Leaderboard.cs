@@ -16,6 +16,8 @@ public class Leaderboard : MonoBehaviour
     public UnityEngine.UI.Text UIElement;
     public UnityEngine.UI.InputField TeamNameInput;
 
+    public List<LeaderboardEntry> UIEntries;
+
     public void SubmitScore()
     {
         AddScore( new Entry
@@ -63,12 +65,12 @@ public class Leaderboard : MonoBehaviour
         Debug.Log("Loaded " + Scores.Count + " entries");
         Scores.Sort((x, y) => y.score.CompareTo(x.score));
 
-        int rank = 1;
-        //UIElement.text = " rank\t name\t score\t max hit\n";
-        foreach ( var entry in Scores )
-        {
-            UIElement.text += " " + rank++ + "\t " + entry.name + "\t " + entry.score.ToString().PadLeft(16, '0') + "\t " + entry.maxHitCount.ToString().PadLeft(8, '0') + '\n';
-        }
+        // int rank = 1;
+        // //UIElement.text = " rank\t name\t score\t max hit\n";
+        // foreach ( var entry in Scores )
+        // {
+        //     UIElement.text += " " + rank++ + "\t " + entry.name + "\t " + entry.score.ToString().PadLeft(16, '0') + "\t " + entry.maxHitCount.ToString().PadLeft(8, '0') + '\n';
+        // }
     }
 
     public int GetRankByScore( ulong score )
@@ -83,6 +85,9 @@ public class Leaderboard : MonoBehaviour
         Scores.Add(entry);
 
         UpdateLeaderboardDb();
+
+        //Sort
+        Scores.Sort((x, y) => y.score.CompareTo(x.score));
     }
 
     void UpdateLeaderboardDb()
@@ -93,5 +98,17 @@ public class Leaderboard : MonoBehaviour
         writer.WriteLine(latestEntry.name + ' ' + latestEntry.score.ToString() + ' ' + latestEntry.maxHitCount.ToString());
 
         writer.Close();
+    }
+
+    public void WriteScoresToUI()
+    {
+        Debug.Log("Write scores to GUI");
+        
+        int rank = 1;
+        for (int i = 0; i < Scores.Count - 1; i++)
+        {
+            UIEntries[i].Fill(rank, Scores[i].name, Scores[i].score.ToString());
+            rank++;
+        }
     }
 }
