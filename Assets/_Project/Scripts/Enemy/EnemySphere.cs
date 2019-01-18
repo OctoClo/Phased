@@ -23,11 +23,11 @@ public class EnemySphere : MonoBehaviour
     public eBehaviour Pattern = eBehaviour.LINEAR;
 
     public GameObject DeathFX;
-    public List<AudioClip> ExplosionSounds;
-
     [HideInInspector]
     public Vector3 movement = new Vector3(0, 0, -1);
-
+    
+    public string SoundEventName = "ennemi"; // ennemi, elites ou boss
+    
     protected Rigidbody rigidBody;
     Renderer[] enemyRenderers;
     List<Color> matColors = new List<Color>();
@@ -151,13 +151,14 @@ public class EnemySphere : MonoBehaviour
         }
         else
         {
+            AkSoundEngine.PostEvent("impact_" + SoundEventName, gameObject);
             StartCoroutine(Blink());
         }
     }
 
     void Die()
     {
-        screenPause.Pause(0.1f);
+        //screenPause.Pause(0.1f);
         PlayExplosionSFX();
         PlayDeathVFX();
         GameScore.AddToScore(KillReward);
@@ -185,8 +186,13 @@ public class EnemySphere : MonoBehaviour
         }
     }
 
-    public virtual void PlayDeathVFX()
+    void PlayExplosionSFX()
     {
+        AkSoundEngine.PostEvent("explosion_" + SoundEventName, gameObject);
+	}
+	
+    public virtual void PlayDeathVFX()
+	{
         deathFXGO = Instantiate(DeathFX, transform);
         deathFXGO.transform.position = transform.position + new Vector3(0, 2, 0);
         deathFXGO.transform.rotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
@@ -197,15 +203,6 @@ public class EnemySphere : MonoBehaviour
         {
             fx.Play();
         }
-    }
-
-    float PlayExplosionSFX()
-    {
-        var audioSource = GetComponent<AudioSource>();
-        var idx = Random.Range(0, ExplosionSounds.Count);
-        audioSource.PlayOneShot(ExplosionSounds[idx]);
-
-        return ExplosionSounds[idx].length;
     }
 
     public void ReverseMovement()

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1F33BCAD-6DE1-431E-A77D-EA67B20E6C0F}" SchemaVersion="89">
+	<MixingSessions>
+		<WorkUnit Name="Default Work Unit" ID="{1F33BCAD-6DE1-431E-A77D-EA67B20E6C0F}" PersistMode="Standalone">
+			<ChildrenList>
+				<MixingSession Name="MAIN" ID="{54583F3F-E3BB-4CDE-9619-459A7321FABE}">
+					<ObjectList>
+						<ObjectRef Name="fire_joueur" ID="{1492F405-843B-4B62-8109-539831B84F8B}" WorkUnitID="{A6DE3CD3-8425-4038-B42F-358ADAA8340C}"/>
+					</ObjectList>
+				</MixingSession>
+			</ChildrenList>
+		</WorkUnit>
+	</MixingSessions>
+</WwiseDocument>

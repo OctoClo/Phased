@@ -100,6 +100,7 @@ public class UIManager : MonoBehaviour
         HUDOverlay.SetActive(true);
         currentOverlay = HUDOverlay;
         IntroAnimation.Play("Intro");
+        AkSoundEngine.PostEvent("play_music_game", gameObject);
     }
 
     void OnGameBackEvent(GameBackEvent e)
@@ -114,7 +115,7 @@ public class UIManager : MonoBehaviour
     void OnGameLeaderboardEvent(GameLeaderboardEvent e)
     {
         gameActive = false;
-
+        
         currentOverlay.SetActive(false);
 
         previousOverlay = currentOverlay;
@@ -167,6 +168,7 @@ public class UIManager : MonoBehaviour
     
     void OnGameEndEvent(GameEndEvent e)
     {
+        AkSoundEngine.PostEvent("play_music_menu", gameObject);
         gameActive = false;
         /*for (int i = 0; i < 2; i++)
         {
@@ -200,7 +202,6 @@ public class UIManager : MonoBehaviour
 
     void OnGameQuitAskEvent(GameQuitAskEvent e)
     {
-        beforeQuitOverlay = currentOverlay;
         QuitOverlay.SetActive(true);
     }
 
@@ -216,8 +217,7 @@ public class UIManager : MonoBehaviour
     void OnGameQuitCancelEvent(GameQuitCancelEvent e)
     {
         QuitOverlay.SetActive(false);
-        beforeQuitOverlay.SetActive(false);
-        beforeQuitOverlay.SetActive(true);
-        currentOverlay = beforeQuitOverlay;
+        currentOverlay.SetActive(false);
+        currentOverlay.SetActive(true);
     }
 }

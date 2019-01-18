@@ -78,5 +78,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9168734540932567601, guid: c2478483711cb434bb03f62a26029649,
         type: 3}
+    - target: {fileID: 6863067891854406796, guid: 8c3435c6ce66d984f8339e08b811c1cc,
+        type: 3}
+      propertyPath: SoundEventName
+      value: elites
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3435c6ce66d984f8339e08b811c1cc, type: 3}

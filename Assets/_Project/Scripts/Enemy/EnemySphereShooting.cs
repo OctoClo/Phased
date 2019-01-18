@@ -21,6 +21,7 @@ public class EnemySphereShooting : EnemySphere
     protected WeaponEnemy weapon;
 
     float distance, minDistance;
+    bool shootingActive = true;
 
     void Awake()
     {
@@ -84,22 +85,25 @@ public class EnemySphereShooting : EnemySphere
 
     protected virtual void Update()
     {
-        if (ShootMode == EShootMode.NEAREST)
+        if (shootingActive)
         {
-            minDistance = float.MaxValue;
-
-            foreach (GameObject spaceship in spaceships)
+            if (ShootMode == EShootMode.NEAREST)
             {
-                distance = Vector3.Distance(gameObject.transform.position, spaceship.transform.position);
-                if (distance < minDistance)
+                minDistance = float.MaxValue;
+
+                foreach (GameObject spaceship in spaceships)
                 {
-                    minDistance = distance;
-                    Target = spaceship;
+                    distance = Vector3.Distance(gameObject.transform.position, spaceship.transform.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        Target = spaceship;
+                    }
                 }
             }
-        }
 
-        Cursor.transform.LookAt(Target.transform);
+            Cursor.transform.LookAt(Target.transform);
+        }
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -129,6 +133,7 @@ public class EnemySphereShooting : EnemySphere
         {
             Debug.Log("Le Gondor répondra présent !");
             Destroy(weaponGO);
+            shootingActive = false;
         }
         else
         {

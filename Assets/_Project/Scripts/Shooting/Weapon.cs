@@ -5,9 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    public float FireInterval = 0.3f;    
+    public float FireInterval = 0.3f;
 
-    public List<AudioClip> FireSounds;
+    public string SoundEventName = "joueur"; // joueur, ennemi, elites ou boss
 
     [HideInInspector]
     public GameObject Cursor;
@@ -15,16 +15,11 @@ public class Weapon : MonoBehaviour
     protected float lastFire;
     protected GameObject bullet;
 
-    protected int soundIndex;
-    protected AudioSource audioSource;
-
     protected GameObject bulletsFolder;
 
     protected virtual void Start()
     {
         lastFire = float.MaxValue;
-        soundIndex = 0;
-        audioSource = GetComponent<AudioSource>();
 
         bulletsFolder = FolderManager.Instance.BulletsFolder;
     }
@@ -36,11 +31,7 @@ public class Weapon : MonoBehaviour
         if (IsReadytoFire())
         {
             lastFire = 0;
-
-            audioSource.PlayOneShot(FireSounds[soundIndex], 0.15f);
-            soundIndex++;
-            if (soundIndex >= FireSounds.Count) soundIndex = 0;
-
+            
             Fire();            
         }
     }
@@ -52,6 +43,8 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Fire()
     {
+        AkSoundEngine.PostEvent("fire_" + SoundEventName, gameObject);
+
         bullet = Instantiate(BulletPrefab, Cursor.transform.position, Quaternion.identity);
         bullet.transform.rotation = Quaternion.Euler(90, Cursor.transform.rotation.eulerAngles.y, 0);
         bullet.transform.SetParent(bulletsFolder.transform);

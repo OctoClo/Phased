@@ -45,7 +45,7 @@ public class Bar : MonoBehaviour
 
     public void SetSeparator(float value)
     {
-        Vector2 newPos = new Vector3(((100 - value) * BarBackground.rect.width / maxValue) / 2.0f, BarSeparator.anchoredPosition.y);
+        Vector2 newPos = new Vector3((value * BarBackground.rect.width / maxValue) / 2.0f, BarSeparator.anchoredPosition.y);
         BarSeparator.anchoredPosition = newPos;
         newPos.x *= -1.0f;
         BarSeparatorMirror.anchoredPosition = newPos;

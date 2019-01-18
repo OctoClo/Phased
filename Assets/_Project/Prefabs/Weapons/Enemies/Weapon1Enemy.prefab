@@ -47,13 +47,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 9143944761609892497, guid: 714014e5fe39ef24eae1b74b57bf74c2,
     type: 3}
   FireInterval: 0.9
-  FireSounds:
-  - {fileID: 8300000, guid: cbbdc8753fdc38f48979eeb2aeca10e4, type: 3}
-  - {fileID: 8300000, guid: c34cece475f7e304f9a2d783460d63f2, type: 3}
-  - {fileID: 8300000, guid: 0b4abf476ef2ad544ae68cc7149cdb6d, type: 3}
-  - {fileID: 8300000, guid: 11d6ef72c1d9e4846be579e89f819a2b, type: 3}
-  - {fileID: 8300000, guid: 28f293a63da3a67459e1455d2ff1179d, type: 3}
-  - {fileID: 8300000, guid: 20098885e15f54e499d898ca06d2871d, type: 3}
+  SoundEventName: ennemi
   Cursor: {fileID: 0}
   SecondCursor: {fileID: 0}
 --- !u!82 &8554215551532818294

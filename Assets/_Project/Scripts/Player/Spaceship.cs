@@ -22,9 +22,7 @@ public class Spaceship : MonoBehaviour
     public Rigidbody RigidBodyTilt;
 
     [Header("Misc")]
-    public List<AudioClip> ImpactSounds;
-
-    int soundIndex;
+    public LifeCounter LifeCounter;
 
     [HideInInspector]
     public Vector2 Direction;
@@ -59,7 +57,6 @@ public class Spaceship : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         spaceshipRenderer = GetComponentInChildren<Renderer>();
-        soundIndex = 0;
         initialPosition = transform.position;
         emissiveColor = spaceshipRenderer.material.GetColor("_EmissionColor");
     }
@@ -163,12 +160,7 @@ public class Spaceship : MonoBehaviour
 
     void PlayImpactSFX()
     {
-        var audioSource = GetComponent<AudioSource>();
-
-        audioSource.PlayOneShot(ImpactSounds[soundIndex]);
-
-        soundIndex++;
-        if (soundIndex >= ImpactSounds.Count) soundIndex = 0;
+        AkSoundEngine.PostEvent("impact_joueur", gameObject);
     }
 
     public void PlayLoseLifeVFX()

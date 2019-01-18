@@ -48,12 +48,9 @@ MonoBehaviour:
   MoveSpeed: 3
   Pattern: 0
   DeathFX: {fileID: 5958621193249698954, guid: a49d3c9aa791d3145b623f36eedac2c8, type: 3}
-  ExplosionSounds:
-  - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
-  - {fileID: 8300000, guid: 715202ee9aceecc4ab2275cdc2fdbc97, type: 3}
-  - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
   movement: {x: 0, y: 0, z: -1}
   hitColor: {r: 1, g: 1, b: 1, a: 1}
+  SoundEventName: elites
   ShootMode: 0
   ShootTarget: 0
   Weapon: {fileID: 6948975954691802028, guid: 8c3435c6ce66d984f8339e08b811c1cc, type: 3}
