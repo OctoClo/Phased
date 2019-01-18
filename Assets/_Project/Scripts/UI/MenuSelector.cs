@@ -63,18 +63,23 @@ public class MenuSelector : MonoBehaviour
         }
 
 		if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame))
-		{
-			buttons[selectedButton].onClick.Invoke();
+        {
+            AkSoundEngine.PostEvent("menu_ok", gameObject);
+            buttons[selectedButton].onClick.Invoke();
 		}
 
         if (NextSelection() && inputTimer <= 0)
 		{
+            AkSoundEngine.PostEvent("menu_navigation", gameObject);
+
 			inputTimer = timeBetweenButtons;
 			selectedButton = (selectedButton + 1) % buttons.Length;
-		}
+        }
 
 		if (PreviousSelection() && inputTimer <= 0)
 		{
+            AkSoundEngine.PostEvent("menu_navigation", gameObject);
+
 			inputTimer = timeBetweenButtons;
 			selectedButton--;
 
@@ -82,7 +87,7 @@ public class MenuSelector : MonoBehaviour
 			{
 				selectedButton = buttons.Length - 1;
 			}
-		}
+        }
 	}
 
     private bool NextSelection()

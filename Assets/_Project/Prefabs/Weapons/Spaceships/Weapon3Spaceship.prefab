@@ -78,6 +78,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1258524368722780862, guid: 36c2b32bab6a69d4fb0460ee484a77e4,
         type: 3}
+    - target: {fileID: 3929758514891318540, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
+        type: 3}
+      propertyPath: SoundEventName
+      value: joueur_phase
+      objectReference: {fileID: 0}
     - target: {fileID: 6217719994767561349, guid: 05a6d9e20edb77544bd2fb85a4babb2f,
         type: 3}
       propertyPath: BulletPrefab

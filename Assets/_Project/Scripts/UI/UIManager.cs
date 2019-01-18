@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject QuitOverlay;
     public GameObject LeaderboardOverlay;
     public GameObject CreditsOverlay;
-    public GameObject OptionsOverlay;
+    public GameObject ControlsOverlay;
 
     public Animator IntroAnimation;
     public Leaderboard Leaderboard;
@@ -33,7 +33,6 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI multiplicator;
 
     GameObject currentOverlay;
-    GameObject beforeQuitOverlay;
 
     bool gameActive = false;
 
@@ -46,7 +45,7 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
         EventManager.Instance.AddListener<GameLeaderboardEvent>(OnGameLeaderboardEvent);
         EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
-        EventManager.Instance.AddListener<GameOptionsEvent>(OnGameOptionsEvent);
+        EventManager.Instance.AddListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
         
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
@@ -94,12 +93,13 @@ public class UIManager : MonoBehaviour
         HUDOverlay.SetActive(true);
         currentOverlay = HUDOverlay;
         IntroAnimation.Play("Intro");
+        AkSoundEngine.PostEvent("play_music_game", gameObject);
     }
      
     void OnGameLeaderboardEvent(GameLeaderboardEvent e)
     {
         gameActive = false;
-
+        
         currentOverlay.SetActive(false);
 
         currentOverlay = LeaderboardOverlay;
@@ -109,21 +109,15 @@ public class UIManager : MonoBehaviour
     void OnGameCreditsEvent(GameCreditsEvent e)
     {
         gameActive = false;
-
-        currentOverlay.SetActive(false);
-
         currentOverlay = CreditsOverlay;
         CreditsOverlay.SetActive(true);
     }
 
-    void OnGameOptionsEvent(GameOptionsEvent e)
+    void OnGameControlsEvent(GameControlsEvent e)
     {
         gameActive = false;
-
-        currentOverlay.SetActive(false);
-
-        currentOverlay = OptionsOverlay;
-        OptionsOverlay.SetActive(true);
+        currentOverlay = ControlsOverlay;
+        ControlsOverlay.SetActive(true);
     }
 
     void OnGameMainMenuEvent(GameMainMenuEvent e)
@@ -138,6 +132,7 @@ public class UIManager : MonoBehaviour
     
     void OnGameEndEvent(GameEndEvent e)
     {
+        AkSoundEngine.PostEvent("play_music_menu", gameObject);
         gameActive = false;
         /*for (int i = 0; i < 2; i++)
         {
@@ -171,7 +166,6 @@ public class UIManager : MonoBehaviour
 
     void OnGameQuitAskEvent(GameQuitAskEvent e)
     {
-        beforeQuitOverlay = currentOverlay;
         QuitOverlay.SetActive(true);
     }
 
@@ -187,8 +181,7 @@ public class UIManager : MonoBehaviour
     void OnGameQuitCancelEvent(GameQuitCancelEvent e)
     {
         QuitOverlay.SetActive(false);
-        beforeQuitOverlay.SetActive(false);
-        beforeQuitOverlay.SetActive(true);
-        currentOverlay = beforeQuitOverlay;
+        currentOverlay.SetActive(false);
+        currentOverlay.SetActive(true);
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2F22C69C-9E2A-4FF1-BD41-3223A5E4A2D1}" SchemaVersion="89">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{2F22C69C-9E2A-4FF1-BD41-3223A5E4A2D1}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}">
+					<ChildrenList>
+						<State Name="None" ID="{08D77C41-F0A3-40A8-AE3F-0103D8F8AAB8}"/>
+						<State Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+						<State Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+						<State Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+							<EndState Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+							<EndState Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+							<EndState Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+							<Time>3</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+							<EndState Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+							<Time>3</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

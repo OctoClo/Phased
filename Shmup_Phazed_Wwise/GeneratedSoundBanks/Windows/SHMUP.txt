@@ -1,0 +1,137 @@
+Event	ID	Name			Wwise Object Path	Notes
+	188046877	menu_ok			\Default Work Unit\menu_ok	
+	594119860	fire_ennemi			\Default Work Unit\fire_ennemi	
+	637501428	play_music_game			\Default Work Unit\play_music_game	
+	722362486	fire_joueur			\Default Work Unit\fire_joueur	
+	1118089324	fire_elites			\Default Work Unit\fire_elites	
+	1699343283	play_music_menu			\Default Work Unit\play_music_menu	
+	1823298098	impact_ennemi			\Default Work Unit\impact_ennemi	
+	2234899605	impact_boss			\Default Work Unit\impact_boss	
+	2399805998	explosion_boss			\Default Work Unit\explosion_boss	
+	2451341557	fire_joueur_combo			\Default Work Unit\fire_joueur_combo	
+	2471227561	menu_navigation			\Default Work Unit\menu_navigation	
+	2483551838	impact_elites			\Default Work Unit\impact_elites	
+	2847520992	impact_joueur			\Default Work Unit\impact_joueur	
+	2905459493	explosion_ennemi			\Default Work Unit\explosion_ennemi	
+	3063554414	menu_back			\Default Work Unit\menu_back	
+	3393737753	fire_boss_alerte			\Default Work Unit\fire_boss_alerte	
+	3411634486	fire_joueur_phase			\Default Work Unit\fire_joueur_phase	
+	4034136061	explosion_elites			\Default Work Unit\explosion_elites	
+	4120755623	fire_boss			\Default Work Unit\fire_boss	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1588096495	sync_level			\Default Work Unit\sync_level	
+
+State	ID	Name	State Group			Notes
+	0	None	sync_level			
+	267359788	layer_1	sync_level			
+	267359790	layer_3	sync_level			
+	267359791	layer_2	sync_level			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	22276044	layer_2	sync_level	\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer3		
+	730592670	layer_1	sync_level	\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer2		
+	968539589	layer_1	sync_level	\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer3		
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	4835468	Fire_13	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_13_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_13		35361
+	14731277	Fire_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_02		35085
+	22562924	Fire_combo_14	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_14_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_14		41394
+	37814254	Explosion_elite_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_elite_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\explosion_elite\Explosion_elite_02		66395
+	38102991	Fire_combo_08	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_08_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_08		43647
+	43905111	explosion_boss	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\explosion_boss_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\explosion_boss		60359
+	44562983	Fire_17	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_17_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_17		35966
+	47700953	Fire_combo_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_05		47053
+	74603575	Fire_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_07		35919
+	85911484	Impact_minions_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_04		15542
+	90957575	Fire_phase_15	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_15_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_15		38621
+	92650454	Fire_phase_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_02		39574
+	104465429	Explosion_minions_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_03		62967
+	107322845	Fire_10	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_10_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_10		37232
+	121585536	Fire_15	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_15_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_15		33102
+	123318638	Fire_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_05		36151
+	131805701	Impact_elites_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_04		15542
+	132879485	Fire_phase_11	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_11_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_11		37817
+	147844047	Fire_phase_10	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_10_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_10		39701
+	155843683	menu_back	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\menu_back_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu\menu_back		16404
+	161360299	Explosion_elite_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_elite_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\explosion_elite\Explosion_elite_01		60842
+	178660566	Fire_combo_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_06		43325
+	188720620	Impact_elites_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_01		13142
+	201635047	Impact_minions_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_03		13202
+	203290630	Fire_combo_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_04		48319
+	209768536	Impact_boss_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_06		18332
+	220920481	Fire_combo_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_02		45858
+	240080236	game_layer1	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\game_layer1_D435DC9C.wem		\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer1		3857748
+	240642686	Intro_game	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Intro_game_D435DC9C.wem		\Interactive Music Hierarchy\Default Work Unit\music_game\intro_game\Intro_game		243182
+	242743552	Fire_boss_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_boss_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\fire_boss\Fire_boss_01		39870
+	246119149	Explosion_minions_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_07		69536
+	262953569	Impact_minions_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_07		19514
+	270583514	Impact_elites_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_05		17595
+	283727207	Fire_11	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_11_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_11		31042
+	300475599	Fire_08	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_08_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_08		33203
+	313298873	Explosion_minions_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_01		65404
+	324357064	Fire_phase_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_01		34734
+	326499407	Music_menu	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Music_menu_D435DC9C.wem		\Interactive Music Hierarchy\Default Work Unit\music_menu\Music_menu\Music_menu		1691694
+	331563236	Fire_phase_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_05		37982
+	335760716	game_layer2	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\game_layer2_D435DC9C.wem		\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer2		3926212
+	360113282	Fire_14	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_14_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_14		29129
+	370422099	Fire_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_04		35321
+	387532641	Fire_combo_13	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_13_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_13		47746
+	390906555	Fire_combo_17	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_17_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_17		47479
+	400809972	Fire_phase_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_04		41272
+	402018385	Fire_elite_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_elite_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\fire_elite\Fire_elite_01		29609
+	415731586	Fire_minions_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_minions_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\fire_ennemi\Fire_minions_01		28249
+	417709676	Fire_combo_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_07		47494
+	429479959	Impact_minions_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_02		15166
+	437214339	Impact_boss_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_03		13202
+	439498063	Fire_combo_12	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_12_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_12		44040
+	440231445	menu_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\menu_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu\menu_navigation\menu_02		16674
+	448111988	Impact_elites_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_03		13202
+	449146314	Fire_phase_14	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_14_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_14		33752
+	458013679	Fire_combo_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_01		46242
+	459508441	Fire_12	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_12_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_12		34121
+	467116199	Fire_combo_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_03		47802
+	483860070	Impact_minions_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_06		18332
+	500770356	Fire_phase_16	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_16_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_16		37481
+	503682107	Fire_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_01		31491
+	512688206	Fire_phase_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_06		37956
+	520685274	Explosion_minions_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_04		66558
+	537719578	Fire_phase_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_03		40596
+	540461878	Impact_boss_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_01		13142
+	548996303	Fire_09	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_09_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_09		34617
+	576980541	menu_ok	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\menu_ok_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu\menu_ok		16005
+	602347841	Explosion_minions_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_02		67144
+	614480613	Impact_boss_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_05		17595
+	623995565	Explosion_elite_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_elite_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\explosion_elite\Explosion_elite_03		60359
+	635084262	Explosion_minions_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_05		62859
+	642195537	Fire_combo_15	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_15_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_15		46221
+	663903764	Fire_phase_13	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_13_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_13		37699
+	664584089	Fire_phase_12	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_12_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_12		39531
+	678744146	Impact_boss_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_02		15166
+	686405470	Fire_combo_11	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_11_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_11		44251
+	711143341	impact_joueur	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\impact_joueur_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\impact_joueur		22730
+	722791215	menu_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\menu_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu\menu_navigation\menu_01		16270
+	736796619	Impact_boss_04	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_04_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_04		15542
+	739090868	Fire_phase_09	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_09_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_09		37359
+	755395706	Fire_combo_16	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_16_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_16		43435
+	765352674	Impact_elites_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_07		19514
+	766292238	Impact_elites_02	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_02_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_02		15166
+	820955951	Fire_phase_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_07		41858
+	829769786	Impact_boss_07	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_boss_07_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\impact_boss\Impact_boss_07		19514
+	831852678	Impact_elites_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_elites_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\elites\impact_elite\Impact_elites_06		18332
+	856334049	Fire_combo_09	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_09_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_09		44869
+	867491290	Fire_combo_10	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_combo_10_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_combo\Fire_combo_10		46497
+	868298647	Explosion_minions_09	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_09_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_09		69321
+	874882081	Fire_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_03		36487
+	904738554	game_layer3	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\game_layer3_D435DC9C.wem		\Interactive Music Hierarchy\Default Work Unit\music_game\music_game\game_layer3		3241460
+	906824164	Fire_phase_17	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_17_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_17		39949
+	924828173	Fire_16	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_16_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_16		31494
+	958705369	Fire_phase_08	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_phase_08_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur_phase\Fire_phase_08		37656
+	959075572	Fire_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\joueurs\fire_joueur\Fire_06		32587
+	961540769	Explosion_minions_06	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_06_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_06		67580
+	981915621	Explosion_minions_08	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Explosion_minions_08_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\explosion_ennemi\Explosion_minions_08		70520
+	986023120	Impact_minions_05	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_05_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_05		17595
+	1012882485	Impact_minions_01	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Impact_minions_01_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\minions\impact_ennemi\Impact_minions_01		13142
+	1040532068	menu_03	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\menu_03_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu\menu_navigation\menu_03		16694
+	1042210772	fire_boss_alerte	C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\SFX\Fire_boss_alerte_51A8D4C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\ennemis\boss\fire_boss_alerte		47947
+

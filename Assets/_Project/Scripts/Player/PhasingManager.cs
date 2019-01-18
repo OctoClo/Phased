@@ -49,6 +49,7 @@ public class PhasingManager : MonoBehaviour
     void Initialize()
     {
         phaseState = EStatePhase.NO_PHASE;
+        AkSoundEngine.SetState("sync_level", "layer_1");
         PlayersLink.SetActive(false);
         PhasingBar.Value = 0;
     }
@@ -143,6 +144,7 @@ public class PhasingManager : MonoBehaviour
                 SetSpaceshipsGlow(1f, false);
                 PhasingVFX.SetActive(false);
                 PhasingExplosionVFX.SetActive(false);
+                AkSoundEngine.SetState("sync_level", "layer_1");
                 break;
 
             case EStatePhase.PRE_PHASE:
@@ -154,6 +156,7 @@ public class PhasingManager : MonoBehaviour
                 PhasingVFX.SetActive(true);
                 PhasingVFX.GetComponent<ParticleSystem>().Play();
                 PhasingExplosionVFX.SetActive(false);
+                AkSoundEngine.SetState("sync_level", "layer_2");
                 break;
 
             case EStatePhase.PHASE:
@@ -164,6 +167,7 @@ public class PhasingManager : MonoBehaviour
                 PhasingVFX.SetActive(true);
                 PhasingExplosionVFX.SetActive(true);
                 PhasingVFX.GetComponentInChildren<ParticleSystem>().Play();
+                AkSoundEngine.SetState("sync_level", "layer_3");
                 break;
         }
 
@@ -207,5 +211,7 @@ public class PhasingManager : MonoBehaviour
     void OnGameEndEvent(GameEndEvent e)
     {
         gameActive = false;
+        PhasingVFX.SetActive(false);
+        PhasingExplosionVFX.SetActive(false);
     }
 }

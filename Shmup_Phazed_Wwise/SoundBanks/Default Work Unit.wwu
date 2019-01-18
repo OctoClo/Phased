@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C1C20381-CF72-4E9E-B591-EBAE392C80FC}" SchemaVersion="89">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{C1C20381-CF72-4E9E-B591-EBAE392C80FC}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="SHMUP" ID="{EA605B5D-193F-494B-98A5-9740D12DE453}">
+					<ObjectInclusionList>
+						<ObjectRef Name="fire_boss_alerte" ID="{BCD1FE14-2A5F-402C-AAF1-E456E7000751}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="explosion_elites" ID="{313185A7-32AF-4221-ADD7-07EAC02F4B38}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_ennemi" ID="{210A9E3C-52E0-4269-AD34-B0C3ED07DB04}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="impact_boss" ID="{A7B78C78-AE80-42D8-9E8A-6BA480B24A76}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="impact_ennemi" ID="{43CD2BDE-F788-4343-8D61-72F9B4271D5A}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="explosion_boss" ID="{D248B64F-59E0-4344-9FFD-41B586EC36BD}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="impact_elites" ID="{3F33CF3F-733B-44F9-9CF7-52FE8DBD02B3}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="impact_joueur" ID="{10BD346D-2569-44FB-A71C-BAEA8491C803}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_joueur" ID="{415B0881-1DE8-463C-BB28-40B0C7FEF986}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="menu_navigation" ID="{6BBB5E08-5775-46D9-A5F0-F391834333CA}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="menu_ok" ID="{8B258C4B-1D24-471E-807F-9E7837B30641}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_joueur_phase" ID="{7A256FC4-69F1-472D-9F25-B88395D32D4D}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_music_menu" ID="{A232DB37-B373-48CF-A0B0-58CB6E47EC04}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_music_game" ID="{4DDA24B0-3D1A-496C-9423-81F9D7B428DB}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_boss" ID="{99565033-A658-4979-BC0A-3F329980DE19}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="explosion_ennemi" ID="{81B5DD71-AD1D-4C2C-853A-DA3DC40E19B9}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_elites" ID="{8A9EB7D7-9A1B-4E7D-BC09-F4558931B8DA}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="menu_back" ID="{6D54FAA7-D9A5-4EF7-A286-F7091F4ECDD5}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fire_joueur_combo" ID="{EAE3165A-D654-4F40-B73B-87BE84612D06}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2937247210" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\SHMUP</ObjectPath>
+			<ShortName>SHMUP</ShortName>
+			<Path>SHMUP.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2399805998" Name="explosion_boss" ObjectPath="\Events\Default Work Unit\explosion_boss"/>
+				<Event Id="4034136061" Name="explosion_elites" ObjectPath="\Events\Default Work Unit\explosion_elites"/>
+				<Event Id="2905459493" Name="explosion_ennemi" ObjectPath="\Events\Default Work Unit\explosion_ennemi"/>
+				<Event Id="4120755623" Name="fire_boss" ObjectPath="\Events\Default Work Unit\fire_boss"/>
+				<Event Id="3393737753" Name="fire_boss_alerte" ObjectPath="\Events\Default Work Unit\fire_boss_alerte"/>
+				<Event Id="1118089324" Name="fire_elites" ObjectPath="\Events\Default Work Unit\fire_elites"/>
+				<Event Id="594119860" Name="fire_ennemi" ObjectPath="\Events\Default Work Unit\fire_ennemi"/>
+				<Event Id="722362486" Name="fire_joueur" ObjectPath="\Events\Default Work Unit\fire_joueur"/>
+				<Event Id="2451341557" Name="fire_joueur_combo" ObjectPath="\Events\Default Work Unit\fire_joueur_combo"/>
+				<Event Id="3411634486" Name="fire_joueur_phase" ObjectPath="\Events\Default Work Unit\fire_joueur_phase"/>
+				<Event Id="2234899605" Name="impact_boss" ObjectPath="\Events\Default Work Unit\impact_boss"/>
+				<Event Id="2483551838" Name="impact_elites" ObjectPath="\Events\Default Work Unit\impact_elites"/>
+				<Event Id="1823298098" Name="impact_ennemi" ObjectPath="\Events\Default Work Unit\impact_ennemi"/>
+				<Event Id="2847520992" Name="impact_joueur" ObjectPath="\Events\Default Work Unit\impact_joueur"/>
+				<Event Id="3063554414" Name="menu_back" ObjectPath="\Events\Default Work Unit\menu_back"/>
+				<Event Id="2471227561" Name="menu_navigation" ObjectPath="\Events\Default Work Unit\menu_navigation"/>
+				<Event Id="188046877" Name="menu_ok" ObjectPath="\Events\Default Work Unit\menu_ok"/>
+				<Event Id="637501428" Name="play_music_game" ObjectPath="\Events\Default Work Unit\play_music_game"/>
+				<Event Id="1699343283" Name="play_music_menu" ObjectPath="\Events\Default Work Unit\play_music_menu"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="4835468" Language="SFX">
+					<ShortName>Fire_13.wav</ShortName>
+					<Path>SFX\Fire_13_51A8D4C2.wem</Path>
+				</File>
+				<File Id="14731277" Language="SFX">
+					<ShortName>Fire_02.wav</ShortName>
+					<Path>SFX\Fire_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="22562924" Language="SFX">
+					<ShortName>Fire_combo_14.wav</ShortName>
+					<Path>SFX\Fire_combo_14_51A8D4C2.wem</Path>
+				</File>
+				<File Id="37814254" Language="SFX">
+					<ShortName>Explosion_elite_02.wav</ShortName>
+					<Path>SFX\Explosion_elite_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="38102991" Language="SFX">
+					<ShortName>Fire_combo_08.wav</ShortName>
+					<Path>SFX\Fire_combo_08_51A8D4C2.wem</Path>
+				</File>
+				<File Id="43905111" Language="SFX">
+					<ShortName>explosion_boss.wav</ShortName>
+					<Path>SFX\explosion_boss_51A8D4C2.wem</Path>
+				</File>
+				<File Id="44562983" Language="SFX">
+					<ShortName>Fire_17.wav</ShortName>
+					<Path>SFX\Fire_17_51A8D4C2.wem</Path>
+				</File>
+				<File Id="47700953" Language="SFX">
+					<ShortName>Fire_combo_05.wav</ShortName>
+					<Path>SFX\Fire_combo_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="74603575" Language="SFX">
+					<ShortName>Fire_07.wav</ShortName>
+					<Path>SFX\Fire_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="85911484" Language="SFX">
+					<ShortName>Impact_minions_04.wav</ShortName>
+					<Path>SFX\Impact_minions_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="90957575" Language="SFX">
+					<ShortName>Fire_phase_15.wav</ShortName>
+					<Path>SFX\Fire_phase_15_51A8D4C2.wem</Path>
+				</File>
+				<File Id="92650454" Language="SFX">
+					<ShortName>Fire_phase_02.wav</ShortName>
+					<Path>SFX\Fire_phase_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="104465429" Language="SFX">
+					<ShortName>Explosion_minions_03.wav</ShortName>
+					<Path>SFX\Explosion_minions_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="107322845" Language="SFX">
+					<ShortName>Fire_10.wav</ShortName>
+					<Path>SFX\Fire_10_51A8D4C2.wem</Path>
+				</File>
+				<File Id="121585536" Language="SFX">
+					<ShortName>Fire_15.wav</ShortName>
+					<Path>SFX\Fire_15_51A8D4C2.wem</Path>
+				</File>
+				<File Id="123318638" Language="SFX">
+					<ShortName>Fire_05.wav</ShortName>
+					<Path>SFX\Fire_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="131805701" Language="SFX">
+					<ShortName>Impact_elites_04.wav</ShortName>
+					<Path>SFX\Impact_elites_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="132879485" Language="SFX">
+					<ShortName>Fire_phase_11.wav</ShortName>
+					<Path>SFX\Fire_phase_11_51A8D4C2.wem</Path>
+				</File>
+				<File Id="147844047" Language="SFX">
+					<ShortName>Fire_phase_10.wav</ShortName>
+					<Path>SFX\Fire_phase_10_51A8D4C2.wem</Path>
+				</File>
+				<File Id="155843683" Language="SFX">
+					<ShortName>menu_back.wav</ShortName>
+					<Path>SFX\menu_back_51A8D4C2.wem</Path>
+				</File>
+				<File Id="161360299" Language="SFX">
+					<ShortName>Explosion_elite_01.wav</ShortName>
+					<Path>SFX\Explosion_elite_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="178660566" Language="SFX">
+					<ShortName>Fire_combo_06.wav</ShortName>
+					<Path>SFX\Fire_combo_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="188720620" Language="SFX">
+					<ShortName>Impact_elites_01.wav</ShortName>
+					<Path>SFX\Impact_elites_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="201635047" Language="SFX">
+					<ShortName>Impact_minions_03.wav</ShortName>
+					<Path>SFX\Impact_minions_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="203290630" Language="SFX">
+					<ShortName>Fire_combo_04.wav</ShortName>
+					<Path>SFX\Fire_combo_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="209768536" Language="SFX">
+					<ShortName>Impact_boss_06.wav</ShortName>
+					<Path>SFX\Impact_boss_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="220920481" Language="SFX">
+					<ShortName>Fire_combo_02.wav</ShortName>
+					<Path>SFX\Fire_combo_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="240080236" Language="SFX">
+					<ShortName>game_layer1.wav</ShortName>
+					<Path>SFX\game_layer1_D435DC9C.wem</Path>
+				</File>
+				<File Id="240642686" Language="SFX">
+					<ShortName>Intro_game.wav</ShortName>
+					<Path>SFX\Intro_game_D435DC9C.wem</Path>
+				</File>
+				<File Id="242743552" Language="SFX">
+					<ShortName>Fire_boss_01.wav</ShortName>
+					<Path>SFX\Fire_boss_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="246119149" Language="SFX">
+					<ShortName>Explosion_minions_07.wav</ShortName>
+					<Path>SFX\Explosion_minions_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="262953569" Language="SFX">
+					<ShortName>Impact_minions_07.wav</ShortName>
+					<Path>SFX\Impact_minions_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="270583514" Language="SFX">
+					<ShortName>Impact_elites_05.wav</ShortName>
+					<Path>SFX\Impact_elites_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="283727207" Language="SFX">
+					<ShortName>Fire_11.wav</ShortName>
+					<Path>SFX\Fire_11_51A8D4C2.wem</Path>
+				</File>
+				<File Id="300475599" Language="SFX">
+					<ShortName>Fire_08.wav</ShortName>
+					<Path>SFX\Fire_08_51A8D4C2.wem</Path>
+				</File>
+				<File Id="313298873" Language="SFX">
+					<ShortName>Explosion_minions_01.wav</ShortName>
+					<Path>SFX\Explosion_minions_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="324357064" Language="SFX">
+					<ShortName>Fire_phase_01.wav</ShortName>
+					<Path>SFX\Fire_phase_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="326499407" Language="SFX">
+					<ShortName>Music_menu.wav</ShortName>
+					<Path>SFX\Music_menu_D435DC9C.wem</Path>
+				</File>
+				<File Id="331563236" Language="SFX">
+					<ShortName>Fire_phase_05.wav</ShortName>
+					<Path>SFX\Fire_phase_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="335760716" Language="SFX">
+					<ShortName>game_layer2.wav</ShortName>
+					<Path>SFX\game_layer2_D435DC9C.wem</Path>
+				</File>
+				<File Id="360113282" Language="SFX">
+					<ShortName>Fire_14.wav</ShortName>
+					<Path>SFX\Fire_14_51A8D4C2.wem</Path>
+				</File>
+				<File Id="370422099" Language="SFX">
+					<ShortName>Fire_04.wav</ShortName>
+					<Path>SFX\Fire_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="387532641" Language="SFX">
+					<ShortName>Fire_combo_13.wav</ShortName>
+					<Path>SFX\Fire_combo_13_51A8D4C2.wem</Path>
+				</File>
+				<File Id="390906555" Language="SFX">
+					<ShortName>Fire_combo_17.wav</ShortName>
+					<Path>SFX\Fire_combo_17_51A8D4C2.wem</Path>
+				</File>
+				<File Id="400809972" Language="SFX">
+					<ShortName>Fire_phase_04.wav</ShortName>
+					<Path>SFX\Fire_phase_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="402018385" Language="SFX">
+					<ShortName>Fire_elite_01.wav</ShortName>
+					<Path>SFX\Fire_elite_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="415731586" Language="SFX">
+					<ShortName>Fire_minions_01.wav</ShortName>
+					<Path>SFX\Fire_minions_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="417709676" Language="SFX">
+					<ShortName>Fire_combo_07.wav</ShortName>
+					<Path>SFX\Fire_combo_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="429479959" Language="SFX">
+					<ShortName>Impact_minions_02.wav</ShortName>
+					<Path>SFX\Impact_minions_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="437214339" Language="SFX">
+					<ShortName>Impact_boss_03.wav</ShortName>
+					<Path>SFX\Impact_boss_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="439498063" Language="SFX">
+					<ShortName>Fire_combo_12.wav</ShortName>
+					<Path>SFX\Fire_combo_12_51A8D4C2.wem</Path>
+				</File>
+				<File Id="440231445" Language="SFX">
+					<ShortName>menu_02.wav</ShortName>
+					<Path>SFX\menu_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="448111988" Language="SFX">
+					<ShortName>Impact_elites_03.wav</ShortName>
+					<Path>SFX\Impact_elites_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="449146314" Language="SFX">
+					<ShortName>Fire_phase_14.wav</ShortName>
+					<Path>SFX\Fire_phase_14_51A8D4C2.wem</Path>
+				</File>
+				<File Id="458013679" Language="SFX">
+					<ShortName>Fire_combo_01.wav</ShortName>
+					<Path>SFX\Fire_combo_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="459508441" Language="SFX">
+					<ShortName>Fire_12.wav</ShortName>
+					<Path>SFX\Fire_12_51A8D4C2.wem</Path>
+				</File>
+				<File Id="467116199" Language="SFX">
+					<ShortName>Fire_combo_03.wav</ShortName>
+					<Path>SFX\Fire_combo_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="483860070" Language="SFX">
+					<ShortName>Impact_minions_06.wav</ShortName>
+					<Path>SFX\Impact_minions_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="500770356" Language="SFX">
+					<ShortName>Fire_phase_16.wav</ShortName>
+					<Path>SFX\Fire_phase_16_51A8D4C2.wem</Path>
+				</File>
+				<File Id="503682107" Language="SFX">
+					<ShortName>Fire_01.wav</ShortName>
+					<Path>SFX\Fire_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="512688206" Language="SFX">
+					<ShortName>Fire_phase_06.wav</ShortName>
+					<Path>SFX\Fire_phase_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="520685274" Language="SFX">
+					<ShortName>Explosion_minions_04.wav</ShortName>
+					<Path>SFX\Explosion_minions_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="537719578" Language="SFX">
+					<ShortName>Fire_phase_03.wav</ShortName>
+					<Path>SFX\Fire_phase_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="540461878" Language="SFX">
+					<ShortName>Impact_boss_01.wav</ShortName>
+					<Path>SFX\Impact_boss_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="548996303" Language="SFX">
+					<ShortName>Fire_09.wav</ShortName>
+					<Path>SFX\Fire_09_51A8D4C2.wem</Path>
+				</File>
+				<File Id="576980541" Language="SFX">
+					<ShortName>menu_ok.wav</ShortName>
+					<Path>SFX\menu_ok_51A8D4C2.wem</Path>
+				</File>
+				<File Id="602347841" Language="SFX">
+					<ShortName>Explosion_minions_02.wav</ShortName>
+					<Path>SFX\Explosion_minions_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="614480613" Language="SFX">
+					<ShortName>Impact_boss_05.wav</ShortName>
+					<Path>SFX\Impact_boss_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="623995565" Language="SFX">
+					<ShortName>Explosion_elite_03.wav</ShortName>
+					<Path>SFX\Explosion_elite_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="635084262" Language="SFX">
+					<ShortName>Explosion_minions_05.wav</ShortName>
+					<Path>SFX\Explosion_minions_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="642195537" Language="SFX">
+					<ShortName>Fire_combo_15.wav</ShortName>
+					<Path>SFX\Fire_combo_15_51A8D4C2.wem</Path>
+				</File>
+				<File Id="663903764" Language="SFX">
+					<ShortName>Fire_phase_13.wav</ShortName>
+					<Path>SFX\Fire_phase_13_51A8D4C2.wem</Path>
+				</File>
+				<File Id="664584089" Language="SFX">
+					<ShortName>Fire_phase_12.wav</ShortName>
+					<Path>SFX\Fire_phase_12_51A8D4C2.wem</Path>
+				</File>
+				<File Id="678744146" Language="SFX">
+					<ShortName>Impact_boss_02.wav</ShortName>
+					<Path>SFX\Impact_boss_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="686405470" Language="SFX">
+					<ShortName>Fire_combo_11.wav</ShortName>
+					<Path>SFX\Fire_combo_11_51A8D4C2.wem</Path>
+				</File>
+				<File Id="711143341" Language="SFX">
+					<ShortName>impact_joueur.wav</ShortName>
+					<Path>SFX\impact_joueur_51A8D4C2.wem</Path>
+				</File>
+				<File Id="722791215" Language="SFX">
+					<ShortName>menu_01.wav</ShortName>
+					<Path>SFX\menu_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="736796619" Language="SFX">
+					<ShortName>Impact_boss_04.wav</ShortName>
+					<Path>SFX\Impact_boss_04_51A8D4C2.wem</Path>
+				</File>
+				<File Id="739090868" Language="SFX">
+					<ShortName>Fire_phase_09.wav</ShortName>
+					<Path>SFX\Fire_phase_09_51A8D4C2.wem</Path>
+				</File>
+				<File Id="755395706" Language="SFX">
+					<ShortName>Fire_combo_16.wav</ShortName>
+					<Path>SFX\Fire_combo_16_51A8D4C2.wem</Path>
+				</File>
+				<File Id="765352674" Language="SFX">
+					<ShortName>Impact_elites_07.wav</ShortName>
+					<Path>SFX\Impact_elites_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="766292238" Language="SFX">
+					<ShortName>Impact_elites_02.wav</ShortName>
+					<Path>SFX\Impact_elites_02_51A8D4C2.wem</Path>
+				</File>
+				<File Id="820955951" Language="SFX">
+					<ShortName>Fire_phase_07.wav</ShortName>
+					<Path>SFX\Fire_phase_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="829769786" Language="SFX">
+					<ShortName>Impact_boss_07.wav</ShortName>
+					<Path>SFX\Impact_boss_07_51A8D4C2.wem</Path>
+				</File>
+				<File Id="831852678" Language="SFX">
+					<ShortName>Impact_elites_06.wav</ShortName>
+					<Path>SFX\Impact_elites_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="856334049" Language="SFX">
+					<ShortName>Fire_combo_09.wav</ShortName>
+					<Path>SFX\Fire_combo_09_51A8D4C2.wem</Path>
+				</File>
+				<File Id="867491290" Language="SFX">
+					<ShortName>Fire_combo_10.wav</ShortName>
+					<Path>SFX\Fire_combo_10_51A8D4C2.wem</Path>
+				</File>
+				<File Id="868298647" Language="SFX">
+					<ShortName>Explosion_minions_09.wav</ShortName>
+					<Path>SFX\Explosion_minions_09_51A8D4C2.wem</Path>
+				</File>
+				<File Id="874882081" Language="SFX">
+					<ShortName>Fire_03.wav</ShortName>
+					<Path>SFX\Fire_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="904738554" Language="SFX">
+					<ShortName>game_layer3.wav</ShortName>
+					<Path>SFX\game_layer3_D435DC9C.wem</Path>
+				</File>
+				<File Id="906824164" Language="SFX">
+					<ShortName>Fire_phase_17.wav</ShortName>
+					<Path>SFX\Fire_phase_17_51A8D4C2.wem</Path>
+				</File>
+				<File Id="924828173" Language="SFX">
+					<ShortName>Fire_16.wav</ShortName>
+					<Path>SFX\Fire_16_51A8D4C2.wem</Path>
+				</File>
+				<File Id="958705369" Language="SFX">
+					<ShortName>Fire_phase_08.wav</ShortName>
+					<Path>SFX\Fire_phase_08_51A8D4C2.wem</Path>
+				</File>
+				<File Id="959075572" Language="SFX">
+					<ShortName>Fire_06.wav</ShortName>
+					<Path>SFX\Fire_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="961540769" Language="SFX">
+					<ShortName>Explosion_minions_06.wav</ShortName>
+					<Path>SFX\Explosion_minions_06_51A8D4C2.wem</Path>
+				</File>
+				<File Id="981915621" Language="SFX">
+					<ShortName>Explosion_minions_08.wav</ShortName>
+					<Path>SFX\Explosion_minions_08_51A8D4C2.wem</Path>
+				</File>
+				<File Id="986023120" Language="SFX">
+					<ShortName>Impact_minions_05.wav</ShortName>
+					<Path>SFX\Impact_minions_05_51A8D4C2.wem</Path>
+				</File>
+				<File Id="1012882485" Language="SFX">
+					<ShortName>Impact_minions_01.wav</ShortName>
+					<Path>SFX\Impact_minions_01_51A8D4C2.wem</Path>
+				</File>
+				<File Id="1040532068" Language="SFX">
+					<ShortName>menu_03.wav</ShortName>
+					<Path>SFX\menu_03_51A8D4C2.wem</Path>
+				</File>
+				<File Id="1042210772" Language="SFX">
+					<ShortName>Fire_boss_alerte.wav</ShortName>
+					<Path>SFX\Fire_boss_alerte_51A8D4C2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
