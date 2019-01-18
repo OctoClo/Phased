@@ -62,15 +62,7 @@ public class UIManager : MonoBehaviour
         {
             HUDLifeCounter.SetText(LifeCounter.Instance.LifeCount.ToString());
 
-            string scoreFill = "";
-            string scoreTxt = GameScore.Score.ToString();
-
-            for (int i = 0; i < (8 - scoreTxt.Length); i++)
-            {
-                scoreFill += "0";
-            }
-
-            score.SetText(scoreFill + scoreTxt);
+            score.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
 
             multiplicator.SetText(GameScore.Multiplicator.ToString());
 
@@ -79,6 +71,20 @@ public class UIManager : MonoBehaviour
                 PhaseZones[i].transform.position = Spaceships[i].transform.position;
             }*/
         }
+    }
+
+    string FillScoreWithZeros(string scoreTxt)
+    {
+
+        string scoreFill = "";
+
+        for (int i = 0; i < (8 - scoreTxt.Length); i++)
+        {
+            scoreFill += "0";
+        }
+
+        return scoreFill + scoreTxt;
+
     }
 
     void OnGameStartedEvent(GameStartedEvent e)
@@ -157,7 +163,7 @@ public class UIManager : MonoBehaviour
             GameOverOverlay.SetActive(true);
 
             var score = GameOverOverlay.transform.Find("Score").GetComponent<TextMeshProUGUI>();
-            score.text = GameScore.Score.ToString();
+            score.text = FillScoreWithZeros(GameScore.Score.ToString());
 
             currentOverlay = GameOverOverlay;
         }
