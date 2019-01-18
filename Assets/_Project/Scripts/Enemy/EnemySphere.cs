@@ -43,8 +43,12 @@ public class EnemySphere : MonoBehaviour
 
     protected GameObject deathFXGO;
 
+    ScreenPause screenPause;
+
     protected virtual void Start()
     {
+        screenPause = GameObject.Find("Scripts/ScreenPause").GetComponent<ScreenPause>();
+
         rigidBody = GetComponent<Rigidbody>();
         enemyRenderers = transform.GetComponentsInChildren<Renderer>();
 
@@ -153,6 +157,7 @@ public class EnemySphere : MonoBehaviour
 
     void Die()
     {
+        screenPause.Pause(0.1f);
         PlayExplosionSFX();
         PlayDeathVFX();
         GameScore.AddToScore(KillReward);
