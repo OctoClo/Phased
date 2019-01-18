@@ -5122,6 +5122,8 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   Target: {x: 0, y: 0}
   IsFiring: 0
+  controllerForwardAngle: 45
+  snappedAngle: 12
 --- !u!82 &3587557955452060562
 AudioSource:
   m_ObjectHideFlags: 0

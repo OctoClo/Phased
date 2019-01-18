@@ -48,10 +48,9 @@ public class Spaceship : MonoBehaviour
     float previousAngle;
     float angleOffset = -90.0f;
 
-    [Header("Test Values")]
-    float snappedAngle = 45.0f;
-    [SerializeField]
-    float appliedAngle = 0.0f;
+    [Header("Cursor angles")]
+    public float controllerForwardAngle = 45.0f;
+    public float snappedAngle = 12.0f;
 
     bool gameActive = false;
     bool phasedWeapon;
@@ -114,38 +113,16 @@ public class Spaceship : MonoBehaviour
 
             if (!Target.Equals(Vector2.zero))
             {
-                angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+                angle = (Mathf.Atan2((Target.x * -1.0f) * TargetRadius, Target.y * TargetRadius) * Mathf.Rad2Deg);
 
-                //Snap to snappedAngle
-                appliedAngle = angle;
-
-                float halfSpnappedAngle = (snappedAngle / 2);
-                float backSnappedAngle = (180.0f - snappedAngle);
-
-                if (angle < halfSpnappedAngle && angle > ( -snappedAngle / 2))
+                if (angle > controllerForwardAngle / 2)
                 {
-                    angle = 0.0f;
+                    angle = snappedAngle;
                 }
-                else if (angle < -snappedAngle + halfSpnappedAngle && angle > -90.0f)
+                else if (angle < -controllerForwardAngle / 2)
                 {
-                    angle = -12.0f;
+                    angle = -snappedAngle;
                 }
-                else if (angle < 90.0f && angle > snappedAngle - halfSpnappedAngle)
-                {
-                    angle = 12.0f;
-                }
-                // else if (angle < -90.0f && angle > -backSnappedAngle - halfSpnappedAngle)
-                // {
-                //     angle = -165.0f;
-                // }
-                // else if (angle < backSnappedAngle + halfSpnappedAngle && angle > 90.0f)
-                // {
-                //     angle = 165.0f;
-                // }
-                // else if (angle < backSnappedAngle || angle > -backSnappedAngle)
-                // {
-                //     angle = 180.0f;
-                // }
                 else
                 {
                     angle = 0.0f;
