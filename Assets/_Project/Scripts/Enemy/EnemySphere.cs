@@ -30,6 +30,9 @@ public class EnemySphere : MonoBehaviour
 
     protected Rigidbody rigidBody;
     Renderer[] enemyRenderers;
+    List<Color> matColors = new List<Color>();
+    public Color hitColor;
+    public float hitIntensity = 10.0f;
 
     bool firstRebound = true;
 
@@ -48,6 +51,15 @@ public class EnemySphere : MonoBehaviour
         if (Pattern == eBehaviour.KAMIKAZE)
         {
             gameObject.AddComponent<EnemyKamikazeBehaviour>();
+        }
+
+        foreach (Renderer renderer in enemyRenderers)
+        {
+            if(renderer.material.IsKeywordEnabled("_EMISSION"))
+            {
+                matColors.Add(renderer.material.GetColor("_EmissionColor"));
+            }
+            
         }
     }
 
@@ -151,14 +163,20 @@ public class EnemySphere : MonoBehaviour
     {
         foreach (Renderer renderer in enemyRenderers)
         {
-            renderer.enabled = false;
+            if (renderer.material.IsKeywordEnabled("_EMISSION")) renderer.material.SetColor("_EmissionColor", hitColor * hitIntensity);
         }
         
         yield return new WaitForSeconds(0.1f);
 
-        foreach (Renderer renderer in enemyRenderers)
+        int matIndex = 0;
+
+        for (int i = 0; i < enemyRenderers.Length; i++)
         {
-            renderer.enabled = true;
+            if (enemyRenderers[i].material.IsKeywordEnabled("_EMISSION")) 
+            {
+                enemyRenderers[i].material.SetColor("_EmissionColor", matColors[matIndex]);
+                matIndex++;
+            }
         }
     }
 

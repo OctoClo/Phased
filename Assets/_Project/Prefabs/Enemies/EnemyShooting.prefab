@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 715202ee9aceecc4ab2275cdc2fdbc97, type: 3}
   - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
   movement: {x: 0, y: 0, z: -1}
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
   ShootMode: 0
   ShootTarget: 0
   Weapon: {fileID: 6948975954691802028, guid: 8c3435c6ce66d984f8339e08b811c1cc, type: 3}
