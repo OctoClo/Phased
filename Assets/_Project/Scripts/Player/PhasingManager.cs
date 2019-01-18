@@ -24,6 +24,10 @@ public class PhasingManager : MonoBehaviour
     public GameObject PlayersLink;
     public List<Material> MaterialsPlayersLink = new List<Material>();
 
+    [Header("VFX")]
+    public GameObject PhasingVFX;
+    public GameObject PhasingExplosionVFX;
+
     [Header("Misc")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
@@ -55,9 +59,10 @@ public class PhasingManager : MonoBehaviour
         {
             distBetweenShips = Vector3.Distance(Spaceships[0].transform.position, Spaceships[1].transform.position);
 
-        UpdatePhasingValue();
-        //UpdatePlayerLink();
-        CheckForStateChange();
+            UpdatePhasingValue();
+            //UpdatePlayerLink();
+            CheckForStateChange();
+            UpdateVFXPositions();
         }
     }
 
@@ -136,6 +141,8 @@ public class PhasingManager : MonoBehaviour
                 //PlayersLink.SetActive(false);
                 PhasingBar.SetPhasingState(false);
                 SetSpaceshipsGlow(1f, false);
+                PhasingVFX.SetActive(false);
+                PhasingExplosionVFX.SetActive(false);
                 break;
 
             case EStatePhase.PRE_PHASE:
@@ -144,6 +151,9 @@ public class PhasingManager : MonoBehaviour
                 PhasingBar.SetPhasedState(false);
                 SetSpaceshipsGlow(2.5f, true);
                 scoreMultiplicator = PrePhaseScoreMultiplicator;
+                PhasingVFX.SetActive(true);
+                PhasingVFX.GetComponent<ParticleSystem>().Play();
+                PhasingExplosionVFX.SetActive(false);
                 break;
 
             case EStatePhase.PHASE:
@@ -151,6 +161,9 @@ public class PhasingManager : MonoBehaviour
                 PhasingBar.SetPhasedState(true);
                 SetSpaceshipsGlow(3.5f, true);
                 scoreMultiplicator = PhaseScoreMultiplicator;
+                PhasingVFX.SetActive(true);
+                PhasingExplosionVFX.SetActive(true);
+                PhasingVFX.GetComponentInChildren<ParticleSystem>().Play();
                 break;
         }
 
@@ -158,6 +171,13 @@ public class PhasingManager : MonoBehaviour
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
         SetSpaceshipsWeapon(phaseState);
+    }
+
+    void UpdateVFXPositions()
+    {
+        Vector3 middlePos = Spaceships[0].transform.position + (Spaceships[1].transform.position - Spaceships[0].transform.position) / 2;
+        PhasingVFX.transform.position = middlePos + new Vector3(0.5f, 3, -3);
+        PhasingExplosionVFX.transform.position = middlePos + new Vector3(0, 0, 1000);
     }
 
     void NotifySpaceships(bool phased)

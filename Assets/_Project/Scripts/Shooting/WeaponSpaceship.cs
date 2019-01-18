@@ -8,17 +8,26 @@ public class WeaponSpaceship : Weapon
     public Spaceship Spaceship;
     [HideInInspector]
     public bool IsFiring;
-    [HideInInspector]
-    public ParticleSystem MuzzleFlash;
 
     int playerNumber;
     bool bulletPhased = false;
     BulletSpaceship myBullet;
+    Renderer cursorRenderer;
+    Color cursorColor;
+    Color flashColor;
 
     protected override void Start()
     {
         playerNumber = Spaceship.PlayerNumber;
+        cursorRenderer = Cursor.GetComponent<Renderer>();
+        cursorColor = cursorRenderer.material.GetColor("_EmissionColor");
+        flashColor = cursorColor * 2;
         base.Start();
+    }
+
+    private void OnDisable()
+    {
+        cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
     }
 
     protected override bool IsReadytoFire()
@@ -39,6 +48,13 @@ public class WeaponSpaceship : Weapon
         myBullet.SetPhased(bulletPhased);
         myBullet.WeaponFrom = gameObject;
 
-        MuzzleFlash.Play();
+        StartCoroutine(MuzzleFlash());
+    }
+
+    IEnumerator MuzzleFlash()
+    {
+        cursorRenderer.material.SetColor("_EmissionColor", flashColor);
+        yield return new WaitForSeconds(0.1f);
+        cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
     }
 }
