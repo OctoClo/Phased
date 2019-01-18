@@ -31,12 +31,21 @@ public class EnemySphereShooting : EnemySphere
     protected override void Start()
     {
         base.Start();
-
-        EventManager.Instance.AddListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
+        
         spaceships = GameObject.FindGameObjectsWithTag("Player");
 
         CreateWeapon();
         InitializeShoot();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
     }
 
     protected virtual void CreateWeapon()

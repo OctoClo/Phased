@@ -10,12 +10,22 @@ public class SpaceshipsManager : Singleton<SpaceshipsManager>
 
     void Start()
     {
+        spaceshipsScripts.Add(Spaceships[0].GetComponent<Spaceship>());
+        spaceshipsScripts.Add(Spaceships[1].GetComponent<Spaceship>());
+    }
+
+    private void OnEnable()
+    {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
         EventManager.Instance.AddListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+    }
 
-        spaceshipsScripts.Add(Spaceships[0].GetComponent<Spaceship>());
-        spaceshipsScripts.Add(Spaceships[1].GetComponent<Spaceship>());
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.RemoveListener<GameAlmostOverEvent>(OnGameAlmostOverEvent);
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)

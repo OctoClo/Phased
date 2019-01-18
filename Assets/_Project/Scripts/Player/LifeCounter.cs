@@ -27,9 +27,17 @@ public class LifeCounter : Singleton<LifeCounter>
 
     void Start()
     {
-        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
-
         initialLifeCount = LifeCount;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
     }
 
     void Initialize()

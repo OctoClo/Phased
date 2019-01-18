@@ -19,11 +19,20 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
-        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
-
         offsetZFront = Plane.transform.position.z + ((Plane.transform.localScale.z * 10) / 2);
         offsetZBack = Plane.transform.position.z - ((Plane.transform.localScale.z * 10) / 2);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
     }
 
     void Initialize()

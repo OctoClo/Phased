@@ -8,9 +8,14 @@ public class FolderManager : Singleton<FolderManager>
     public GameObject BulletsFolder;
     public GameObject VFXFolder;
 
-    void Start()
+    private void OnEnable()
     {
-        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);    
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)

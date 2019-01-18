@@ -39,11 +39,20 @@ public class PhasingManager : MonoBehaviour
 
     void Start()
     {
-        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
-        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
-
         GameScore.PhasingManager = this;
         PhasingBar.SetSeparator(TotalPhasingThreshold);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
     }
 
     void Initialize()

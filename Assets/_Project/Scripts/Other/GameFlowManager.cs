@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GameFlowManager : MonoBehaviour
 {
-    void Start()
+    private void OnEnable()
     {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)

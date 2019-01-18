@@ -9,10 +9,19 @@ public class PlaneTextureScrolling : MonoBehaviour
 
     void Start()
     {
+        planeRenderer = GetComponent<Renderer>();
+    }
+
+    private void OnEnable()
+    {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+    }
 
-        planeRenderer = GetComponent<Renderer>();
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
     }
 
     void Update()

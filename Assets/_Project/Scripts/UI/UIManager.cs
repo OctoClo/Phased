@@ -44,6 +44,15 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
+        score = ScoreContainer.GetComponent<TextMeshProUGUI>();
+        multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
+
+        currentOverlay = MenuOverlay;
+    }
+
+    private void OnEnable()
+    {
         EventManager.Instance.AddListener<GameStartedEvent>(OnGameStartedEvent);
         EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
         EventManager.Instance.AddListener<GameBackEvent>(OnGameBackEvent);
@@ -54,14 +63,22 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
         EventManager.Instance.AddListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
-        
-        HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
-        score = ScoreContainer.GetComponent<TextMeshProUGUI>();
-        multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
-
-        currentOverlay = MenuOverlay;
     }
-    
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameStartedEvent>(OnGameStartedEvent);
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
+        EventManager.Instance.RemoveListener<GameBackEvent>(OnGameBackEvent);
+        EventManager.Instance.RemoveListener<GameQuitAskEvent>(OnGameQuitAskEvent);
+        EventManager.Instance.RemoveListener<GameQuitConfirmEvent>(OnGameQuitConfirmEvent);
+        EventManager.Instance.RemoveListener<GameQuitCancelEvent>(OnGameQuitCancelEvent);
+        EventManager.Instance.RemoveListener<GameLeaderboardEvent>(OnGameLeaderboardEvent);
+        EventManager.Instance.RemoveListener<GameCreditsEvent>(OnGameCreditsEvent);
+        EventManager.Instance.RemoveListener<GameControlsEvent>(OnGameControlsEvent);
+        EventManager.Instance.RemoveListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+    }
+
     void Update()
     {
         if (gameActive)
@@ -105,7 +122,6 @@ public class UIManager : MonoBehaviour
 
     void OnGameBackEvent(GameBackEvent e)
     {
-        Debug.Log("OnGameBackEvent");
         previousOverlay.SetActive(true);
         currentOverlay.SetActive(false);
         currentOverlay = previousOverlay;
