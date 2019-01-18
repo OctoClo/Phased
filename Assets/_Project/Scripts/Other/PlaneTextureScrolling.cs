@@ -19,7 +19,7 @@ public class PlaneTextureScrolling : MonoBehaviour
     {
         if (gameActive)
         {
-            float offset = Time.time * WorldConstants.Instance.WorldScrollSpeed;
+            float offset = Time.time * (WorldConstants.Instance.WorldScrollSpeed / 5.2f);
 
             planeRenderer.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
         }
