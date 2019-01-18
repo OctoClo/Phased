@@ -24,8 +24,8 @@ public class EnemyVoid : EnemySphere
         // Do nothing
     }
 
-    public override void TakeDamage(int damage, GameObject weaponFrom, bool phased)
+    public override void TakeDamage(int damage, GameObject weaponFrom, bool phased, out bool damageTaken)
     {
-        // Do nothing
+        damageTaken = false;
     }
 }

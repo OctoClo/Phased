@@ -8,6 +8,8 @@ public class WeaponSpaceship : Weapon
     public Spaceship Spaceship;
     [HideInInspector]
     public bool IsFiring;
+    [HideInInspector]
+    public ParticleSystem MuzzleFlash;
 
     int playerNumber;
     bool bulletPhased = false;
@@ -36,5 +38,7 @@ public class WeaponSpaceship : Weapon
         myBullet = bullet.GetComponent<BulletSpaceship>();
         myBullet.SetPhased(bulletPhased);
         myBullet.WeaponFrom = gameObject;
+
+        MuzzleFlash.Play();
     }
 }

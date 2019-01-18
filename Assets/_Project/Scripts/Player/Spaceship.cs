@@ -19,6 +19,7 @@ public class Spaceship : MonoBehaviour
 
     [Header("Components")]
     public GameObject Cursor;
+    public ParticleSystem MuzzleFlash;
     public Rigidbody RigidBodyTilt;
 
     [Header("Misc")]
@@ -46,6 +47,10 @@ public class Spaceship : MonoBehaviour
     Vector2 previousTarget;
     float previousAngle;
     float angleOffset = -90.0f;
+
+    [Header("Cursor angles")]
+    public float controllerForwardAngle = 45.0f;
+    public float snappedAngle = 12.0f;
 
     bool gameActive = false;
     bool phasedWeapon;
@@ -108,7 +113,20 @@ public class Spaceship : MonoBehaviour
 
             if (!Target.Equals(Vector2.zero))
             {
-                angle = (Mathf.Atan2(Target.y * TargetRadius, Target.x * TargetRadius) * Mathf.Rad2Deg) + angleOffset;
+                angle = (Mathf.Atan2((Target.x * -1.0f) * TargetRadius, Target.y * TargetRadius) * Mathf.Rad2Deg);
+
+                if (angle > controllerForwardAngle / 2)
+                {
+                    angle = snappedAngle;
+                }
+                else if (angle < -controllerForwardAngle / 2)
+                {
+                    angle = -snappedAngle;
+                }
+                else
+                {
+                    angle = 0.0f;
+                }
             }
 
             Cursor.transform.RotateAround(transform.position, Vector3.up, previousAngle - angle);
@@ -126,6 +144,7 @@ public class Spaceship : MonoBehaviour
         weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;
         weapon.Cursor = Cursor;
+        weapon.MuzzleFlash = MuzzleFlash;
         weapon.SetPhased(phasedWeapon);
     }
 
@@ -171,6 +190,7 @@ public class Spaceship : MonoBehaviour
     public void WaitUntilDeath()
     {
         gameActive = false;
+        weapon.IsFiring = false;
         rigidBody.velocity = Vector3.zero;
         RigidBodyTilt.rotation = Quaternion.identity;
     }

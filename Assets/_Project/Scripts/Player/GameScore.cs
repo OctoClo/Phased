@@ -35,7 +35,7 @@ public static class GameScore
         }
     }
 
-    public static void Initialize()
+    public static void Reset()
     {
         multiplicator = 1;
         score = 0;

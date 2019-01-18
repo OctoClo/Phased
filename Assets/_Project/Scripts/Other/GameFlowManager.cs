@@ -11,6 +11,6 @@ public class GameFlowManager : MonoBehaviour
 
     void OnGameStartedEvent(GameStartedEvent e)
     {
-        GameScore.Initialize();
+        GameScore.Reset();
     }
 }
