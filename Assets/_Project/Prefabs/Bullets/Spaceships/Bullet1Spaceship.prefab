@@ -89,6 +89,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5773802141357918995}
     m_Modifications:
+    - target: {fileID: 4759395261233756303, guid: 9f1694ea267498f4eb0777a5a492ae8f,
+        type: 3}
+      propertyPath: m_Name
+      value: Bullet_fx
+      objectReference: {fileID: 0}
     - target: {fileID: 8207887706459729392, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 8207887706459729392, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8207887706459729392, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
@@ -158,11 +163,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759395261233756303, guid: 9f1694ea267498f4eb0777a5a492ae8f,
-        type: 3}
-      propertyPath: m_Name
-      value: Bullet_fx
       objectReference: {fileID: 0}
     - target: {fileID: 984945640703398750, guid: 9f1694ea267498f4eb0777a5a492ae8f,
         type: 3}
