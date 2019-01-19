@@ -16,8 +16,11 @@ public class WeaponSpaceship : Weapon
     Color cursorColor;
     Color flashColor;
 
+    ScreenShake screenshake;
+
     protected override void Start()
     {
+        screenshake = Camera.main.GetComponent<ScreenShake>();
         playerNumber = Spaceship.PlayerNumber;
         cursorRenderer = Cursor.GetComponent<Renderer>();
         cursorColor = cursorRenderer.material.GetColor("_EmissionColor");
@@ -43,6 +46,8 @@ public class WeaponSpaceship : Weapon
     protected override void Fire()
     {
         base.Fire();
+
+        screenshake.Shake(0.05f, 0.12f);
 
         myBullet = bullet.GetComponent<BulletSpaceship>();
         myBullet.SetPhased(bulletPhased);
