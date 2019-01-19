@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
 	<RootPaths>
-		<ProjectRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
+		<SourceFilesRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

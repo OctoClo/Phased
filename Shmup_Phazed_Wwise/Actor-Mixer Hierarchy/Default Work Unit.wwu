@@ -229,6 +229,16 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="impact_boss" ID="{61076BCF-B069-44AD-9D51-30FD1E19019E}" ShortID="110734766">
 									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -430,6 +440,16 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="explosion_elite" ID="{5E10DCD0-96A9-4D92-AAE7-D50C22005407}" ShortID="750300046">
 									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -757,6 +777,16 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="explosion_ennemi" ID="{E91DE53E-C1FB-49CA-8B33-EDEACF753272}" ShortID="990253441">
 									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-11</Value>
@@ -1042,6 +1072,16 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="impact_ennemi" ID="{FF81715E-7C76-4BA0-BBB0-98451F3C319B}" ShortID="450621940">
 									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1200,6 +1240,16 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="fire_joueur_phase" ID="{E191A848-AD6C-4828-8D29-98FA887CD4C9}" ShortID="713816451">
 							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-15</Value>
@@ -1542,6 +1592,11 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="fire_joueur_combo" ID="{85A01598-66B6-4823-A51E-FAFE23585947}" ShortID="360268421">
 							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>-3</Value>
@@ -1555,6 +1610,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -1898,6 +1958,11 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="fire_joueur" ID="{1492F405-843B-4B62-8109-539831B84F8B}" ShortID="823043676">
 							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>2</Value>
@@ -1911,6 +1976,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>

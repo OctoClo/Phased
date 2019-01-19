@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
 	<RootPaths>
-		<ProjectRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
+		<SourceFilesRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\OctoClo\Dev\Unity\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

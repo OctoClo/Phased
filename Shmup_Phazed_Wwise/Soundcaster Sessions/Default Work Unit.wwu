@@ -50,6 +50,10 @@
 							<Position X="2" Y="2"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="fire_joueur_phase" ID="{7A256FC4-69F1-472D-9F25-B88395D32D4D}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="explosion_elites" ID="{313185A7-32AF-4221-ADD7-07EAC02F4B38}" WorkUnitID="{29EFC232-2616-4B36-9577-D95386ACB3A3}"/>
 							<Position X="3" Y="0"/>
 						</Module>
@@ -113,7 +117,7 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+						<CurrentStateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
