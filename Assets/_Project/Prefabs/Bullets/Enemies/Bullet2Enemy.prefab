@@ -90,14 +90,14 @@ PrefabInstance:
     - target: {fileID: 2919682577583921138, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: Speed
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 5817200000401417215, guid: 714014e5fe39ef24eae1b74b57bf74c2,
+    - target: {fileID: 3734776514359211544, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3734776514359211544, guid: 714014e5fe39ef24eae1b74b57bf74c2,
+    - target: {fileID: 5817200000401417215, guid: 714014e5fe39ef24eae1b74b57bf74c2,
         type: 3}
       propertyPath: m_IsActive
       value: 0

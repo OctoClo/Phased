@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866775684279449104}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,15 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4c5fdcb0d1e8c44b94f8d71510bcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldScrollSpeed: 10
-  ObstacleMultiplier: 3
-  SpawnableMultiplier: 1
-  EnemyMultiplier: 1.5
-  TankMultiplier: 7
+  WorldScrollSpeed: 15
+  ObstacleMultiplier: 19
+  SpawnableMultiplier: 1.5
+  EnemyVoidSpeedMultiplier: 5
   TankLateralMultiplier: 0.5
-  EnemySinusPatternLateralMultiplier: 4
-  EnemySinusPatternLateralWidth: 20
+  EnemySinusPatternLateralMultiplier: 2
+  EnemySinusPatternLateralWidth: 15
   PlayerInvulnerabilityDuration: 0.5
   PlayerFlickerFrequency: 2
+  PlayerHitVibrationDuration: 0.5
   MarkBulletTime: 1
   MarkBulletDamageMultiplicator: 2
+  ScreenShakeHitDuration: 0.5
+  ScreenShakeHitIntensity: 1
+  ScreenShakeDeathDuration: 3
+  ScreenShakeDeathIntensity: 1.5

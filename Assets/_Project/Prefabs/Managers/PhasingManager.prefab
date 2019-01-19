@@ -45,19 +45,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhasingBar: {fileID: 0}
   TotalPhasingThreshold: 80
-  PhasingDecreaseSpeed: 9
-  PhasingIncreaseSpeed: 2
+  PhasingDecreaseSpeed: 8
+  PhasingIncreaseSpeed: 5
   PhasingBoostKill: 2
   PrePhaseTriggerDist: 10
   PrePhaseScoreMultiplicator: 2
   PhaseScoreMultiplicator: 4
-  PrePhaseVibrationDuration: 0.1
-  PhaseVibrationDuration: 0.4
   PlayersLink: {fileID: 0}
   MaterialsPlayersLink:
   - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
   - {fileID: 2100000, guid: 78b911f051e97e645aff1ca333cfb93c, type: 2}
   - {fileID: 2100000, guid: 9ccf04f60ae91c345ba1cf54dcb0fb15, type: 2}
+  PhasingVFX: {fileID: 0}
+  PhasingExplosionVFX: {fileID: 0}
   Spaceships:
   - {fileID: 0}
   - {fileID: 0}
