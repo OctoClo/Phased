@@ -15,29 +15,17 @@ public class LeaderboardEntry : MonoBehaviour
 
     void Start()
     {
-        rankText = rankContainer.GetComponent<TextMeshProUGUI>();
-        nameText = nameContainer.GetComponent<TextMeshProUGUI>();
-        scoreText = scoreContainer.GetComponent<TextMeshProUGUI>();
+
     }
     
     public void Fill(int rank, string name, string score)
     {
+        rankText = rankContainer.GetComponent<TextMeshProUGUI>();
+        nameText = nameContainer.GetComponent<TextMeshProUGUI>();
+        scoreText = scoreContainer.GetComponent<TextMeshProUGUI>();
+
         rankText.SetText(rank.ToString());
         nameText.SetText(name);
-        scoreText.SetText(FillScoreWithZeros(score));
-    }
-
-    string FillScoreWithZeros(string scoreTxt)
-    {
-
-        string scoreFill = "";
-
-        for (int i = 0; i < (7 - scoreTxt.Length); i++)
-        {
-            scoreFill += "0";
-        }
-
-        return scoreFill + scoreTxt;
-
+        scoreText.SetText(score.PadLeft(7, '0'));
     }
 }

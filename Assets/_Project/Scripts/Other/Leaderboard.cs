@@ -13,9 +13,7 @@ public class Leaderboard : MonoBehaviour
     };
 
     public List<Entry> Scores { get; private set; } = null;
-    public UnityEngine.UI.Text UIElement;
     public UnityEngine.UI.InputField TeamNameInput;
-
     public List<LeaderboardEntry> UIEntries;
 
     public void SubmitScore()
@@ -26,6 +24,8 @@ public class Leaderboard : MonoBehaviour
             score = GameScore.Score,
             maxHitCount = 0 // TODO: Implement me!
         } );
+
+        EventManager.Instance.Raise( new GameLeaderboardEvent() );
     }
 
     void Start()
@@ -65,14 +65,9 @@ public class Leaderboard : MonoBehaviour
         Debug.Log("Loaded " + Scores.Count + " entries");
         Scores.Sort((x, y) => y.score.CompareTo(x.score));
 
-        // int rank = 1;
-        // //UIElement.text = " rank\t name\t score\t max hit\n";
-        // foreach ( var entry in Scores )
-        // {
-        //     UIElement.text += " " + rank++ + "\t " + entry.name + "\t " + entry.score.ToString().PadLeft(16, '0') + "\t " + entry.maxHitCount.ToString().PadLeft(8, '0') + '\n';
-        // }
+        WriteScoresToUI();
     }
-
+    
     public int GetRankByScore( ulong score )
     {
         var rank = Scores.FindIndex(x => x.score < score) + 1;
@@ -88,6 +83,8 @@ public class Leaderboard : MonoBehaviour
 
         //Sort
         Scores.Sort((x, y) => y.score.CompareTo(x.score));
+
+        WriteScoresToUI();
     }
 
     void UpdateLeaderboardDb()
@@ -105,7 +102,7 @@ public class Leaderboard : MonoBehaviour
         Debug.Log("Write scores to GUI");
         
         int rank = 1;
-        for (int i = 0; i < Scores.Count - 1; i++)
+        for (int i = 0; i < Mathf.Min(UIEntries.Count, Scores.Count); i++)
         {
             UIEntries[i].Fill(rank, Scores[i].name, Scores[i].score.ToString());
             rank++;
