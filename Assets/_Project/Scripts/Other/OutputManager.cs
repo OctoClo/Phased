@@ -7,18 +7,18 @@ public static class OutputManager
 {
     public static IEnumerator Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight, float duration)
     {
-        //gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
+        gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
         yield return new WaitForSeconds(duration);
-        //gamepad.SetMotorSpeeds(0.0f, 0.0f);
+        gamepad.SetMotorSpeeds(0.0f, 0.0f);
     }
 
     public static IEnumerator VibrateAll(float duration)
     {
         foreach (Gamepad gamepad in Gamepad.all)
         {
-            //gamepad.SetMotorSpeeds(0.5f, 0.5f);
+            gamepad.SetMotorSpeeds(0.5f, 0.5f);
             yield return new WaitForSeconds(duration);
-            //gamepad.SetMotorSpeeds(0.0f, 0.0f);
+            gamepad.SetMotorSpeeds(0.0f, 0.0f);
         }
     }
 
