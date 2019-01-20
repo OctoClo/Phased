@@ -13,6 +13,8 @@ public class InputField : MonoBehaviour
     UnityEngine.UI.InputField inputField;
     float inputWait;
 
+    Animator animator;
+
     static string[] TeamNames =
     {
         "aaaaaa",
@@ -39,9 +41,10 @@ public class InputField : MonoBehaviour
             inputField = GetComponent<UnityEngine.UI.InputField>();
         }
         inputField.text = "";
-        inputField.placeholder.GetComponent<Text>().text = RandomizeTeamName();
+        //inputField.placeholder.GetComponent<Text>().text = RandomizeTeamName();
         inputWait = 0.1f;
         needEventRegister = true;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -70,6 +73,8 @@ public class InputField : MonoBehaviour
             return;
         }
 
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Normal")) animator.SetTrigger("Highlighted");
+
         //Debug.Log((int)obj);
 
         if (obj == 0x08 && inputField.text.Length > 0)
@@ -79,9 +84,10 @@ public class InputField : MonoBehaviour
         else if (obj == 0x0d && inputField.text.Length > 0)
         {
             InputSystem.GetDevice<Keyboard>().onTextInput -= KeyboardInstance_onTextInput;
+            animator.SetTrigger("Normal");
             Leaderboard.SubmitScore();
         }
-        else if (inputField.text.Length < 6)
+        else if (inputField.text.Length < 11)
         {
             inputField.text += obj;
         }
