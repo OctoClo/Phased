@@ -566,7 +566,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 80
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -728,11 +728,11 @@ RectTransform:
   m_Father: {fileID: 644487197}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 440, y: 90}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99344096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ec94d95b7b78498d3c82db3306bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Leaderboard: {fileID: 315782863}
 --- !u!1 &106125654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20445968, y: 0.8}
   m_AnchorMax: {x: 0.80012715, y: 1}
-  m_AnchoredPosition: {x: -0.50006104, y: 0}
+  m_AnchoredPosition: {x: -0.5001221, y: 0}
   m_SizeDelta: {x: -1, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165784385
@@ -7788,7 +7789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cd46e07437fd44d817caf3af16c0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeamNameInput: {fileID: 99344096}
+  TeamNameInput: {fileID: 99344094}
   UIEntries:
   - {fileID: 1491299692}
   - {fileID: 896505165}
@@ -7797,6 +7798,7 @@ MonoBehaviour:
   - {fileID: 279764165}
   - {fileID: 308981637}
   - {fileID: 224155796}
+  LeaderboardMenuSelector: {fileID: 1905786528}
 --- !u!1 &324276214
 GameObject:
   m_ObjectHideFlags: 0
@@ -13002,18 +13004,6 @@ RectTransform:
   m_AnchoredPosition: {x: 12.400391, y: -285.16016}
   m_SizeDelta: {x: 340, y: 300}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &970288109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 594334587181841528, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1020880426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &984194426
 GameObject:
   m_ObjectHideFlags: 0
@@ -13396,6 +13386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Save -Button White
+      objectReference: {fileID: 0}
+    - target: {fileID: 594334587181841510, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 594334587181841529, guid: df7c4f96f8f90f145bc85a1d6ec564e1,
         type: 3}
@@ -16296,7 +16291,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 50
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -22448,7 +22443,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905786526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 248332230d732a847b31d9ee3cabf3f5, type: 3}
   m_Name: 
@@ -22457,7 +22452,6 @@ MonoBehaviour:
   - {fileID: 304032498}
   - {fileID: 1130862260}
   - {fileID: 1576160880}
-  - {fileID: 970288109}
   blockInputTime: 0.2
   horizontalMenu: 1
 --- !u!1 &1930671730

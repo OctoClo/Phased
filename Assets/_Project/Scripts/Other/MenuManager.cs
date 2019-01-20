@@ -81,12 +81,4 @@ public class MenuManager : MonoBehaviour
     {
         EventManager.Instance.Raise(new GameMainMenuEvent());
     }
-
-    private void Update()
-    {
-        if (InputSystem.GetDevice<Keyboard>().pKey.wasReleasedThisFrame)
-        {
-            StartButton();
-        }
-    }
 }

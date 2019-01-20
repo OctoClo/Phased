@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.Input;
+using UnityEngine.UI;
 
 public class InputField : MonoBehaviour
 {
+    public Leaderboard Leaderboard;
+
+    bool needEventRegister;
     UnityEngine.UI.InputField inputField;
     float inputWait;
-    bool needEventRegister;
 
     static string[] TeamNames =
     {
@@ -29,16 +32,18 @@ public class InputField : MonoBehaviour
         return TeamNames[Random.Range(0, TeamNames.Length)];
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
-        inputField = GetComponent<UnityEngine.UI.InputField>();
-        inputField.text = RandomizeTeamName();
-
+        if (!inputField)
+        {
+            inputField = GetComponent<UnityEngine.UI.InputField>();
+        }
+        inputField.text = "";
+        inputField.placeholder.GetComponent<Text>().text = RandomizeTeamName();
         inputWait = 0.1f;
         needEventRegister = true;
     }
-    
+
     void Update()
     {
         inputWait -= Time.deltaTime;
@@ -53,7 +58,7 @@ public class InputField : MonoBehaviour
                 keyboardInstance.onTextInput += KeyboardInstance_onTextInput;
                 needEventRegister = false;
 
-                Debug.Log("registered1");
+                Debug.Log("Keyboard registered for leaderboard");
             }
         }
     }
@@ -62,17 +67,25 @@ public class InputField : MonoBehaviour
     {
         if ( inputWait > 0.0f )
         {
-            Debug.Log(inputWait);
             return;
         }
 
-        Debug.Log((int)obj);
+        //Debug.Log((int)obj);
 
         if (obj == 0x08 && inputField.text.Length > 0)
+        {
             inputField.text = inputField.text.Remove(inputField.text.Length - 1);
-        else if ( inputField.text.Length < 6)
+        }
+        else if (obj == 0x0d && inputField.text.Length > 0)
+        {
+            InputSystem.GetDevice<Keyboard>().onTextInput -= KeyboardInstance_onTextInput;
+            Leaderboard.SubmitScore();
+        }
+        else if (inputField.text.Length < 6)
+        {
             inputField.text += obj;
-
+        }
+        
         inputWait = 0.1f;
     }
 }

@@ -25,6 +25,7 @@ public class MenuSelector : MonoBehaviour
     private float timeBetweenButtons = 0.2f;
 
     EventSystem eventSystem;
+    Keyboard keyboard;
 
     private void Start()
     {
@@ -48,7 +49,9 @@ public class MenuSelector : MonoBehaviour
 
     private void Update()
 	{
-		if (initialTimer > 0)
+        keyboard = InputSystem.GetDevice<Keyboard>();
+
+        if (initialTimer > 0)
 		{
 			initialTimer -= Time.deltaTime;
 			return;
@@ -62,7 +65,8 @@ public class MenuSelector : MonoBehaviour
             lastSelectedButton = selectedButton;
         }
 
-		if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame))
+		if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame)
+            || (keyboard != null && keyboard.enterKey.wasReleasedThisFrame))
         {
             AkSoundEngine.PostEvent("menu_ok", gameObject);
             buttons[selectedButton].onClick.Invoke();
@@ -94,11 +98,11 @@ public class MenuSelector : MonoBehaviour
     {
         if (horizontalMenu)
         {
-            return Gamepad.all.Any(x => x.leftStick.ReadValue().x > 0.75F);
+            return (Gamepad.all.Any(x => x.leftStick.ReadValue().x > 0.75F) || (keyboard != null && keyboard.dKey.wasReleasedThisFrame));
         }
         else
         {
-            return Gamepad.all.Any(x => x.leftStick.ReadValue().y < -0.75F);
+            return (Gamepad.all.Any(x => x.leftStick.ReadValue().y < -0.75F) || (keyboard != null && keyboard.sKey.wasReleasedThisFrame));
         }
     }
 
@@ -106,11 +110,11 @@ public class MenuSelector : MonoBehaviour
     {
         if (horizontalMenu)
         {
-            return Gamepad.all.Any(x => x.leftStick.ReadValue().x < -0.75F);
+            return (Gamepad.all.Any(x => x.leftStick.ReadValue().x < -0.75F) || (keyboard != null && keyboard.aKey.wasReleasedThisFrame));
         }
         else
         {
-            return Gamepad.all.Any(x => x.leftStick.ReadValue().y > 0.75F);
+            return (Gamepad.all.Any(x => x.leftStick.ReadValue().y > 0.75F) || (keyboard != null && keyboard.wKey.wasReleasedThisFrame));
         }
     }    
 }

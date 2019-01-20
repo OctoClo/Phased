@@ -13,19 +13,34 @@ public class Leaderboard : MonoBehaviour
     };
 
     public List<Entry> Scores { get; private set; } = null;
-    public UnityEngine.UI.InputField TeamNameInput;
+    public GameObject TeamNameInput;
     public List<LeaderboardEntry> UIEntries;
+    public MenuSelector LeaderboardMenuSelector;
+
+    bool firstEntryAdded = false;
 
     public void SubmitScore()
     {
         AddScore( new Entry
         {
-            name = TeamNameInput.text,
+            name = TeamNameInput.GetComponent<UnityEngine.UI.InputField>().text,
             score = GameScore.Score,
             maxHitCount = 0 // TODO: Implement me!
         } );
 
-        EventManager.Instance.Raise( new GameLeaderboardEvent() );
+        LeaderboardMenuSelector.enabled = true;
+
+        EventManager.Instance.Raise(new GameLeaderboardEvent());
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<GameEndEvent>(OnGameEndEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<GameEndEvent>(OnGameEndEvent);
     }
 
     void Start()
@@ -92,6 +107,12 @@ public class Leaderboard : MonoBehaviour
         StreamWriter writer = new StreamWriter(Application.dataPath + "\\Leaderboard.txt", true);
 
         var latestEntry = Scores[Scores.Count - 1];
+
+        if (firstEntryAdded)
+        {
+            writer.WriteLine();
+            firstEntryAdded = false;
+        }
         writer.WriteLine(latestEntry.name + ' ' + latestEntry.score.ToString() + ' ' + latestEntry.maxHitCount.ToString());
 
         writer.Close();
@@ -99,13 +120,20 @@ public class Leaderboard : MonoBehaviour
 
     public void WriteScoresToUI()
     {
-        Debug.Log("Write scores to GUI");
-        
         int rank = 1;
         for (int i = 0; i < Mathf.Min(UIEntries.Count, Scores.Count); i++)
         {
             UIEntries[i].Fill(rank, Scores[i].name, Scores[i].score.ToString());
             rank++;
+        }
+    }
+
+    void OnGameEndEvent(GameEndEvent e)
+    {
+        if (e.Victorious)
+        {
+            TeamNameInput.GetComponent<InputField>().Initialize();
+            LeaderboardMenuSelector.enabled = false;
         }
     }
 }

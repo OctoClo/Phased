@@ -1,8 +1,1 @@
-premierduo 3870 0
-deuxiemeduo 7630 0
-troisduo 9840 0
-quatreduo 1870 0
-cinqduo 2870 0
-sixduo 6770 0
-septduo 4570 0
-huitduo 3270 0
+duoduo 3870 0
