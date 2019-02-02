@@ -29,6 +29,11 @@ public class InputManager : MonoBehaviour
     
     public List<Spaceship> Spaceships = new List<Spaceship>();
 
+    void Start()
+    {
+        RegisterDeviceChangeCallback();
+    }
+
     void Update()
     {
         // Check connected gamepads
@@ -84,7 +89,7 @@ public class InputManager : MonoBehaviour
         CheckInput();
     }
 
-    private void Awake()
+    private void RegisterDeviceChangeCallback()
     {
         InputSystem.onDeviceChange += (device, change) =>
         {
@@ -120,6 +125,11 @@ public class InputManager : MonoBehaviour
                 connectedGamepads.Add(connectedGamepad);
             }
         };
+    }
+
+    private void Awake()
+    {
+        RegisterDeviceChangeCallback();
     }
 
     void CheckInput()
@@ -176,6 +186,8 @@ public class InputManager : MonoBehaviour
         connectedPlayersInstance = new List<ConnectedPlayer>();
         playerCount = 0;
         connectedPlayers = new bool[MAX_PLAYER_COUNT];
+
+        RegisterDeviceChangeCallback();
     }
 
     void OnDisable()
