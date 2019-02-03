@@ -173,7 +173,7 @@ public class EnemySphere : MonoBehaviour
             if (renderer.material.IsKeywordEnabled("_EMISSION")) renderer.material.SetColor("_EmissionColor", hitColor * hitIntensity);
         }
         
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         int matIndex = 0;
 

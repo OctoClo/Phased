@@ -59,7 +59,7 @@ public class WeaponSpaceship : Weapon
     IEnumerator MuzzleFlash()
     {
         cursorRenderer.material.SetColor("_EmissionColor", flashColor);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
         cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
     }
 }

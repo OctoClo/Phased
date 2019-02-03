@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject LeaderboardOverlay;
     public GameObject CreditsOverlay;
     public GameObject ControlsOverlay;
+    public GameObject PauseOverlay;
 
     public Animator IntroAnimation;
 
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
     public GameObject ScoreContainer;
     public GameObject MultiplicatorContainer;
     public GameObject MultiplicatorXContainer;
+    public GameObject PauseScoreContainer;
 
     [Header("Spaceships")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
@@ -36,6 +38,7 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI score;
     TextMeshProUGUI multiplicator;
     TextMeshProUGUI multiplicatorX;
+    TextMeshProUGUI pauseScore;
 
     GameObject currentOverlay;
     GameObject beforeQuitOverlay;
@@ -51,6 +54,7 @@ public class UIManager : MonoBehaviour
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
         multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
         multiplicatorX = MultiplicatorXContainer.GetComponent<TextMeshProUGUI>();
+        pauseScore = PauseScoreContainer.GetComponent<TextMeshProUGUI>();
 
         currentOverlay = MenuOverlay;
     }
@@ -67,6 +71,8 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
         EventManager.Instance.AddListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+        EventManager.Instance.AddListener<GamePausedEvent>(OnGamePausedEvent);
+        EventManager.Instance.AddListener<GameResumedEvent>(OnGameResumedEvent);
     }
 
     private void OnDisable()
@@ -81,6 +87,8 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.RemoveListener<GameCreditsEvent>(OnGameCreditsEvent);
         EventManager.Instance.RemoveListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.RemoveListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+        EventManager.Instance.RemoveListener<GamePausedEvent>(OnGamePausedEvent);
+        EventManager.Instance.RemoveListener<GameResumedEvent>(OnGameResumedEvent);
     }
 
     void Update()
@@ -128,6 +136,17 @@ public class UIManager : MonoBehaviour
         AkSoundEngine.PostEvent("play_music_game", gameObject);
     }
 
+    void OnGamePausedEvent(GamePausedEvent e)
+    {
+        PauseOverlay.SetActive(true);
+        pauseScore.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
+    }
+
+    void OnGameResumedEvent(GameResumedEvent e)
+    {
+        PauseOverlay.SetActive(false);
+    }
+
     void OnGameBackEvent(GameBackEvent e)
     {
         previousOverlay.SetActive(true);
@@ -152,7 +171,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator DelayWriteLeaderboard()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSecondsRealtime(0.05f);
         Leaderboard.WriteScoresToUI();
     }
 

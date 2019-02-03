@@ -5,31 +5,35 @@ using UnityEngine;
 public class ScreenShake : Singleton<ScreenShake>
 {
     private Vector3 startPosition;
-    float shakeTimer, shakeIntensity;
+    float shakeIntensity;
+
+    bool shaking = false;
 
     void Start()
     {
         startPosition = transform.position;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (shakeTimer > 0)
+        if (shaking)
         {
-            shakeTimer -= Time.deltaTime;
             Vector2 offset = Random.insideUnitCircle;
             transform.position = startPosition + new Vector3 (offset.x, offset.y, 0) * shakeIntensity;
         }
-        else
-        {
-            transform.position = startPosition;
-        }
+    }
+
+    IEnumerator ShakeDuration(float time)
+    {
+        shaking = true;
+        yield return new WaitForSecondsRealtime(time);
+        shaking = false;
+        transform.position = startPosition;
     }
 
     public void Shake(float time, float intensity)
     {
-        shakeTimer = time;
         shakeIntensity = intensity;
+        StartCoroutine(ShakeDuration(time));
     }
 }
