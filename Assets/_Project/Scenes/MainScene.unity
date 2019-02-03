@@ -14302,7 +14302,7 @@ PrefabInstance:
     - target: {fileID: 5978492570073563626, guid: 105ed2890b3315f498327df2a69001fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5978492570073563626, guid: 105ed2890b3315f498327df2a69001fa,
         type: 3}
@@ -26123,17 +26123,17 @@ PrefabInstance:
     - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
         type: 3}
       propertyPath: MultiplicatorColors.Array.data[1].r
-      value: 1
+      value: 0.4169776
       objectReference: {fileID: 0}
     - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
         type: 3}
       propertyPath: MultiplicatorColors.Array.data[1].g
-      value: 0.5501839
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
         type: 3}
       propertyPath: MultiplicatorColors.Array.data[1].b
-      value: 0
+      value: 0.40557134
       objectReference: {fileID: 0}
     - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
         type: 3}
@@ -26158,6 +26158,86 @@ PrefabInstance:
     - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
         type: 3}
       propertyPath: MultiplicatorColors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorColors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorColors.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorColors.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[0].r
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[0].g
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[0].b
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[1].r
+      value: 0.15411972
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[1].g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[1].b
+      value: 0.09678713
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[2].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[2].g
+      value: 0.7295796
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[2].b
+      value: 0.0141509175
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982636335871636488, guid: f771c355406985142ac8256b66766dfc,
+        type: 3}
+      propertyPath: MultiplicatorOutlineColors.Array.data[2].a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
