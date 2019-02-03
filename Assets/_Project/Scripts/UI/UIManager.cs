@@ -17,28 +17,31 @@ public class UIManager : MonoBehaviour
     public GameObject ControlsOverlay;
 
     public Animator IntroAnimation;
-    public Leaderboard Leaderboard;
 
     [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
     public GameObject ScoreContainer;
     public GameObject MultiplicatorContainer;
+    public GameObject MultiplicatorXContainer;
 
     [Header("Spaceships")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
     public List<Image> PhaseZones = new List<Image>();
 
-    [Header("Leaderboard")]
-    public Leaderboard leaderboard;
-
+    [Header("Other")]
+    public Leaderboard Leaderboard;
+    public PhasingManager PhasingManager;
 
     TextMeshProUGUI HUDLifeCounter;
     TextMeshProUGUI score;
     TextMeshProUGUI multiplicator;
+    TextMeshProUGUI multiplicatorX;
 
     GameObject currentOverlay;
     GameObject beforeQuitOverlay;
     GameObject previousOverlay;
+
+    Color multiplicatorColor;
 
     bool gameActive = false;
 
@@ -47,6 +50,7 @@ public class UIManager : MonoBehaviour
         HUDLifeCounter = HUDLifeCounterContainer.GetComponent<TextMeshProUGUI>();
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
         multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
+        multiplicatorX = MultiplicatorXContainer.GetComponent<TextMeshProUGUI>();
 
         currentOverlay = MenuOverlay;
     }
@@ -88,6 +92,10 @@ public class UIManager : MonoBehaviour
             score.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
 
             multiplicator.SetText(GameScore.Multiplicator.ToString());
+
+            multiplicatorColor = PhasingManager.GetMultiplicatorColor();
+            multiplicator.faceColor = multiplicatorColor;
+            multiplicatorX.faceColor = multiplicatorColor;
 
             /*for (int i = 0; i < 2; i++)
             {
@@ -145,7 +153,7 @@ public class UIManager : MonoBehaviour
     IEnumerator DelayWriteLeaderboard()
     {
         yield return new WaitForSeconds(0.05f);
-        leaderboard.WriteScoresToUI();
+        Leaderboard.WriteScoresToUI();
     }
 
     void OnGameCreditsEvent(GameCreditsEvent e)

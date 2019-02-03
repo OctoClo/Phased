@@ -16,6 +16,7 @@ public class EnemySphere : MonoBehaviour
 {
     public int HealthPoints = 2;
     public uint KillReward = 10;
+    public Vector3 PopupScoreOffset = new Vector3(0, 3, 0);
     public bool WaitUntilDeath = false;
 
     public float MoveSpeed = 10f;
@@ -161,7 +162,7 @@ public class EnemySphere : MonoBehaviour
         //screenPause.Pause(0.1f);
         PlayExplosionSFX();
         PlayDeathVFX();
-        GameScore.AddToScore(KillReward);
+        GameScore.AddToScore(KillReward, transform.position + PopupScoreOffset);
         Destroy(gameObject);
     }
 
