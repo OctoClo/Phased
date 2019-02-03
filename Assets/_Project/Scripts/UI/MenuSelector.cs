@@ -19,13 +19,13 @@ public class MenuSelector : MonoBehaviour
 
     private int lastSelectedButton;
 	private int selectedButton;
-
-	private float inputTimer;
-	private float initialTimer;
+    
     private float timeBetweenButtons = 0.2f;
 
     EventSystem eventSystem;
     Keyboard keyboard;
+
+    bool waiting = true;
 
     private void Start()
     {
@@ -39,7 +39,8 @@ public class MenuSelector : MonoBehaviour
 
         selectedButton = 0;
         lastSelectedButton = -1;
-        initialTimer = blockInputTime;
+
+        StartCoroutine(WaitBeforeInput(blockInputTime));
     }
 
     private void OnDisable()
@@ -47,50 +48,49 @@ public class MenuSelector : MonoBehaviour
         eventSystem.SetSelectedGameObject(null);
     }
 
+    IEnumerator WaitBeforeInput(float time)
+    {
+        waiting = true;
+        yield return new WaitForSecondsRealtime(time);
+        waiting = false;
+    }
+
     private void Update()
 	{
-        keyboard = InputSystem.GetDevice<Keyboard>();
-
-        if (initialTimer > 0)
-		{
-			initialTimer -= Time.deltaTime;
-			return;
-		}
-
-		inputTimer -= Time.deltaTime;
-
-		if (lastSelectedButton != selectedButton)
-		{
-            buttons[selectedButton].Select();
-            lastSelectedButton = selectedButton;
-        }
-
-		if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame)
-            || (keyboard != null && keyboard.enterKey.wasReleasedThisFrame))
+        if (!waiting)
         {
-            AkSoundEngine.PostEvent("menu_ok", gameObject);
-            buttons[selectedButton].onClick.Invoke();
-		}
+            keyboard = InputSystem.GetDevice<Keyboard>();
 
-        if (NextSelection() && inputTimer <= 0)
-		{
-            AkSoundEngine.PostEvent("menu_navigation", gameObject);
+            if (lastSelectedButton != selectedButton)
+            {
+                buttons[selectedButton].Select();
+                eventSystem.SetSelectedGameObject(buttons[selectedButton].gameObject);
+                lastSelectedButton = selectedButton;
+            }
 
-			inputTimer = timeBetweenButtons;
-			selectedButton = (selectedButton + 1) % buttons.Length;
-        }
+            if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame)
+                || (keyboard != null && keyboard.enterKey.wasReleasedThisFrame))
+            {
+                AkSoundEngine.PostEvent("menu_ok", gameObject);
+                buttons[selectedButton].onClick.Invoke();
+            }
 
-		if (PreviousSelection() && inputTimer <= 0)
-		{
-            AkSoundEngine.PostEvent("menu_navigation", gameObject);
-
-			inputTimer = timeBetweenButtons;
-			selectedButton--;
-
-			if (selectedButton < 0)
-			{
-				selectedButton = buttons.Length - 1;
-			}
+            if (NextSelection())
+            {
+                AkSoundEngine.PostEvent("menu_navigation", gameObject);
+                selectedButton = (selectedButton + 1) % buttons.Length;
+                StartCoroutine(WaitBeforeInput(timeBetweenButtons));
+            }
+            else if (PreviousSelection())
+            {
+                AkSoundEngine.PostEvent("menu_navigation", gameObject);
+                selectedButton--;
+                if (selectedButton < 0)
+                {
+                    selectedButton = buttons.Length - 1;
+                }
+                StartCoroutine(WaitBeforeInput(timeBetweenButtons));
+            }
         }
 	}
 

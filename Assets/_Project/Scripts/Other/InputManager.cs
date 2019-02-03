@@ -137,11 +137,6 @@ public class InputManager : MonoBehaviour
 
                     connectedPlayer.Spaceship.Target = gamepad.rightStick.ReadValue();
                     connectedPlayer.Spaceship.IsFiring = gamepad.rightTrigger.isPressed;
-
-                    if (gamepad.startButton.wasReleasedThisFrame)
-                    {
-                        EventManager.Instance.Raise(new GameStartedEvent());
-                    }
                 }
             }
             else

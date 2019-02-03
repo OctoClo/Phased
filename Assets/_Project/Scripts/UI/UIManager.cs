@@ -15,14 +15,18 @@ public class UIManager : MonoBehaviour
     public GameObject LeaderboardOverlay;
     public GameObject CreditsOverlay;
     public GameObject ControlsOverlay;
-
-    public Animator IntroAnimation;
+    public GameObject PauseOverlay;
 
     [Header("HUD Elements")]
     public GameObject HUDLifeCounterContainer;
     public GameObject ScoreContainer;
     public GameObject MultiplicatorContainer;
     public GameObject MultiplicatorXContainer;
+    public GameObject PauseScoreContainer;
+
+    [Header("Intro")]
+    public Animator IntroAnimator;
+    public AnimationClip IntroAnimation;
 
     [Header("Spaceships")]
     public List<Spaceship> Spaceships = new List<Spaceship>();
@@ -36,6 +40,7 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI score;
     TextMeshProUGUI multiplicator;
     TextMeshProUGUI multiplicatorX;
+    TextMeshProUGUI pauseScore;
 
     GameObject currentOverlay;
     GameObject beforeQuitOverlay;
@@ -51,6 +56,7 @@ public class UIManager : MonoBehaviour
         score = ScoreContainer.GetComponent<TextMeshProUGUI>();
         multiplicator = MultiplicatorContainer.GetComponent<TextMeshProUGUI>();
         multiplicatorX = MultiplicatorXContainer.GetComponent<TextMeshProUGUI>();
+        pauseScore = PauseScoreContainer.GetComponent<TextMeshProUGUI>();
 
         currentOverlay = MenuOverlay;
     }
@@ -67,6 +73,8 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener<GameCreditsEvent>(OnGameCreditsEvent);
         EventManager.Instance.AddListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.AddListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+        EventManager.Instance.AddListener<GamePausedEvent>(OnGamePausedEvent);
+        EventManager.Instance.AddListener<GameResumedEvent>(OnGameResumedEvent);
     }
 
     private void OnDisable()
@@ -81,6 +89,13 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.RemoveListener<GameCreditsEvent>(OnGameCreditsEvent);
         EventManager.Instance.RemoveListener<GameControlsEvent>(OnGameControlsEvent);
         EventManager.Instance.RemoveListener<GameMainMenuEvent>(OnGameMainMenuEvent);
+        EventManager.Instance.RemoveListener<GamePausedEvent>(OnGamePausedEvent);
+        EventManager.Instance.RemoveListener<GameResumedEvent>(OnGameResumedEvent);
+    }
+
+    public bool IsGameActive()
+    {
+        return gameActive;
     }
 
     void Update()
@@ -120,12 +135,31 @@ public class UIManager : MonoBehaviour
 
     void OnGameStartedEvent(GameStartedEvent e)
     {
-        gameActive = true;
+        StartCoroutine(WaitForIntroEnd());
         currentOverlay.SetActive(false);
         HUDOverlay.SetActive(true);
         currentOverlay = HUDOverlay;
-        IntroAnimation.Play("Intro");
+        IntroAnimator.Play("Intro");
         AkSoundEngine.PostEvent("play_music_game", gameObject);
+    }
+
+    IEnumerator WaitForIntroEnd()
+    {
+        yield return new WaitForSecondsRealtime(IntroAnimation.length);
+        gameActive = true;
+    }
+
+    void OnGamePausedEvent(GamePausedEvent e)
+    {
+        PauseOverlay.SetActive(true);
+        currentOverlay = PauseOverlay;
+        pauseScore.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
+    }
+
+    void OnGameResumedEvent(GameResumedEvent e)
+    {
+        PauseOverlay.SetActive(false);
+        currentOverlay = HUDOverlay;
     }
 
     void OnGameBackEvent(GameBackEvent e)
@@ -152,7 +186,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator DelayWriteLeaderboard()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSecondsRealtime(0.05f);
         Leaderboard.WriteScoresToUI();
     }
 
@@ -226,6 +260,7 @@ public class UIManager : MonoBehaviour
 
     void OnGameQuitAskEvent(GameQuitAskEvent e)
     {
+        gameActive = false;
         QuitOverlay.SetActive(true);
     }
 
@@ -243,5 +278,10 @@ public class UIManager : MonoBehaviour
         QuitOverlay.SetActive(false);
         currentOverlay.SetActive(false);
         currentOverlay.SetActive(true);
+
+        if (currentOverlay == PauseOverlay)
+        {
+            gameActive = true;
+        }
     }
 }

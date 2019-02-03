@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Input;
 
 public class GameStartedEvent : GameEvent { }
+
+public class GamePausedEvent : GameEvent { }
 
 public class GameResumedEvent : GameEvent { }
 
