@@ -21,4 +21,10 @@ public class Popup : MonoBehaviour
     {
         Text.text = text;
     }
+
+    public void SetColors(Color color, Color colorOutline)
+    {
+        Text.faceColor = color;
+        Text.outlineColor = colorOutline;
+    }
 }

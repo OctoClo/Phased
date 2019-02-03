@@ -12,7 +12,7 @@ public class PopupColorControl : MonoBehaviour
     Color color;
     Color colorOutine;
 
-    void Start()
+    public void StartDisppearing()
     {
         text = GetComponent<TextMeshPro>();
         color = text.faceColor;

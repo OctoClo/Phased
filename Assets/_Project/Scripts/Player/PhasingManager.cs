@@ -17,8 +17,9 @@ public class PhasingManager : MonoBehaviour
     public float PrePhaseTriggerDist = 18.0f;
 
     [Header("Score Multiplicator")]
-    public uint PrePhaseScoreMultiplicator = 2;
-    public uint PhaseScoreMultiplicator = 4;
+    public uint[] MultiplicatorValues = { 1, 2, 4 };
+    public Color[] MultiplicatorColors = new Color[3];
+    public Color[] MultiplicatorOutlineColors = new Color[3];
 
     [Header("Players Link")]
     public GameObject PlayersLink;
@@ -143,8 +144,6 @@ public class PhasingManager : MonoBehaviour
 
     void HandleStateChange()
     {
-        uint scoreMultiplicator = 1;
-
         switch (phaseState)
         {
             case EStatePhase.NO_PHASE:
@@ -161,7 +160,6 @@ public class PhasingManager : MonoBehaviour
                 PhasingBar.SetPhasingState(true);
                 PhasingBar.SetPhasedState(false);
                 SetSpaceshipsGlow(2.5f, true);
-                scoreMultiplicator = PrePhaseScoreMultiplicator;
                 PhasingVFX.SetActive(true);
                 PhasingVFX.GetComponent<ParticleSystem>().Play();
                 PhasingExplosionVFX.SetActive(false);
@@ -172,15 +170,14 @@ public class PhasingManager : MonoBehaviour
                 //PlayersLink.SetActive(true);
                 PhasingBar.SetPhasedState(true);
                 SetSpaceshipsGlow(3.5f, true);
-                scoreMultiplicator = PhaseScoreMultiplicator;
                 PhasingVFX.SetActive(true);
                 PhasingExplosionVFX.SetActive(true);
                 PhasingVFX.GetComponentInChildren<ParticleSystem>().Play();
                 AkSoundEngine.SetState("sync_level", "layer_3");
                 break;
         }
-
-        GameScore.Multiplicator = scoreMultiplicator;
+        
+        GameScore.Multiplicator = MultiplicatorValues[(int)phaseState];
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
         SetSpaceshipsWeapon(phaseState);
@@ -208,6 +205,16 @@ public class PhasingManager : MonoBehaviour
     {
         Spaceships[0].SetGlowIntensity(value, instantly);
         Spaceships[1].SetGlowIntensity(value + 1f, instantly);
+    }
+
+    public Color GetMultiplicatorColor()
+    {
+        return MultiplicatorColors[(int)phaseState];
+    }
+
+    public Color GetMultiplicatorOutlineColor()
+    {
+        return MultiplicatorOutlineColors[(int)phaseState];
     }
 
     void OnGameStartedEvent(GameStartedEvent e)

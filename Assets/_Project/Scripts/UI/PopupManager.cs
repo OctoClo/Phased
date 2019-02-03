@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PopupManager : MonoBehaviour
 {
+    public PhasingManager PhasingManager;
     public Popup PopupScore;
     
     GameObject PopupsFolder;
@@ -18,5 +19,6 @@ public class PopupManager : MonoBehaviour
     {
         Popup instance = Instantiate(PopupScore, position, Quaternion.identity, PopupsFolder.transform);
         instance.SetText("+" + score);
+        instance.SetColors(PhasingManager.GetMultiplicatorColor(), PhasingManager.GetMultiplicatorOutlineColor());
     }
 }

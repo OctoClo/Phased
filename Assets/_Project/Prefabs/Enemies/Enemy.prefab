@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPoints: 5
   KillReward: 10
-  PopupScoreOffset: {x: 0, y: 5, z: 0}
+  PopupScoreOffset: {x: 0, y: 10, z: 0}
   WaitUntilDeath: 0
   MoveSpeed: 3
   Pattern: 0
