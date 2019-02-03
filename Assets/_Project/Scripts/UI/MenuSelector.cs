@@ -30,7 +30,6 @@ public class MenuSelector : MonoBehaviour
     private void Start()
     {
         eventSystem = EventSystem.current;
-        buttons[selectedButton].Select();
     }
 
     private void OnEnable()
@@ -40,7 +39,6 @@ public class MenuSelector : MonoBehaviour
 
         selectedButton = 0;
         lastSelectedButton = -1;
-        buttons[selectedButton].Select();
 
         StartCoroutine(WaitBeforeInput(blockInputTime));
     }
@@ -66,6 +64,7 @@ public class MenuSelector : MonoBehaviour
             if (lastSelectedButton != selectedButton)
             {
                 buttons[selectedButton].Select();
+                eventSystem.SetSelectedGameObject(buttons[selectedButton].gameObject);
                 lastSelectedButton = selectedButton;
             }
 
