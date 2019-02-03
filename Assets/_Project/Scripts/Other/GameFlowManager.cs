@@ -6,6 +6,7 @@ using System.Linq;
 
 public class GameFlowManager : MonoBehaviour
 {
+    public UIManager UIManager;
     bool paused = false;
 
     private void OnEnable()
@@ -29,7 +30,7 @@ public class GameFlowManager : MonoBehaviour
 
     void Update()
     {
-        if (Gamepad.all.Any(x => x.startButton.wasReleasedThisFrame))
+        if (Gamepad.all.Any(x => x.startButton.wasReleasedThisFrame) && UIManager.IsGameActive())
         {
             if (!paused)
             {
