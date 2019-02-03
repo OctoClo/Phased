@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class GameScore
 {
+    public static PopupManager PopupManager;
     public static PhasingManager PhasingManager;
 
     static private uint multiplicator;
@@ -21,9 +22,11 @@ public static class GameScore
         }
     }
     
-    static public void AddToScore( uint pointAmount )
+    static public void AddToScore(uint pointAmount, Vector3 popupPosition)
     {
-        score += (pointAmount * multiplicator);
+        uint finalScore = pointAmount * multiplicator;
+        score += finalScore;
+        PopupManager.CreatePopupScore(finalScore.ToString(), popupPosition);
         PhasingManager.AddBoostKill();
     }
 

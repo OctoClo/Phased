@@ -7,6 +7,7 @@ public class FolderManager : Singleton<FolderManager>
     public GameObject SpawnFolder;
     public GameObject BulletsFolder;
     public GameObject VFXFolder;
+    public GameObject PopupsFolder;
 
     private void OnEnable()
     {
@@ -31,6 +32,11 @@ public class FolderManager : Singleton<FolderManager>
         }
 
         foreach (Transform child in VFXFolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in PopupsFolder.transform)
         {
             Destroy(child.gameObject);
         }

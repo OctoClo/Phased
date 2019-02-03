@@ -27,15 +27,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthPoints: 1500
   KillReward: 50
+  PopupScoreOffset: {x: 0, y: 8, z: 0}
   WaitUntilDeath: 1
   MoveSpeed: 10
   Pattern: 0
   DeathFX: {fileID: 3604550080248371666, guid: 0d6dc982eef01c047a7ba2804a2d495e, type: 3}
-  ExplosionSounds:
-  - {fileID: 8300000, guid: 8c8f62a3a3abdb342a6a94ae1de62779, type: 3}
-  - {fileID: 8300000, guid: 4966774a8e768af43ab7e3aa592b8f82, type: 3}
-  - {fileID: 8300000, guid: 715202ee9aceecc4ab2275cdc2fdbc97, type: 3}
   movement: {x: 0, y: 0, z: -1}
+  SoundEventName: ennemi
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   hitIntensity: 5
   ShootMode: 3
