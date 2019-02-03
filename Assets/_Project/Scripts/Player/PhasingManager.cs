@@ -190,7 +190,6 @@ public class PhasingManager : MonoBehaviour
     {
         Vector3 middlePos = Spaceships[0].transform.position + (Spaceships[1].transform.position - Spaceships[0].transform.position) / 2;
         PhasingVFX.transform.position = middlePos + new Vector3(0.5f, 3, -3);
-        PhasingExplosionVFX.transform.position = middlePos + new Vector3(0, 0, 1000);
     }
 
     void NotifySpaceships(bool phased)
