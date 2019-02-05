@@ -159,7 +159,8 @@ public class Spaceship : MonoBehaviour
             {
                 StartCoroutine(Blink());
             }
-            StartCoroutine(OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration));
+            
+            OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration);
             PlayImpactSFX();
         }
     }

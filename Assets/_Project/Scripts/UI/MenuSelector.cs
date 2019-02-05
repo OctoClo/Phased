@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Experimental.Input;
+// using UnityEngine.Experimental.Input;
 using UnityEngine.UI;
+using Rewired;
 
 public class MenuSelector : MonoBehaviour
 {
@@ -23,13 +24,16 @@ public class MenuSelector : MonoBehaviour
     private float timeBetweenButtons = 0.2f;
 
     EventSystem eventSystem;
-    Keyboard keyboard;
+    //Keyboard keyboard;
 
     bool waiting = true;
 
     private void Start()
     {
+        Debug.Log("Start menu selector");
         eventSystem = EventSystem.current;
+        buttons[0].Select();
+        eventSystem.SetSelectedGameObject(buttons[selectedButton].gameObject);
     }
 
     private void OnEnable()
@@ -59,62 +63,62 @@ public class MenuSelector : MonoBehaviour
 	{
         if (!waiting)
         {
-            keyboard = InputSystem.GetDevice<Keyboard>();
+            //keyboard = InputSystem.GetDevice<Keyboard>();
 
-            if (lastSelectedButton != selectedButton)
-            {
-                buttons[selectedButton].Select();
-                eventSystem.SetSelectedGameObject(buttons[selectedButton].gameObject);
-                lastSelectedButton = selectedButton;
-            }
+            // if (lastSelectedButton != selectedButton)
+            // {
+            //     buttons[selectedButton].Select();
+            //     eventSystem.SetSelectedGameObject(buttons[selectedButton].gameObject);
+            //     lastSelectedButton = selectedButton;
+            // }
 
-            if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame)
-                || (keyboard != null && keyboard.enterKey.wasReleasedThisFrame))
-            {
-                AkSoundEngine.PostEvent("menu_ok", gameObject);
-                buttons[selectedButton].onClick.Invoke();
-            }
+            // if (Gamepad.all.Any(x => x.buttonSouth.wasReleasedThisFrame)
+            //     || (keyboard != null && keyboard.enterKey.wasReleasedThisFrame))
+            // {
+            //     AkSoundEngine.PostEvent("menu_ok", gameObject);
+            //     buttons[selectedButton].onClick.Invoke();
+            // }
 
-            if (NextSelection())
-            {
-                AkSoundEngine.PostEvent("menu_navigation", gameObject);
-                selectedButton = (selectedButton + 1) % buttons.Length;
-                StartCoroutine(WaitBeforeInput(timeBetweenButtons));
-            }
-            else if (PreviousSelection())
-            {
-                AkSoundEngine.PostEvent("menu_navigation", gameObject);
-                selectedButton--;
-                if (selectedButton < 0)
-                {
-                    selectedButton = buttons.Length - 1;
-                }
-                StartCoroutine(WaitBeforeInput(timeBetweenButtons));
-            }
+            // if (NextSelection())
+            // {
+            //     AkSoundEngine.PostEvent("menu_navigation", gameObject);
+            //     selectedButton = (selectedButton + 1) % buttons.Length;
+            //     StartCoroutine(WaitBeforeInput(timeBetweenButtons));
+            // }
+            // else if (PreviousSelection())
+            // {
+            //     AkSoundEngine.PostEvent("menu_navigation", gameObject);
+            //     selectedButton--;
+            //     if (selectedButton < 0)
+            //     {
+            //         selectedButton = buttons.Length - 1;
+            //     }
+            //     StartCoroutine(WaitBeforeInput(timeBetweenButtons));
+            // }
         }
 	}
 
-    private bool NextSelection()
-    {
-        if (horizontalMenu)
-        {
-            return (Gamepad.all.Any(x => x.leftStick.ReadValue().x > 0.75F) || (keyboard != null && keyboard.dKey.wasReleasedThisFrame));
-        }
-        else
-        {
-            return (Gamepad.all.Any(x => x.leftStick.ReadValue().y < -0.75F) || (keyboard != null && keyboard.sKey.wasReleasedThisFrame));
-        }
-    }
+    // private bool NextSelection()
+    // {
+    //     if (horizontalMenu)
+    //     {
+    //         return (Gamepad.all.Any(x => x.leftStick.ReadValue().x > 0.75F) || (keyboard != null && keyboard.dKey.wasReleasedThisFrame));
+    //     }
+    //     else
+    //     {
+    //         return (Gamepad.all.Any(x => x.leftStick.ReadValue().y < -0.75F) || (keyboard != null && keyboard.sKey.wasReleasedThisFrame));
+    //     }
+    // }
 
-    private bool PreviousSelection()
-    {
-        if (horizontalMenu)
-        {
-            return (Gamepad.all.Any(x => x.leftStick.ReadValue().x < -0.75F) || (keyboard != null && keyboard.aKey.wasReleasedThisFrame));
-        }
-        else
-        {
-            return (Gamepad.all.Any(x => x.leftStick.ReadValue().y > 0.75F) || (keyboard != null && keyboard.wKey.wasReleasedThisFrame));
-        }
-    }    
+    // private bool PreviousSelection()
+    // {
+    //     if (horizontalMenu)
+    //     {
+    //         return (Gamepad.all.Any(x => x.leftStick.ReadValue().x < -0.75F) || (keyboard != null && keyboard.aKey.wasReleasedThisFrame));
+    //     }
+    //     else
+    //     {
+    //         return (Gamepad.all.Any(x => x.leftStick.ReadValue().y > 0.75F) || (keyboard != null && keyboard.wKey.wasReleasedThisFrame));
+    //     }
+    // }    
 }
