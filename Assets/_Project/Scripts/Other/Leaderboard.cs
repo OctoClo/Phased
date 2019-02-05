@@ -19,8 +19,12 @@ public class Leaderboard : MonoBehaviour
 
     bool firstEntryAdded = false;
 
+    public bool entryAddedForSession = false;
+
     public void SubmitScore()
     {
+        if(TeamNameInput.GetComponent<UnityEngine.UI.InputField>().text.Length == 0 || entryAddedForSession) return;
+
         AddScore( new Entry
         {
             name = TeamNameInput.GetComponent<UnityEngine.UI.InputField>().text,
@@ -28,7 +32,9 @@ public class Leaderboard : MonoBehaviour
             maxHitCount = 0 // TODO: Implement me!
         } );
 
-        LeaderboardMenuSelector.enabled = true;
+        //LeaderboardMenuSelector.enabled = true;
+
+        entryAddedForSession = true;
 
         EventManager.Instance.Raise(new GameLeaderboardEvent());
     }

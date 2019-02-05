@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Input;
 using System.Linq;
+using Rewired;
 
 public class GameFlowManager : MonoBehaviour
 {
     public UIManager UIManager;
+    public Leaderboard leaderboard;
     bool paused = false;
+
+    IEnumerator WaitForAllSetup()
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+        EventManager.Instance.Raise(new GameStartedEvent() { });
+    }
 
     private void OnEnable()
     {
@@ -26,21 +33,26 @@ public class GameFlowManager : MonoBehaviour
     void OnGameStartedEvent(GameStartedEvent e)
     {
         GameScore.Reset();
+        leaderboard.entryAddedForSession = false;
     }
 
     void Update()
     {
-        if (Gamepad.all.Any(x => x.startButton.wasReleasedThisFrame) && UIManager.IsGameActive())
+        for (int i = 0; i < 2; i++)
         {
-            if (!paused)
+            if (ReInput.players.GetPlayer(i).GetButtonDown("Pause") && UIManager.IsGameActive())
             {
-                EventManager.Instance.Raise(new GamePausedEvent() { });
-            }
-            else
-            {
-                EventManager.Instance.Raise(new GameResumedEvent() { });
+                if (!paused)
+                {
+                    EventManager.Instance.Raise(new GamePausedEvent() { });
+                }
+                else
+                {
+                    EventManager.Instance.Raise(new GameResumedEvent() { });
+                }
             }
         }
+
     }
 
     void OnGamePausedEvent(GamePausedEvent e)
