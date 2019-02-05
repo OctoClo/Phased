@@ -207,7 +207,7 @@ public class PhasingManager : MonoBehaviour
     void SetSpaceshipsGlow(float value, bool instantly)
     {
         Spaceships[0].SetGlowIntensity(value, instantly);
-        Spaceships[1].SetGlowIntensity(value + 1f, instantly);
+        Spaceships[1].SetGlowIntensity(value - 0.5f, instantly);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)
