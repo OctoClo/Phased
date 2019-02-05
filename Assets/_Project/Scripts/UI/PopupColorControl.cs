@@ -8,15 +8,13 @@ public class PopupColorControl : MonoBehaviour
     public float DecreaseValue = 0.1f;
     public float DecreaseTime = 0.01f;
 
-    TextMeshPro text;
+    TextMeshProUGUI text;
     Color color;
-    Color colorOutine;
 
     public void StartDisppearing()
     {
-        text = GetComponent<TextMeshPro>();
+        text = GetComponent<TextMeshProUGUI>();
         color = text.faceColor;
-        colorOutine = text.outlineColor;
         StartCoroutine(Disappear());
     }
 
@@ -26,8 +24,6 @@ public class PopupColorControl : MonoBehaviour
         {
             color.a -= DecreaseValue;
             text.faceColor = color;
-            colorOutine.a -= DecreaseValue;
-            text.outlineColor = colorOutine;
             yield return new WaitForSecondsRealtime(DecreaseTime);
         }
     }

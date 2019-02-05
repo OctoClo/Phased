@@ -34,7 +34,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Other")]
     public Leaderboard Leaderboard;
-    public PhasingManager PhasingManager;
+
+    [HideInInspector]
+    public Color MultiplicatorColor;
 
     TextMeshProUGUI HUDLifeCounter;
     TextMeshProUGUI score;
@@ -45,8 +47,6 @@ public class UIManager : MonoBehaviour
     GameObject currentOverlay;
     GameObject beforeQuitOverlay;
     GameObject previousOverlay;
-
-    Color multiplicatorColor;
 
     bool gameActive = false;
 
@@ -107,10 +107,9 @@ public class UIManager : MonoBehaviour
             score.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
 
             multiplicator.SetText(GameScore.Multiplicator.ToString());
-
-            multiplicatorColor = PhasingManager.GetMultiplicatorColor();
-            multiplicator.faceColor = multiplicatorColor;
-            multiplicatorX.faceColor = multiplicatorColor;
+            
+            multiplicator.faceColor = MultiplicatorColor;
+            multiplicatorX.faceColor = MultiplicatorColor;
 
             /*for (int i = 0; i < 2; i++)
             {

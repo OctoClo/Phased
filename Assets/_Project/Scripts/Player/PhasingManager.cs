@@ -19,7 +19,8 @@ public class PhasingManager : MonoBehaviour
     [Header("Score Multiplicator")]
     public uint[] MultiplicatorValues = { 1, 2, 4 };
     public Color[] MultiplicatorColors = new Color[3];
-    public Color[] MultiplicatorOutlineColors = new Color[3];
+    public UIManager UIManager;
+    public PopupManager PopupManager;
 
     [Header("Players Link")]
     public GameObject PlayersLink;
@@ -178,6 +179,8 @@ public class PhasingManager : MonoBehaviour
         }
         
         GameScore.Multiplicator = MultiplicatorValues[(int)phaseState];
+        PopupManager.PopupColor = MultiplicatorColors[(int)phaseState];
+        UIManager.MultiplicatorColor = MultiplicatorColors[(int)phaseState];
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
         SetSpaceshipsWeapon(phaseState);
@@ -204,17 +207,7 @@ public class PhasingManager : MonoBehaviour
     void SetSpaceshipsGlow(float value, bool instantly)
     {
         Spaceships[0].SetGlowIntensity(value, instantly);
-        Spaceships[1].SetGlowIntensity(value + 1f, instantly);
-    }
-
-    public Color GetMultiplicatorColor()
-    {
-        return MultiplicatorColors[(int)phaseState];
-    }
-
-    public Color GetMultiplicatorOutlineColor()
-    {
-        return MultiplicatorOutlineColors[(int)phaseState];
+        Spaceships[1].SetGlowIntensity(value - 0.5f, instantly);
     }
 
     void OnGameStartedEvent(GameStartedEvent e)
