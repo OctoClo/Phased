@@ -59,10 +59,11 @@ public class PhasingManager : MonoBehaviour
 
     void Initialize()
     {
-        phaseState = EStatePhase.NO_PHASE;
         AkSoundEngine.SetState("sync_level", "layer_1");
-        PlayersLink.SetActive(false);
+        //PlayersLink.SetActive(false);
         PhasingBar.Value = 0;
+        phaseState = EStatePhase.NO_PHASE;
+        HandleStateChange();
     }
 
     void Update()
@@ -177,10 +178,14 @@ public class PhasingManager : MonoBehaviour
                 AkSoundEngine.SetState("sync_level", "layer_3");
                 break;
         }
-        
+
         GameScore.Multiplicator = MultiplicatorValues[(int)phaseState];
-        PopupManager.PopupColor = MultiplicatorColors[(int)phaseState];
-        UIManager.MultiplicatorColor = MultiplicatorColors[(int)phaseState];
+
+        if (PopupManager.Popups)
+        {
+            PopupManager.PopupColor = MultiplicatorColors[(int)phaseState];
+            UIManager.UpdateColor(MultiplicatorColors[(int)phaseState]);
+        }
 
         PlayersLink.GetComponent<MeshRenderer>().material = MaterialsPlayersLink[(int)phaseState];
         SetSpaceshipsWeapon(phaseState);

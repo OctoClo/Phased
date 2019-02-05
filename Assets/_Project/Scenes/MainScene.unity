@@ -21962,6 +21962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f62363990d5044e8aa8d7788b78b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Popups: 1
   PopupScore: {fileID: 5471050504298776226, guid: 5a1bb04cd5d5d2e488bf810467e9e4b5,
     type: 3}
   PopupColor: {r: 0, g: 0, b: 0, a: 0}
@@ -24406,7 +24407,6 @@ MonoBehaviour:
   - {fileID: 775684502}
   - {fileID: 224834013}
   Leaderboard: {fileID: 315782863}
-  MultiplicatorColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2034883128
 GameObject:
   m_ObjectHideFlags: 0

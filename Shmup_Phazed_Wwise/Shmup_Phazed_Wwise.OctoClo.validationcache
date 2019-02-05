@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="89">
-	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1547991433" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1549395606" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Attenuations\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Audio Devices\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
@@ -22,18 +22,18 @@
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Game Parameters\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Game Parameters\Factory Motion.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1547829908" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1547841172" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1549395606" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Mixing Sessions\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Modulators\Default Work Unit.wwu" DateLow="1547829908" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Presets\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Queries\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Queries\Factory Queries.wwu" DateLow="1547829918" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Shmup_Phazed_Wwise.OctoClo.wsettings" DateLow="1547846569" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Shmup_Phazed_Wwise.OctoClo.wsettings" DateLow="1549400898" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Shmup_Phazed_Wwise.wproj" DateLow="1547841060" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\SoundBanks\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1547991433" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\States\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1549395606" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\States\Default Work Unit.wwu" DateLow="1549395606" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Switches\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Triggers\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\Virtual Acoustics\Default Work Unit.wwu" DateLow="1547829918" DateHigh="0"/>

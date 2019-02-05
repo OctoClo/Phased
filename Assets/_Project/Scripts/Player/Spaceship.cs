@@ -67,7 +67,6 @@ public class Spaceship : MonoBehaviour
         transform.position = initialPosition;
         phasedWeapon = false;
         gameActive = true;
-        SetWeapon(EStatePhase.NO_PHASE);
     }
 
     void Update()
@@ -137,6 +136,7 @@ public class Spaceship : MonoBehaviour
         if (weaponGO)
             Destroy(weaponGO);
 
+        
         weaponGO = Instantiate(Weapons[(int)state], Cursor.transform);
         weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;

@@ -35,9 +35,6 @@ public class UIManager : MonoBehaviour
     [Header("Other")]
     public Leaderboard Leaderboard;
 
-    [HideInInspector]
-    public Color MultiplicatorColor;
-
     TextMeshProUGUI HUDLifeCounter;
     TextMeshProUGUI score;
     TextMeshProUGUI multiplicator;
@@ -102,20 +99,28 @@ public class UIManager : MonoBehaviour
     {
         if (gameActive)
         {
-            HUDLifeCounter.SetText(LifeCounter.Instance.LifeCount.ToString());
-
-            score.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
-
-            multiplicator.SetText(GameScore.Multiplicator.ToString());
-            
-            multiplicator.faceColor = MultiplicatorColor;
-            multiplicatorX.faceColor = MultiplicatorColor;
+            UpdateHUD();
 
             /*for (int i = 0; i < 2; i++)
             {
                 PhaseZones[i].transform.position = Spaceships[i].transform.position;
             }*/
         }
+    }
+
+    void UpdateHUD()
+    {
+        HUDLifeCounter.SetText(LifeCounter.Instance.LifeCount.ToString());
+
+        score.SetText(FillScoreWithZeros(GameScore.Score.ToString()));
+
+        multiplicator.SetText(GameScore.Multiplicator.ToString());
+    }
+
+    public void UpdateColor(Color color)
+    {
+        multiplicator.faceColor = color;
+        multiplicatorX.faceColor = color;
     }
 
     string FillScoreWithZeros(string scoreTxt)
@@ -138,6 +143,7 @@ public class UIManager : MonoBehaviour
         currentOverlay.SetActive(false);
         HUDOverlay.SetActive(true);
         currentOverlay = HUDOverlay;
+        UpdateHUD();
         IntroAnimator.Play("Intro");
         AkSoundEngine.PostEvent("play_music_game", gameObject);
     }
