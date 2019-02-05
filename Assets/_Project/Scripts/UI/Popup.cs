@@ -6,7 +6,7 @@ using TMPro;
 public class Popup : MonoBehaviour
 {
     public Animator Animator;
-    public TextMeshPro Text;
+    public TextMeshProUGUI Text;
 
     void Awake()
     {
@@ -22,9 +22,8 @@ public class Popup : MonoBehaviour
         Text.text = text;
     }
 
-    public void SetColors(Color color, Color colorOutline)
+    public void SetColor(Color color)
     {
         Text.faceColor = color;
-        Text.outlineColor = colorOutline;
     }
 }
