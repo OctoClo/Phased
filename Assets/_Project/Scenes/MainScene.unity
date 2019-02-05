@@ -9729,7 +9729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 15
+  LifeCount: 25
   ScreenglowAnimator: {fileID: 1800824117}
   inputManager: {fileID: 0}
   IsInvulnerable: 0
