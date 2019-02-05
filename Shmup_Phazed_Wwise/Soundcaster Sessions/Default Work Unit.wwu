@@ -199,6 +199,10 @@
 							<ObjectRef Name="menu_ok" ID="{7DBA08BD-6845-4340-B1CA-F6968AAC1337}" WorkUnitID="{A6DE3CD3-8425-4038-B42F-358ADAA8340C}"/>
 							<Position X="3" Y="5"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="music_game" ID="{1ACD3EB4-9B5D-4D43-A6ED-468A1598366D}" WorkUnitID="{0FFB68BC-60E4-43F9-ADF8-4AEABAF1C2A6}"/>
+							<Position X="4" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
@@ -251,7 +255,7 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+						<CurrentStateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>

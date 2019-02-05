@@ -20,7 +20,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicSegment Name="music_game" ID="{61A329F9-7E62-4C8A-930C-766EAB82C0DF}" ShortID="799526171">
+						<MusicSegment Name="music_game_V1" ID="{61A329F9-7E62-4C8A-930C-766EAB82C0DF}" ShortID="799526171">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="128000"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
@@ -34,63 +34,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicTrack Name="game_layer1" ID="{1455D262-66F9-4587-B1D8-6EE8F87DD03F}" ShortID="214180374">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="game_layer1" ID="{C85E7CCA-27D3-417A-90EE-245C4DD23A5B}" ShortID="240080236">
-											<Language>SFX</Language>
-											<AudioFile>game_layer1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<StateInfo>
-										<StateGroupList>
-											<StateGroupInfo>
-												<StateGroupRef Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}"/>
-											</StateGroupInfo>
-										</StateGroupList>
-										<CustomStateList>
-											<CustomState>
-												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
-												<State Name="" ID="{9C107058-A2D1-4DF0-A6A0-034DB29C1AAF}" ShortID="1027220039"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
-												<State Name="" ID="{ED9905FD-28A0-4E79-9368-A5BB18BF92CD}" ShortID="968230298"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
-												<State Name="" ID="{4E8A3A1D-04BD-4AC6-8DD7-2187CAD787BA}" ShortID="222636338"/>
-											</CustomState>
-										</CustomStateList>
-									</StateInfo>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{080E6EBD-1F6E-448B-8667-D5F854CD7DF5}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<SequenceList>
-										<MusicTrackSequence Name="" ID="{AAD28150-D768-4846-BEFC-605D469025B0}">
-											<ClipList>
-												<MusicClip Name="game_layer1" ID="{98198373-4BF5-4D8D-825D-878B3B837150}">
-													<PropertyList>
-														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
-														<Property Name="FadeInMode" Type="int16" Value="0"/>
-														<Property Name="FadeOutMode" Type="int16" Value="0"/>
-														<Property Name="PlayAt" Type="Real64" Value="40.3072808644786"/>
-													</PropertyList>
-													<AudioSourceRef Name="game_layer1" ID="{C85E7CCA-27D3-417A-90EE-245C4DD23A5B}"/>
-												</MusicClip>
-											</ClipList>
-										</MusicTrackSequence>
-									</SequenceList>
-								</MusicTrack>
 								<MusicTrack Name="game_layer2" ID="{EDBDC324-7B84-4C72-93AC-3D62DE7B29C7}" ShortID="576451725">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
@@ -159,23 +102,22 @@
 										</MusicTrackSequence>
 									</SequenceList>
 								</MusicTrack>
-								<MusicTrack Name="game_layer3" ID="{EB413A3C-3DFE-4ABB-896E-40A3732F4049}" ShortID="356300498">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-3</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
+								<MusicTrack Name="game_layer1" ID="{FFD59181-EF7B-4DBC-920F-37F85048B8B7}" ShortID="702108403">
 									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+											<ObjectRef Name="music_game" ID="{A7CFE4E7-B588-49AD-B18C-A68324EBC82C}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="game_layer3" ID="{4D20BE0B-81D6-4F63-A2EF-007E7160A60F}" ShortID="904738554">
+										<AudioFileSource Name="game_layer1" ID="{C45E8FEF-9477-4987-96A9-235D67220084}" ShortID="497986924">
 											<Language>SFX</Language>
-											<AudioFile>game_layer3.wav</AudioFile>
+											<AudioFile>game_layer1.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="240080236"/>
+											</ConvertedFileIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<StateInfo>
@@ -187,7 +129,77 @@
 										<CustomStateList>
 											<CustomState>
 												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
-												<State Name="" ID="{C6EBDEE7-0CF7-41BA-83B7-B6165926A655}" ShortID="968539589">
+												<State Name="" ID="{5E2B4F66-AF6E-4C64-B42D-C9056EAF709A}" ShortID="402507236"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+												<State Name="" ID="{F3191DB0-A7CC-402C-A585-5A95F7C5DB2B}" ShortID="812609208"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+												<State Name="" ID="{20499800-6BC0-4F5D-BBFC-DFB30B8AB2AE}" ShortID="986405613"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{B78C6896-06C4-4717-9265-E6BA55892011}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{57008F5E-BD0B-40FC-A63D-511D0B6FDF89}">
+											<ClipList>
+												<MusicClip Name="game_layer1" ID="{6671F2A9-FE74-4BC4-9BA3-EE7564EEAD3D}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+														<Property Name="PlayAt" Type="Real64" Value="40.3072808644786"/>
+													</PropertyList>
+													<AudioSourceRef Name="game_layer1" ID="{C45E8FEF-9477-4987-96A9-235D67220084}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+								<MusicTrack Name="game_layer3" ID="{4666F063-9E2B-47ED-924E-E8531EA3CA50}" ShortID="56381888">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="music_game" ID="{A7CFE4E7-B588-49AD-B18C-A68324EBC82C}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="game_layer3" ID="{E03C9AAD-60A4-4F1D-A2DB-10735AC495FF}" ShortID="103754720">
+											<Language>SFX</Language>
+											<AudioFile>game_layer3.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="904738554"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+												<State Name="" ID="{C5AC1E41-8CAA-44D4-888B-F5F1E78C63B5}" ShortID="252072232">
 													<PropertyList>
 														<Property Name="Volume" Type="Real64" Value="-400"/>
 													</PropertyList>
@@ -195,11 +207,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
-												<State Name="" ID="{C918CF36-ECF7-46D7-8484-60AECA28CBF7}" ShortID="64144787"/>
+												<State Name="" ID="{ACDD4666-0AC8-4591-8D7F-E1898D01F58D}" ShortID="69096109"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
-												<State Name="" ID="{ED37B28C-A5AE-4A24-889A-5390CC75B752}" ShortID="22276044">
+												<State Name="" ID="{1D5F30F1-3170-4E5F-A2A8-A06D6BA31DE9}" ShortID="1031636742">
 													<PropertyList>
 														<Property Name="Volume" Type="Real64" Value="-400"/>
 													</PropertyList>
@@ -208,7 +220,7 @@
 										</CustomStateList>
 									</StateInfo>
 									<TransitionList>
-										<MusicTransition Name="Root" ID="{6BF398B1-538D-432C-A59C-5ED075170141}">
+										<MusicTransition Name="Root" ID="{92C75ED8-046C-46CB-902C-F3B3100EF2EA}">
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
@@ -216,16 +228,16 @@
 										</MusicTransition>
 									</TransitionList>
 									<SequenceList>
-										<MusicTrackSequence Name="" ID="{859A6789-1574-48EE-A63F-86532626C130}">
+										<MusicTrackSequence Name="" ID="{3854158F-FD58-44A7-8B86-031A00394E82}">
 											<ClipList>
-												<MusicClip Name="game_layer3" ID="{8C76EC62-E704-44ED-8BB3-218265E2A60C}">
+												<MusicClip Name="game_layer3" ID="{09531C10-BCBB-4A57-A45D-C665EC336467}">
 													<PropertyList>
 														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
 														<Property Name="FadeInMode" Type="int16" Value="0"/>
 														<Property Name="FadeOutMode" Type="int16" Value="0"/>
 														<Property Name="PlayAt" Type="Real64" Value="40.3072808644786"/>
 													</PropertyList>
-													<AudioSourceRef Name="game_layer3" ID="{4D20BE0B-81D6-4F63-A2EF-007E7160A60F}"/>
+													<AudioSourceRef Name="game_layer3" ID="{E03C9AAD-60A4-4F1D-A2DB-10735AC495FF}"/>
 												</MusicClip>
 											</ClipList>
 										</MusicTrackSequence>
@@ -308,6 +320,239 @@
 								</MusicCue>
 							</CueList>
 						</MusicSegment>
+						<MusicSegment Name="music_game_V2" ID="{24B408FA-1B17-4DC6-A634-146B244FD733}" ShortID="182678650">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="130068.668194431"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="game_layer1" ID="{1455D262-66F9-4587-B1D8-6EE8F87DD03F}" ShortID="214180374">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="music_game" ID="{A7CFE4E7-B588-49AD-B18C-A68324EBC82C}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="game_layer1" ID="{C85E7CCA-27D3-417A-90EE-245C4DD23A5B}" ShortID="240080236">
+											<Language>SFX</Language>
+											<AudioFile>game_layer1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+												<State Name="" ID="{9C107058-A2D1-4DF0-A6A0-034DB29C1AAF}" ShortID="1027220039"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+												<State Name="" ID="{ED9905FD-28A0-4E79-9368-A5BB18BF92CD}" ShortID="968230298"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+												<State Name="" ID="{4E8A3A1D-04BD-4AC6-8DD7-2187CAD787BA}" ShortID="222636338"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{080E6EBD-1F6E-448B-8667-D5F854CD7DF5}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{AAD28150-D768-4846-BEFC-605D469025B0}">
+											<ClipList>
+												<MusicClip Name="game_layer1" ID="{98198373-4BF5-4D8D-825D-878B3B837150}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+														<Property Name="PlayAt" Type="Real64" Value="40.3072808644784"/>
+													</PropertyList>
+													<AudioSourceRef Name="game_layer1" ID="{C85E7CCA-27D3-417A-90EE-245C4DD23A5B}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+								<MusicTrack Name="game_layer3" ID="{EB413A3C-3DFE-4ABB-896E-40A3732F4049}" ShortID="356300498">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="music_game" ID="{A7CFE4E7-B588-49AD-B18C-A68324EBC82C}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="game_layer3" ID="{4D20BE0B-81D6-4F63-A2EF-007E7160A60F}" ShortID="904738554">
+											<Language>SFX</Language>
+											<AudioFile>game_layer3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+												<State Name="" ID="{C6EBDEE7-0CF7-41BA-83B7-B6165926A655}" ShortID="968539589">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-400"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+												<State Name="" ID="{C918CF36-ECF7-46D7-8484-60AECA28CBF7}" ShortID="64144787"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+												<State Name="" ID="{ED37B28C-A5AE-4A24-889A-5390CC75B752}" ShortID="22276044">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-400"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{6BF398B1-538D-432C-A59C-5ED075170141}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{859A6789-1574-48EE-A63F-86532626C130}">
+											<ClipList>
+												<MusicClip Name="game_layer3" ID="{8C76EC62-E704-44ED-8BB3-218265E2A60C}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+														<Property Name="PlayAt" Type="Real64" Value="40.3072808644784"/>
+													</PropertyList>
+													<AudioSourceRef Name="game_layer3" ID="{4D20BE0B-81D6-4F63-A2EF-007E7160A60F}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+								<MusicTrack Name="game_layer2_v2" ID="{7236766A-B94F-4789-B510-2167458168E9}" ShortID="294718411">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D8AB9FEA-0640-430F-90BF-3556E4738ED9}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="music_game" ID="{A7CFE4E7-B588-49AD-B18C-A68324EBC82C}" WorkUnitID="{C5B6104E-0BC5-4BF4-B305-37F251583940}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="game_layer2_V2" ID="{DCD58E0E-FBEC-4113-919D-4606BE087D25}" ShortID="720125495">
+											<Language>SFX</Language>
+											<AudioFile>game_layer2_V2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="sync_level" ID="{1EE56B34-25BE-492B-BB88-A4673A0674D0}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+												<State Name="" ID="{3AD99F63-A117-4FAA-95D6-6F26A0117B73}" ShortID="157111198">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-400"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+												<State Name="" ID="{FCC62A50-9F68-459B-8FC1-4574176955CA}" ShortID="1009355411"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="layer_2" ID="{41FA1C99-A84A-4616-9AFE-D901FBDC1BF2}"/>
+												<State Name="" ID="{6AD89024-F076-401D-B72A-72C50354CC8B}" ShortID="491308701"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{8B273DE2-00F4-48EB-BB1D-9C412DE4BDD5}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{4519F76C-826D-43F1-972F-AE6AB7DD9101}">
+											<ClipList>
+												<MusicClip Name="game_layer2_V2" ID="{08F518F0-05EF-4303-AE68-3B73215591AB}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="127000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="game_layer2_V2" ID="{DCD58E0E-FBEC-4113-919D-4606BE087D25}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{64F3A3ED-9222-4924-9065-C58547BCAF05}">
+									<PropertyList>
+										<Property Name="TimeMs" Type="Real64" Value="2000"/>
+									</PropertyList>
+								</MusicCue>
+								<MusicCue Name="Exit Cue" ID="{288140C2-D2E8-48A5-8C61-772D8B3D2F21}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="122000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{9708DF26-66D9-4432-A267-E949DEC0E73C}">
@@ -331,12 +576,25 @@
 									</PropertyList>
 									<SegmentRef Name="intro_game" ID="{10C1F86B-6E73-4C70-8929-283782B1F865}"/>
 								</MusicPlaylistItem>
-								<MusicPlaylistItem Name="" ID="{FD744CA0-EDF1-45AD-9162-BDA292AAFDAC}" ShortID="32827254">
+								<MusicPlaylistItem Name="" ID="{34960150-9C09-448E-90E6-34B868855FAF}" ShortID="258915767">
 									<PropertyList>
 										<Property Name="LoopCount" Type="int16" Value="0"/>
-										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+										<Property Name="PlayMode" Type="int16" Value="2"/>
 									</PropertyList>
-									<SegmentRef Name="music_game" ID="{61A329F9-7E62-4C8A-930C-766EAB82C0DF}"/>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{FD744CA0-EDF1-45AD-9162-BDA292AAFDAC}" ShortID="32827254">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="music_game_V1" ID="{61A329F9-7E62-4C8A-930C-766EAB82C0DF}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{912DF01F-0A35-411B-93D3-D675D52F7383}" ShortID="138071092">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="music_game_V2" ID="{24B408FA-1B17-4DC6-A634-146B244FD733}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</ChildrenList>
 						</MusicPlaylistItem>

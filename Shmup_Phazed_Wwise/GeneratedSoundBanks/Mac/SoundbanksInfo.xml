@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
 	<RootPaths>
-		<ProjectRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\</ProjectRoot>
-		<SourceFilesRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Git\SHMUP\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\OctoClo\Dev\Unity\Phased\Shmup_Phazed_Wwise\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -345,6 +345,10 @@
 				<File Id="711143341" Language="SFX">
 					<ShortName>impact_joueur.wav</ShortName>
 					<Path>SFX\impact_joueur_51A8D4C2.wem</Path>
+				</File>
+				<File Id="720125495" Language="SFX">
+					<ShortName>game_layer2_V2.wav</ShortName>
+					<Path>SFX\game_layer2_V2_D435DC9C.wem</Path>
 				</File>
 				<File Id="722791215" Language="SFX">
 					<ShortName>menu_01.wav</ShortName>
