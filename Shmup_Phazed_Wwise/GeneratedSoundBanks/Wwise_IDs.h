@@ -36,6 +36,15 @@ namespace AK
 
     namespace STATES
     {
+        namespace NEW_STATE_GROUP
+        {
+            static const AkUniqueID GROUP = 2012657067U;
+
+            namespace STATE
+            {
+            } // namespace STATE
+        } // namespace NEW_STATE_GROUP
+
         namespace SYNC_LEVEL
         {
             static const AkUniqueID GROUP = 1588096495U;
