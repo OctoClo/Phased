@@ -9729,7 +9729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf259b1af09cc14c8d88759f6b6fcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeCount: 30
+  LifeCount: 15
   ScreenglowAnimator: {fileID: 1800824117}
   inputManager: {fileID: 0}
   IsInvulnerable: 0
@@ -25877,7 +25877,7 @@ PrefabInstance:
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
       propertyPath: LevelBricks.Array.size
-      value: 27
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4339574647140115207, guid: 3b1171a6400b1724a8d4215ea560ff5a,
         type: 3}
