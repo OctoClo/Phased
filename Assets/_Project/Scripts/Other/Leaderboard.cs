@@ -15,7 +15,7 @@ public class Leaderboard : MonoBehaviour
     public List<Entry> Scores { get; private set; } = null;
     public GameObject TeamNameInput;
     public List<LeaderboardEntry> UIEntries;
-    public MenuSelector LeaderboardMenuSelector;
+    //public MenuSelector LeaderboardMenuSelector;
 
     bool firstEntryAdded = false;
 
@@ -138,8 +138,8 @@ public class Leaderboard : MonoBehaviour
     {
         if (e.Victorious)
         {
-            TeamNameInput.GetComponent<InputField>().Initialize();
-            LeaderboardMenuSelector.enabled = false;
+            //TeamNameInput.GetComponent<InputField>().Initialize();
+            //LeaderboardMenuSelector.enabled = false;
         }
     }
 }

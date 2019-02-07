@@ -7,32 +7,13 @@ using UnityEngine.UI;
 
 public class InputField : MonoBehaviour
 {
-    public Leaderboard Leaderboard;
+    /*public Leaderboard Leaderboard;
 
     bool needEventRegister;
     UnityEngine.UI.InputField inputField;
     float inputWait;
 
     Animator animator;
-
-    static string[] TeamNames =
-    {
-        "aaaaaa",
-        "mlgpro",
-        "omgwtf",
-        "assass",
-        "weaboo",
-        "poopoo",
-        "pwned1",
-        "haxxor",
-        "newbie",
-        "foobar"
-    };
-
-    static string RandomizeTeamName()
-    {
-        return TeamNames[Random.Range(0, TeamNames.Length)];
-    }
 
     public void Initialize()
     {
@@ -41,7 +22,6 @@ public class InputField : MonoBehaviour
             inputField = GetComponent<UnityEngine.UI.InputField>();
         }
         inputField.text = "";
-        //inputField.placeholder.GetComponent<Text>().text = RandomizeTeamName();
         inputWait = 0.1f;
         needEventRegister = true;
         animator = GetComponent<Animator>();
@@ -50,9 +30,7 @@ public class InputField : MonoBehaviour
     void Update()
     {
         inputWait -= Time.deltaTime;
-
-        // The InputSystem is initialized at a late stage of the engine (I guess)
-        // Which is why this crappy code is required...
+        
         if ( needEventRegister )
         {
             Keyboard keyboardInstance = InputSystem.GetDevice<Keyboard>();
@@ -73,7 +51,10 @@ public class InputField : MonoBehaviour
             return;
         }
 
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Normal")) animator.SetTrigger("Highlighted");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Normal"))
+        {
+            animator.SetTrigger("Highlighted");
+        }
 
         //Debug.Log((int)obj);
 
@@ -93,5 +74,5 @@ public class InputField : MonoBehaviour
         }
         
         inputWait = 0.1f;
-    }
+    }*/
 }
