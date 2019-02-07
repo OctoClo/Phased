@@ -560,8 +560,24 @@ MonoBehaviour:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 9cc6222f2a9ef14fbd413223a5e4a2d1
-    m_lastTime: -8586537032193656519
+    m_lastTime: -8586520501060651919
     List:
+    - name: New_State_Group
+      guid: 26bc2207c0247d4786c2a9d38c57929a
+      id: 2012657067
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New_State_Group
+        ObjectType: 9
+      Path: Default Work Unit\New_State_Group
+      values:
+      - name: None
+        guid: 127227c11c0afd418ae967f5252be438
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
     - name: sync_level
       guid: 346be51ebe252b49bb88a4673a0674d0
       id: 1588096495
@@ -610,9 +626,5 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Shmup_Phazed_Wwise
-  - /Shmup_Phazed_Wwise/Events
-  - /Shmup_Phazed_Wwise/Events/Default Work Unit
-  - /Shmup_Phazed_Wwise/SoundBanks
-  - /Shmup_Phazed_Wwise/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
