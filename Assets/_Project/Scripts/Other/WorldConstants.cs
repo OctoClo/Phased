@@ -81,8 +81,7 @@ public class WorldConstants : Singleton<WorldConstants>
     public float EnemySinusPatternLateralWidth = 20.0f;
     
     [Header("Spaceships")]
-    public float PlayerInvulnerabilityDuration = 0.500f; // In seconds    
-    public int PlayerFlickerFrequency = 2; // In frame frequency (frameNumber % PlayerFlickerFrequency)
+    public float PlayerInvulnerabilityDuration = 0.500f; // In seconds
     public float PlayerHitVibrationDuration = 0.5f;
 
     [Header("Critical Hits")]

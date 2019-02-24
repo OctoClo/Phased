@@ -1,32 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Input;
+using Rewired;
 
 public static class OutputManager
 {
-    public static IEnumerator Vibrate(Gamepad gamepad, float vibrationLeft, float vibrationRight, float duration)
+
+    public static void Vibrate(Player RewiredPlayer, float vibrationLeft, float vibrationRight, float duration)
     {
-        gamepad.SetMotorSpeeds(vibrationLeft, vibrationRight);
-        yield return new WaitForSeconds(duration);
-        gamepad.SetMotorSpeeds(0.0f, 0.0f);
+        if (vibrationLeft > 0) RewiredPlayer.SetVibration(0, vibrationLeft, duration);
+        if (vibrationRight > 0) RewiredPlayer.SetVibration(1, vibrationRight, duration);
     }
 
-    public static IEnumerator VibrateAll(float duration)
+    public static void VibrateAll(float duration)
     {
-        foreach (Gamepad gamepad in Gamepad.all)
+        foreach (Joystick joystick in ReInput.controllers.Joysticks)
         {
-            gamepad.SetMotorSpeeds(0.5f, 0.5f);
-            yield return new WaitForSeconds(duration);
-            gamepad.SetMotorSpeeds(0.0f, 0.0f);
+            joystick.SetVibration(0, 0.5f, duration);
+            joystick.SetVibration(1, 0.5f, duration);
         }
     }
 
     public static void ResetVibrationAll()
     {
-        foreach (Gamepad gamepad in Gamepad.all)
+        foreach (Joystick joystick in ReInput.controllers.Joysticks)
         {
-            gamepad.SetMotorSpeeds(0.0f, 0.0f);
+            joystick.SetVibration(0.0f, 0.0f);
+            joystick.SetVibration(0.0f, 0.0f);
         }
     }
 }

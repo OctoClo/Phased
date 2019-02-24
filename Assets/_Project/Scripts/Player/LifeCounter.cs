@@ -9,19 +9,11 @@ public class LifeCounter : Singleton<LifeCounter>
     public int LifeCount = 5;
     public Animator ScreenglowAnimator;
     public InputManager inputManager;
-
-    int previousFrameLifeCount;
-    float flickerCounter;
+    
 
     int initialLifeCount;
-    
-    public bool IsInvulnerable
-    {
-        get
-        {
-            return (flickerCounter > 0.0f);
-        }
-    }
+
+    public bool IsInvulnerable = false;
     
     public Spaceship DamageSource { get; private set; }
 
@@ -43,29 +35,13 @@ public class LifeCounter : Singleton<LifeCounter>
     void Initialize()
     {
         LifeCount = initialLifeCount;
-        flickerCounter = 0.0f;
-        previousFrameLifeCount = LifeCount;
     }
 
-    public void TriggerInvulnerability( float durationInSeconds )
-    {
-        flickerCounter = durationInSeconds;
-    }
-
-    public void RemoveLife( Spaceship other )
+    public void RemoveLife(Spaceship other)
     {
         DamageSource = other;
 
         LifeCount--;
-
-        if (LifeCount == 1)
-        {
-            ScreenglowAnimator.SetBool("Low Health", true);
-        }
-        else
-        {
-            ScreenglowAnimator.SetTrigger("Hit");
-        }
 
         if (LifeCount == 0)
         {
@@ -74,8 +50,18 @@ public class LifeCounter : Singleton<LifeCounter>
         }
         else
         {
+            StartCoroutine(WaitBeforeEndInvulnerability(WorldConstants.Instance.PlayerInvulnerabilityDuration));
             other.PlayLoseLifeVFX();
             ScreenShake.Instance.Shake(WorldConstants.Instance.ScreenShakeHitDuration, WorldConstants.Instance.ScreenShakeHitIntensity);
+
+            if (LifeCount == 1)
+            {
+                ScreenglowAnimator.SetBool("Low Health", true);
+            }
+            else
+            {
+                ScreenglowAnimator.SetTrigger("Hit");
+            }
         }
     }
 
@@ -89,20 +75,11 @@ public class LifeCounter : Singleton<LifeCounter>
         EventManager.Instance.Raise(new GameEndEvent() { Victorious = false });
     }
 
-    void Update()
+    IEnumerator WaitBeforeEndInvulnerability(float duration)
     {
-        if (IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
-        {
-            flickerCounter -= Time.deltaTime;
-        }
-
-        // Check if the player collided with an obstacle in the current frame
-        if (previousFrameLifeCount != LifeCount)
-        {
-            flickerCounter = WorldConstants.Instance.PlayerInvulnerabilityDuration;
-        }
-
-        previousFrameLifeCount = LifeCount;
+        IsInvulnerable = true;
+        yield return new WaitForSecondsRealtime(duration);
+        IsInvulnerable = false;
     }
 
     void OnGameStartedEvent(GameStartedEvent e)

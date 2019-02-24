@@ -8,8 +8,7 @@ public class WeaponSpaceship : Weapon
     public Spaceship Spaceship;
     [HideInInspector]
     public bool IsFiring;
-
-    int playerNumber;
+    
     bool bulletPhased = false;
     BulletSpaceship myBullet;
     Renderer cursorRenderer;
@@ -21,16 +20,15 @@ public class WeaponSpaceship : Weapon
     protected override void Start()
     {
         screenshake = Camera.main.GetComponent<ScreenShake>();
-        playerNumber = Spaceship.PlayerNumber;
-        cursorRenderer = Cursor.GetComponent<Renderer>();
-        cursorColor = cursorRenderer.material.GetColor("_EmissionColor");
-        flashColor = cursorColor * 2;
         base.Start();
     }
 
     private void OnDisable()
     {
-        cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
+        if (cursorRenderer != null)
+        {
+            cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
+        }
     }
 
     protected override bool IsReadytoFire()
@@ -53,13 +51,20 @@ public class WeaponSpaceship : Weapon
         myBullet.SetPhased(bulletPhased);
         myBullet.WeaponFrom = gameObject;
 
+        if (cursorRenderer == null)
+        {
+            cursorRenderer = Cursor.GetComponent<Renderer>();
+            cursorColor = cursorRenderer.material.GetColor("_EmissionColor");
+            flashColor = cursorColor * 2;
+        }
+
         StartCoroutine(MuzzleFlash());
     }
 
     IEnumerator MuzzleFlash()
     {
         cursorRenderer.material.SetColor("_EmissionColor", flashColor);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
         cursorRenderer.material.SetColor("_EmissionColor", cursorColor);
     }
 }

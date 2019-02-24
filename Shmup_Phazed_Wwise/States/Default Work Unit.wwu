@@ -35,7 +35,18 @@
 							<Time>3</Time>
 							<IsShared>false</IsShared>
 						</Transition>
+						<Transition>
+							<StartState Name="layer_3" ID="{2B455518-9B39-436E-BD53-C912B3D40573}"/>
+							<EndState Name="layer_1" ID="{F24C0903-E2DE-4282-BD59-BC31D173762E}"/>
+							<Time>3</Time>
+							<IsShared>false</IsShared>
+						</Transition>
 					</TransitionList>
+				</StateGroup>
+				<StateGroup Name="New_State_Group" ID="{0722BC26-24C0-477D-86C2-A9D38C57929A}">
+					<ChildrenList>
+						<State Name="None" ID="{C1277212-0A1C-41FD-8AE9-67F5252BE438}"/>
+					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>

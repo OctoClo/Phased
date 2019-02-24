@@ -67,27 +67,28 @@ public class Spaceship : MonoBehaviour
         transform.position = initialPosition;
         phasedWeapon = false;
         gameActive = true;
-        SetWeapon(EStatePhase.NO_PHASE);
     }
 
     void Update()
     {
         if (gameActive)
         {
-            if (LifeCounter.Instance.DamageSource == this && LifeCounter.Instance.IsInvulnerable && (Time.frameCount % WorldConstants.Instance.PlayerFlickerFrequency) == 0)
-            {
-                spaceshipRenderer.enabled = !spaceshipRenderer.enabled;
-            }
-            else
-            {
-                spaceshipRenderer.enabled = true;
-            }
-
             weapon.IsFiring = IsFiring;
 
             spaceshipRenderer.material.SetColor("_EmissionColor", emissiveColor * Mathf.Lerp(previousEmissiveIntensity, emissiveIntensity, emissiveIntensityInterpolator));
 
             emissiveIntensityInterpolator = Mathf.Min(1.0f, emissiveIntensityInterpolator + (2f * Time.deltaTime));
+        }
+    }
+
+    IEnumerator Blink()
+    {
+        while (LifeCounter.Instance.IsInvulnerable)
+        {
+            spaceshipRenderer.enabled = false;
+            yield return new WaitForSecondsRealtime(0.08f);
+            spaceshipRenderer.enabled = true;
+            yield return null;
         }
     }
 
@@ -135,6 +136,7 @@ public class Spaceship : MonoBehaviour
         if (weaponGO)
             Destroy(weaponGO);
 
+        
         weaponGO = Instantiate(Weapons[(int)state], Cursor.transform);
         weapon = weaponGO.GetComponent<WeaponSpaceship>();
         weapon.Spaceship = this;
@@ -153,7 +155,12 @@ public class Spaceship : MonoBehaviour
         if (gameActive && !LifeCounter.Instance.IsInvulnerable)
         {
             LifeCounter.Instance.RemoveLife(this);
-            StartCoroutine(OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration));
+            if (LifeCounter.Instance.DamageSource == this && LifeCounter.Instance.IsInvulnerable)
+            {
+                StartCoroutine(Blink());
+            }
+            
+            OutputManager.VibrateAll(WorldConstants.Instance.PlayerHitVibrationDuration);
             PlayImpactSFX();
         }
     }

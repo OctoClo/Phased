@@ -15,12 +15,16 @@ public class Leaderboard : MonoBehaviour
     public List<Entry> Scores { get; private set; } = null;
     public GameObject TeamNameInput;
     public List<LeaderboardEntry> UIEntries;
-    public MenuSelector LeaderboardMenuSelector;
+    //public MenuSelector LeaderboardMenuSelector;
 
     bool firstEntryAdded = false;
 
+    public bool entryAddedForSession = false;
+
     public void SubmitScore()
     {
+        if(TeamNameInput.GetComponent<UnityEngine.UI.InputField>().text.Length == 0 || entryAddedForSession) return;
+
         AddScore( new Entry
         {
             name = TeamNameInput.GetComponent<UnityEngine.UI.InputField>().text,
@@ -28,7 +32,9 @@ public class Leaderboard : MonoBehaviour
             maxHitCount = 0 // TODO: Implement me!
         } );
 
-        LeaderboardMenuSelector.enabled = true;
+        //LeaderboardMenuSelector.enabled = true;
+
+        entryAddedForSession = true;
 
         EventManager.Instance.Raise(new GameLeaderboardEvent());
     }
@@ -132,8 +138,8 @@ public class Leaderboard : MonoBehaviour
     {
         if (e.Victorious)
         {
-            TeamNameInput.GetComponent<InputField>().Initialize();
-            LeaderboardMenuSelector.enabled = false;
+            //TeamNameInput.GetComponent<InputField>().Initialize();
+            //LeaderboardMenuSelector.enabled = false;
         }
     }
 }
