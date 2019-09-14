@@ -1,6 +1,6 @@
 # Phased
 
-**Lien vers la page itch : https://coralie-feniello.itch.io/phased**
+**Link to the Itch page : https://coralie-feniello.itch.io/phased**
 
 ### Play with your friend to destroy enemies and avoid obstacles
 
